@@ -8,14 +8,14 @@ import android.view.MenuInflater;
 
 import com.filet.bioscoopfilet.R;
 
-public class PTActivity extends AppCompatActivity {
+public class FeedbackActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pt);
+        setContentView(R.layout.activity_feedback);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        myToolbar.setTitle(R.string.pt_information);
+        myToolbar.setTitle(R.string.information);
         setSupportActionBar(myToolbar);
     }
 

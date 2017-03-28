@@ -36,23 +36,19 @@
                 android:layout_height="wrap_content"
                 android:text="@string/location"
                 android:textStyle="bold"
-                android:textSize="18dp"
-                android:textColor="@color/primary_text_material_dark"/>
+                android:textSize="18dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Straat + nummer"
-                android:textColor="@color/primary_text_material_dark"/>
+                android:text="Straat + nummer"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Plaats"
-                android:textColor="@color/primary_text_material_dark"/>
+                android:text="Plaats"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Postcode"
-                android:textColor="@color/primary_text_material_dark"/>
+                android:text="Postcode"/>
         </LinearLayout>
 
         <ImageView
@@ -83,23 +79,19 @@
                 android:layout_height="wrap_content"
                 android:text="@string/parking_location"
                 android:textSize="18dp"
-                android:textStyle="bold"
-                android:textColor="@color/primary_text_material_dark"/>
+                android:textStyle="bold"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Straat + nummer"
-                android:textColor="@color/primary_text_material_dark"/>
+                android:text="Straat + nummer"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Plaats"
-                android:textColor="@color/primary_text_material_dark"/>
+                android:text="Plaats"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Postcode"
-                android:textColor="@color/primary_text_material_dark"/>
+                android:text="Postcode"/>
         </LinearLayout>
 
         <ImageView
@@ -115,7 +107,8 @@
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@drawable/border">
+        android:background="@drawable/border"
+        android:onClick="ptInformationButton">
 
         <LinearLayout
             android:layout_weight="8"
@@ -130,7 +123,6 @@
                 android:layout_gravity="center"
                 android:textSize="24dp"
                 android:textStyle="bold"
-                android:textColor="@color/primary_text_material_dark"
                 android:text="@string/pt_information"/>
         </LinearLayout>
 
@@ -162,7 +154,6 @@
                 android:layout_gravity="center"
                 android:textSize="24dp"
                 android:textStyle="bold"
-                android:textColor="@color/primary_text_material_dark"
                 android:text="@string/cinema_feedback"/>
         </LinearLayout>
 
@@ -194,7 +185,6 @@
                 android:layout_gravity="center"
                 android:textSize="24dp"
                 android:textStyle="bold"
-                android:textColor="@color/primary_text_material_dark"
                 android:text="@string/cinema_contact"/>
         </LinearLayout>
 
