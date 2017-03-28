@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">BioscoopFilet</string>
+    <string name="startButton">START BART!</string>
 </resources>
