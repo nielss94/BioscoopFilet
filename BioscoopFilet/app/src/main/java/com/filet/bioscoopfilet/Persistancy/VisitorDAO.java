@@ -11,5 +11,5 @@ import java.util.ArrayList;
 public interface VisitorDAO {
 
     ArrayList<Visitor> selectData();
-    void insertData();
+    void insertData(Visitor visitor);
 }

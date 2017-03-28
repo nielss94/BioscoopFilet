@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.util.Log;
 
 import com.filet.bioscoopfilet.DomainModel.Feedback;
@@ -33,37 +34,49 @@ public class SQLiteFeedbackDAO implements FeedbackDAO {
     @Override
     public ArrayList<Feedback> selectData() {
 
-        SQLiteDatabase readable = db.getReadableDatabase();
+        try {
+            SQLiteDatabase readable = db.getReadableDatabase();
 
-        String query = "SELECT * FROM " + db.getDB_TABLE_FEEDBACK_NAME();
-        Cursor cursor = readable.rawQuery(query, null);
+            String query = "SELECT * FROM " + db.getDB_TABLE_FEEDBACK_NAME();
+            Cursor cursor = readable.rawQuery(query, null);
 
-        cursor.moveToFirst();
-        while(cursor.moveToNext() ) {
-            Feedback f = new Feedback(cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_FEEDBACKID())),
-                    cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_FEEDBACK_VISITORID())),
-                    cursor.getString(cursor.getColumnIndex(db.getCOLUMN_FEEDBACK_DESCRIPTION())));
+            cursor.moveToFirst();
+            while(cursor.moveToNext() ) {
+                Feedback f = new Feedback(cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_FEEDBACKID())),
+                        cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_FEEDBACK_VISITORID())),
+                        cursor.getString(cursor.getColumnIndex(db.getCOLUMN_FEEDBACK_DESCRIPTION())));
 
-            Log.i(TAG, f.toString());
-            Log.i(TAG, "--------------------------------------------");
+                Log.i(TAG, f.toString());
+                Log.i(TAG, "--------------------------------------------");
 
-            feedbacks.add(f);
+                feedbacks.add(f);
+            }
+
+            db.close();
+        } catch (SQLiteException e)
+        {
+            Log.i(TAG, e.getMessage());
         }
 
-        db.close();
         return feedbacks;
     }
 
     @Override
     public void insertData(Feedback feedback) {
 
-        SQLiteDatabase writable = db.getWritableDatabase();
+        try{
+            SQLiteDatabase writable = db.getWritableDatabase();
 
-        ContentValues values = new ContentValues();
+            ContentValues values = new ContentValues();
 
-        values.put(db.getCOLUMN_FEEDBACK_VISITORID(),feedback.getVisitorID());
-        values.put(db.getCOLUMN_FEEDBACK_DESCRIPTION(),feedback.getDescription());
+            values.put(db.getCOLUMN_FEEDBACK_VISITORID(),feedback.getVisitorID());
+            values.put(db.getCOLUMN_FEEDBACK_DESCRIPTION(),feedback.getDescription());
 
-        writable.insert(db.getDB_TABLE_FEEDBACK_NAME(), null, values);
+            writable.insert(db.getDB_TABLE_FEEDBACK_NAME(), null, values);
+        }catch(SQLiteException e)
+        {
+            Log.i(TAG, e.getMessage());
+        }
+
     }
 }
