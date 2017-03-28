@@ -16,7 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PresentationApplicationLogicLayer.InformationActivity"></activity>
+        <activity android:name=".PresentationApplicationLogicLayer.InformationActivity" />
+        <activity android:name=".FilmOverviewActivity" />
+        <activity android:name=".custom_film_list_item"></activity>
     </application>
 
 </manifest>
