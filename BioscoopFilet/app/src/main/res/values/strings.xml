@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">BioscoopFilet</string>
+    <string name="app_name">Filet</string>
+    <string name="my_filet">Mijn Filet</string>
 </resources>
