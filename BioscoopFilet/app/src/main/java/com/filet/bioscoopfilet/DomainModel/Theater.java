@@ -3,7 +3,6 @@ package com.filet.bioscoopfilet.DomainModel;
 /**
  * Created by Niels on 3/28/2017.
  */
-
 public class Theater {
 
     private int theaterID;

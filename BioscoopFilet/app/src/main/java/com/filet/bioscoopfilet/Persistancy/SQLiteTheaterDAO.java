@@ -1,6 +1,9 @@
 package com.filet.bioscoopfilet.Persistancy;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
+import android.util.Log;
 
 import com.filet.bioscoopfilet.DomainModel.Show;
 import com.filet.bioscoopfilet.DomainModel.Theater;
@@ -27,6 +30,15 @@ public class SQLiteTheaterDAO implements TheaterDAO {
 
     @Override
     public ArrayList<Theater> selectData() {
+        try {
+
+            SQLiteDatabase readable = db.getReadableDatabase();
+
+            String query = "SELECT * FROM " +
+
+        } catch (SQLiteException e) {
+            Log.i(TAG, e.getMessage());
+        }
         return theaters;
     }
 

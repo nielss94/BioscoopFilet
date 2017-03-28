@@ -4,9 +4,9 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.util.Log;
 
-import com.filet.bioscoopfilet.DomainModel.Feedback;
 import com.filet.bioscoopfilet.DomainModel.Review;
 
 import java.util.ArrayList;
@@ -18,55 +18,61 @@ import java.util.ArrayList;
 public class SQLiteReviewDAO implements ReviewDAO {
 
     private final String TAG = this.getClass().getSimpleName();
-
     private DBConnect db;
     private Context context;
-
     private ArrayList<Review> reviews = new ArrayList<>();
 
-    public SQLiteReviewDAO(Context context)
-    {
+    public SQLiteReviewDAO(Context context) {
         this.context = context;
 
-        db = new DBConnect(context, null, null,1);
-
+        db = new DBConnect(context, null, null, 1);
     }
 
     @Override
     public ArrayList<Review> selectData() {
+        try {
 
-        SQLiteDatabase readable = db.getReadableDatabase();
+            SQLiteDatabase readable = db.getReadableDatabase();
 
-        String query = "SELECT * FROM " + db.get();
-        Cursor cursor = readable.rawQuery(query, null);
+            String query = "SELECT * FROM " + db.getDB_TABLE_REVIEW_NAME();
+            Cursor cursor = readable.rawQuery(query, null);
 
-        cursor.moveToFirst();
-        while(cursor.moveToNext() ) {
-            Feedback f = new Feedback(cursor.getInt(cursor.getColumnIndex(db.getColumnFeedbackid())),
-                    cursor.getInt(cursor.getColumnIndex(db.getColumnFeedbackVisitorid())),
-                    cursor.getString(cursor.getColumnIndex(db.getColumnFeedbackDescription())));
+            cursor.moveToFirst();
+            while (cursor.moveToNext()) {
+                Review r = new Review(cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_REVIEWID())),
+                        cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_REVIEW_FILMID())),
+                        cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_REVIEW_VISITORID())),
+                        cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_REVIEW_SCORE())),
+                        cursor.getString(cursor.getColumnIndex(db.getCOLUMN_REVIEW_DESCRIPTION())));
 
-            Log.i(TAG, f.toString());
-            Log.i(TAG, "--------------------------------------------");
+                Log.i(TAG, r.toString());
+                Log.i(TAG, "--------------------------------------------");
 
-            reviews.add(f);
+                reviews.add(r);
+            }
+            db.close();
+        } catch (SQLiteException e) {
+            Log.i(TAG, e.getMessage());
         }
-
-        db.close();
         return reviews;
     }
 
     @Override
     public void insertData(Review review) {
+        try {
+            SQLiteDatabase writable = db.getWritableDatabase();
 
-        SQLiteDatabase writable = db.getWritableDatabase();
+            ContentValues values = new ContentValues();
 
-        ContentValues values = new ContentValues();
+            values.put(db.getCOLUMN_REVIEW_FILMID(), review.getFilmID());
+            values.put(db.getCOLUMN_REVIEW_VISITORID(), review.getVisitorID());
+            values.put(db.getCOLUMN_REVIEW_SCORE(), review.getScore());
+            values.put(db.getCOLUMN_REVIEW_DESCRIPTION(), review.getDescription());
 
-        values.put(db.getColumnFeedbackVisitorid(),review.getVisitorID());
-        values.put(db.getColumnFeedbackDescription(),review.getDescription());
+            writable.insert(db.getDB_TABLE_REVIEW_NAME(), null, values);
+        } catch (SQLiteException e) {
+            Log.i(TAG, e.getMessage());
+        }
 
-        writable.insert(db.getDbTableFeedbackName(), null, values);
     }
-
 }
