@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_information"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.filet.bioscoopfilet.PresentationApplicationLogicLayer.InformationActivity"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:background="@drawable/border">
+
+        <LinearLayout
+            android:layout_weight="8"
+            android:layout_width="0dp"
+            android:paddingLeft="8dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/location"
+                android:textStyle="bold"
+                android:textColor="@color/primary_text_material_dark"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Straat + nummer"
+                android:textColor="@color/primary_text_material_dark"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Plaats"
+                android:textColor="@color/primary_text_material_dark"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Postcode"
+                android:textColor="@color/primary_text_material_dark"/>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_weight="1"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_action_location"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:background="@drawable/border">
+
+        <LinearLayout
+            android:layout_weight="8"
+            android:layout_width="0dp"
+            android:paddingLeft="8dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/parking_location"
+                android:textStyle="bold"
+                android:textColor="@color/primary_text_material_dark"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Straat + nummer"
+                android:textColor="@color/primary_text_material_dark"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Plaats"
+                android:textColor="@color/primary_text_material_dark"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Postcode"
+                android:textColor="@color/primary_text_material_dark"/>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_weight="1"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_directions_car"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/border">
+
+        <LinearLayout
+            android:layout_weight="8"
+            android:paddingLeft="8dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:textColor="@color/primary_text_material_dark"
+                android:text="@string/ov_information"
+                android:id="@+id/textView"/>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_weight="1"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_action_bus"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/border">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/border">
+
+    </LinearLayout>
+
+</LinearLayout>

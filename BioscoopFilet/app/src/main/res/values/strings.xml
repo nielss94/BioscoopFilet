@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">BioscoopFilet</string>
+    <string name="app_name">Filet</string>
+    <string name="films">Films</string>
+    <string name="my_filet">Mijn Filet</string>
+    <string name="film_calender">Film Agenda</string>
+    <string name="information">Informatie</string>
+    <string name="location">Locatie</string>
+    <string name="parking_location">Parkeer locatie</string>
+    <string name="ov_information">OV Informatie</string>
 </resources>

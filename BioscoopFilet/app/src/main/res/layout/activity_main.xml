@@ -1,14 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.filet.bioscoopfilet.MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeFilet"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello Filet!"/>
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/border">
+
+            <ImageView
+                android:id="@+id/MovieImage"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_movie_creation"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/MovieImage"
+                android:layout_centerHorizontal="true"
+                android:text="@string/films"
+                android:textStyle="bold"
+                android:textColor="@color/primary_text_material_dark"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/border">
+
+            <ImageView
+                android:id="@+id/MyFiletImage"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_person"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/MyFiletImage"
+                android:layout_centerHorizontal="true"
+                android:text="@string/my_filet"
+                android:textStyle="bold"
+                android:textColor="@color/primary_text_material_dark"/>/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/border">
+
+            <ImageView
+                android:id="@+id/CalenderImage"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_insert_invitation"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/CalenderImage"
+                android:layout_centerHorizontal="true"
+                android:text="@string/film_calender"
+                android:textStyle="bold"
+                android:textColor="@color/primary_text_material_dark"/>/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/border">
+
+            <ImageView
+                android:id="@+id/InformationImage"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_info"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/InformationImage"
+                android:layout_centerHorizontal="true"
+                android:text="@string/information"
+                android:textStyle="bold"
+                android:textColor="@color/primary_text_material_dark"/>/>
+        </RelativeLayout>
+
+    </LinearLayout>
 
 </LinearLayout>
