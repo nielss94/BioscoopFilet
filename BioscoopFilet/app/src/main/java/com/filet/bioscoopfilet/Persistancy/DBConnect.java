@@ -118,4 +118,80 @@ public class DBConnect extends SQLiteOpenHelper {
     public String getCOLUMN_REVIEW_DESCRIPTION() {
         return COLUMN_REVIEW_DESCRIPTION;
     }
+
+    //Show table getters
+    public String getDB_TABLE_SHOW_NAME() {
+        return DB_TABLE_SHOW_NAME;
+    }
+
+    public String getCOLUMN_SHOWID() {
+        return COLUMN_SHOWID;
+    }
+
+    public String getCOLUMN_SHOW_THEATHERID() {
+        return COLUMN_SHOW_THEATHERID;
+    }
+
+    public String getCOLUMN_SHOW_TIME() {
+        return COLUMN_SHOW_TIME;
+    }
+
+    public String getCOLUMN_SEATS() {
+        return COLUMN_SEATS;
+    }
+
+    //Theater table getters
+    public String getDB_TABLE_THEATER_NAME() {
+        return DB_TABLE_THEATER_NAME;
+    }
+
+    public String getCOLUMN_THEATERID() {
+        return COLUMN_THEATERID;
+    }
+
+    public String getCOLUMN_THEATER_CINEMAID() {
+        return COLUMN_THEATER_CINEMAID;
+    }
+
+    public String getCOLUMN_THEATER_NUMBER_OF_SEATS() {
+        return COLUMN_THEATER_NUMBER_OF_SEATS;
+    }
+
+    //Ticket table getters
+    public String getDB_TABLE_TICKET_NAME() {
+        return DB_TABLE_TICKET_NAME;
+    }
+
+    public String getCOLUMN_TICKET_QRCODE() {
+        return COLUMN_TICKET_QRCODE;
+    }
+
+    public String getCOLUMN_TICKET_VISITORID() {
+        return COLUMN_TICKET_VISITORID;
+    }
+
+    public String getCOLUMN_TICKET_SHOWID() {
+        return COLUMN_TICKET_SHOWID;
+    }
+
+    public String getCOLUMN_TICKET_SEAT() {
+        return COLUMN_TICKET_SEAT;
+    }
+
+    //Visitor table getters
+    public String getDB_TABLE_VISITOR_NAME() {
+        return DB_TABLE_VISITOR_NAME;
+    }
+
+    public String getCOLUMN_VISITORID() {
+        return COLUMN_VISITORID;
+    }
+
+    public String getCOLUMN_VISITOR_FIRSTNAME() {
+        return COLUMN_VISITOR_FIRSTNAME;
+    }
+
+    public String getCOLUMN_VISITOR_LASTNAME() {
+        return COLUMN_VISITOR_LASTNAME;
+    }
 }
