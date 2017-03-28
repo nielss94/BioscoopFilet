@@ -5,8 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.filet.bioscoopfilet.PresentationApplicationLogicLayer.InformationActivity"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeFilet"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
     <LinearLayout
         android:layout_weight="1"
@@ -18,7 +27,7 @@
         <LinearLayout
             android:layout_weight="8"
             android:layout_width="0dp"
-            android:paddingLeft="8dp"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:orientation="vertical">
@@ -27,22 +36,19 @@
                 android:layout_height="wrap_content"
                 android:text="@string/location"
                 android:textStyle="bold"
-                android:textColor="@color/primary_text_material_dark"/>
+                android:textSize="18dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Straat + nummer"
-                android:textColor="@color/primary_text_material_dark"/>
+                android:text="Straat + nummer"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Plaats"
-                android:textColor="@color/primary_text_material_dark"/>
+                android:text="Plaats"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Postcode"
-                android:textColor="@color/primary_text_material_dark"/>
+                android:text="Postcode"/>
         </LinearLayout>
 
         <ImageView
@@ -50,7 +56,7 @@
             android:layout_width="75dp"
             android:layout_height="75dp"
             android:layout_gravity="center"
-            android:src="@drawable/ic_action_location"/>
+            android:src="@drawable/ic_location_on"/>
 
     </LinearLayout>
 
@@ -64,7 +70,7 @@
         <LinearLayout
             android:layout_weight="8"
             android:layout_width="0dp"
-            android:paddingLeft="8dp"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:orientation="vertical">
@@ -72,23 +78,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/parking_location"
-                android:textStyle="bold"
-                android:textColor="@color/primary_text_material_dark"/>
+                android:textSize="18dp"
+                android:textStyle="bold"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Straat + nummer"
-                android:textColor="@color/primary_text_material_dark"/>
+                android:text="Straat + nummer"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Plaats"
-                android:textColor="@color/primary_text_material_dark"/>
+                android:text="Plaats"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Postcode"
-                android:textColor="@color/primary_text_material_dark"/>
+                android:text="Postcode"/>
         </LinearLayout>
 
         <ImageView
@@ -104,11 +107,12 @@
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@drawable/border">
+        android:background="@drawable/border"
+        android:onClick="ptInformationButton">
 
         <LinearLayout
             android:layout_weight="8"
-            android:paddingLeft="8dp"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center">
@@ -119,9 +123,7 @@
                 android:layout_gravity="center"
                 android:textSize="24dp"
                 android:textStyle="bold"
-                android:textColor="@color/primary_text_material_dark"
-                android:text="@string/ov_information"
-                android:id="@+id/textView"/>
+                android:text="@string/pt_information"/>
         </LinearLayout>
 
         <ImageView
@@ -129,7 +131,39 @@
             android:layout_width="75dp"
             android:layout_height="75dp"
             android:layout_gravity="center"
-            android:src="@drawable/ic_action_bus"/>
+            android:src="@drawable/ic_directions_bus"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/border"
+        android:onClick="feedbackButton">
+
+        <LinearLayout
+            android:layout_weight="8"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:text="@string/cinema_feedback"/>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_weight="1"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_create"/>
 
     </LinearLayout>
 
@@ -139,13 +173,28 @@
         android:layout_height="0dp"
         android:background="@drawable/border">
 
-    </LinearLayout>
+        <LinearLayout
+            android:layout_weight="8"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
 
-    <LinearLayout
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@drawable/border">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:text="@string/cinema_contact"/>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_weight="1"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_forum"/>
 
     </LinearLayout>
 

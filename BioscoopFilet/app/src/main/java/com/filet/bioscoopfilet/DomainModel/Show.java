@@ -13,7 +13,7 @@ public class Show {
     private int filmID;
     private int theaterID;
     private Date time;
-    private boolean[] seats = new boolean[150];
+    private Boolean[] seats = new Boolean[150];
 
     public Show(int showID, int filmID, int theaterID, Date time) {
         this.showID = showID;
@@ -22,7 +22,7 @@ public class Show {
         this.time = time;
     }
 
-    public Show(int showID, int filmID, int theaterID, Date time, boolean[] seats) {
+    public Show(int showID, int filmID, int theaterID, Date time, Boolean[] seats) {
         this.showID = showID;
         this.filmID = filmID;
         this.theaterID = theaterID;
@@ -62,22 +62,32 @@ public class Show {
         this.time = time;
     }
 
-    public boolean[] getSeats() {
+    public Boolean[] getSeats() {
         return seats;
     }
 
-    public void setSeats(boolean[] seats) {
+    public void setSeats(Boolean[] seats) {
         this.seats = seats;
     }
 
     @Override
     public String toString() {
+        String seatsAsText = "";
+        for (int i = 0; i < getSeats().length; i++) {
+            if(getSeats()[i] == true)
+            {
+                seatsAsText = seatsAsText + "1";
+            }
+            else{
+                seatsAsText = seatsAsText + "0";
+            }
+        }
         return "Show{" +
                 "showID=" + showID +
                 ", filmID=" + filmID +
                 ", theaterID=" + theaterID +
                 ", time=" + time +
-                ", seats=" + Arrays.toString(seats) +
+                ", seats=" + seatsAsText  +
                 '}';
     }
 }

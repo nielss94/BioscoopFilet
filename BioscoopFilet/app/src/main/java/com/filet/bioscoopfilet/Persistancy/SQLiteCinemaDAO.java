@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.util.Log;
 
-import com.filet.bioscoopfilet.DomainModel.Review;
+import com.filet.bioscoopfilet.DomainModel.Cinema;
 
 import java.util.ArrayList;
 
@@ -15,21 +15,21 @@ import java.util.ArrayList;
  * Created by Niels on 3/28/2017.
  */
 
-public class SQLiteReviewDAO implements ReviewDAO {
+public class SQLiteCinemaDAO implements CinemaDAO {
 
     private final String TAG = this.getClass().getSimpleName();
     private DBConnect db;
     private Context context;
-    private ArrayList<Review> reviews = new ArrayList<>();
+    private ArrayList<Cinema> cinemas = new ArrayList<>();
 
-    public SQLiteReviewDAO(Context context) {
+    public SQLiteCinemaDAO(Context context) {
         this.context = context;
 
         db = new DBConnect(context, null, null);
     }
 
     @Override
-    public ArrayList<Review> selectData() {
+    public ArrayList<Cinema> selectData() {
         try {
 
             SQLiteDatabase readable = db.getReadableDatabase();
@@ -39,35 +39,37 @@ public class SQLiteReviewDAO implements ReviewDAO {
 
             cursor.moveToFirst();
             while (cursor.moveToNext()) {
-                Review r = new Review(cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_REVIEWID())),
-                        cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_REVIEW_FILMID())),
-                        cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_REVIEW_VISITORID())),
-                        cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_REVIEW_SCORE())),
-                        cursor.getString(cursor.getColumnIndex(db.getCOLUMN_REVIEW_DESCRIPTION())));
+                Cinema c = new Cinema(cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_CINEMAID())),
+                        cursor.getString(cursor.getColumnIndex(db.getCOLUMN_CINEMA_NAME())),
+                        cursor.getString(cursor.getColumnIndex(db.getCOLUMN_CINEMA_CITY())),
+                        cursor.getString(cursor.getColumnIndex(db.getCOLUMN_CINEMA_ADDRESS())),
+                        cursor.getString(cursor.getColumnIndex(db.getCOLUMN_CINEMA_ZIPCODE())),
+                        cursor.getString(cursor.getColumnIndex(db.getCOLUMN_CINEMA_PHONE())));
 
-                Log.i(TAG, r.toString());
+                Log.i(TAG, c.toString());
                 Log.i(TAG, "--------------------------------------------");
 
-                reviews.add(r);
+                cinemas.add(c);
             }
             db.close();
         } catch (SQLiteException e) {
             Log.i(TAG, e.getMessage());
         }
-        return reviews;
+        return cinemas;
     }
 
     @Override
-    public void insertData(Review review) {
+    public void insertData(Cinema cinema) {
         try {
             SQLiteDatabase writable = db.getWritableDatabase();
 
             ContentValues values = new ContentValues();
 
-            values.put(db.getCOLUMN_REVIEW_FILMID(), review.getFilmID());
-            values.put(db.getCOLUMN_REVIEW_VISITORID(), review.getVisitorID());
-            values.put(db.getCOLUMN_REVIEW_SCORE(), review.getScore());
-            values.put(db.getCOLUMN_REVIEW_DESCRIPTION(), review.getDescription());
+            values.put(db.getCOLUMN_CINEMA_NAME(), cinema.getName());
+            values.put(db.getCOLUMN_CINEMA_CITY(), cinema.getCity());
+            values.put(db.getCOLUMN_CINEMA_ADDRESS(), cinema.getAddress());
+            values.put(db.getCOLUMN_CINEMA_ZIPCODE(), cinema.getName());
+            values.put(db.getCOLUMN_CINEMA_PHONE(), cinema.getPhone());
 
             writable.insert(db.getDB_TABLE_REVIEW_NAME(), null, values);
         } catch (SQLiteException e) {
