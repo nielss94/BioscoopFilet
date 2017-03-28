@@ -32,6 +32,7 @@ public class DBConnect extends SQLiteOpenHelper {
     //Show
     private final String DB_TABLE_SHOW_NAME = "Show";
     private final String COLUMN_SHOWID = "ShowID";
+    private final String COLUMN_SHOW_FILMID = "FilmID";
     private final String COLUMN_SHOW_THEATHERID = "TheaterID";
     private final String COLUMN_SHOW_TIME = "Time";
     private final String COLUMN_SEATS = "SeatsAsText";
@@ -122,6 +123,10 @@ public class DBConnect extends SQLiteOpenHelper {
     //Show table getters
     public String getDB_TABLE_SHOW_NAME() {
         return DB_TABLE_SHOW_NAME;
+    }
+
+    public String getCOLUMN_SHOW_FILMID() {
+        return COLUMN_SHOW_FILMID;
     }
 
     public String getCOLUMN_SHOWID() {
