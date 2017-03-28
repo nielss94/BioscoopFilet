@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".PresentationApplicationLogicLayer.InformationActivity" />
         <activity android:name=".FilmOverviewActivity" />
-        <activity android:name=".custom_film_list_item"></activity>
+        <activity android:name=".custom_film_list_item" />
+        <activity android:name=".FilmDetailActivity"></activity>
     </application>
 
 </manifest>
