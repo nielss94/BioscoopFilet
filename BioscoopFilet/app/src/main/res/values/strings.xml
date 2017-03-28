@@ -6,5 +6,17 @@
     <string name="information">Informatie</string>
     <string name="location">Locatie</string>
     <string name="parking_location">Parkeer locatie</string>
-    <string name="ov_information">OV Informatie</string>
+    <string name="pt_information">OV Informatie</string>
+
+    <string name="cinema_feedback">Bioscoop feedback</string>
+    <string name="cinema_contact">Bioscoop contact</string>
+    <string name="bus">Bus</string>
+    <string name="bus_info">Bacon ipsum dolor amet fatback flank frankfurter shoulder biltong cow kevin, ham hock jerky strip steak burgdoggen capicola salami. Meatball ham andouille, doner tongue sausage boudin bresaola tail leberkas sirloin turducken pork loin fatback. Bresaola shankle landjaeger, jowl beef andouille fatback tail spare ribs filet mignon frankfurter ribeye salami ball tip. Beef ribs picanha ground round porchetta. Ribeye hamburger pastrami filet mignon tongue kielbasa. Pancetta tri-tip t-bone tail pork.\n
+Drumstick tri-tip beef ribs, cow corned beef biltong ribeye boudin shoulder ball tip cupim ham hock ground round hamburger strip steak. Ball tip pork belly fatback strip steak burgdoggen. Pork chop spare ribs rump, ham capicola pork sirloin shank fatback. Meatball tri-tip meatloaf tenderloin ground round beef capicola jerky pork pastrami salami. Venison landjaeger tri-tip fatback sausage strip steak leberkas spare ribs. Pork belly landjaeger picanha burgdoggen ball tip pastrami leberkas biltong alcatra pancetta.</string>
+    <string name="train">Trein</string>
+    <string name="train_info">Bacon ipsum dolor amet fatback flank frankfurter shoulder biltong cow kevin, ham hock jerky strip steak burgdoggen capicola salami. Meatball ham andouille, doner tongue sausage boudin bresaola tail leberkas sirloin turducken pork loin fatback. Bresaola shankle landjaeger, jowl beef andouille fatback tail spare ribs filet mignon frankfurter ribeye salami ball tip. Beef ribs picanha ground round porchetta. Ribeye hamburger pastrami filet mignon tongue kielbasa. Pancetta tri-tip t-bone tail pork.\n
+Drumstick tri-tip beef ribs, cow corned beef biltong ribeye boudin shoulder ball tip cupim ham hock ground round hamburger strip steak. Ball tip pork belly fatback strip steak burgdoggen. Pork chop spare ribs rump, ham capicola pork sirloin shank fatback. Meatball tri-tip meatloaf tenderloin ground round beef capicola jerky pork pastrami salami. Venison landjaeger tri-tip fatback sausage strip steak leberkas spare ribs. Pork belly landjaeger picanha burgdoggen ball tip pastrami leberkas biltong alcatra pancetta.</string>
+    <string name="subway">Metro</string>
+    <string name="subway_info">Bacon ipsum dolor amet fatback flank frankfurter shoulder biltong cow kevin, ham hock jerky strip steak burgdoggen capicola salami. Meatball ham andouille, doner tongue sausage boudin bresaola tail leberkas sirloin turducken pork loin fatback. Bresaola shankle landjaeger, jowl beef andouille fatback tail spare ribs filet mignon frankfurter ribeye salami ball tip. Beef ribs picanha ground round porchetta. Ribeye hamburger pastrami filet mignon tongue kielbasa. Pancetta tri-tip t-bone tail pork.\n
+Drumstick tri-tip beef ribs, cow corned beef biltong ribeye boudin shoulder ball tip cupim ham hock ground round hamburger strip steak. Ball tip pork belly fatback strip steak burgdoggen. Pork chop spare ribs rump, ham capicola pork sirloin shank fatback. Meatball tri-tip meatloaf tenderloin ground round beef capicola jerky pork pastrami salami. Venison landjaeger tri-tip fatback sausage strip steak leberkas spare ribs. Pork belly landjaeger picanha burgdoggen ball tip pastrami leberkas biltong alcatra pancetta.</string>
 </resources>

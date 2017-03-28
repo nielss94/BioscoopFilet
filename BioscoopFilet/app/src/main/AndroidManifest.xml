@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PresentationApplicationLogicLayer.InformationActivity"></activity>
+        <activity android:name=".PresentationApplicationLogicLayer.InformationActivity" />
+        <activity android:name=".PresentationApplicationLogicLayer.PTActivity"></activity>
     </application>
 
 </manifest>
