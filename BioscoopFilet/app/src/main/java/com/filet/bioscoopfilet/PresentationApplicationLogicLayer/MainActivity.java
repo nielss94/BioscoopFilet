@@ -10,9 +10,20 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.filet.bioscoopfilet.DomainModel.Feedback;
+import com.filet.bioscoopfilet.DomainModel.Review;
+import com.filet.bioscoopfilet.DomainModel.Theater;
+import com.filet.bioscoopfilet.DomainModel.Visitor;
+import com.filet.bioscoopfilet.Persistancy.DAOFactory;
+import com.filet.bioscoopfilet.Persistancy.FeedbackDAO;
+import com.filet.bioscoopfilet.Persistancy.ReviewDAO;
+import com.filet.bioscoopfilet.Persistancy.TheaterDAO;
+import com.filet.bioscoopfilet.Persistancy.VisitorDAO;
 import com.filet.bioscoopfilet.R;
 
 public class MainActivity extends AppCompatActivity {
+
+    private DAOFactory factory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +31,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
+
+        testFeedbackData();
+        testReviewData();
     }
 
+<<<<<<< HEAD
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -45,8 +60,34 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void informationButton(View v){
+=======
+    public void informationButton(View v) {
+>>>>>>> origin/master
         Intent intent = new Intent(this, InformationActivity.class);
         startActivity(intent);
+    }
 
+    public void testFeedbackData() {
+        FeedbackDAO feedbackDAO = factory.createFeedbackDAO();
+        feedbackDAO.insertData(new Feedback(1, 1, "Goeie App!"));
+        feedbackDAO.selectData();
+    }
+
+    public void testReviewData() {
+        ReviewDAO reviewDAO = factory.createReviewDAO();
+        reviewDAO.insertData(new Review(1, 1, 1, 5, "Geweldige film"));
+        reviewDAO.selectData();
+    }
+
+    public void testTheaterData() {
+        TheaterDAO theaterDAO = factory.createTheaterDAO();
+        theaterDAO.insertData(new Theater(1, 1, 150));
+        theaterDAO.selectData();
+    }
+
+    public void testVisitorData() {
+        VisitorDAO visitorDAO = factory.createVisitorDAO();
+        visitorDAO.insertData(new Visitor(1, "Tommy", "Heunks"));
+        visitorDAO.selectData();
     }
 }

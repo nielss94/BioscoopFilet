@@ -9,7 +9,6 @@ import android.util.Log;
 
 import com.filet.bioscoopfilet.DomainModel.Show;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -44,7 +43,7 @@ public class SQLiteShowDAO implements ShowDAO {
             while(cursor.moveToNext() ) {
                 Show s = new Show(cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_SHOWID())),
                         cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_SHOW_FILMID())),
-                        cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_SHOW_THEATHERID())),
+                        cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_SHOW_THEATERID())),
                         new Date(cursor.getString(cursor.getColumnIndex(db.getCOLUMN_SHOW_TIME())))); //Test the time!!
 
                 Log.i(TAG, s.toString());
@@ -72,9 +71,21 @@ public class SQLiteShowDAO implements ShowDAO {
 
 
             values.put(db.getCOLUMN_SHOW_FILMID(),show.getFilmID());
-            values.put(db.getCOLUMN_SHOW_THEATHERID(),show.getTheaterID());
+            values.put(db.getCOLUMN_SHOW_THEATERID(),show.getTheaterID());
             //Test this!!
             values.put(db.getCOLUMN_SHOW_TIME(),show.getTime().toString());
+
+            String seatsAsText = "";
+            for (int i = 0; i < show.getSeats().length; i++) {
+                if(show.getSeats()[i] == true)
+                {
+                    seatsAsText = seatsAsText + "1";
+                }
+                else{
+                    seatsAsText = seatsAsText + "0";
+                }
+            }
+            values.put(db.getCOLUMN_SHOW_SEATS(),seatsAsText);
 
             writable.insert(db.getDB_TABLE_FEEDBACK_NAME(), null, values);
         }catch(SQLiteException e)
