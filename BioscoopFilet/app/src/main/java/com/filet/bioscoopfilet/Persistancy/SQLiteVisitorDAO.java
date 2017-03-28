@@ -1,12 +1,36 @@
 package com.filet.bioscoopfilet.Persistancy;
 
+import android.content.Context;
+
+import com.filet.bioscoopfilet.DomainModel.Ticket;
+import com.filet.bioscoopfilet.DomainModel.Visitor;
+
+import java.util.ArrayList;
+
 /**
  * Created by Niels on 3/28/2017.
  */
 
 public class SQLiteVisitorDAO implements VisitorDAO {
 
-    private static final int DB_VERSION = 1;
-    private static final String DB_NAME = "filet.db";
-    private static final String DB_TABLE_NAME = "Visitor";
+    private final String TAG = this.getClass().getSimpleName();
+    private DBConnect db;
+    private Context context;
+    private ArrayList<Visitor> visitors = new ArrayList<>();
+
+    public SQLiteVisitorDAO(Context context)
+    {
+        this.context = context;
+
+        db = new DBConnect(context,null,null,1);
+    }
+    @Override
+    public ArrayList<Visitor> selectData() {
+        return visitors;
+    }
+
+    @Override
+    public void insertData() {
+
+    }
 }
