@@ -20,14 +20,49 @@
     android:padding="@dimen/activity_horizontal_margin"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundColor">
+    android:background="@color/backgroundColor"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="450dp"
         android:background="@color/primary_text_material_dark">
 
+        <LinearLayout
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <TextView
+                android:layout_width="80dp"
+                android:text="@string/name"
+                android:textSize="24dp"
+                android:textColor="@android:color/black"
+                android:layout_height="match_parent"
+                android:gravity="center"/>
+            <EditText
+                android:translationY="3dp"
+                android:id="@+id/feedbackName"
+                android:textSize="24dp"
+                android:textColor="@android:color/black"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="@color/colorAccent"
+                android:textCursorDrawable="@drawable/yellow_cursor"/>
+        </LinearLayout>
     </LinearLayout>
+
+    <Button
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark"
+        android:text="@string/send"
+        android:textSize="32dp"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:gravity="center"/>
 
 </LinearLayout>
 </LinearLayout>

@@ -33,4 +33,9 @@ public class InformationActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
+
+    public void feedbackButton(View v){
+        Intent intent = new Intent(this, FeedbackActivity.class);
+        startActivity(intent);
+    }
 }
