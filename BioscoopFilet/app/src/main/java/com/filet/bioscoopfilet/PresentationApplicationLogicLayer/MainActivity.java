@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
         testReviewData();
     }
 
-<<<<<<< HEAD
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -59,10 +58,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void informationButton(View v){
-=======
     public void informationButton(View v) {
->>>>>>> origin/master
         Intent intent = new Intent(this, InformationActivity.class);
         startActivity(intent);
     }
