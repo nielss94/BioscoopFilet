@@ -12,14 +12,20 @@ import android.view.View;
 
 import com.filet.bioscoopfilet.DomainModel.Feedback;
 import com.filet.bioscoopfilet.DomainModel.Review;
+import com.filet.bioscoopfilet.DomainModel.Show;
 import com.filet.bioscoopfilet.DomainModel.Theater;
+import com.filet.bioscoopfilet.DomainModel.Ticket;
 import com.filet.bioscoopfilet.DomainModel.Visitor;
 import com.filet.bioscoopfilet.Persistancy.DAOFactory;
 import com.filet.bioscoopfilet.Persistancy.FeedbackDAO;
 import com.filet.bioscoopfilet.Persistancy.ReviewDAO;
+import com.filet.bioscoopfilet.Persistancy.ShowDAO;
 import com.filet.bioscoopfilet.Persistancy.TheaterDAO;
+import com.filet.bioscoopfilet.Persistancy.TicketDAO;
 import com.filet.bioscoopfilet.Persistancy.VisitorDAO;
 import com.filet.bioscoopfilet.R;
+
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(myToolbar);
 
         testFeedbackData();
-        testReviewData();
+       // testReviewData();
     }
 
     @Override
@@ -85,5 +91,19 @@ public class MainActivity extends AppCompatActivity {
         VisitorDAO visitorDAO = factory.createVisitorDAO();
         visitorDAO.insertData(new Visitor(1, "Tommy", "Heunks"));
         visitorDAO.selectData();
+    }
+
+    public void testShowData()
+    {
+        ShowDAO showDAO = factory.createShowDAO();
+        showDAO.insertData(new Show(1,3,2,new Date(04,04,1994,10,10)));
+        showDAO.selectData();
+    }
+
+    public void testTicketData()
+    {
+        TicketDAO ticketDAO = factory.createTicketDAO();
+        ticketDAO.insertData(new Ticket("324eryfgdser45tygf", 1, 1, 32));
+        ticketDAO.selectData();
     }
 }

@@ -9,6 +9,7 @@ import android.util.Log;
 
 import com.filet.bioscoopfilet.DomainModel.Show;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -17,6 +18,7 @@ import java.util.Date;
  */
 
 public class SQLiteShowDAO implements ShowDAO {
+
 
     private final String TAG = this.getClass().getSimpleName();
     private DBConnect db;
@@ -45,7 +47,18 @@ public class SQLiteShowDAO implements ShowDAO {
                         cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_SHOW_FILMID())),
                         cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_SHOW_THEATERID())),
                         new Date(cursor.getString(cursor.getColumnIndex(db.getCOLUMN_SHOW_TIME())))); //Test the time!!
-
+                String seats = cursor.getString(cursor.getColumnIndex(db.getCOLUMN_SHOW_SEATS()));
+                ArrayList<Boolean> seatsList = new ArrayList<>();
+                for (int i = 0; i < seats.length(); i++) {
+                    if(seats.charAt(i) == 1)
+                    {
+                        seatsList.add(true);
+                    }
+                    else{
+                        seatsList.add(false);
+                    }
+                }
+                s.setSeats(seatsList.toArray(new Boolean[seatsList.size()]));
                 Log.i(TAG, s.toString());
                 Log.i(TAG, "--------------------------------------------");
 

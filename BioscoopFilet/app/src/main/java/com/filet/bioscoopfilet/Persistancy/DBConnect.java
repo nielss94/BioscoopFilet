@@ -76,6 +76,7 @@ public class DBConnect extends SQLiteOpenHelper {
     private final String DB_TABLE_CINEMA_NAME = "Cinema";
     private final String COLUMN_CINEMAID = "CinemaID";
     private final String COLUMN_CINEMA_NAME = "Name";
+    private final String COLUMN_CINEMA_CITY = "City";
     private final String COLUMN_CINEMA_ADDRESS = "Address";
     private final String COLUMN_CINEMA_ZIPCODE = "ZipCode";
     private final String COLUMN_CINEMA_PHONE = "Phone";
@@ -100,6 +101,7 @@ public class DBConnect extends SQLiteOpenHelper {
                 "(" +
                 COLUMN_CINEMAID + " INTEGER PRIMARY KEY," +
                 COLUMN_CINEMA_NAME + " TEXT," +
+                COLUMN_CINEMA_CITY + " TEXT," +
                 COLUMN_CINEMA_ADDRESS + " TEXT," +
                 COLUMN_CINEMA_ZIPCODE + " TEXT" +
                 COLUMN_CINEMA_PHONE + " TEXT" +
@@ -329,5 +331,105 @@ public class DBConnect extends SQLiteOpenHelper {
 
     public String getCOLUMN_VISITOR_LASTNAME() {
         return COLUMN_VISITOR_LASTNAME;
+    }
+
+    public String getDB_TABLE_FILM_NAME() {
+        return DB_TABLE_FILM_NAME;
+    }
+
+    public String getCOLUMN_FILMID() {
+        return COLUMN_FILMID;
+    }
+
+    public String getCOLUMN_FILM_CINEMAID() {
+        return COLUMN_FILM_CINEMAID;
+    }
+
+    public String getCOLUMN_FILM_TITLE() {
+        return COLUMN_FILM_TITLE;
+    }
+
+    public String getCOLUMN_FILM_VERSION() {
+        return COLUMN_FILM_VERSION;
+    }
+
+    public String getCOLUMN_FILM_LANGUAGE() {
+        return COLUMN_FILM_LANGUAGE;
+    }
+
+    public String getCOLUMN_FILM_RELEASEDATE() {
+        return COLUMN_FILM_RELEASEDATE;
+    }
+
+    public String getCOLUMN_FILM_LENGTH() {
+        return COLUMN_FILM_LENGTH;
+    }
+
+    public String getCOLUMN_FILM_AGE() {
+        return COLUMN_FILM_AGE;
+    }
+
+    public String getCOLUMN_FILM_DESCRIPTION() {
+        return COLUMN_FILM_DESCRIPTION;
+    }
+
+    public String getCOLUMN_FILM_IMDBURL() {
+        return COLUMN_FILM_IMDBURL;
+    }
+
+    public String getCOLUMN_FILM_IMDBSCORE() {
+        return COLUMN_FILM_IMDBSCORE;
+    }
+
+    public String getCOLUMN_FILM_TRAILERURL() {
+        return COLUMN_FILM_TRAILERURL;
+    }
+
+    public String getCOLUMN_FILM_DIRECTOR() {
+        return COLUMN_FILM_DIRECTOR;
+    }
+
+    public String getDB_TABLE_ACTOR_NAME() {
+        return DB_TABLE_ACTOR_NAME;
+    }
+
+    public String getCOLUMN_ACTORID() {
+        return COLUMN_ACTORID;
+    }
+
+    public String getCOLUMN_ACTOR_FIRSTNAME() {
+        return COLUMN_ACTOR_FIRSTNAME;
+    }
+
+    public String getCOLUMN_ACTOR_LASTNAME() {
+        return COLUMN_ACTOR_LASTNAME;
+    }
+
+    public String getDB_TABLE_CINEMA_NAME() {
+        return DB_TABLE_CINEMA_NAME;
+    }
+
+    public String getCOLUMN_CINEMAID() {
+        return COLUMN_CINEMAID;
+    }
+
+    public String getCOLUMN_CINEMA_NAME() {
+        return COLUMN_CINEMA_NAME;
+    }
+
+    public String getCOLUMN_CINEMA_CITY() {
+        return COLUMN_CINEMA_CITY;
+    }
+
+    public String getCOLUMN_CINEMA_ADDRESS() {
+        return COLUMN_CINEMA_ADDRESS;
+    }
+
+    public String getCOLUMN_CINEMA_ZIPCODE() {
+        return COLUMN_CINEMA_ZIPCODE;
+    }
+
+    public String getCOLUMN_CINEMA_PHONE() {
+        return COLUMN_CINEMA_PHONE;
     }
 }
