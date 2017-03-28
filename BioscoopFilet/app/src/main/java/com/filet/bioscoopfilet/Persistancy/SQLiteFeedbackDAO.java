@@ -28,7 +28,7 @@ public class SQLiteFeedbackDAO implements FeedbackDAO {
     {
         this.context = context;
 
-        db = new DBConnect(context, null, null,1);
+        db = new DBConnect(context, null, null);
     }
 
     @Override

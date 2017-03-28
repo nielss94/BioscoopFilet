@@ -25,7 +25,7 @@ public class SQLiteCinemaDAO implements CinemaDAO {
     public SQLiteCinemaDAO(Context context) {
         this.context = context;
 
-        db = new DBConnect(context, null, null, 1);
+        db = new DBConnect(context, null, null);
     }
 
     @Override

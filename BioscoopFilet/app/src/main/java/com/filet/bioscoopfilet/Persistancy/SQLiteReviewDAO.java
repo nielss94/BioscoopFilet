@@ -25,7 +25,7 @@ public class SQLiteReviewDAO implements ReviewDAO {
     public SQLiteReviewDAO(Context context) {
         this.context = context;
 
-        db = new DBConnect(context, null, null, 1);
+        db = new DBConnect(context, null, null);
     }
 
     @Override

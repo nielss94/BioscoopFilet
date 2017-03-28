@@ -29,7 +29,7 @@ public class SQLiteTicketDAO implements TicketDAO {
     {
         this.context = context;
 
-        db = new DBConnect(context,null,null,1);
+        db = new DBConnect(context,null,null);
     }
     @Override
     public ArrayList<Ticket> selectData() {

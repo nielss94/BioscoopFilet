@@ -13,7 +13,7 @@ public class DBConnect extends SQLiteOpenHelper {
 
     private final String TAG = this.getClass().getSimpleName();
 
-    private static final int DB_VERSION = 1;
+    private static final int DB_VERSION = 2;
     private static final String DB_NAME = "filet.db";
 
     //Tables and columns
@@ -81,7 +81,7 @@ public class DBConnect extends SQLiteOpenHelper {
     private final String COLUMN_CINEMA_ZIPCODE = "ZipCode";
     private final String COLUMN_CINEMA_PHONE = "Phone";
 
-    public DBConnect(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
+    public DBConnect(Context context, String name, SQLiteDatabase.CursorFactory factory) {
         super(context, DB_NAME, factory, DB_VERSION);
     }
     @Override

@@ -19,6 +19,7 @@ import com.filet.bioscoopfilet.DomainModel.Visitor;
 import com.filet.bioscoopfilet.Persistancy.DAOFactory;
 import com.filet.bioscoopfilet.Persistancy.FeedbackDAO;
 import com.filet.bioscoopfilet.Persistancy.ReviewDAO;
+import com.filet.bioscoopfilet.Persistancy.SQLiteDAOFactory;
 import com.filet.bioscoopfilet.Persistancy.ShowDAO;
 import com.filet.bioscoopfilet.Persistancy.TheaterDAO;
 import com.filet.bioscoopfilet.Persistancy.TicketDAO;
@@ -38,8 +39,11 @@ public class MainActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
+        factory = new SQLiteDAOFactory(getApplicationContext());
+
         testFeedbackData();
-       // testReviewData();
+        testReviewData();
+        //testShowData();
     }
 
     @Override
@@ -96,7 +100,8 @@ public class MainActivity extends AppCompatActivity {
     public void testShowData()
     {
         ShowDAO showDAO = factory.createShowDAO();
-        showDAO.insertData(new Show(1,3,2,new Date(04,04,1994,10,10)));
+        showDAO.insertData(new Show(1,3,2,new Date(04,04,1994,10,10),new Boolean[] { true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false}));
+
         showDAO.selectData();
     }
 

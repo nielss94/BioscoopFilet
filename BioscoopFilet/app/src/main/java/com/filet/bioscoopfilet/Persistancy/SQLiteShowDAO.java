@@ -29,7 +29,7 @@ public class SQLiteShowDAO implements ShowDAO {
     {
         this.context = context;
 
-        db = new DBConnect(context,null,null,1);
+        db = new DBConnect(context,null,null);
     }
 
     @Override
@@ -100,7 +100,7 @@ public class SQLiteShowDAO implements ShowDAO {
             }
             values.put(db.getCOLUMN_SHOW_SEATS(),seatsAsText);
 
-            writable.insert(db.getDB_TABLE_FEEDBACK_NAME(), null, values);
+            writable.insert(db.getDB_TABLE_SHOW_NAME(), null, values);
         }catch(SQLiteException e)
         {
             Log.i(TAG,e.getMessage());
