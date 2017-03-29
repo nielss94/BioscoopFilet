@@ -32,33 +32,33 @@ public class FilmOverviewActivity extends AppCompatActivity {
         myToolbar.setTitle(R.string.films);
         setSupportActionBar(myToolbar);
 
-        films.add(new Film(1, 1, "Harry Potter: en de Steen der Wijzen", "2D NL",
-                    "NL","30/03/2017", 90, 12,  "Goeie!", "",
-                    "6.5",  "https://image.tmdb.org/t/p/w500//dCtFvscYcXQKTNvyyaQr2g2UacJ.jpg",  ""));
-
-        films.add(new Film(1, 1, "Mad Max: Fury Road", "2D OV",
-                "EN","30/03/2017", 90, 16,  "Goeie!", "",
-                "9.3",  "https://image.tmdb.org/t/p/w500//kqjL17yufvn9OVLyXYpvtyrFfak.jpg",  ""));
-
-        films.add(new Film(1, 1, "Star Wars Episode VII: The Force Awakens", "3D OV",
-                "NL","30/03/2017", 90, 12,  "Goeie!", "",
-                "8.5",  "https://image.tmdb.org/t/p/w500/weUSwMdQIa3NaXVzwUoIIcAi85d.jpg",  ""));
-
-        films.add(new Film(1, 1, "Deadpool", "2D OV",
-                "EN","30/03/2017", 90, 16,  "Goeie!", "",
-                "7.5",  "https://image.tmdb.org/t/p/w500/inVq3FRqcYIRl2la8iZikYYxFNR.jpg",  ""));
-
-        films.add(new Film(1, 1, "Logan", "2D OV",
-                "EN","30/03/2017", 90, 16,  "Goeie!", "",
-                "8.5",  "https://image.tmdb.org/t/p/w500/45Y1G5FEgttPAwjTYic6czC9xCn.jpg",  ""));
-
-        films.add(new Film(1, 1, "Minions", "3D NL",
-                "NL","30/03/2017", 90, 3,  "Goeie!", "",
-                "5.5",  "https://image.tmdb.org/t/p/w500/q0R4crx2SehcEEQEkYObktdeFy.jpg",  ""));
-
-        films.add(new Film(1, 1, "Source Code", "2D OV",
-                "EN","30/03/2017", 90, 12,  "Goeie!", "",
-                "10",  "https://image.tmdb.org/t/p/w500/cpl7R5d3qwWvykRRSxdhQ0htstU.jpg",  ""));
+//        films.add(new Film(1, 1, "Harry Potter: en de Steen der Wijzen", "2D NL",
+//                    "NL","30/03/2017", 90, 12,  "Goeie!", "",
+//                    "6.5",  "https://image.tmdb.org/t/p/w500//dCtFvscYcXQKTNvyyaQr2g2UacJ.jpg",  ""));
+//
+//        films.add(new Film(1, 1, "Mad Max: Fury Road", "2D OV",
+//                "EN","30/03/2017", 90, 16,  "Goeie!", "",
+//                "9.3",  "https://image.tmdb.org/t/p/w500//kqjL17yufvn9OVLyXYpvtyrFfak.jpg",  ""));
+//
+//        films.add(new Film(1, 1, "Star Wars Episode VII: The Force Awakens", "3D OV",
+//                "NL","30/03/2017", 90, 12,  "Goeie!", "",
+//                "8.5",  "https://image.tmdb.org/t/p/w500/weUSwMdQIa3NaXVzwUoIIcAi85d.jpg",  ""));
+//
+//        films.add(new Film(1, 1, "Deadpool", "2D OV",
+//                "EN","30/03/2017", 90, 16,  "Goeie!", "",
+//                "7.5",  "https://image.tmdb.org/t/p/w500/inVq3FRqcYIRl2la8iZikYYxFNR.jpg",  ""));
+//
+//        films.add(new Film(1, 1, "Logan", "2D OV",
+//                "EN","30/03/2017", 90, 16,  "Goeie!", "",
+//                "8.5",  "https://image.tmdb.org/t/p/w500/45Y1G5FEgttPAwjTYic6czC9xCn.jpg",  ""));
+//
+//        films.add(new Film(1, 1, "Minions", "3D NL",
+//                "NL","30/03/2017", 90, 3,  "Goeie!", "",
+//                "5.5",  "https://image.tmdb.org/t/p/w500/q0R4crx2SehcEEQEkYObktdeFy.jpg",  ""));
+//
+//        films.add(new Film(1, 1, "Source Code", "2D OV",
+//                "EN","30/03/2017", 90, 12,  "Goeie!", "",
+//                "10",  "https://image.tmdb.org/t/p/w500/cpl7R5d3qwWvykRRSxdhQ0htstU.jpg",  ""));
 
         //Setting adapter
         filmAdapter = new FilmAdapter(this, films);

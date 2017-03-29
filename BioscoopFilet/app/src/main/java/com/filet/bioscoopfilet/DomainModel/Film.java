@@ -15,30 +15,34 @@ public class Film {
     private String version;
     private String language;
     private String releaseDate;
+    private String genre;
     private int length;
     private int age;
     private String description;
     private String IMDBUrl;
     private String IMDBScore;
     private String trailerURL;
+    private String posterURL;
     private String director;
     private ArrayList<Actor> actors;
 
     public Film(int filmID, int cinemaID, String title, String version, String language,
-                String releaseDate, int length, int age, String description, String IMDBUrl,
-                String IMDBScore, String trailerURL, String director) {
+                String releaseDate, String genre, int length, int age, String description,
+                String IMDBUrl, String IMDBScore, String trailerURL, String posterURL, String director) {
         this.filmID = filmID;
         this.cinemaID = cinemaID;
         this.title = title;
         this.version = version;
         this.language = language;
         this.releaseDate = releaseDate;
+        this.genre = genre;
         this.length = length;
         this.age = age;
         this.description = description;
         this.IMDBUrl = IMDBUrl;
         this.IMDBScore = IMDBScore;
         this.trailerURL = trailerURL;
+        this.posterURL = posterURL;
         this.director = director;
     }
 
@@ -95,6 +99,14 @@ public class Film {
         this.releaseDate = releaseDate;
     }
 
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
     public int getLength() {
         return length;
     }
@@ -141,6 +153,14 @@ public class Film {
 
     public void setTrailerURL(String trailerURL) {
         this.trailerURL = trailerURL;
+    }
+
+    public String getPosterURL() {
+        return posterURL;
+    }
+
+    public void setPosterURL(String posterURL) {
+        this.posterURL = posterURL;
     }
 
     public String getDirector() {

@@ -114,7 +114,14 @@ public class MainActivity extends AppCompatActivity {
     public void testShowData()
     {
         ShowDAO showDAO = factory.createShowDAO();
-        showDAO.insertData(new Show(1,3,2,new Date(04,04,1994,10,10),new Boolean[] { true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false}));
+        showDAO.insertData(new Show(1,3,2,new Date(04,04,1994,10,10),new Boolean[] { true, false,true,
+                false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true,
+                false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true,
+                false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true,
+                false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true,
+                false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true,
+                false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true,
+                false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false}));
 
         showDAO.selectData();
     }
@@ -128,7 +135,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void testFilmDAO() {
         FilmDAO filmDAO = factory.createFilmDAO();
-        filmDAO.insertData(new Film(1, 1, "Harry Potter", "En 3D", "English", "05-08-2017", 134, 12, "Coole film, joh", "www.imdb.com/harrypotter", "8.1", "www.trailers.nl/harrypotter", "J.K. Not-Rowling"));
+        filmDAO.insertData(new Film(1, 1, "Harry Potter", "En 3D", "English", "05-08-2017", "Thriller/Horror",
+                134, 12, "Coole film, joh", "www.imdb.com/harrypotter", "8.1", "www.trailers.nl/harrypotter",
+                "http://harrypotterfanzone.com/wp-content/2015/07/philosophers-stone-theatrical-poster.jpg","J.K. Not-Rowling"));
         filmDAO.selectData();
     }
 

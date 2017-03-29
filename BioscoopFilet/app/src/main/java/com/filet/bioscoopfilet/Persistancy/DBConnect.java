@@ -13,7 +13,7 @@ public class DBConnect extends SQLiteOpenHelper {
 
     private final String TAG = this.getClass().getSimpleName();
 
-    private static final int DB_VERSION = 2;
+    private static final int DB_VERSION = 3;
     private static final String DB_NAME = "filet.db";
 
     private Context context;
@@ -62,12 +62,14 @@ public class DBConnect extends SQLiteOpenHelper {
     private final String COLUMN_FILM_VERSION = "Version";
     private final String COLUMN_FILM_LANGUAGE = "Language";
     private final String COLUMN_FILM_RELEASEDATE = "ReleaseDate";
+    private final String COLUMN_FILM_GENRE = "Genre";
     private final String COLUMN_FILM_LENGTH = "Length";
     private final String COLUMN_FILM_AGE = "Age";
     private final String COLUMN_FILM_DESCRIPTION = "Description";
     private final String COLUMN_FILM_IMDBURL = "IMDBUrl";
     private final String COLUMN_FILM_IMDBSCORE = "IMDBScore";
     private final String COLUMN_FILM_TRAILERURL = "TrailerURL";
+    private final String COLUMN_FILM_POSTERURL = "PosterURL";
     private final String COLUMN_FILM_DIRECTOR = "Director";
     //Actor
     private final String DB_TABLE_ACTOR_NAME = "Actor";
@@ -150,12 +152,14 @@ public class DBConnect extends SQLiteOpenHelper {
                 COLUMN_FILM_VERSION + " TEXT," +
                 COLUMN_FILM_LANGUAGE + " TEXT," +
                 COLUMN_FILM_RELEASEDATE + " TEXT," +
+                COLUMN_FILM_GENRE + " TEXT," +
                 COLUMN_FILM_LENGTH + " INTEGER," +
                 COLUMN_FILM_AGE + " INTEGER," +
                 COLUMN_FILM_DESCRIPTION + " TEXT," +
                 COLUMN_FILM_IMDBURL + " TEXT," +
                 COLUMN_FILM_IMDBSCORE + " TEXT," +
                 COLUMN_FILM_TRAILERURL + " TEXT," +
+                COLUMN_FILM_POSTERURL + " TEXT," +
                 COLUMN_FILM_DIRECTOR + " TEXT," +
                 "FOREIGN KEY ("+COLUMN_THEATER_CINEMAID+") REFERENCES "+DB_TABLE_CINEMA_NAME+"("+COLUMN_CINEMAID+")" +
                 ")";
@@ -396,6 +400,10 @@ public class DBConnect extends SQLiteOpenHelper {
         return COLUMN_FILM_RELEASEDATE;
     }
 
+    public String getCOLUMN_FILM_GENRE() {
+        return COLUMN_FILM_GENRE;
+    }
+
     public String getCOLUMN_FILM_LENGTH() {
         return COLUMN_FILM_LENGTH;
     }
@@ -418,6 +426,10 @@ public class DBConnect extends SQLiteOpenHelper {
 
     public String getCOLUMN_FILM_TRAILERURL() {
         return COLUMN_FILM_TRAILERURL;
+    }
+
+    public String getCOLUMN_FILM_POSTERURL() {
+        return COLUMN_FILM_POSTERURL;
     }
 
     public String getCOLUMN_FILM_DIRECTOR() {

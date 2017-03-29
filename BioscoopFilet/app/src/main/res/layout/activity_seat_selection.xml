@@ -76,7 +76,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Geselecteerd"
+                            android:text="@string/seat_selected"
                             android:textColor="#000"
                             android:textSize="16sp" />
 
@@ -101,7 +101,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="8dp"
                             android:gravity="center"
-                            android:text="Bezet"
+                            android:text="@string/seat_taken"
                             android:textColor="#000"
                             android:textSize="16sp" />
 
@@ -125,7 +125,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="8dp"
                             android:gravity="center"
-                            android:text="Beschikbaar"
+                            android:text="@string/seat_available"
                             android:textColor="#000"
                             android:textSize="16sp" />
 
@@ -155,7 +155,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/shopping_cart_image"
                     android:layout_centerHorizontal="true"
-                    android:text="Afrekenen"
+                    android:text="@string/pay_tickets"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 

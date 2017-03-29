@@ -45,12 +45,14 @@ public class SQLiteFilmDAO implements FilmDAO {
                         cursor.getString(cursor.getColumnIndex(db.getCOLUMN_FILM_VERSION())),
                         cursor.getString(cursor.getColumnIndex(db.getCOLUMN_FILM_LANGUAGE())),
                         cursor.getString(cursor.getColumnIndex(db.getCOLUMN_FILM_RELEASEDATE())),
+                        cursor.getString(cursor.getColumnIndex(db.getCOLUMN_FILM_GENRE())),
                         cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_FILM_LENGTH())),
                         cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_FILM_AGE())),
                         cursor.getString(cursor.getColumnIndex(db.getCOLUMN_FILM_DESCRIPTION())),
                         cursor.getString(cursor.getColumnIndex(db.getCOLUMN_FILM_IMDBURL())),
                         cursor.getString(cursor.getColumnIndex(db.getCOLUMN_FILM_IMDBSCORE())),
                         cursor.getString(cursor.getColumnIndex(db.getCOLUMN_FILM_TRAILERURL())),
+                        cursor.getString(cursor.getColumnIndex(db.getCOLUMN_FILM_POSTERURL())),
                         cursor.getString(cursor.getColumnIndex(db.getCOLUMN_FILM_DIRECTOR())));
 
                 Log.i(TAG, f.toString());
@@ -78,12 +80,14 @@ public class SQLiteFilmDAO implements FilmDAO {
             values.put(db.getCOLUMN_FILM_VERSION(), film.getVersion());
             values.put(db.getCOLUMN_FILM_LANGUAGE(), film.getLanguage());
             values.put(db.getCOLUMN_FILM_RELEASEDATE(), film.getReleaseDate());
+            values.put(db.getCOLUMN_FILM_GENRE(), film.getGenre());
             values.put(db.getCOLUMN_FILM_LENGTH(), film.getLength());
             values.put(db.getCOLUMN_FILM_AGE(), film.getAge());
             values.put(db.getCOLUMN_FILM_DESCRIPTION(), film.getDescription());
             values.put(db.getCOLUMN_FILM_IMDBURL(), film.getIMDBUrl());
             values.put(db.getCOLUMN_FILM_IMDBSCORE(), film.getIMDBScore());
             values.put(db.getCOLUMN_FILM_TRAILERURL(), film.getTrailerURL());
+            values.put(db.getCOLUMN_FILM_POSTERURL(), film.getPosterURL());
             values.put(db.getCOLUMN_FILM_DIRECTOR(), film.getDirector());
 
             writable.insert(db.getDB_TABLE_FILM_NAME(), null, values);
