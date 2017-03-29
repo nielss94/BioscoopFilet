@@ -48,13 +48,13 @@ public class FilmAdapter extends ArrayAdapter<Film> {
 
         //Filling TextViews with film info
         title.setText(film.getTitle());
-//        genre.setText(film.getGenre());
+        genre.setText("Genre: "+film.getGenre());
         age.setText("Leeftijd: " + film.getAge());
         version.setText("Versie: " +film.getVersion());
         imdb.setText("IMDB: " + film.getIMDBScore());
 
         //Filling image (FOR DEMO)
-        Picasso.with(getContext()).load(film.getTrailerURL()).into(poster);
+        Picasso.with(getContext()).load(film.getPosterURL()).into(poster);
 
         //Returning view for display
         return convertView;
