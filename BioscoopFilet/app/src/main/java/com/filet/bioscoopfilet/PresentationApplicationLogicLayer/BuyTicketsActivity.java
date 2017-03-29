@@ -6,14 +6,14 @@ import android.support.v7.widget.Toolbar;
 
 import com.filet.bioscoopfilet.R;
 
-public class ContactActivity extends AppCompatActivity {
+public class BuyTicketsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_contact);
+        setContentView(R.layout.activity_buy_tickets);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        myToolbar.setTitle(R.string.contact);
+        myToolbar.setTitle(R.string.buy_tickets);
         setSupportActionBar(myToolbar);
     }
 }

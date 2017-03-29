@@ -85,8 +85,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="230dp"
                     android:layout_gravity="center"
-                    android:backgroundTint="@color/colorPrimary"
                     android:background="@color/colorPrimary"
+                    android:backgroundTint="@color/colorPrimary"
                     android:gravity="top|left"
                     android:textCursorDrawable="@drawable/yellow_cursor"
                     android:textSize="24dp" />

@@ -82,6 +82,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void filmButton(View v) {
+        Intent intent = new Intent(this, FilmOverviewActivity.class);
+        startActivity(intent);
+    }
+
     public void testFeedbackData() {
         FeedbackDAO feedbackDAO = factory.createFeedbackDAO();
         feedbackDAO.insertData(new Feedback(1, 1, "Goeie App!"));
