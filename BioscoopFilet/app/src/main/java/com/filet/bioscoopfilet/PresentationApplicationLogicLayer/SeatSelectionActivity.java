@@ -1,7 +1,9 @@
-package com.filet.bioscoopfilet;
+package com.filet.bioscoopfilet.PresentationApplicationLogicLayer;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.filet.bioscoopfilet.R;
 
 public class SeatSelectionActivity extends AppCompatActivity {
 

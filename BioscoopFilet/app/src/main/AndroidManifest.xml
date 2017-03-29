@@ -23,7 +23,7 @@
         <activity android:name=".PresentationApplicationLogicLayer.MyFiletActivity" />
         <activity android:name=".PresentationApplicationLogicLayer.MyTicketActivity" />
         <activity android:name=".PresentationApplicationLogicLayer.MyTicketDetailActivity" />
-        <activity android:name=".SeatSelectionActivity"></activity>
+        <activity android:name=".PresentationApplicationLogicLayer.SeatSelectionActivity"></activity>
     </application>
 
 </manifest>
