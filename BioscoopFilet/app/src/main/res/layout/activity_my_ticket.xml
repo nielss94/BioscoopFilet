@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.filet.bioscoopfilet.PresentationApplicationLogicLayer.FilmOverviewActivity">
+    tools:context="com.filet.bioscoopfilet.PresentationApplicationLogicLayer.MyTicketActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/my_toolbar"
@@ -16,18 +16,11 @@
         android:theme="@style/ThemeFilet"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
-    <LinearLayout
+    <ListView
+        android:id="@+id/ticketsListview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/filmListView">
-
-        </ListView>
-
-        </LinearLayout>
+    </ListView>
 
 </LinearLayout>
