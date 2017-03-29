@@ -29,13 +29,13 @@ public class InformationActivity extends AppCompatActivity {
     }
 
     public void ptInformationButton(View v){
-        Intent intent = new Intent(this, PTActivity.class);
-        startActivity(intent);
+        Intent ptIntent = new Intent(this, PTActivity.class);
+        startActivity(ptIntent);
 
     }
 
     public void feedbackButton(View v){
-        Intent intent = new Intent(this, FeedbackActivity.class);
-        startActivity(intent);
+       Intent fIntent = new Intent(this, FeedbackActivity.class);
+       startActivity(fIntent);
     }
 }

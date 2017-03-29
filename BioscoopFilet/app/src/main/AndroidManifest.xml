@@ -17,6 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".PresentationApplicationLogicLayer.InformationActivity"></activity>
+        <activity android:name=".PresentationApplicationLogicLayer.PTActivity"></activity>
+        <activity android:name=".PresentationApplicationLogicLayer.FeedbackActivity"></activity>
     </application>
 
 </manifest>
