@@ -16,6 +16,8 @@ public class DBConnect extends SQLiteOpenHelper {
     private static final int DB_VERSION = 2;
     private static final String DB_NAME = "filet.db";
 
+    private Context context;
+
     //Tables and columns
     //Feedback
     private final String DB_TABLE_FEEDBACK_NAME = "Feedback";
@@ -210,6 +212,39 @@ public class DBConnect extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + DB_TABLE_SHOW_NAME);
         onCreate(db);
     }
+
+    //Method to clean the database. NOG EVEN FIXEN, WANT HIJ WERKT NIET.
+    public void cleanDatabase() {
+        DBConnect db = new DBConnect(context, null, null);
+        String query = "DELETE FROM Feedback;";
+        SQLiteDatabase writable = db.getWritableDatabase();
+        writable.execSQL(query);
+        query = "DELETE FROM Review;";
+        writable = db.getWritableDatabase();
+        writable.execSQL(query);
+        query = "DELETE FROM Show;";
+        writable = db.getWritableDatabase();
+        writable.execSQL(query);
+        query = "DELETE FROM Theater;";
+        writable = db.getWritableDatabase();
+        writable.execSQL(query);
+        query = "DELETE FROM Ticket;";
+        writable = db.getWritableDatabase();
+        writable.execSQL(query);
+        query = "DELETE FROM Visitor;";
+        writable = db.getWritableDatabase();
+        writable.execSQL(query);
+        query = "DELETE FROM Film;";
+        writable = db.getWritableDatabase();
+        writable.execSQL(query);
+        query = "DELETE FROM Actor;";
+        writable = db.getWritableDatabase();
+        writable.execSQL(query);
+        query = "DELETE FROM Cinema;";
+        writable = db.getWritableDatabase();
+        writable.execSQL(query);
+    }
+
 
     //Feedback table getters
     public String getDB_TABLE_FEEDBACK_NAME() {

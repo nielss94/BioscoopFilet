@@ -7,12 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.util.Log;
 
-import com.filet.bioscoopfilet.DomainModel.Show;
-import com.filet.bioscoopfilet.DomainModel.Theater;
 import com.filet.bioscoopfilet.DomainModel.Ticket;
-
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  * Created by Niels on 3/28/2017.
@@ -73,7 +69,7 @@ public class SQLiteTicketDAO implements TicketDAO {
             values.put(db.getCOLUMN_TICKET_SHOWID(),ticket.getShowID());
             values.put(db.getCOLUMN_TICKET_SEAT(),ticket.getSeat());
 
-            writable.insert(db.getDB_TABLE_FEEDBACK_NAME(), null, values);
+            writable.insert(db.getDB_TABLE_TICKET_NAME(), null, values);
         }catch(SQLiteException e)
         {
             Log.i(TAG, e.getMessage());

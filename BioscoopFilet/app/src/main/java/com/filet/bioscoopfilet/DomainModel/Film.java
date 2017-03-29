@@ -14,19 +14,19 @@ public class Film {
     private String title;
     private String version;
     private String language;
-    private Date releaseDate;
+    private String releaseDate;
     private int length;
     private int age;
     private String description;
     private String IMDBUrl;
-    private Double IMDBScore;
+    private String IMDBScore;
     private String trailerURL;
     private String director;
     private ArrayList<Actor> actors;
 
     public Film(int filmID, int cinemaID, String title, String version, String language,
-                Date releaseDate, int length, int age, String description, String IMDBUrl,
-                Double IMDBScore, String trailerURL, String director) {
+                String releaseDate, int length, int age, String description, String IMDBUrl,
+                String IMDBScore, String trailerURL, String director) {
         this.filmID = filmID;
         this.cinemaID = cinemaID;
         this.title = title;
@@ -87,11 +87,11 @@ public class Film {
         this.language = language;
     }
 
-    public Date getReleaseDate() {
+    public String getReleaseDate() {
         return releaseDate;
     }
 
-    public void setReleaseDate(Date releaseDate) {
+    public void setReleaseDate(String releaseDate) {
         this.releaseDate = releaseDate;
     }
 
@@ -127,11 +127,11 @@ public class Film {
         this.IMDBUrl = IMDBUrl;
     }
 
-    public Double getIMDBScore() {
+    public String getIMDBScore() {
         return IMDBScore;
     }
 
-    public void setIMDBScore(Double IMDBScore) {
+    public void setIMDBScore(String IMDBScore) {
         this.IMDBScore = IMDBScore;
     }
 

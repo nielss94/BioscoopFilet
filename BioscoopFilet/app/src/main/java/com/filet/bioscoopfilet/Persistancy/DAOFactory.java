@@ -13,5 +13,6 @@ public interface DAOFactory {
     TheaterDAO createTheaterDAO();
     TicketDAO createTicketDAO();
     VisitorDAO createVisitorDAO();
-
+    FilmDAO createFilmDAO();
+    ActorDAO createActorDAO();
 }

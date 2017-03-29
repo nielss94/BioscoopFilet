@@ -29,6 +29,7 @@ public class SQLiteDAOFactory implements DAOFactory {
     public ShowDAO createShowDAO() {
         return new SQLiteShowDAO(context);
     }
+
     @Override
     public TheaterDAO createTheaterDAO() {
         return new SQLiteTheaterDAO(context);
@@ -37,8 +38,19 @@ public class SQLiteDAOFactory implements DAOFactory {
     public TicketDAO createTicketDAO() {
         return new SQLiteTicketDAO(context);
     }
+
     @Override
     public VisitorDAO createVisitorDAO() {
         return new SQLiteVisitorDAO(context);
+    }
+
+    @Override
+    public FilmDAO createFilmDAO() {
+        return new SQLiteFilmDAO(context);
+    }
+
+    @Override
+    public ActorDAO createActorDAO() {
+        return new SQLiteActorDAO(context);
     }
 }

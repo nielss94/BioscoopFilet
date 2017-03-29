@@ -10,14 +10,19 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.filet.bioscoopfilet.DomainModel.Actor;
 import com.filet.bioscoopfilet.DomainModel.Feedback;
+import com.filet.bioscoopfilet.DomainModel.Film;
 import com.filet.bioscoopfilet.DomainModel.Review;
 import com.filet.bioscoopfilet.DomainModel.Show;
 import com.filet.bioscoopfilet.DomainModel.Theater;
 import com.filet.bioscoopfilet.DomainModel.Ticket;
 import com.filet.bioscoopfilet.DomainModel.Visitor;
+import com.filet.bioscoopfilet.Persistancy.ActorDAO;
 import com.filet.bioscoopfilet.Persistancy.DAOFactory;
+import com.filet.bioscoopfilet.Persistancy.DBConnect;
 import com.filet.bioscoopfilet.Persistancy.FeedbackDAO;
+import com.filet.bioscoopfilet.Persistancy.FilmDAO;
 import com.filet.bioscoopfilet.Persistancy.ReviewDAO;
 import com.filet.bioscoopfilet.Persistancy.SQLiteDAOFactory;
 import com.filet.bioscoopfilet.Persistancy.ShowDAO;
@@ -41,9 +46,15 @@ public class MainActivity extends AppCompatActivity {
 
         factory = new SQLiteDAOFactory(getApplicationContext());
 
-        testFeedbackData();
-        testReviewData();
-        //testShowData();
+//        testVisitorData();
+//        testTicketData();
+//        testReviewData();
+//        testFeedbackData();
+//        testFilmDAO();
+//        testShowData();
+//        testTheaterData();
+        testActorDAO();
+//        cleanDatabase();
     }
 
     @Override
@@ -64,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
-
         }
     }
 
@@ -108,7 +118,25 @@ public class MainActivity extends AppCompatActivity {
     public void testTicketData()
     {
         TicketDAO ticketDAO = factory.createTicketDAO();
-        ticketDAO.insertData(new Ticket("324eryfgdser45tygf", 1, 1, 32));
+        ticketDAO.insertData(new Ticket("fe32f2ef23fef23", 1, 1, 32)); //NEED A METHOD TO GENERATE RANDOM QRCODES
         ticketDAO.selectData();
+    }
+
+    public void testFilmDAO() {
+        FilmDAO filmDAO = factory.createFilmDAO();
+        filmDAO.insertData(new Film(1, 1, "Harry Potter", "En 3D", "English", "05-08-2017", 134, 12, "Coole film, joh", "www.imdb.com/harrypotter", "8.1", "www.trailers.nl/harrypotter", "J.K. Not-Rowling"));
+        filmDAO.selectData();
+    }
+
+    public void testActorDAO() {
+        ActorDAO actorDAO = factory.createActorDAO();
+        actorDAO.insertData(new Actor(1, "Geurtje", "Acteurtje"));
+        actorDAO.selectData();
+    }
+
+    //cleans the database. DOES NOT WORK YET.
+    public void cleanDatabase() {
+        DBConnect db = new DBConnect(getApplicationContext(), null, null);
+        db.cleanDatabase();
     }
 }
