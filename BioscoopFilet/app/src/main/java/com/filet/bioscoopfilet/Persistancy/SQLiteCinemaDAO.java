@@ -71,7 +71,7 @@ public class SQLiteCinemaDAO implements CinemaDAO {
             values.put(db.getCOLUMN_CINEMA_ZIPCODE(), cinema.getName());
             values.put(db.getCOLUMN_CINEMA_PHONE(), cinema.getPhone());
 
-            writable.insert(db.getDB_TABLE_REVIEW_NAME(), null, values);
+            writable.insert(db.getDB_TABLE_CINEMA_NAME(), null, values);
         } catch (SQLiteException e) {
             Log.i(TAG, e.getMessage());
         }

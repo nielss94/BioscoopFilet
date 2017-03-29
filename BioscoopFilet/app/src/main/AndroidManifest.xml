@@ -20,9 +20,10 @@
         <activity android:name=".PresentationApplicationLogicLayer.PTActivity" />
         <activity android:name=".PresentationApplicationLogicLayer.FeedbackActivity" />
         <activity android:name=".PresentationApplicationLogicLayer.ContactActivity" />
-        <activity android:name=".PresentationApplicationLogicLayer.WriteReviewActivity" />
-        <activity android:name=".PresentationApplicationLogicLayer.ReviewsActivity" />
-        <activity android:name=".custom_review_list_item"></activity>
+        <activity android:name=".PresentationApplicationLogicLayer.MyFiletActivity" />
+        <activity android:name=".PresentationApplicationLogicLayer.MyTicketActivity" />
+        <activity android:name=".PresentationApplicationLogicLayer.MyTicketDetailActivity" />
+        <activity android:name=".PresentationApplicationLogicLayer.SeatSelectionActivity"></activity>
     </application>
 
 </manifest>
