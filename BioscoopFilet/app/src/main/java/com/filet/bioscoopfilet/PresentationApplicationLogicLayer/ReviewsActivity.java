@@ -1,15 +1,15 @@
 package com.filet.bioscoopfilet.PresentationApplicationLogicLayer;
 
-import android.app.Activity;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.filet.bioscoopfilet.R;
 
-public class ReviewActivity extends Activity {
+public class ReviewsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_review);
+        setContentView(R.layout.activity_reviews);
     }
 }
