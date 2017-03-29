@@ -1,7 +1,9 @@
-package com.filet.bioscoopfilet;
+package com.filet.bioscoopfilet.PresentationApplicationLogicLayer;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+
+import com.filet.bioscoopfilet.R;
 
 public class FilmOverviewActivity extends AppCompatActivity {
 

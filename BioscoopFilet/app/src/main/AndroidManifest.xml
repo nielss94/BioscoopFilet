@@ -19,7 +19,8 @@
         <activity android:name=".PresentationApplicationLogicLayer.InformationActivity" />
         <activity android:name=".PresentationApplicationLogicLayer.PTActivity" />
         <activity android:name=".PresentationApplicationLogicLayer.FeedbackActivity" />
-        <activity android:name=".PresentationApplicationLogicLayer.ContactActivity"></activity>
+        <activity android:name=".PresentationApplicationLogicLayer.ContactActivity" />
+        <activity android:name=".PresentationApplicationLogicLayer.ReviewActivity"></activity>
     </application>
 
 </manifest>
