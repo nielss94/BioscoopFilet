@@ -24,4 +24,6 @@ Drumstick tri-tip beef ribs, cow corned beef biltong ribeye boudin shoulder ball
     <string name="send">Versturen</string>
     <string name="name">Naam:</string>
     <string name="feedback_write">Feedback:</string>
+    <string name="review">Score:</string>
+    <string name="review_write">Review:</string>
 </resources>
