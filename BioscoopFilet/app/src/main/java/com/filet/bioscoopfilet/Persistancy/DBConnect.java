@@ -13,7 +13,7 @@ public class DBConnect extends SQLiteOpenHelper {
 
     private final String TAG = this.getClass().getSimpleName();
 
-    private static final int DB_VERSION = 3;
+    private static final int DB_VERSION = 8;
     private static final String DB_NAME = "filet.db";
 
     private Context context;
@@ -91,6 +91,7 @@ public class DBConnect extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
+        //Create actor table
         Log.i(TAG, "Creating Actor table");
         String CREATE_ACTOR_TABLE = "CREATE TABLE "+DB_TABLE_ACTOR_NAME +
                 "(" +
@@ -100,6 +101,7 @@ public class DBConnect extends SQLiteOpenHelper {
                 ")";
         db.execSQL(CREATE_ACTOR_TABLE);
 
+        //Create cinema table
         Log.i(TAG, "Creating Cinema table");
         String CREATE_CINEMA_TABLE = "CREATE TABLE "+DB_TABLE_CINEMA_NAME +
                 "(" +
@@ -107,11 +109,12 @@ public class DBConnect extends SQLiteOpenHelper {
                 COLUMN_CINEMA_NAME + " TEXT," +
                 COLUMN_CINEMA_CITY + " TEXT," +
                 COLUMN_CINEMA_ADDRESS + " TEXT," +
-                COLUMN_CINEMA_ZIPCODE + " TEXT" +
+                COLUMN_CINEMA_ZIPCODE + " TEXT," +
                 COLUMN_CINEMA_PHONE + " TEXT" +
                 ")";
         db.execSQL(CREATE_CINEMA_TABLE);
 
+        //Create visitor table
         Log.i(TAG, "Creating Visitor table");
         String CREATE_VISITOR_TABLE = "CREATE TABLE "+DB_TABLE_VISITOR_NAME +
                 "(" +
@@ -121,6 +124,7 @@ public class DBConnect extends SQLiteOpenHelper {
                 ")";
         db.execSQL(CREATE_VISITOR_TABLE);
 
+        //Create feedback table
         Log.i(TAG, "Creating Feedback table");
         String CREATE_FEEDBACK_TABLE = "CREATE TABLE "+DB_TABLE_FEEDBACK_NAME +
                 "(" +
@@ -131,7 +135,7 @@ public class DBConnect extends SQLiteOpenHelper {
                 ")";
         db.execSQL(CREATE_FEEDBACK_TABLE);
 
-
+        //Create theater table
         Log.i(TAG, "Creating Theater table");
         String CREATE_THEATER_TABLE = "CREATE TABLE "+DB_TABLE_THEATER_NAME +
                 "(" +
@@ -142,7 +146,7 @@ public class DBConnect extends SQLiteOpenHelper {
                 ")";
         db.execSQL(CREATE_THEATER_TABLE);
 
-
+        //Create film table
         Log.i(TAG, "Creating Film table");
         String CREATE_FILM_TABLE = "CREATE TABLE "+DB_TABLE_FILM_NAME +
                 "(" +
@@ -165,6 +169,7 @@ public class DBConnect extends SQLiteOpenHelper {
                 ")";
         db.execSQL(CREATE_FILM_TABLE);
 
+        //Create show table
         Log.i(TAG, "Creating Show table");
         String CREATE_SHOW_TABLE = "CREATE TABLE "+DB_TABLE_SHOW_NAME +
                 "(" +
@@ -178,6 +183,7 @@ public class DBConnect extends SQLiteOpenHelper {
                 ")";
         db.execSQL(CREATE_SHOW_TABLE);
 
+        //Create ticket table
         Log.i(TAG, "Creating Ticket table");
         String CREATE_TICKET_TABLE = "CREATE TABLE "+DB_TABLE_TICKET_NAME +
                 "(" +
@@ -189,6 +195,7 @@ public class DBConnect extends SQLiteOpenHelper {
                 ")";
         db.execSQL(CREATE_TICKET_TABLE);
 
+        //Create review table
         Log.i(TAG, "Creating Review table");
         String CREATE_REVIEW_TABLE = "CREATE TABLE "+DB_TABLE_REVIEW_NAME +
                 "(" +
@@ -216,39 +223,6 @@ public class DBConnect extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + DB_TABLE_SHOW_NAME);
         onCreate(db);
     }
-
-    //Method to clean the database. NOG EVEN FIXEN, WANT HIJ WERKT NIET.
-    public void cleanDatabase() {
-        DBConnect db = new DBConnect(context, null, null);
-        String query = "DELETE FROM Feedback;";
-        SQLiteDatabase writable = db.getWritableDatabase();
-        writable.execSQL(query);
-        query = "DELETE FROM Review;";
-        writable = db.getWritableDatabase();
-        writable.execSQL(query);
-        query = "DELETE FROM Show;";
-        writable = db.getWritableDatabase();
-        writable.execSQL(query);
-        query = "DELETE FROM Theater;";
-        writable = db.getWritableDatabase();
-        writable.execSQL(query);
-        query = "DELETE FROM Ticket;";
-        writable = db.getWritableDatabase();
-        writable.execSQL(query);
-        query = "DELETE FROM Visitor;";
-        writable = db.getWritableDatabase();
-        writable.execSQL(query);
-        query = "DELETE FROM Film;";
-        writable = db.getWritableDatabase();
-        writable.execSQL(query);
-        query = "DELETE FROM Actor;";
-        writable = db.getWritableDatabase();
-        writable.execSQL(query);
-        query = "DELETE FROM Cinema;";
-        writable = db.getWritableDatabase();
-        writable.execSQL(query);
-    }
-
 
     //Feedback table getters
     public String getDB_TABLE_FEEDBACK_NAME() {
@@ -372,6 +346,7 @@ public class DBConnect extends SQLiteOpenHelper {
         return COLUMN_VISITOR_LASTNAME;
     }
 
+    //Film table getters
     public String getDB_TABLE_FILM_NAME() {
         return DB_TABLE_FILM_NAME;
     }
@@ -440,6 +415,7 @@ public class DBConnect extends SQLiteOpenHelper {
         return DB_TABLE_ACTOR_NAME;
     }
 
+    //Actor table getters
     public String getCOLUMN_ACTORID() {
         return COLUMN_ACTORID;
     }
@@ -452,6 +428,7 @@ public class DBConnect extends SQLiteOpenHelper {
         return COLUMN_ACTOR_LASTNAME;
     }
 
+    //Cinema table getters
     public String getDB_TABLE_CINEMA_NAME() {
         return DB_TABLE_CINEMA_NAME;
     }

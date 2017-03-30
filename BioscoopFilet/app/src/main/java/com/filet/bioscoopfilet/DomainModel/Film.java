@@ -46,6 +46,25 @@ public class Film implements Serializable{
         this.director = director;
     }
 
+    public Film(Cinema cinema, String title, String version, String language,
+                String releaseDate, String genre, int length, int age, String description,
+                String IMDBUrl, String IMDBScore, String trailerURL, String posterURL, String director) {
+        this.cinema = cinema;
+        this.title = title;
+        this.version = version;
+        this.language = language;
+        this.releaseDate = releaseDate;
+        this.genre = genre;
+        this.length = length;
+        this.age = age;
+        this.description = description;
+        this.IMDBUrl = IMDBUrl;
+        this.IMDBScore = IMDBScore;
+        this.trailerURL = trailerURL;
+        this.posterURL = posterURL;
+        this.director = director;
+    }
+
     public void addActor(Actor actor)
     {
         actors.add(actor);
@@ -177,5 +196,27 @@ public class Film implements Serializable{
 
     public void setActors(ArrayList<Actor> actors) {
         this.actors = actors;
+    }
+
+    @Override
+    public String toString() {
+        return "Film{" +
+                "filmID=" + filmID +
+                ", cinema=" + cinema +
+                ", title='" + title + '\'' +
+                ", version='" + version + '\'' +
+                ", language='" + language + '\'' +
+                ", releaseDate='" + releaseDate + '\'' +
+                ", genre='" + genre + '\'' +
+                ", length=" + length +
+                ", age=" + age +
+                ", description='" + description + '\'' +
+                ", IMDBUrl='" + IMDBUrl + '\'' +
+                ", IMDBScore='" + IMDBScore + '\'' +
+                ", trailerURL='" + trailerURL + '\'' +
+                ", posterURL='" + posterURL + '\'' +
+                ", director='" + director + '\'' +
+                ", actors=" + actors +
+                '}';
     }
 }

@@ -18,6 +18,11 @@ public class Actor implements Serializable {
         this.lastName = lastName;
     }
 
+    public Actor(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
     public int getActorID() {
         return actorID;
     }

@@ -18,6 +18,11 @@ public class Visitor implements Serializable {
         this.lastName = lastName;
     }
 
+    public Visitor(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
     public int getVisitorID() {
         return visitorID;
     }

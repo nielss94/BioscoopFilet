@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.filet.bioscoopfilet.DomainModel.Actor;
+import com.filet.bioscoopfilet.DomainModel.Cinema;
 import com.filet.bioscoopfilet.DomainModel.Feedback;
 import com.filet.bioscoopfilet.DomainModel.Film;
 import com.filet.bioscoopfilet.DomainModel.Review;
@@ -18,6 +19,7 @@ import com.filet.bioscoopfilet.DomainModel.Theater;
 import com.filet.bioscoopfilet.DomainModel.Ticket;
 import com.filet.bioscoopfilet.DomainModel.Visitor;
 import com.filet.bioscoopfilet.Persistancy.ActorDAO;
+import com.filet.bioscoopfilet.Persistancy.CinemaDAO;
 import com.filet.bioscoopfilet.Persistancy.DAOFactory;
 import com.filet.bioscoopfilet.Persistancy.DBConnect;
 import com.filet.bioscoopfilet.Persistancy.FeedbackDAO;
@@ -45,15 +47,15 @@ public class MainActivity extends AppCompatActivity {
 
         factory = new SQLiteDAOFactory(getApplicationContext());
 
-          testVisitorData();
-//        testTicketData();
-//        testReviewData();
-          testFeedbackData();
-//        testFilmDAO();
-//        testShowData();
-//        testTheaterData();
-//        testActorDAO();
-//        cleanDatabase();
+        testCinemaDAO();
+        testFilmDAO();
+        testVisitorData();
+        testTicketData();
+        testReviewData();
+        testFeedbackData();
+        testShowData();
+        testTheaterData();
+        testActorDAO();
     }
 
     @Override
@@ -89,67 +91,83 @@ public class MainActivity extends AppCompatActivity {
 
     public void testFeedbackData() {
 
-        Visitor v = new Visitor(2,"Jaap","Jo");
+        Visitor v = new Visitor(2, "Jaap", "Jo");
         FeedbackDAO feedbackDAO = factory.createFeedbackDAO();
-        feedbackDAO.insertData(new Feedback(1, v, "Goeie App!"));
+        feedbackDAO.insertData(new Feedback(v, "Goeie App!"));
         feedbackDAO.selectData();
     }
-/*
+
     public void testReviewData() {
         ReviewDAO reviewDAO = factory.createReviewDAO();
-        reviewDAO.insertData(new Review(1, 1, 1, 5, "Geweldige film"));
+        reviewDAO.insertData(new Review(new Film(2, new Cinema(2, "Filet", "Breda", "Lovensdijkstraat 1",
+                "5000XX", "013-51201230"), "Harry Potter", "Version", "language", "23-03-2017", "Horror", 113, 12,
+                "Description description...,", "www.imdb.url", "9.9", "www.trailer.url", "www.poster.url", "Director Niels"), new Visitor("Niels", "van Dam"), 5, "Geweldige film"));
         reviewDAO.selectData();
     }
 
     public void testTheaterData() {
         TheaterDAO theaterDAO = factory.createTheaterDAO();
-        theaterDAO.insertData(new Theater(1, 1, 150));
+        theaterDAO.insertData(new Theater( new Cinema(2, "Filet", "Breda", "Lovensdijkstraat 1",
+                "5000XX", "013-51201230"), 150));
         theaterDAO.selectData();
-    }*/
+    }
 
     public void testVisitorData() {
         VisitorDAO visitorDAO = factory.createVisitorDAO();
-        visitorDAO.insertData(new Visitor(1, "Tommy", "Heunks"));
+        visitorDAO.insertData(new Visitor("Tommy", "Heunks"));
     }
-    /*public void testShowData()
-    {
+
+    public void testShowData() {
         ShowDAO showDAO = factory.createShowDAO();
-        showDAO.insertData(new Show(1,3,2,new Date(04,04,1994,10,10),new Boolean[] { true, false,true,
-                false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true,
-                false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true,
-                false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true,
-                false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true,
-                false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true,
-                false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true,
-                false,true, false,true, false,true, false,true, false,true, false,true, false,true, false,true, false}));
-
-        showDAO.selectData();
+        showDAO.insertData(new Show(new Film(2, new Cinema(2, "Filet", "Breda", "Lovensdijkstraat 1",
+                "5000XX", "013-51201230"), "Harry Potter", "Version", "language", "23-03-2017", "Horror", 113, 12,
+                "Description description...,", "www.imdb.url", "9.9", "www.trailer.url", "www.poster.url", "Director Niels"), new Theater(2, new Cinema(2, "Filet", "Breda", "Lovensdijkstraat 1",
+                "5000XX", "013-51201230"), 150), new Date(04, 04, 1994, 10, 10), new Boolean[]{true, false, true,
+                false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true,
+                false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true,
+                false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true,
+                false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true,
+                false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true,
+                false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true,
+                false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false}));
+//        showDAO.selectData();
     }
 
-    public void testTicketData()
-    {
+    public void testTicketData() {
+        Show s = new Show(1, new Film(2, new Cinema(2, "Filet", "Breda", "Lovensdijkstraat 1",
+                "5000XX", "013-51201230"), "Harry Potter", "Version", "language", "23-03-2017", "Horror", 113, 12,
+                "Description description...,", "www.imdb.url", "9.9", "www.trailer.url", "www.poster.url", "Director Niels"), new Theater(2, new Cinema(2, "Filet", "Breda", "Lovensdijkstraat 1",
+                "5000XX", "013-51201230"), 150), new Date(04, 04, 1994, 10, 10), new Boolean[]{true, false, true,
+                false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true,
+                false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true,
+                false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true,
+                false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true,
+                false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true,
+                false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true,
+                false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false});
         TicketDAO ticketDAO = factory.createTicketDAO();
-        ticketDAO.insertData(new Ticket("fe32f2ef23fef23", new Visitor(1, "Niels", "nee"), 1, 32)); //NEED A METHOD TO GENERATE RANDOM QRCODES
+        ticketDAO.insertData(new Ticket("f23fgyhhg3gty4g3", new Visitor(2, "Niels", "nee"), s, 32)); //NEED A METHOD TO GENERATE RANDOM QRCODES
         ticketDAO.selectData();
-    }*/
+    }
 
-    /*public void testFilmDAO() {
+    public void testFilmDAO() {
         FilmDAO filmDAO = factory.createFilmDAO();
-        filmDAO.insertData(new Film(1, 1, "Harry Potter", "En 3D", "English", "05-08-2017", "Thriller/Horror",
-                134, 12, "Coole film, joh", "www.imdb.com/harrypotter", "8.1", "www.trailers.nl/harrypotter",
-                "http://harrypotterfanzone.com/wp-content/2015/07/philosophers-stone-theatrical-poster.jpg","J.K. Not-Rowling"));
-        filmDAO.selectData();
+        filmDAO.insertData(new Film(new Cinema(2, "Filet", "Breda", "Lovensdijkstraat 1",
+                "5000XX", "013-51201230"), "Harry Potter", "Version", "language", "23-03-2017", "Horror", 113, 12,
+                "Description description...,", "www.imdb.url", "9.9", "www.trailer.url", "www.poster.url", "Director Niels"));
+//        filmDAO.selectData();
     }
 
     public void testActorDAO() {
         ActorDAO actorDAO = factory.createActorDAO();
-        actorDAO.insertData(new Actor(1, "Geurtje", "Acteurtje"));
+        actorDAO.insertData(new Actor("Geurtje", "Acteurtje"));
         actorDAO.selectData();
-    }*/
+    }
 
-    //cleans the database. DOES NOT WORK YET.
-    public void cleanDatabase() {
-        DBConnect db = new DBConnect(getApplicationContext(), null, null);
-        db.cleanDatabase();
+    public void testCinemaDAO() {
+        CinemaDAO cinemaDAO = factory.createCinemaDAO();
+        cinemaDAO.insertData(new Cinema("Filet", "Breda", "Lovensdijkstraat 1",
+                "5000XX", "013-51201230"));
+//        cinemaDAO.selectData();
     }
 }

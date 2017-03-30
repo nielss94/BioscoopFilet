@@ -24,6 +24,14 @@ public class Cinema implements Serializable {
         this.phone = phone;
     }
 
+    public Cinema(String name, String city, String address, String zipCode, String phone) {
+        this.name = name;
+        this.city = city;
+        this.address = address;
+        this.zipCode = zipCode;
+        this.phone = phone;
+    }
+
     public int getCinemaID() {
         return cinemaID;
     }

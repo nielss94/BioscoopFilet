@@ -22,6 +22,13 @@ public class Review implements Serializable {
         this.description = description;
     }
 
+    public Review(Film film, Visitor visitor, int score, String description) {
+        this.film = film;
+        this.visitor = visitor;
+        this.score = score;
+        this.description = description;
+    }
+
     public int getReviewID() {
         return reviewID;
     }

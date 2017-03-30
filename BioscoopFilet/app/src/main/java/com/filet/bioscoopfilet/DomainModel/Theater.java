@@ -17,6 +17,11 @@ public class Theater implements Serializable {
         this.numberOfSeats = numberOfSeats;
     }
 
+    public Theater(Cinema cinema, int numberOfSeats) {
+        this.cinema = cinema;
+        this.numberOfSeats = numberOfSeats;
+    }
+
     public int getTheaterID() {
         return theaterID;
     }

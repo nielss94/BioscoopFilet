@@ -15,8 +15,14 @@ public class Show implements Serializable {
     private Date time;
     private Boolean[] seats = new Boolean[150];
 
-    public Show(int showID, Film film, Theater theater, Date time) {
-        this.showID = showID;
+    public Show(Film film, Theater theater, Date time, Boolean[] seats) {
+        this.film = film;
+        this.theater = theater;
+        this.time = time;
+        this.seats = seats;
+    }
+
+    public Show(Film film, Theater theater, Date time) {
         this.film = film;
         this.theater = theater;
         this.time = time;
@@ -28,6 +34,13 @@ public class Show implements Serializable {
         this.theater = theater;
         this.time = time;
         this.seats = seats;
+    }
+
+    public Show(int showID, Film film, Theater theater, Date time) {
+        this.showID = showID;
+        this.film = film;
+        this.theater = theater;
+        this.time = time;
     }
 
     public int getShowID() {

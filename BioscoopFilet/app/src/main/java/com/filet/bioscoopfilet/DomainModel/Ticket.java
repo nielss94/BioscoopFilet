@@ -10,13 +10,13 @@ public class Ticket implements Serializable {
 
     private String qrCode;
     private Visitor visitor;
-    private Show showID;
+    private Show show;
     private int seat;
 
-    public Ticket(String qrCode, Visitor visitor, Show showID, int seat) {
+    public Ticket(String qrCode, Visitor visitor, Show show, int seat) {
         this.qrCode = qrCode;
         this.visitor = visitor;
-        this.showID = showID;
+        this.show = show;
         this.seat = seat;
     }
 
@@ -36,12 +36,12 @@ public class Ticket implements Serializable {
         this.visitor = visitor;
     }
 
-    public Show getShowID() {
-        return showID;
+    public Show getShow() {
+        return show;
     }
 
-    public void setShowID(Show showID) {
-        this.showID = showID;
+    public void setShow(Show show) {
+        this.show = show;
     }
 
     public int getSeat() {
@@ -57,7 +57,7 @@ public class Ticket implements Serializable {
         return "Ticket{" +
                 "qrCode='" + qrCode + '\'' +
                 ", visitor=" + visitor +
-                ", showID=" + showID +
+                ", show=" + show +
                 ", seat=" + seat +
                 '}';
     }

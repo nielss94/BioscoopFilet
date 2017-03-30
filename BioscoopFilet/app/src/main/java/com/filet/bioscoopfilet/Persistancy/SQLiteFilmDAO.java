@@ -45,12 +45,11 @@ public class SQLiteFilmDAO implements FilmDAO {
             cursor.moveToFirst();
             while (cursor.moveToNext()) {
                 Film f = null;
-                Cinema c;
+                Cinema c = null;
                 for (int i = 0; i < cinemas.size(); i++) {
-                    if (cinemas.get(i).getCinemaID() == cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_FILM_CINEMAID())))
-                        ;
-                    c = cinemas.get(i);
-
+                    if (cinemas.get(i).getCinemaID() == cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_FILM_CINEMAID()))) {
+                        c = cinemas.get(i);
+                    }
                     f = new Film(cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_FILMID())),
                             c,
                             cursor.getString(cursor.getColumnIndex(db.getCOLUMN_FILM_TITLE())),
