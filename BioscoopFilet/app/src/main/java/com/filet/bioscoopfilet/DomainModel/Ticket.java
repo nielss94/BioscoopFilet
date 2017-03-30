@@ -1,10 +1,12 @@
 package com.filet.bioscoopfilet.DomainModel;
 
+import java.io.Serializable;
+
 /**
  * Created by Niels on 3/28/2017.
  */
 
-public class Ticket {
+public class Ticket implements Serializable {
 
     private String qrCode;
     private Visitor visitor;

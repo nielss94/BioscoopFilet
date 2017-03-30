@@ -1,10 +1,12 @@
 package com.filet.bioscoopfilet.DomainModel;
 
+import java.io.Serializable;
+
 /**
  * Created by Felix on 28-3-2017.
  */
 
-public class Cinema {
+public class Cinema implements Serializable {
 
     private int cinemaID;
     private String name;
