@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/myTicketsImage"
             android:textColor="#fff"
-            android:text="@string/my_filet"
+            android:text="@string/my_tickets"
             android:textStyle="bold"
             android:layout_centerHorizontal="true"/>
 
