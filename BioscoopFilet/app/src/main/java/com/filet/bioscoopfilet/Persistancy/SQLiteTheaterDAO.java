@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.util.Log;
 
+import com.filet.bioscoopfilet.DomainModel.Cinema;
 import com.filet.bioscoopfilet.DomainModel.Theater;
 
 import java.util.ArrayList;
@@ -21,6 +22,7 @@ public class SQLiteTheaterDAO implements TheaterDAO {
     private DBConnect db;
     private Context context;
     private ArrayList<Theater> theaters = new ArrayList<>();
+    private ArrayList<Cinema> cinemas = new ArrayList<>();
 
     public SQLiteTheaterDAO(Context context) {
         this.context = context;
@@ -38,9 +40,20 @@ public class SQLiteTheaterDAO implements TheaterDAO {
             Cursor cursor = readable.rawQuery(query, null);
 
             cursor.moveToFirst();
+
+            CinemaDAO cinemaDAO = new SQLiteCinemaDAO(context);
+            cinemas = cinemaDAO.selectData();
+
             while (cursor.moveToNext()) {
-                Theater t = new Theater(cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_THEATERID())),
-                        cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_THEATER_CINEMAID())),
+                Cinema c = null;
+                Theater t;
+                for (int i = 0; i < cinemas.size(); i++) {
+                    if(cinemas.get(i).getCinemaID() == cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_THEATER_CINEMAID())))
+                    {
+                        c = cinemas.get(i);
+                    }
+                }
+                t = new Theater(cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_THEATERID())), c,
                         cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_THEATER_NUMBER_OF_SEATS())));
 
                 Log.i(TAG, t.toString());
@@ -63,7 +76,7 @@ public class SQLiteTheaterDAO implements TheaterDAO {
 
             ContentValues values = new ContentValues();
 
-            values.put(db.getCOLUMN_THEATER_CINEMAID(), theater.getCinema());
+            values.put(db.getCOLUMN_THEATER_CINEMAID(), theater.getCinema().getCinemaID());
             values.put(db.getCOLUMN_THEATER_NUMBER_OF_SEATS(), theater.getNumberOfSeats());
 
             writable.insert(db.getDB_TABLE_THEATER_NAME(), null, values);
