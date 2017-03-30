@@ -1,5 +1,6 @@
 package com.filet.bioscoopfilet.DomainModel;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Date;
 
@@ -7,7 +8,7 @@ import java.util.Date;
  * Created by Niels on 3/28/2017.
  */
 
-public class Show {
+public class Show implements Serializable {
 
     private int showID;
     private int filmID;
