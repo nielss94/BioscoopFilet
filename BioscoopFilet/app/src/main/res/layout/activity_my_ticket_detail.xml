@@ -15,7 +15,11 @@
         android:elevation="4dp"
         android:theme="@style/ThemeFilet"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
-
+<LinearLayout
+    android:background="@drawable/border"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -66,5 +70,5 @@
             android:text="Plaatsen: Rij 1 Stoel 1, 2, 3, 4"/>
 
     </RelativeLayout>
-
+    </LinearLayout>
 </LinearLayout>

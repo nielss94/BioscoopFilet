@@ -25,7 +25,11 @@
         <activity android:name=".PresentationApplicationLogicLayer.ReviewsActivity" />
         <activity android:name=".PresentationApplicationLogicLayer.FilmOverviewActivity" />
         <activity android:name=".PresentationApplicationLogicLayer.PaymentActivity" />
-        <activity android:name=".PresentationApplicationLogicLayer.FilmDetailAgendaActivity"></activity>
+        <activity android:name=".PresentationApplicationLogicLayer.MyFiletActivity" />
+        <activity android:name=".PresentationApplicationLogicLayer.BuyTicketsActivity" />
+        <activity android:name=".PresentationApplicationLogicLayer.SeatSelectionActivity" />
+        <activity android:name=".PresentationApplicationLogicLayer.FilmDetailAgendaActivity" />
+        <activity android:name=".PresentationApplicationLogicLayer.FilmAgendaActivity"></activity>
     </application>
 
 </manifest>

@@ -17,6 +17,7 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
     <ListView
+        android:background="@drawable/border"
         android:id="@+id/ticketsListview"
         android:layout_width="match_parent"
         android:layout_height="match_parent">

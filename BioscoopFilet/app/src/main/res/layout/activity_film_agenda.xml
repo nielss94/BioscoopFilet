@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_pt"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.filet.bioscoopfilet.PresentationApplicationLogicLayer.PTActivity"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.filet.bioscoopfilet.PresentationApplicationLogicLayer.FilmOverviewActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/my_toolbar"
@@ -16,23 +15,28 @@
         android:elevation="4dp"
         android:theme="@style/ThemeFilet"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+<LinearLayout
+    android:background="@drawable/border_darkred_bg"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <Spinner
+        android:entries="@array/blij"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
 
     <LinearLayout
-        android:background="@drawable/border"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
-            android:padding="@dimen/activity_horizontal_margin"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ListView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:id="@+id/filmListView">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/contact_info"/>
+        </ListView>
 
-        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>
