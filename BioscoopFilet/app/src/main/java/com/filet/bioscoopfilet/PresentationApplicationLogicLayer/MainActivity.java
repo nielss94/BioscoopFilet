@@ -93,6 +93,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void agendaButton(View v) {
+        Intent intent = new Intent(this, FilmAgendaActivity.class);
+        startActivity(intent);
+    }
+
     public void testFeedbackData() {
 
         Visitor v = new Visitor(2,"Jaap","Jo");
