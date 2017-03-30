@@ -21,7 +21,6 @@ import com.filet.bioscoopfilet.DomainModel.Visitor;
 import com.filet.bioscoopfilet.Persistancy.ActorDAO;
 import com.filet.bioscoopfilet.Persistancy.CinemaDAO;
 import com.filet.bioscoopfilet.Persistancy.DAOFactory;
-import com.filet.bioscoopfilet.Persistancy.DBConnect;
 import com.filet.bioscoopfilet.Persistancy.FeedbackDAO;
 import com.filet.bioscoopfilet.Persistancy.FilmDAO;
 import com.filet.bioscoopfilet.Persistancy.ReviewDAO;
@@ -157,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
                 false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true,
                 false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false});
         TicketDAO ticketDAO = factory.createTicketDAO();
-        ticketDAO.insertData(new Ticket("f23fgyhhg3gty4g3", new Visitor(2, "Niels", "nee"), s, 32)); //NEED A METHOD TO GENERATE RANDOM QRCODES
+        ticketDAO.insertData(new Ticket("f32f2eGW", new Visitor(2, "Niels", "nee"), s, 32)); //NEED A METHOD TO GENERATE RANDOM QRCODES
         ticketDAO.selectData();
     }
 
