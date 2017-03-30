@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Filet</string>
     <string name="films">Films</string>
+    <string name="shows">Shows</string>
     <string name="my_filet">Mijn Filet</string>
     <string name="film_calender">Film Agenda</string>
     <string name="information">Informatie</string>
