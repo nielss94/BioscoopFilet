@@ -20,7 +20,7 @@ public class SQLiteFilmDAO implements FilmDAO {
     private final String TAG = this.getClass().getSimpleName();
     private DBConnect db;
     private Context context;
-    private ArrayList<Film> theaters = new ArrayList<>();
+    private ArrayList<Film> films = new ArrayList<>();
 
     public SQLiteFilmDAO(Context context) {
         this.context = context;
@@ -58,14 +58,14 @@ public class SQLiteFilmDAO implements FilmDAO {
                 Log.i(TAG, f.toString());
                 Log.i(TAG, "--------------------------------------------");
 
-                theaters.add(f);
+                films.add(f);
             }
             db.close();
 
         } catch (SQLiteException e) {
             Log.i(TAG, e.getMessage());
         }
-        return theaters;
+        return films;
     }
 
     @Override
