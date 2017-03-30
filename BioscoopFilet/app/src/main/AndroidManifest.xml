@@ -22,7 +22,7 @@
         <activity android:name=".PresentationApplicationLogicLayer.PTActivity" />
         <activity android:name=".PresentationApplicationLogicLayer.FeedbackActivity" />
         <activity android:name=".PresentationApplicationLogicLayer.ContactActivity" />
-        <activity android:name=".PresentationApplicationLogicLayer.ReviewActivity" />
+        <activity android:name=".PresentationApplicationLogicLayer.ReviewsActivity" />
         <activity android:name=".PresentationApplicationLogicLayer.FilmOverviewActivity" />
         <activity android:name=".PresentationApplicationLogicLayer.PaymentActivity" />
         <activity android:name=".PresentationApplicationLogicLayer.FilmDetailAgendaActivity"></activity>

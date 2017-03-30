@@ -1,10 +1,6 @@
 package com.filet.bioscoopfilet.DomainModel;
 
-<<<<<<< HEAD
-=======
 import java.io.Serializable;
-import java.util.Arrays;
->>>>>>> origin/master
 import java.util.Date;
 
 /**
