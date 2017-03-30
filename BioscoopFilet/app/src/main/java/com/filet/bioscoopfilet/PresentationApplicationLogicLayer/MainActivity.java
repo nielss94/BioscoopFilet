@@ -21,7 +21,6 @@ import com.filet.bioscoopfilet.DomainModel.Visitor;
 import com.filet.bioscoopfilet.Persistancy.ActorDAO;
 import com.filet.bioscoopfilet.Persistancy.CinemaDAO;
 import com.filet.bioscoopfilet.Persistancy.DAOFactory;
-import com.filet.bioscoopfilet.Persistancy.DBConnect;
 import com.filet.bioscoopfilet.Persistancy.FeedbackDAO;
 import com.filet.bioscoopfilet.Persistancy.FilmDAO;
 import com.filet.bioscoopfilet.Persistancy.ReviewDAO;
@@ -32,6 +31,7 @@ import com.filet.bioscoopfilet.Persistancy.TicketDAO;
 import com.filet.bioscoopfilet.Persistancy.VisitorDAO;
 import com.filet.bioscoopfilet.R;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
@@ -53,9 +53,9 @@ public class MainActivity extends AppCompatActivity {
         testTicketData();
         testReviewData();
         testFeedbackData();
-        testShowData();
         testTheaterData();
         testActorDAO();
+        testShowData();
     }
 
     @Override
@@ -133,14 +133,7 @@ public class MainActivity extends AppCompatActivity {
         showDAO.insertData(new Show(new Film(2, new Cinema(2, "Filet", "Breda", "Lovensdijkstraat 1",
                 "5000XX", "013-51201230"), "Harry Potter", "Version", "language", "23-03-2017", "Horror", 113, 12,
                 "Description description...,", "www.imdb.url", "9.9", "www.trailer.url", "www.poster.url", "Director Niels"), new Theater(2, new Cinema(2, "Filet", "Breda", "Lovensdijkstraat 1",
-                "5000XX", "013-51201230"), 150), new Date(04, 04, 1994, 10, 10), new Boolean[]{true, false, true,
-                false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true,
-                false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true,
-                false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true,
-                false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true,
-                false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true,
-                false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true,
-                false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false}));
+                "5000XX", "013-51201230"), 150), new Date(04, 04, 1994, 10, 10), "101010001000100101110100100101010010001001010100100100010001000010010100101010100010001001011101001001010100100010010101001001000100010000100101001011"));
 //        showDAO.selectData();
     }
 
@@ -148,16 +141,9 @@ public class MainActivity extends AppCompatActivity {
         Show s = new Show(1, new Film(2, new Cinema(2, "Filet", "Breda", "Lovensdijkstraat 1",
                 "5000XX", "013-51201230"), "Harry Potter", "Version", "language", "23-03-2017", "Horror", 113, 12,
                 "Description description...,", "www.imdb.url", "9.9", "www.trailer.url", "www.poster.url", "Director Niels"), new Theater(2, new Cinema(2, "Filet", "Breda", "Lovensdijkstraat 1",
-                "5000XX", "013-51201230"), 150), new Date(04, 04, 1994, 10, 10), new Boolean[]{true, false, true,
-                false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true,
-                false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true,
-                false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true,
-                false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true,
-                false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true,
-                false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true,
-                false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false});
+                "5000XX", "013-51201230"), 150), new Date(04, 04, 1994, 10, 10), "101010001000100101110100100101010010001001010100100100010001000010010100101010100010001001011101001001010100100010010101001001000100010000100101001011");
         TicketDAO ticketDAO = factory.createTicketDAO();
-        ticketDAO.insertData(new Ticket("f23fgyhhg3gty4g3", new Visitor(2, "Niels", "nee"), s, 32)); //NEED A METHOD TO GENERATE RANDOM QRCODES
+        ticketDAO.insertData(new Ticket("f2asdffgfdwadgfdf7ikjhfdfgtrrshg3gty4g3", new Visitor(2, "Niels", "nee"), s, 32)); //NEED A METHOD TO GENERATE RANDOM QRCODES
         ticketDAO.selectData();
     }
 
@@ -166,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
         filmDAO.insertData(new Film(new Cinema(2, "Filet", "Breda", "Lovensdijkstraat 1",
                 "5000XX", "013-51201230"), "Harry Potter", "Version", "language", "23-03-2017", "Horror", 113, 12,
                 "Description description...,", "www.imdb.url", "9.9", "www.trailer.url", "www.poster.url", "Director Niels"));
-//        filmDAO.selectData();
+
     }
 
     public void testActorDAO() {
@@ -179,6 +165,5 @@ public class MainActivity extends AppCompatActivity {
         CinemaDAO cinemaDAO = factory.createCinemaDAO();
         cinemaDAO.insertData(new Cinema("Filet", "Breda", "Lovensdijkstraat 1",
                 "5000XX", "013-51201230"));
-//        cinemaDAO.selectData();
     }
 }

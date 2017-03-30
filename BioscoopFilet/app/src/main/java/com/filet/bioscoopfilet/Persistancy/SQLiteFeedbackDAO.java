@@ -52,7 +52,6 @@ public class SQLiteFeedbackDAO implements FeedbackDAO {
                 Feedback f = null;
                 Visitor v = null;
                 for (int i = 0; i < visitors.size(); i++) {
-                    Log.i(TAG, visitors.get(i).getVisitorID() + " &&& " + cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_FEEDBACK_VISITORID())));
                     if(visitors.get(i).getVisitorID() == cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_FEEDBACK_VISITORID())))
                     {
                         v = visitors.get(i);
