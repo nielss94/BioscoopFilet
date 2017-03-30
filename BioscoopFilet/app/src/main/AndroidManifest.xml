@@ -24,7 +24,8 @@
         <activity android:name=".PresentationApplicationLogicLayer.ContactActivity" />
         <activity android:name=".PresentationApplicationLogicLayer.ReviewActivity" />
         <activity android:name=".PresentationApplicationLogicLayer.FilmOverviewActivity" />
-        <activity android:name=".PresentationApplicationLogicLayer.PaymentActivity"></activity>
+        <activity android:name=".PresentationApplicationLogicLayer.PaymentActivity" />
+        <activity android:name=".PresentationApplicationLogicLayer.FilmDetailAgendaActivity"></activity>
     </application>
 
 </manifest>
