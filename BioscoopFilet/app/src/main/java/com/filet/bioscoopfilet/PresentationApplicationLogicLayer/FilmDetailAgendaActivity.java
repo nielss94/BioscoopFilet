@@ -1,10 +1,13 @@
 package com.filet.bioscoopfilet.PresentationApplicationLogicLayer;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -67,6 +70,16 @@ public class FilmDetailAgendaActivity extends AppCompatActivity {
         //Setting poster image in ImageView
         Picasso.with(this).load(film.getPosterURL()).into(poster);
 
+        //SETTING TEXT FOR DEMO
+        Button button = (Button) findViewById(R.id.buttonTimeTickets);
+        button.setText("Koop tickets");
+
+    }
+
+    //DEMO BUTTON
+    public void buyButton(View v) {
+        Intent intent = new Intent(this, BuyTicketsActivity.class);
+        startActivity(intent);
     }
 
     @Override

@@ -17,6 +17,7 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
     <LinearLayout
+        android:background="@drawable/border"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="@dimen/activity_horizontal_margin"
@@ -119,6 +120,8 @@
         </ScrollView>
 
             <Button
+                android:id="@+id/buttonTimeTickets"
+                android:onClick="buyButton"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"

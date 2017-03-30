@@ -17,6 +17,10 @@
         android:theme="@style/ThemeFilet"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
+    <LinearLayout
+        android:background="@drawable/border"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
         <LinearLayout
             android:padding="@dimen/activity_horizontal_margin"
             android:layout_width="match_parent"
@@ -29,4 +33,6 @@
                 android:text="@string/contact_info"/>
 
         </LinearLayout>
+    </LinearLayout>
+
 </LinearLayout>

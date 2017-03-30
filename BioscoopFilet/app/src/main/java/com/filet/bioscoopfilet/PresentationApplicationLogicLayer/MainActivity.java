@@ -77,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //Buttons
     public void informationButton(View v) {
         Intent intent = new Intent(this, InformationActivity.class);
         startActivity(intent);
@@ -84,6 +85,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void filmButton(View v) {
         Intent intent = new Intent(this, FilmOverviewActivity.class);
+        startActivity(intent);
+    }
+
+    public void myButton(View v) {
+        Intent intent = new Intent(this, MyFiletActivity.class);
         startActivity(intent);
     }
 

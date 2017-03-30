@@ -49,4 +49,7 @@ Drumstick tri-tip beef ribs, cow corned beef biltong ribeye boudin shoulder ball
     <string name="director">Director: </string>
     <string name="release">Release: </string>
     <string name="film_detail">Film Details</string>
+    <string name="paypal">PayPal</string>
+    <string name="ideal">iDEAL</string>
+    <string name="creditcard">Creditcard</string>
 </resources>
