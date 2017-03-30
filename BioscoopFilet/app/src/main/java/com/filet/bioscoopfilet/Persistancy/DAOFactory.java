@@ -8,11 +8,11 @@ package com.filet.bioscoopfilet.Persistancy;
 public interface DAOFactory {
 
     FeedbackDAO createFeedbackDAO();
-//    ReviewDAO createReviewDAO();
-//    ShowDAO createShowDAO();
-//    TheaterDAO createTheaterDAO();
-//    TicketDAO createTicketDAO();
+    ReviewDAO createReviewDAO();
+    ShowDAO createShowDAO();
+    TheaterDAO createTheaterDAO();
+    TicketDAO createTicketDAO();
     VisitorDAO createVisitorDAO();
-//    FilmDAO createFilmDAO();
+    FilmDAO createFilmDAO();
     ActorDAO createActorDAO();
 }
