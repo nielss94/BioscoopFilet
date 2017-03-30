@@ -2,7 +2,6 @@ package com.filet.bioscoopfilet.DomainModel;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  * Created by Niels on 3/28/2017.
@@ -11,7 +10,7 @@ import java.util.Date;
 public class Film implements Serializable{
 
     private int filmID;
-    private int cinemaID;
+    private Cinema cinema;
     private String title;
     private String version;
     private String language;
@@ -27,11 +26,11 @@ public class Film implements Serializable{
     private String director;
     private ArrayList<Actor> actors;
 
-    public Film(int filmID, int cinemaID, String title, String version, String language,
+    public Film(int filmID, Cinema cinema, String title, String version, String language,
                 String releaseDate, String genre, int length, int age, String description,
                 String IMDBUrl, String IMDBScore, String trailerURL, String posterURL, String director) {
         this.filmID = filmID;
-        this.cinemaID = cinemaID;
+        this.cinema = cinema;
         this.title = title;
         this.version = version;
         this.language = language;
@@ -60,12 +59,12 @@ public class Film implements Serializable{
         this.filmID = filmID;
     }
 
-    public int getCinemaID() {
-        return cinemaID;
+    public Cinema getCinema() {
+        return cinema;
     }
 
-    public void setCinemaID(int cinemaID) {
-        this.cinemaID = cinemaID;
+    public void setCinema(Cinema cinema) {
+        this.cinema = cinema;
     }
 
     public String getTitle() {

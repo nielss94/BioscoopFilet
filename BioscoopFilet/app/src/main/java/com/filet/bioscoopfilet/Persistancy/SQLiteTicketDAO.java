@@ -65,7 +65,7 @@ public class SQLiteTicketDAO implements TicketDAO {
             ContentValues values = new ContentValues();
 
             values.put(db.getCOLUMN_TICKET_QRCODE(),ticket.getQrCode());
-            values.put(db.getCOLUMN_TICKET_VISITORID(),ticket.getVisitorID());
+            values.put(db.getCOLUMN_TICKET_VISITORID(),ticket.getVisitor());
             values.put(db.getCOLUMN_TICKET_SHOWID(),ticket.getShowID());
             values.put(db.getCOLUMN_TICKET_SEAT(),ticket.getSeat());
 

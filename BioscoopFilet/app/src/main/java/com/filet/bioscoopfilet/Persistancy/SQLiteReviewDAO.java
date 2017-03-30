@@ -64,8 +64,8 @@ public class SQLiteReviewDAO implements ReviewDAO {
 
             ContentValues values = new ContentValues();
 
-            values.put(db.getCOLUMN_REVIEW_FILMID(), review.getFilmID());
-            values.put(db.getCOLUMN_REVIEW_VISITORID(), review.getVisitorID());
+            values.put(db.getCOLUMN_REVIEW_FILMID(), review.getFilm());
+            values.put(db.getCOLUMN_REVIEW_VISITORID(), review.getVisitor());
             values.put(db.getCOLUMN_REVIEW_SCORE(), review.getScore());
             values.put(db.getCOLUMN_REVIEW_DESCRIPTION(), review.getDescription());
 

@@ -45,14 +45,14 @@ public class MainActivity extends AppCompatActivity {
 
         factory = new SQLiteDAOFactory(getApplicationContext());
 
-//        testVisitorData();
+          testVisitorData();
 //        testTicketData();
 //        testReviewData();
-//        testFeedbackData();
+          testFeedbackData();
 //        testFilmDAO();
 //        testShowData();
 //        testTheaterData();
-        testActorDAO();
+//        testActorDAO();
 //        cleanDatabase();
     }
 
@@ -88,11 +88,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void testFeedbackData() {
+
+        Visitor v = new Visitor(2,"Jaap","Jo");
         FeedbackDAO feedbackDAO = factory.createFeedbackDAO();
-        feedbackDAO.insertData(new Feedback(1, 1, "Goeie App!"));
+        feedbackDAO.insertData(new Feedback(1, v, "Goeie App!"));
         feedbackDAO.selectData();
     }
-
+/*
     public void testReviewData() {
         ReviewDAO reviewDAO = factory.createReviewDAO();
         reviewDAO.insertData(new Review(1, 1, 1, 5, "Geweldige film"));
@@ -103,15 +105,13 @@ public class MainActivity extends AppCompatActivity {
         TheaterDAO theaterDAO = factory.createTheaterDAO();
         theaterDAO.insertData(new Theater(1, 1, 150));
         theaterDAO.selectData();
-    }
+    }*/
 
     public void testVisitorData() {
         VisitorDAO visitorDAO = factory.createVisitorDAO();
         visitorDAO.insertData(new Visitor(1, "Tommy", "Heunks"));
-        visitorDAO.selectData();
     }
-
-    public void testShowData()
+    /*public void testShowData()
     {
         ShowDAO showDAO = factory.createShowDAO();
         showDAO.insertData(new Show(1,3,2,new Date(04,04,1994,10,10),new Boolean[] { true, false,true,
@@ -129,11 +129,11 @@ public class MainActivity extends AppCompatActivity {
     public void testTicketData()
     {
         TicketDAO ticketDAO = factory.createTicketDAO();
-        ticketDAO.insertData(new Ticket("fe32f2ef23fef23", 1, 1, 32)); //NEED A METHOD TO GENERATE RANDOM QRCODES
+        ticketDAO.insertData(new Ticket("fe32f2ef23fef23", new Visitor(1, "Niels", "nee"), 1, 32)); //NEED A METHOD TO GENERATE RANDOM QRCODES
         ticketDAO.selectData();
-    }
+    }*/
 
-    public void testFilmDAO() {
+    /*public void testFilmDAO() {
         FilmDAO filmDAO = factory.createFilmDAO();
         filmDAO.insertData(new Film(1, 1, "Harry Potter", "En 3D", "English", "05-08-2017", "Thriller/Horror",
                 134, 12, "Coole film, joh", "www.imdb.com/harrypotter", "8.1", "www.trailers.nl/harrypotter",
@@ -145,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
         ActorDAO actorDAO = factory.createActorDAO();
         actorDAO.insertData(new Actor(1, "Geurtje", "Acteurtje"));
         actorDAO.selectData();
-    }
+    }*/
 
     //cleans the database. DOES NOT WORK YET.
     public void cleanDatabase() {

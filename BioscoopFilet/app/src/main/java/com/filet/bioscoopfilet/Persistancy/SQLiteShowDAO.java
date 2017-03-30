@@ -9,7 +9,6 @@ import android.util.Log;
 
 import com.filet.bioscoopfilet.DomainModel.Show;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -83,8 +82,8 @@ public class SQLiteShowDAO implements ShowDAO {
             ContentValues values = new ContentValues();
 
 
-            values.put(db.getCOLUMN_SHOW_FILMID(),show.getFilmID());
-            values.put(db.getCOLUMN_SHOW_THEATERID(),show.getTheaterID());
+            values.put(db.getCOLUMN_SHOW_FILMID(),show.getFilm());
+            values.put(db.getCOLUMN_SHOW_THEATERID(),show.getTheater());
             //Test this!!
             values.put(db.getCOLUMN_SHOW_TIME(),show.getTime().toString());
 

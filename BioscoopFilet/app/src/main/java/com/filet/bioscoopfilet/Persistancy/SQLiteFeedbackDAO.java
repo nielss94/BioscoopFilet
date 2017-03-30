@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteException;
 import android.util.Log;
 
 import com.filet.bioscoopfilet.DomainModel.Feedback;
+import com.filet.bioscoopfilet.DomainModel.Visitor;
 
 import java.util.ArrayList;
 
@@ -23,6 +24,7 @@ public class SQLiteFeedbackDAO implements FeedbackDAO {
     private Context context;
 
     private ArrayList<Feedback> feedbacks = new ArrayList<>();
+    private ArrayList<Visitor> visitors = new ArrayList<>();
 
     public SQLiteFeedbackDAO(Context context)
     {
@@ -41,11 +43,22 @@ public class SQLiteFeedbackDAO implements FeedbackDAO {
             Cursor cursor = readable.rawQuery(query, null);
 
             cursor.moveToFirst();
-            while(cursor.moveToNext() ) {
-                Feedback f = new Feedback(cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_FEEDBACKID())),
-                        cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_FEEDBACK_VISITORID())),
-                        cursor.getString(cursor.getColumnIndex(db.getCOLUMN_FEEDBACK_DESCRIPTION())));
 
+            VisitorDAO visitorDAO = new SQLiteVisitorDAO(context);
+
+            visitors = visitorDAO.selectData();
+
+            while(cursor.moveToNext() ) {
+                Feedback f = null;
+                Visitor v = null;
+                for (int i = 0; i < visitors.size(); i++) {
+                    if(visitors.get(i).getVisitorID() == cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_FEEDBACK_VISITORID())))
+                    {
+                        v = visitors.get(i);
+                        f = new Feedback(cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_FEEDBACKID())), v,
+                        cursor.getString(cursor.getColumnIndex(db.getCOLUMN_FEEDBACK_DESCRIPTION())));
+                    }
+                }
                 Log.i(TAG, f.toString());
                 Log.i(TAG, "--------------------------------------------");
 
@@ -69,7 +82,7 @@ public class SQLiteFeedbackDAO implements FeedbackDAO {
 
             ContentValues values = new ContentValues();
 
-            values.put(db.getCOLUMN_FEEDBACK_VISITORID(),feedback.getVisitorID());
+            values.put(db.getCOLUMN_FEEDBACK_VISITORID(),feedback.getVisitor().getVisitorID());
             values.put(db.getCOLUMN_FEEDBACK_DESCRIPTION(),feedback.getDescription());
 
             writable.insert(db.getDB_TABLE_FEEDBACK_NAME(), null, values);

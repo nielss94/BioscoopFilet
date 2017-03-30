@@ -1,6 +1,5 @@
 package com.filet.bioscoopfilet.DomainModel;
 
-import java.util.Arrays;
 import java.util.Date;
 
 /**
@@ -10,22 +9,22 @@ import java.util.Date;
 public class Show {
 
     private int showID;
-    private int filmID;
-    private int theaterID;
+    private Film film;
+    private Theater theater;
     private Date time;
     private Boolean[] seats = new Boolean[150];
 
-    public Show(int showID, int filmID, int theaterID, Date time) {
+    public Show(int showID, Film film, Theater theater, Date time) {
         this.showID = showID;
-        this.filmID = filmID;
-        this.theaterID = theaterID;
+        this.film = film;
+        this.theater = theater;
         this.time = time;
     }
 
-    public Show(int showID, int filmID, int theaterID, Date time, Boolean[] seats) {
+    public Show(int showID, Film film, Theater theater, Date time, Boolean[] seats) {
         this.showID = showID;
-        this.filmID = filmID;
-        this.theaterID = theaterID;
+        this.film = film;
+        this.theater = theater;
         this.time = time;
         this.seats = seats;
     }
@@ -38,20 +37,20 @@ public class Show {
         this.showID = showID;
     }
 
-    public int getFilmID() {
-        return filmID;
+    public Film getFilm() {
+        return film;
     }
 
-    public void setFilmID(int filmID) {
-        this.filmID = filmID;
+    public void setFilm(Film film) {
+        this.film = film;
     }
 
-    public int getTheaterID() {
-        return theaterID;
+    public Theater getTheater() {
+        return theater;
     }
 
-    public void setTheaterID(int theaterID) {
-        this.theaterID = theaterID;
+    public void setTheater(Theater theater) {
+        this.theater = theater;
     }
 
     public Date getTime() {
@@ -84,8 +83,8 @@ public class Show {
         }
         return "Show{" +
                 "showID=" + showID +
-                ", filmID=" + filmID +
-                ", theaterID=" + theaterID +
+                ", film=" + film +
+                ", theater=" + theater +
                 ", time=" + time +
                 ", seats=" + seatsAsText  +
                 '}';

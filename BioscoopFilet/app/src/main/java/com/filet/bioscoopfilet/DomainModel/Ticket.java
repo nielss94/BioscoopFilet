@@ -7,13 +7,13 @@ package com.filet.bioscoopfilet.DomainModel;
 public class Ticket {
 
     private String qrCode;
-    private int visitorID;
-    private int showID;
+    private Visitor visitor;
+    private Show showID;
     private int seat;
 
-    public Ticket(String qrCode, int visitorID, int showID, int seat) {
+    public Ticket(String qrCode, Visitor visitor, Show showID, int seat) {
         this.qrCode = qrCode;
-        this.visitorID = visitorID;
+        this.visitor = visitor;
         this.showID = showID;
         this.seat = seat;
     }
@@ -26,19 +26,19 @@ public class Ticket {
         this.qrCode = qrCode;
     }
 
-    public int getVisitorID() {
-        return visitorID;
+    public Visitor getVisitor() {
+        return visitor;
     }
 
-    public void setVisitorID(int visitorID) {
-        this.visitorID = visitorID;
+    public void setVisitor(Visitor visitor) {
+        this.visitor = visitor;
     }
 
-    public int getShowID() {
+    public Show getShowID() {
         return showID;
     }
 
-    public void setShowID(int showID) {
+    public void setShowID(Show showID) {
         this.showID = showID;
     }
 
@@ -54,7 +54,7 @@ public class Ticket {
     public String toString() {
         return "Ticket{" +
                 "qrCode='" + qrCode + '\'' +
-                ", visitorID=" + visitorID +
+                ", visitor=" + visitor +
                 ", showID=" + showID +
                 ", seat=" + seat +
                 '}';

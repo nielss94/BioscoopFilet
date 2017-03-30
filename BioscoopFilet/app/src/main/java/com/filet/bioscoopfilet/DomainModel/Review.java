@@ -6,42 +6,42 @@ package com.filet.bioscoopfilet.DomainModel;
 
 public class Review {
 
-    private int ID;
-    private int filmID;
-    private int visitorID;
+    private int reviewID;
+    private Film film;
+    private Visitor visitor;
     private int score;
     private String description;
 
-    public Review(int ID, int filmID, int visitorID, int score, String description) {
-        this.ID = ID;
-        this.filmID = filmID;
-        this.visitorID = visitorID;
+    public Review(int reviewID, Film film, Visitor visitor, int score, String description) {
+        this.reviewID = reviewID;
+        this.film = film;
+        this.visitor = visitor;
         this.score = score;
         this.description = description;
     }
 
-    public int getID() {
-        return ID;
+    public int getReviewID() {
+        return reviewID;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setReviewID(int reviewID) {
+        this.reviewID = reviewID;
     }
 
-    public int getFilmID() {
-        return filmID;
+    public Film getFilm() {
+        return film;
     }
 
-    public void setFilmID(int filmID) {
-        this.filmID = filmID;
+    public void setFilm(Film film) {
+        this.film = film;
     }
 
-    public int getVisitorID() {
-        return visitorID;
+    public Visitor getVisitor() {
+        return visitor;
     }
 
-    public void setVisitorID(int visitorID) {
-        this.visitorID = visitorID;
+    public void setVisitor(Visitor visitor) {
+        this.visitor = visitor;
     }
 
     public int getScore() {
@@ -63,9 +63,9 @@ public class Review {
     @Override
     public String toString() {
         return "Review{" +
-                "ID=" + ID +
-                ", filmID=" + filmID +
-                ", visitorID=" + visitorID +
+                "reviewID=" + reviewID +
+                ", film=" + film +
+                ", visitor=" + visitor +
                 ", score=" + score +
                 ", description='" + description + '\'' +
                 '}';

@@ -75,7 +75,7 @@ public class SQLiteFilmDAO implements FilmDAO {
 
             ContentValues values = new ContentValues();
 
-            values.put(db.getCOLUMN_FILM_CINEMAID(), film.getCinemaID());
+            values.put(db.getCOLUMN_FILM_CINEMAID(), film.getCinema());
             values.put(db.getCOLUMN_FILM_TITLE(), film.getTitle());
             values.put(db.getCOLUMN_FILM_VERSION(), film.getVersion());
             values.put(db.getCOLUMN_FILM_LANGUAGE(), film.getLanguage());

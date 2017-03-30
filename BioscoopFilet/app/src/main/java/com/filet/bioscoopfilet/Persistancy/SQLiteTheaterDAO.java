@@ -63,7 +63,7 @@ public class SQLiteTheaterDAO implements TheaterDAO {
 
             ContentValues values = new ContentValues();
 
-            values.put(db.getCOLUMN_THEATER_CINEMAID(), theater.getCinemaID());
+            values.put(db.getCOLUMN_THEATER_CINEMAID(), theater.getCinema());
             values.put(db.getCOLUMN_THEATER_NUMBER_OF_SEATS(), theater.getNumberOfSeats());
 
             writable.insert(db.getDB_TABLE_THEATER_NAME(), null, values);
