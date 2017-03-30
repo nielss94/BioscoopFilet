@@ -3,7 +3,9 @@ package com.filet.bioscoopfilet.PresentationApplicationLogicLayer;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.Toolbar;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -69,7 +71,10 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_lang:
-                // User chose the "Settings" item, show the app settings UI...
+                PopupMenu popup = new PopupMenu(this, findViewById(R.id.action_lang));
+                MenuInflater inflater = popup.getMenuInflater();
+                inflater.inflate(R.menu.menu_lang, popup.getMenu());
+                popup.show();
                 return true;
 
             default:
@@ -78,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
 
     //Buttons
     public void informationButton(View v) {
