@@ -13,7 +13,7 @@ public class DBConnect extends SQLiteOpenHelper {
 
     private final String TAG = this.getClass().getSimpleName();
 
-    private static final int DB_VERSION = 12;
+    private static final int DB_VERSION = 13;
     private static final String DB_NAME = "filet.db";
 
     private Context context;
@@ -57,6 +57,7 @@ public class DBConnect extends SQLiteOpenHelper {
     //Film
     private final String DB_TABLE_FILM_NAME = "Film";
     private final String COLUMN_FILMID = "FilmID";
+    private final String COLUMN_FILMAPIID = "FilmAPIID";
     private final String COLUMN_FILM_CINEMAID = "CinemaID";
     private final String COLUMN_FILM_TITLE = "Title";
     private final String COLUMN_FILM_VERSION = "Version";
@@ -151,6 +152,7 @@ public class DBConnect extends SQLiteOpenHelper {
         String CREATE_FILM_TABLE = "CREATE TABLE "+DB_TABLE_FILM_NAME +
                 "(" +
                 COLUMN_FILMID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                COLUMN_FILMAPIID + " INTEGER," +
                 COLUMN_FILM_CINEMAID + " INTEGER," +
                 COLUMN_FILM_TITLE + " TEXT," +
                 COLUMN_FILM_VERSION + " TEXT," +
@@ -353,6 +355,10 @@ public class DBConnect extends SQLiteOpenHelper {
 
     public String getCOLUMN_FILMID() {
         return COLUMN_FILMID;
+    }
+
+    public String getCOLUMN_FILMAPIID() {
+        return COLUMN_FILMAPIID;
     }
 
     public String getCOLUMN_FILM_CINEMAID() {

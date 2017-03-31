@@ -48,7 +48,7 @@ public class FilmAgendaActivity extends AppCompatActivity implements AdapterView
                 "7.5","",  "https://image.tmdb.org/t/p/w500/inVq3FRqcYIRl2la8iZikYYxFNR.jpg",  "");
 
         Theater theater = new Theater(cinema, 100);
-        shows.add(new Show(film,theater, new Date(2017, 04, 04, 17, 50),"0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"));
+        shows.add(new Show(film,theater, new Date(2017, 04, 04, 17, 50),"0011111100000000000000000000001110010011000011000100000000011111000000000000000000000000000000000000"));
 
 
         //Declaration of ListView

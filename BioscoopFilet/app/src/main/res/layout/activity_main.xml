@@ -63,7 +63,7 @@
                 android:layout_centerHorizontal="true"
                 android:text="@string/my_filet"
                 android:textStyle="bold"
-                android:textColor="@color/primary_text_material_dark"/>/>
+                android:textColor="@color/primary_text_material_dark"/>
         </RelativeLayout>
 
     </LinearLayout>

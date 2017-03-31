@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class Film implements Serializable{
 
     private int filmID;
+    private int filmAPIID;
     private Cinema cinema;
     private String title;
     private String version;
@@ -26,9 +27,10 @@ public class Film implements Serializable{
     private String director;
     private ArrayList<Actor> actors;
 
-    public Film(int filmID, Cinema cinema, String title, String version, String language,
+    public Film(int filmID, int filmAPIID, Cinema cinema, String title, String version, String language,
                 String releaseDate, String genre, int length, int age, String description,
                 String IMDBUrl, String IMDBScore, String trailerURL, String posterURL, String director) {
+        this.filmAPIID = filmAPIID;
         this.filmID = filmID;
         this.cinema = cinema;
         this.title = title;
@@ -46,9 +48,10 @@ public class Film implements Serializable{
         this.director = director;
     }
 
-    public Film(Cinema cinema, String title, String version, String language,
+    public Film(int filmAPIID, Cinema cinema, String title, String version, String language,
                 String releaseDate, String genre, int length, int age, String description,
                 String IMDBUrl, String IMDBScore, String trailerURL, String posterURL, String director) {
+        this.filmAPIID = filmAPIID;
         this.cinema = cinema;
         this.title = title;
         this.version = version;
@@ -198,10 +201,19 @@ public class Film implements Serializable{
         this.actors = actors;
     }
 
+    public int getFilmAPIID() {
+        return filmAPIID;
+    }
+
+    public void setFilmAPIID(int filmAPIID) {
+        this.filmAPIID = filmAPIID;
+    }
+
     @Override
     public String toString() {
         return "Film{" +
                 "filmID=" + filmID +
+                ", filmAPIID=" + filmAPIID +
                 ", cinema=" + cinema +
                 ", title='" + title + '\'' +
                 ", version='" + version + '\'' +
