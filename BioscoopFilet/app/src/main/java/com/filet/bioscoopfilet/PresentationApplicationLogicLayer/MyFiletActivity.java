@@ -19,7 +19,7 @@ public class MyFiletActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_filet);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        myToolbar.setTitle(R.string.my_filet);
+        myToolbar.setTitle(R.string.my_films);
         setSupportActionBar(myToolbar);
     }
 
@@ -53,8 +53,8 @@ public class MyFiletActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-//    public void myFilmsButton(View v) {
-//        Intent intent = new Intent(this, MyFilmsActivity.class);
-//        startActivity(intent);
-//    }
+    public void myFilmsButton(View v) {
+        Intent intent = new Intent(this, MyFilmActivity.class);
+        startActivity(intent);
+    }
 }

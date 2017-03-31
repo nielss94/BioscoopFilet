@@ -42,7 +42,7 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:onClick="myTicketsButton"
+        android:onClick="myFilmsButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
