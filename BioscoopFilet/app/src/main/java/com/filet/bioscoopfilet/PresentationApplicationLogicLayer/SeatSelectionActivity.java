@@ -94,7 +94,7 @@ public class SeatSelectionActivity extends AppCompatActivity {
         for (int i = 0; i < show.getSeats().length(); i++) {
             if(show.getSeats().charAt(i) == '1')
             {
-                seats.get(i).setImageResource(R.drawable.ic_info);
+                seats.get(i).setImageResource(R.drawable.ic_person);
                 freeSeats = 0;
             }
             else if(show.getSeats().charAt(i) == '0')
@@ -107,14 +107,14 @@ public class SeatSelectionActivity extends AppCompatActivity {
                 {
                     for (int j = 0; j < amountOfTickets; j++) {
                         seatsSelected[j] = (i - j);
-                        seats.get(i - j).setImageResource(R.drawable.ic_credit_card);
+                        seats.get(i - j).setImageResource(R.drawable.ic_taken);
 
                     }
                     seatsFound = true;
                 }
                 else
                 {
-                    seats.get(i).setImageResource(R.drawable.ic_ideal_betalen);
+                    seats.get(i).setImageResource(R.drawable.ic_available);
                 }
             }
         }
