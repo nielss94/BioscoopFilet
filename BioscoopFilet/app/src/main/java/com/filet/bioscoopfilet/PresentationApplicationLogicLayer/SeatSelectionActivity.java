@@ -94,22 +94,27 @@ public class SeatSelectionActivity extends AppCompatActivity {
         for (int i = 0; i < show.getSeats().length(); i++) {
             if(show.getSeats().charAt(i) == '1')
             {
-                seats.get(i).setBackgroundColor(getResources().getColor(R.color.taken));
+                seats.get(i).setImageResource(R.drawable.ic_info);
                 freeSeats = 0;
             }
             else if(show.getSeats().charAt(i) == '0')
             {
                 freeSeats++;
 
+                Log.i(TAG,"Nummer: " + i);
+
                 if(freeSeats >= amountOfTickets && seatsFound == false)
                 {
-                    int seatNumber = i;
                     for (int j = 0; j < amountOfTickets; j++) {
                         seatsSelected[j] = (i - j);
-                        seats.get(i - j).setBackgroundColor(getResources().getColor(R.color.selected));
+                        seats.get(i - j).setImageResource(R.drawable.ic_credit_card);
 
                     }
                     seatsFound = true;
+                }
+                else
+                {
+                    seats.get(i).setImageResource(R.drawable.ic_ideal_betalen);
                 }
             }
         }

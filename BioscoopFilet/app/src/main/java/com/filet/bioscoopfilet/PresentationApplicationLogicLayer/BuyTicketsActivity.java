@@ -180,5 +180,4 @@ public class BuyTicketsActivity extends AppCompatActivity {
         totalPriceView.setText("€" + price + "0");
         return price;
     }
-
 }
