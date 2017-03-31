@@ -63,12 +63,7 @@ public class ShowAdapter extends ArrayAdapter<Show> {
         imdb.setText("IMDB: " + film.getIMDBScore());
 
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-        String dateTime = show.getTime().toString();
-        try {
-            time.setText(sdf.parse(dateTime).toString());
-        } catch (ParseException e) {
-            Log.e(TAG, e.getMessage());
-        }
+        time.setText(sdf.format(show.getTime()));
 
         //Filling image (FOR DEMO)
         Picasso.with(getContext()).load(film.getPosterURL()).into(poster);

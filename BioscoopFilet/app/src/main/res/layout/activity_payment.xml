@@ -7,16 +7,6 @@
     android:orientation="vertical"
     tools:context="com.filet.bioscoopfilet.PresentationApplicationLogicLayer.PaymentActivity">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/my_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@color/colorPrimary"
-        android:elevation="4dp"
-        android:theme="@style/ThemeFilet"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -37,16 +27,18 @@
                 android:layout_height="wrap_content"
                 android:text="Film titel"
                 android:textColor="@android:color/black"
-                android:textSize="18dp"
+                android:textSize="32dp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/payVersion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/payTitle"
                 android:text="Version"
-                android:textColor="@android:color/black" />
+                android:textSize="24dp"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/payTitle"
+                android:layout_alignParentStart="true" />
 
             <TextView
                 android:id="@+id/payDateTime"
@@ -54,6 +46,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/payVersion"
                 android:text="Datum en tijd"
+                android:textSize="24dp"
                 android:textColor="@android:color/black" />
 
             <TextView
@@ -63,6 +56,7 @@
                 android:layout_below="@id/payDateTime"
                 android:layout_marginTop="@dimen/activity_horizontal_margin"
                 android:text="Totaal: €27,00"
+                android:textSize="24dp"
                 android:textColor="@android:color/black" />
 
             <TextView
@@ -73,7 +67,7 @@
                 android:layout_toRightOf="@id/payTotalPrice"
                 android:text="@string/including_btw"
                 android:textColor="@android:color/black"
-                android:textSize="9dp"
+                android:textSize="16dp"
                 android:translationY="5dp" />
 
 
@@ -96,17 +90,17 @@
                 android:textStyle="bold" />
 
             <ImageView
-                android:src="@drawable/ic_paypal_logo"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"/>
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_paypal_logo" />
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:layout_width="match_parent"
             android:layout_height="100dp"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:background="@color/colorPrimaryDark"
             android:orientation="vertical"
             android:padding="8dp">
@@ -120,21 +114,19 @@
                 android:textStyle="bold" />
 
             <ImageView
-                android:src="@drawable/ic_ideal_betalen"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"/>
-
-
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_ideal_betalen" />
 
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:layout_width="match_parent"
             android:layout_height="100dp"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:background="@color/colorPrimaryDark"
             android:orientation="vertical"
             android:padding="8dp">
@@ -148,13 +140,24 @@
                 android:textStyle="bold" />
 
             <ImageView
-                android:src="@drawable/ic_credit_card"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"/>
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_credit_card" />
         </RelativeLayout>
 
 
     </LinearLayout>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeFilet"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+
 </LinearLayout>

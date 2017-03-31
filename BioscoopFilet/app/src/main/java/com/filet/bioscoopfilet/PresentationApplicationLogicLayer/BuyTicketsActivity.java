@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 
+import com.filet.bioscoopfilet.DomainModel.Show;
 import com.filet.bioscoopfilet.R;
 
 public class BuyTicketsActivity extends AppCompatActivity {
@@ -23,9 +24,11 @@ public class BuyTicketsActivity extends AppCompatActivity {
         setSupportActionBar(myToolbar);
     }
 
-    //DEMO BUTTON
     public void seatButton(View v) {
-        Intent intent = new Intent(this, SeatSelectionActivity.class);
+        Show show = (Show) getIntent().getSerializableExtra("SHOW");
+
+        Intent intent = new Intent(getApplicationContext(), SeatSelectionActivity.class);
+        intent.putExtra("SHOW", show);
         startActivity(intent);
     }
 

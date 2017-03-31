@@ -3,6 +3,7 @@
     package="com.filet.bioscoopfilet">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -30,7 +31,8 @@
         <activity android:name=".PresentationApplicationLogicLayer.BuyTicketsActivity" />
         <activity android:name=".PresentationApplicationLogicLayer.SeatSelectionActivity" />
         <activity android:name=".PresentationApplicationLogicLayer.FilmDetailAgendaActivity" />
-        <activity android:name=".PresentationApplicationLogicLayer.FilmAgendaActivity"></activity>
+        <activity android:name=".PresentationApplicationLogicLayer.FilmAgendaActivity" />
+        <activity android:name=".PresentationApplicationLogicLayer.SelectedFilmDetailActivity"></activity>
     </application>
 
 </manifest>

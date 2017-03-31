@@ -26,8 +26,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/activity_horizontal_margin"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin">
 
             <ImageView
                 android:id="@+id/posterImageDetailedId"
@@ -87,11 +87,6 @@
                     android:layout_marginBottom="2dp"
                     android:text="IMDB: 8.8"
                     android:textSize="10dp" />
-                <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@drawable/ic_action_youtube"
-                    android:translationX="-4dp"/>
 
             </LinearLayout>
 
@@ -124,15 +119,16 @@
                 />
         </ScrollView>
 
-            <Button
-                android:id="@+id/buttonTimeTickets"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="@string/time_tickets"
-                android:textStyle="bold"
-                android:textSize="32dp"
-                android:background="@color/colorPrimaryDark"/>
+        <Button
+            android:id="@+id/buttonTimeTickets"
+            android:onClick="buyButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/buy_tickets"
+            android:textStyle="bold"
+            android:textSize="32dp"
+            android:background="@color/colorPrimaryDark"/>
 
 
     </LinearLayout>
