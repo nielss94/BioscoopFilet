@@ -33,10 +33,10 @@ public class TicketAdapter extends ArrayAdapter<Ticket> {
     }
 
     @Override
-    public View getView (int posistion, View convertView, ViewGroup parent){
+    public View getView (int position, View convertView, ViewGroup parent){
 
         //Declaration of film
-        Ticket ticket = getItem(posistion);
+        Ticket ticket = getItem(position);
 
         //Make convertView
         if (convertView == null){
