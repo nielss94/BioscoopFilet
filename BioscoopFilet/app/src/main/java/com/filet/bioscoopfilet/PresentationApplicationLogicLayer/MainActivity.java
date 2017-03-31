@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -31,6 +32,7 @@ import com.filet.bioscoopfilet.Persistancy.TicketDAO;
 import com.filet.bioscoopfilet.Persistancy.VisitorDAO;
 import com.filet.bioscoopfilet.R;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
@@ -100,48 +102,79 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void testFeedbackData() {
-        Visitor v = new Visitor(2, "Jaap", "Jo");
+        VisitorDAO visitorDAO = factory.createVisitorDAO();
+        Visitor v = visitorDAO.selectData().get(0);
+
         FeedbackDAO feedbackDAO = factory.createFeedbackDAO();
         feedbackDAO.insertData(new Feedback(v, "Goeie App!"));
         feedbackDAO.selectData();
     }
 
     public void testReviewData() {
+        FilmDAO filmDAO = factory.createFilmDAO();
         ReviewDAO reviewDAO = factory.createReviewDAO();
-        reviewDAO.insertData(new Review(new Film(2, new Cinema(2, "Filet", "Breda", "Lovensdijkstraat 1",
-                "5000XX", "013-51201230"), "Harry Potter", "Version", "language", "23-03-2017", "Horror", 113, 12,
-                "Description description...,", "www.imdb.url", "9.9", "www.trailer.url", "www.poster.url", "Director Niels"), new Visitor("Niels", "van Dam"), 5, "Geweldige film"));
+        VisitorDAO visitorDAO = factory.createVisitorDAO();
+
+        Visitor v = visitorDAO.selectData().get(0);
+        Film f = filmDAO.selectData().get(0);
+
+        reviewDAO.insertData(new Review(f, v, 5, "Geweldige film"));
         reviewDAO.selectData();
     }
 
     public void testTheaterData() {
         TheaterDAO theaterDAO = factory.createTheaterDAO();
-        theaterDAO.insertData(new Theater( new Cinema(2, "Filet", "Breda", "Lovensdijkstraat 1",
-                "5000XX", "013-51201230"), 150));
+        CinemaDAO cinemaDAO = factory.createCinemaDAO();
+
+        Cinema c = cinemaDAO.selectData().get(0);
+        theaterDAO.insertData(new Theater(c, 100));
+        theaterDAO.insertData(new Theater(c, 100));
+        theaterDAO.insertData(new Theater(c, 100));
+        theaterDAO.insertData(new Theater(c, 100));
         theaterDAO.selectData();
     }
 
     public void testVisitorData() {
         VisitorDAO visitorDAO = factory.createVisitorDAO();
         visitorDAO.insertData(new Visitor("Tommy", "Heunks"));
+        visitorDAO.insertData(new Visitor("Niels", "van Dam"));
+        visitorDAO.insertData(new Visitor("Felix", "Boons"));
+        visitorDAO.insertData(new Visitor("Jesse", "de Wit"));
+        visitorDAO.insertData(new Visitor("Bart", "in t Veld"));
     }
 
     public void testShowData() {
         ShowDAO showDAO = factory.createShowDAO();
-        showDAO.insertData(new Show(new Film(2, new Cinema(2, "Filet", "Breda", "Lovensdijkstraat 1",
-                "5000XX", "013-51201230"), "Harry Potter", "Version", "language", "23-03-2017", "Horror", 113, 12,
-                "Description description...,", "www.imdb.url", "9.9", "www.trailer.url", "www.poster.url", "Director Niels"), new Theater(2, new Cinema(2, "Filet", "Breda", "Lovensdijkstraat 1",
-                "5000XX", "013-51201230"), 150), new Date(04, 04, 1994, 10, 10), "101010001000100101110100100101010010001001010100100100010001000010010100101010100010001001011101001001010100100010010101001001000100010000100101001011"));
-//        showDAO.selectData();
+        FilmDAO filmDAO = factory.createFilmDAO();
+        TheaterDAO theaterDAO = factory.createTheaterDAO();
+
+        Film f = filmDAO.selectData().get(0);
+        Theater t = theaterDAO.selectData().get(0);
+
+        showDAO.insertData(new Show(f, t, new Date(10, 04, 2017, 10, 10), "1010100010001001011101001001010100100010010101001001000100010000100101001010101000100010010111010010"));
+        showDAO.selectData();
     }
 
     public void testTicketData() {
-        Show s = new Show(1, new Film(2, new Cinema(2, "Filet", "Breda", "Lovensdijkstraat 1",
-                "5000XX", "013-51201230"), "Harry Potter", "Version", "language", "23-03-2017", "Horror", 113, 12,
-                "Description description...,", "www.imdb.url", "9.9", "www.trailer.url", "www.poster.url", "Director Niels"), new Theater(2, new Cinema(2, "Filet", "Breda", "Lovensdijkstraat 1",
-                "5000XX", "013-51201230"), 150), new Date(04, 04, 1994, 10, 10), "101010001000100101110100100101010010001001010100100100010001000010010100101010100010001001011101001001010100100010010101001001000100010000100101001011");
+        ShowDAO showDAO = factory.createShowDAO();
+        VisitorDAO visitorDAO = factory.createVisitorDAO();
+
+        Visitor v = visitorDAO.selectData().get(0);
+        Show s = showDAO.selectData().get(0);
+
         TicketDAO ticketDAO = factory.createTicketDAO();
-//        ticketDAO.insertData(new Ticket("f2asdffgfdwadgfdf7ikjhfdfgtrrshg3gty4g3", new Visitor(2, "Niels", "nee"), s, 32)); //NEED A METHOD TO GENERATE RANDOM QRCODES
+
+        Ticket t = new Ticket(new QRCode().getQrCode(), v, s, 65);
+        ArrayList<Ticket> tickets = ticketDAO.selectData();
+
+        for (int i = 0; i < tickets.size(); i++) {
+            if(tickets.get(i).getQrCode() == t.getQrCode())
+            {
+                Log.e("Main", "Can't create ticket: the qrcode already exists in the database");
+                break;
+            }
+        }
+        ticketDAO.insertData(t); //NEED A METHOD TO GENERATE RANDOM QRCODES
         ticketDAO.selectData();
     }
 
