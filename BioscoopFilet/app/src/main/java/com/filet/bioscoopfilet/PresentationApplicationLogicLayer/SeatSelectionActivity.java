@@ -18,6 +18,9 @@ import com.filet.bioscoopfilet.DomainModel.Show;
 import com.filet.bioscoopfilet.DomainModel.Theater;
 import com.filet.bioscoopfilet.DomainModel.Ticket;
 import com.filet.bioscoopfilet.DomainModel.Visitor;
+import com.filet.bioscoopfilet.Persistancy.DAOFactory;
+import com.filet.bioscoopfilet.Persistancy.SQLiteDAOFactory;
+import com.filet.bioscoopfilet.Persistancy.TicketDAO;
 import com.filet.bioscoopfilet.R;
 
 import java.util.ArrayList;
@@ -27,6 +30,7 @@ import java.util.Random;
 public class SeatSelectionActivity extends AppCompatActivity {
 
     private final String TAG = getClass().getSimpleName();
+    private DAOFactory factory;
 
     private int amountOfTickets;
     private Double totalPrice;
@@ -35,6 +39,7 @@ public class SeatSelectionActivity extends AppCompatActivity {
     private GridLayout seatsList;
     int[] seatsSelected;
     private ArrayList<ImageView> seats = new ArrayList<>();
+    private ArrayList<Ticket> tickets;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,18 +52,23 @@ public class SeatSelectionActivity extends AppCompatActivity {
         setSupportActionBar(myToolbar);
 
         //Find the GridLayout seatsList
-        seatsList = (GridLayout)findViewById(R.id.seatsList);
+        seatsList = (GridLayout) findViewById(R.id.seatsList);
 
         //Fill seats with all the childs from the GridLayout
         for (int i = 0; i < seatsList.getChildCount(); i++) {
-            seats.add((ImageView)seatsList.getChildAt(i));
+            seats.add((ImageView) seatsList.getChildAt(i));
         }
         show = (Show) getIntent().getSerializableExtra("SHOW");
-        amountOfTickets = getIntent().getIntExtra("amountOfTickets",0);
+        amountOfTickets = getIntent().getIntExtra("amountOfTickets", 0);
         totalPrice = getIntent().getDoubleExtra("totalPrice", 0.00);
 
-
         seatsSelected = new int[amountOfTickets];
+
+        //factory creation
+        factory = new SQLiteDAOFactory(getApplicationContext());
+        //get tickets from DB
+        TicketDAO ticketDAO = factory.createTicketDAO();
+        tickets = ticketDAO.selectData();
 
         selectAvailableSeats();
     }
@@ -67,14 +77,21 @@ public class SeatSelectionActivity extends AppCompatActivity {
     public void paymentButton(View v) {
         ArrayList<Ticket> tickets = new ArrayList<>();
         Random r = new Random();
-        Intent intent = new Intent(getApplicationContext(),PaymentActivity.class);
+        Intent intent = new Intent(getApplicationContext(), PaymentActivity.class);
         for (int i = 0; i < amountOfTickets; i++) {
-            int randomNumber = r.nextInt(99999);
-            Ticket t = new Ticket(randomNumber+"",new Visitor(1, "Tommy", "Heunks"), show, seatsSelected[i]);
+            int randomNumber = r.nextInt(10);
+            for (int j = 0; j < tickets.size(); j++) {
+                if (randomNumber == tickets.get(i).getQrCode()) {
+                    randomNumber = r.nextInt(10);
+                    Log.i(TAG, randomNumber + " Door de loop gegaan " + j);
+                }
+            }
+            Log.i(TAG, randomNumber + " niet geloopt ");
+            Ticket t = new Ticket(randomNumber, new Visitor(1, "Tommy", "Heunks"), show, seatsSelected[i]);
             tickets.add(t);
         }
-        intent.putExtra("tickets",tickets);
-        intent.putExtra("totalPrice",totalPrice);
+        intent.putExtra("tickets", tickets);
+        intent.putExtra("totalPrice", totalPrice);
 
         startActivity(intent);
     }
@@ -87,33 +104,26 @@ public class SeatSelectionActivity extends AppCompatActivity {
     }
 
 
-    public void selectAvailableSeats()
-    {
+    public void selectAvailableSeats() {
         int freeSeats = 0;
         boolean seatsFound = false;
         for (int i = 0; i < show.getSeats().length(); i++) {
-            if(show.getSeats().charAt(i) == '1')
-            {
+            if (show.getSeats().charAt(i) == '1') {
                 seats.get(i).setImageResource(R.drawable.ic_taken);
                 freeSeats = 0;
-            }
-            else if(show.getSeats().charAt(i) == '0')
-            {
+            } else if (show.getSeats().charAt(i) == '0') {
                 freeSeats++;
 
-                Log.i(TAG,"Nummer: " + i);
+                Log.i(TAG, "Nummer: " + i);
 
-                if(freeSeats >= amountOfTickets && seatsFound == false)
-                {
+                if (freeSeats >= amountOfTickets && seatsFound == false) {
                     for (int j = 0; j < amountOfTickets; j++) {
                         seatsSelected[j] = (i - j);
                         seats.get(i - j).setImageResource(R.drawable.ic_selected);
 
                     }
                     seatsFound = true;
-                }
-                else
-                {
+                } else {
                     seats.get(i).setImageResource(R.drawable.ic_available);
                 }
             }

@@ -8,23 +8,23 @@ import java.io.Serializable;
 
 public class Ticket implements Serializable {
 
-    private String qrCode;
+    private int qrCode;
     private Visitor visitor;
     private Show show;
     private int seat;
 
-    public Ticket(String qrCode, Visitor visitor, Show show, int seat) {
+    public Ticket(int qrCode, Visitor visitor, Show show, int seat) {
         this.qrCode = qrCode;
         this.visitor = visitor;
         this.show = show;
         this.seat = seat;
     }
 
-    public String getQrCode() {
+    public int getQrCode() {
         return qrCode;
     }
 
-    public void setQrCode(String qrCode) {
+    public void setQrCode(int qrCode) {
         this.qrCode = qrCode;
     }
 

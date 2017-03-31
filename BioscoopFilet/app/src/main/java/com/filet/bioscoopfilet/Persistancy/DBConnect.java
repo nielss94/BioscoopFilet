@@ -13,7 +13,7 @@ public class DBConnect extends SQLiteOpenHelper {
 
     private final String TAG = this.getClass().getSimpleName();
 
-    private static final int DB_VERSION = 12;
+    private static final int DB_VERSION = 13;
     private static final String DB_NAME = "filet.db";
 
     private Context context;
@@ -187,7 +187,7 @@ public class DBConnect extends SQLiteOpenHelper {
         Log.i(TAG, "Creating Ticket table");
         String CREATE_TICKET_TABLE = "CREATE TABLE "+DB_TABLE_TICKET_NAME +
                 "(" +
-                COLUMN_TICKET_QRCODE + " TEXT PRIMARY KEY," +
+                COLUMN_TICKET_QRCODE + " INTEGER PRIMARY KEY," +
                 COLUMN_TICKET_VISITORID + " INTEGER," +
                 COLUMN_TICKET_SHOWID + " INTEGER," +
                 COLUMN_TICKET_SEAT + " INTEGER," +
