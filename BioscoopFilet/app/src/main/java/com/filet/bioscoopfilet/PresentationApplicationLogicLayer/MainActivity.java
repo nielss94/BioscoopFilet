@@ -148,8 +148,10 @@ public class MainActivity extends AppCompatActivity {
     public void testFilmDAO() {
         FilmDAO filmDAO = factory.createFilmDAO();
         filmDAO.insertData(new Film(new Cinema(2, "Filet", "Breda", "Lovensdijkstraat 1",
-                "5000XX", "013-51201230"), "Harry Potter", "Version", "language", "23-03-2017", "Horror", 113, 12,
-                "Description description...,", "www.imdb.url", "9.9", "www.trailer.url", "www.poster.url", "Director Niels"));
+                "5000XX", "013-51201230"), "Bob de Bouwer: De Film", "Version", "Nederlands", "12-01-2018", "Komedie", 93, 6,
+                "Bacon ipsum dolor amet bacon strip steak pork, spare ribs tongue pork chop burgdoggen swine jowl chuck. Beef ribs burgdoggen chicken, pig fatback sausage drumstick leberkas cow tongue shank chuck porchetta rump. Beef ribs shankle cow hamburger, turkey ground round ham hock meatball strip steak kielbasa pancetta picanha flank pork loin. Short loin fatback pork chop jerky hamburger meatloaf. Pork loin shoulder pork chop ribeye filet mignon sausage beef bacon.\n" +
+                        "\n" +
+                        "Tail landjaeger alcatra kevin doner pastrami. Ribeye filet mignon shankle, pastrami sausage pancetta pork shoulder. Sirloin spare ribs beef, rump tenderloin shoulder chuck pastrami kielbasa flank. Boudin hamburger shank porchetta pork loin landjaeger chicken kielbasa alcatra tenderloin fatback spare ribs. Andouille fatback beef ribs picanha sausage, ham jerky pork alcatra. Bresaola pork belly beef ribs tenderloin t-bone. Tail tenderloin shank, andouille doner ball tip hamburger ham chuck short ribs jerky ham hock alcatra jowl.", "www.imdb.url", "7.4", "www.youtube.com", "https://s-media-cache-ak0.pinimg.com/236x/25/98/13/259813c534453e8c1597f4ab1d62b284.jpg", "Die Boy Bert"));
 
     }
 

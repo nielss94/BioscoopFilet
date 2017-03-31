@@ -16,16 +16,20 @@ import com.filet.bioscoopfilet.DomainModel.Cinema;
 import com.filet.bioscoopfilet.DomainModel.Film;
 import com.filet.bioscoopfilet.DomainModel.Show;
 import com.filet.bioscoopfilet.DomainModel.Theater;
+import com.filet.bioscoopfilet.DomainModel.Ticket;
+import com.filet.bioscoopfilet.DomainModel.Visitor;
 import com.filet.bioscoopfilet.R;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 
 public class SeatSelectionActivity extends AppCompatActivity {
 
     private final String TAG = getClass().getSimpleName();
 
     private int amountOfTickets;
+    private Double totalPrice;
     private Show show;
 
     private GridLayout seatsList;
@@ -49,13 +53,10 @@ public class SeatSelectionActivity extends AppCompatActivity {
         for (int i = 0; i < seatsList.getChildCount(); i++) {
             seats.add((ImageView)seatsList.getChildAt(i));
         }
+        show = (Show) getIntent().getSerializableExtra("SHOW");
+        amountOfTickets = getIntent().getIntExtra("amountOfTickets",0);
+        totalPrice = getIntent().getDoubleExtra("totalPrice", 0.00);
 
-        //Test show and tickets
-        show = new Show(1, new Film(2, new Cinema(2, "Filet", "Breda", "Lovensdijkstraat 1",
-                "5000XX", "013-51201230"), "Harry Potter", "Version", "language", "23-03-2017", "Horror", 113, 12,
-                "Description description...,", "www.imdb.url", "9.9", "www.trailer.url", "www.poster.url", "Director Niels"), new Theater(2, new Cinema(2, "Filet", "Breda", "Lovensdijkstraat 1",
-                "5000XX", "013-51201230"), 150), new Date(04, 04, 1994, 10, 10), "1010100010001001011101001001010100100010010101001001000100010000100101001010101000100010010111010010");
-        amountOfTickets = 3;
 
         seatsSelected = new int[amountOfTickets];
 
@@ -64,10 +65,17 @@ public class SeatSelectionActivity extends AppCompatActivity {
 
     //DEMO BUTTON
     public void paymentButton(View v) {
-        Show show = (Show) getIntent().getSerializableExtra("SHOW");
-
+        ArrayList<Ticket> tickets = new ArrayList<>();
+        Random r = new Random();
         Intent intent = new Intent(getApplicationContext(),PaymentActivity.class);
-        intent.putExtra("SHOW", show);
+        for (int i = 0; i < amountOfTickets; i++) {
+            int randomNumber = r.nextInt(99999);
+            Ticket t = new Ticket(randomNumber+"",new Visitor(1, "Tommy", "Heunks"), show, seatsSelected[i]);
+            tickets.add(t);
+        }
+        intent.putExtra("tickets",tickets);
+        intent.putExtra("totalPrice",totalPrice);
+
         startActivity(intent);
     }
 
@@ -78,32 +86,35 @@ public class SeatSelectionActivity extends AppCompatActivity {
         return true;
     }
 
+
     public void selectAvailableSeats()
     {
         int freeSeats = 0;
         boolean seatsFound = false;
         for (int i = 0; i < show.getSeats().length(); i++) {
-            Log.i(TAG,show.getSeats().charAt(i)+"");
             if(show.getSeats().charAt(i) == '1')
             {
-                seats.get(i).setBackgroundColor(getResources().getColor(R.color.taken));
+                seats.get(i).setImageResource(R.drawable.ic_person);
                 freeSeats = 0;
             }
             else if(show.getSeats().charAt(i) == '0')
             {
                 freeSeats++;
 
+                Log.i(TAG,"Nummer: " + i);
+
                 if(freeSeats >= amountOfTickets && seatsFound == false)
                 {
-                    int seatNumber = i;
                     for (int j = 0; j < amountOfTickets; j++) {
                         seatsSelected[j] = (i - j);
-                        seats.get(i - j).setBackgroundColor(getResources().getColor(R.color.selected));
+                        seats.get(i - j).setImageResource(R.drawable.ic_taken);
+
                     }
                     seatsFound = true;
                 }
-                else {
-                    seats.get(i).setBackgroundColor(getResources().getColor(R.color.free));
+                else
+                {
+                    seats.get(i).setImageResource(R.drawable.ic_available);
                 }
             }
         }
