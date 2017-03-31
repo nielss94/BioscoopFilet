@@ -28,6 +28,8 @@
         <activity android:name=".PresentationApplicationLogicLayer.MyFiletActivity" />
         <activity android:name=".PresentationApplicationLogicLayer.MyTicketActivity" />
         <activity android:name=".PresentationApplicationLogicLayer.MyTicketDetailActivity" />
+        <activity android:name=".PresentationApplicationLogicLayer.MyFilmActivity" />
+        <activity android:name=".PresentationApplicationLogicLayer.MyFilmDetailActivity" />
         <activity android:name=".PresentationApplicationLogicLayer.BuyTicketsActivity" />
         <activity android:name=".PresentationApplicationLogicLayer.SeatSelectionActivity" />
         <activity android:name=".PresentationApplicationLogicLayer.FilmDetailAgendaActivity" />
