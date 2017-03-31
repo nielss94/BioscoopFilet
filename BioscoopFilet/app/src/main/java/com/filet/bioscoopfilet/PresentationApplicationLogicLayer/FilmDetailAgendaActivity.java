@@ -1,6 +1,7 @@
 package com.filet.bioscoopfilet.PresentationApplicationLogicLayer;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -15,7 +16,7 @@ import com.filet.bioscoopfilet.DomainModel.Film;
 import com.filet.bioscoopfilet.R;
 import com.squareup.picasso.Picasso;
 
-public class FilmDetailAgendaActivity extends AppCompatActivity {
+public class FilmDetailAgendaActivity extends AppCompatActivity implements TrailerApiConnector.TrailerAvailable {
 
     TextView title;
     TextView version;
@@ -29,18 +30,26 @@ public class FilmDetailAgendaActivity extends AppCompatActivity {
 
     ImageView poster;
 
+
+    Film film;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_film_detail_agenda);
+
+        //Getting film given by FilmOverviewActivity
+        film = (Film) getIntent().getSerializableExtra("FILM");
+
+
+        TrailerApiConnector getTrailer = new TrailerApiConnector(this);
+        getTrailer.execute("https://api.themoviedb.org/3/movie/"+film.getFilmID()+"/videos?api_key=863618e1d5c5f5cc4e34a37c49b8338e&language=en_US");
 
         //Setting toolbar
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         myToolbar.setTitle(R.string.film_detail);
         setSupportActionBar(myToolbar);
 
-        //Getting film given by FilmOverviewActivity
-        Film film = (Film) getIntent().getSerializableExtra("FILM");
 
         //Declaration of TextViews
         title = (TextView) findViewById(R.id.movieTitleDetailId);
@@ -78,4 +87,14 @@ public class FilmDetailAgendaActivity extends AppCompatActivity {
         return true;
     }
 
+
+    @Override
+    public void trailerAvailable(String trailerURL) {
+        film.setTrailerURL(trailerURL);
+    }
+
+    public void trailerButton(View v) {
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(film.getTrailerURL()));
+        startActivity(intent);
+    }
 }

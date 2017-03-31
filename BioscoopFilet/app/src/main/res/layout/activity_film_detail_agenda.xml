@@ -91,7 +91,8 @@
                     android:layout_width="32dp"
                     android:layout_height="32dp"
                     android:src="@drawable/ic_action_youtube"
-                    android:translationX="-4dp"/>
+                    android:translationX="-4dp"
+                    android:onClick="trailerButton"/>
 
             </LinearLayout>
 

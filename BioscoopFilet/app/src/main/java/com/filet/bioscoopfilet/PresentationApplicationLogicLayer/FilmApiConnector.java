@@ -2,11 +2,13 @@ package com.filet.bioscoopfilet.PresentationApplicationLogicLayer;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.view.View;
 import android.widget.Toast;
 
 import com.filet.bioscoopfilet.DomainModel.Actor;
 import com.filet.bioscoopfilet.DomainModel.Cinema;
 import com.filet.bioscoopfilet.DomainModel.Film;
+import com.filet.bioscoopfilet.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -38,30 +40,30 @@ public class FilmApiConnector extends AsyncTask<String, Void, String> {
     protected String doInBackground(String... params) {
 
         InputStream inputStream = null;
-        int responseCode = -1;
+            int responseCode = -1;
 
-        //URL we get from .execute()
-        String filmUrl = params[0];
-        String result = "";
+            //URL we get from .execute()
+            String filmUrl = params[0];
+            String result = "";
 
-        try {
-            //Make URL object
-            URL url = new URL(filmUrl);
-            //Open connection on URL
-            URLConnection urlConnection = url.openConnection();
+            try {
+                //Make URL object
+                URL url = new URL(filmUrl);
+                //Open connection on URL
+                URLConnection urlConnection = url.openConnection();
 
-            if (!(urlConnection instanceof HttpURLConnection)) {
-                return null;
-            }
+                if (!(urlConnection instanceof HttpURLConnection)) {
+                    return null;
+                }
 
-            // Initiate a HTTP connection
-            HttpURLConnection httpConnection = (HttpURLConnection) urlConnection;
-            httpConnection.setAllowUserInteraction(false);
-            httpConnection.setInstanceFollowRedirects(true);
-            httpConnection.setRequestMethod("GET");
+                // Initiate a HTTP connection
+                HttpURLConnection httpConnection = (HttpURLConnection) urlConnection;
+                httpConnection.setAllowUserInteraction(false);
+                httpConnection.setInstanceFollowRedirects(true);
+                httpConnection.setRequestMethod("GET");
 
-            // Do a request on the HTTP connection
-            httpConnection.connect();
+                // Do a request on the HTTP connection
+                httpConnection.connect();
 
             // Check if connection is made using a response code
             responseCode = httpConnection.getResponseCode();
@@ -164,4 +166,5 @@ public class FilmApiConnector extends AsyncTask<String, Void, String> {
 
         void filmsAvailable(ArrayList<Film> result);
     }
+
 }
