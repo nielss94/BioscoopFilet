@@ -10,13 +10,18 @@ import android.widget.TextView;
 
 import com.filet.bioscoopfilet.DomainModel.Film;
 import com.filet.bioscoopfilet.DomainModel.Show;
+import com.filet.bioscoopfilet.DomainModel.Ticket;
 import com.filet.bioscoopfilet.R;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class PaymentActivity extends AppCompatActivity {
 
     TextView payTitle;
     TextView payVersion;
     TextView payDateTime;
+    TextView payTotalPrice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,17 +34,24 @@ public class PaymentActivity extends AppCompatActivity {
         setSupportActionBar(myToolbar);
 
         //Getting film given by activities before
-        Show show = (Show) getIntent().getSerializableExtra("SHOW");
-        Film film =  show.getFilm();
+        ArrayList<Ticket> tickets = (ArrayList<Ticket>) getIntent().getSerializableExtra("tickets");
+        Show show = tickets.get(0).getShow();
+        Film film = show.getFilm();
+
+        //Get the total price
+        Double totalPrice = getIntent().getDoubleExtra("totalPrice",0.00);
 
         //Declaration of TextViews
         payTitle = (TextView) findViewById(R.id.payTitle);
         payVersion = (TextView) findViewById(R.id.payVersion);
         payDateTime = (TextView) findViewById(R.id.payDateTime);
+        payTotalPrice = (TextView) findViewById(R.id.payTotalPrice);
+
 
         //Filling TextViews with film info
         payTitle.setText(film.getTitle());
         payVersion.setText(film.getVersion());
+        payTotalPrice.setText("€"+totalPrice+"0");
 
         //Filling TextView with show info
         java.text.SimpleDateFormat format = new java.text.SimpleDateFormat("dd/MM/yy - HH:mm");
