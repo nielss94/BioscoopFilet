@@ -48,7 +48,6 @@ public class SQLiteTheaterDAO implements TheaterDAO {
                 Cinema c = null;
                 Theater t = null;
                 for (int i = 0; i < cinemas.size(); i++) {
-                    Log.i(TAG, cinemas.get(i).getCinemaID() + " & " + cursor.getString(cursor.getColumnIndex(db.getCOLUMN_THEATER_CINEMAID())));
                     if (cinemas.get(i).getCinemaID() == cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_THEATER_CINEMAID()))) {
                         c = cinemas.get(i);
                     }

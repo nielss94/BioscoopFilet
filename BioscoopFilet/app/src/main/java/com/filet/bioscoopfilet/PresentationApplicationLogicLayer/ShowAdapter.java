@@ -1,6 +1,7 @@
 package com.filet.bioscoopfilet.PresentationApplicationLogicLayer;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,8 @@ import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 /**
@@ -23,19 +26,21 @@ import java.util.ArrayList;
 
 public class ShowAdapter extends ArrayAdapter<Show> {
 
-    public ShowAdapter(Context context, ArrayList<Show> shows){
+    private final String TAG = getClass().getSimpleName();
+
+    public ShowAdapter(Context context, ArrayList<Show> shows) {
         super(context, 0, shows);
     }
 
     @Override
-    public View getView (int posistion, View convertView, ViewGroup parent){
+    public View getView(int posistion, View convertView, ViewGroup parent) {
 
         //Declaration of show
         Show show = getItem(posistion);
         Film film = show.getFilm();
 
         //Make convertView
-        if (convertView == null){
+        if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.custom_film_agenda_list_item, parent, false);
         }
 
@@ -50,14 +55,20 @@ public class ShowAdapter extends ArrayAdapter<Show> {
         //Declaration of ImageView
         ImageView poster = (ImageView) convertView.findViewById(R.id.listFilmImage);
 
-
         //Filling TextViews with show info
         title.setText(film.getTitle());
-        genre.setText("Genre: "+film.getGenre());
+        genre.setText("Genre: " + film.getGenre());
         age.setText("Leeftijd: " + film.getAge());
-        version.setText("Versie: " +film.getVersion());
+        version.setText("Versie: " + film.getVersion());
         imdb.setText("IMDB: " + film.getIMDBScore());
-        time.setText(show.getTime()+"");
+
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+        String dateTime = show.getTime().toString();
+        try {
+            time.setText(sdf.parse(dateTime).toString());
+        } catch (ParseException e) {
+            Log.e(TAG, e.getMessage());
+        }
 
         //Filling image (FOR DEMO)
         Picasso.with(getContext()).load(film.getPosterURL()).into(poster);

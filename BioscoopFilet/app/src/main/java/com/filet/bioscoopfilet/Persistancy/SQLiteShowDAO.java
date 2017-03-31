@@ -65,22 +65,10 @@ public class SQLiteShowDAO implements ShowDAO {
                         t = theaters.get(i);
                     }
                 }
-                s = new Show(cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_SHOWID())),
-                        f,
-                        t,
-                        new Date(cursor.getString(cursor.getColumnIndex(db.getCOLUMN_SHOW_TIME())))); //Test the time!!
+                s = new Show(cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_SHOWID())), f, t, new Date(cursor.getString(cursor.getColumnIndex(db.getCOLUMN_SHOW_TIME()))));
                 String seats = cursor.getString(cursor.getColumnIndex(db.getCOLUMN_SHOW_SEATS()));
-                ArrayList<Boolean> seatsList = new ArrayList<>();
-                for (int i = 0; i < seats.length(); i++) {
-                    if(seats.charAt(i) == 1)
-                    {
-                        seatsList.add(true);
-                    }
-                    else{
-                        seatsList.add(false);
-                    }
-                }
-                s.setSeats(seatsList.toArray(new Boolean[seatsList.size()]));
+
+                s.setSeats(seats);
                 Log.i(TAG, s.toString());
                 Log.i(TAG, "--------------------------------------------");
 
@@ -109,17 +97,7 @@ public class SQLiteShowDAO implements ShowDAO {
             //Test this!!
             values.put(db.getCOLUMN_SHOW_TIME(),show.getTime().toString());
 
-            String seatsAsText = "";
-            for (int i = 0; i < show.getSeats().length; i++) {
-                if(show.getSeats()[i] == true)
-                {
-                    seatsAsText = seatsAsText + "1";
-                }
-                else{
-                    seatsAsText = seatsAsText + "0";
-                }
-            }
-            values.put(db.getCOLUMN_SHOW_SEATS(),seatsAsText);
+            values.put(db.getCOLUMN_SHOW_SEATS(),show.getSeats());
 
             writable.insert(db.getDB_TABLE_SHOW_NAME(), null, values);
         }catch(SQLiteException e)

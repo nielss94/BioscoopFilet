@@ -6,4 +6,7 @@
     <color name="colorAccent">#ffcc00</color>
     <color name="primary_text_material_dark">#ffffff</color>
     <color name="secondary_text_default_material_dark">#ffffff</color>
+    <color name="taken">#9b0106</color>
+    <color name="free">#00de25</color>
+    <color name="selected">#006fff</color>
 </resources>

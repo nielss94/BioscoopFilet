@@ -1,10 +1,13 @@
 package com.filet.bioscoopfilet.PresentationApplicationLogicLayer;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.filet.bioscoopfilet.DomainModel.Cinema;
@@ -16,7 +19,7 @@ import com.filet.bioscoopfilet.R;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class FilmAgendaActivity extends AppCompatActivity {
+public class FilmAgendaActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     private ArrayList<Show> shows = new ArrayList<>();
 
@@ -62,5 +65,14 @@ public class FilmAgendaActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
         return true;
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Show show = shows.get(position);
+
+        Intent intent = new Intent(getApplicationContext(), FilmDetailAgendaActivity.class);
+        intent.putExtra("show", show);
+        startActivity(intent);
     }
 }

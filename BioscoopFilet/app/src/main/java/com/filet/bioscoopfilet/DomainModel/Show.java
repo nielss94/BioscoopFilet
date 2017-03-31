@@ -1,6 +1,7 @@
 package com.filet.bioscoopfilet.DomainModel;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -13,9 +14,9 @@ public class Show implements Serializable {
     private Film film;
     private Theater theater;
     private Date time;
-    private Boolean[] seats = new Boolean[150];
+    private String seats;
 
-    public Show(Film film, Theater theater, Date time, Boolean[] seats) {
+    public Show(Film film, Theater theater, Date time, String seats) {
         this.film = film;
         this.theater = theater;
         this.time = time;
@@ -28,7 +29,7 @@ public class Show implements Serializable {
         this.time = time;
     }
 
-    public Show(int showID, Film film, Theater theater, Date time, Boolean[] seats) {
+    public Show(int showID, Film film, Theater theater, Date time, String seats) {
         this.showID = showID;
         this.film = film;
         this.theater = theater;
@@ -75,32 +76,23 @@ public class Show implements Serializable {
         this.time = time;
     }
 
-    public Boolean[] getSeats() {
+    public String getSeats() {
         return seats;
     }
 
-    public void setSeats(Boolean[] seats) {
+    public void setSeats(String seats) {
         this.seats = seats;
     }
 
     @Override
     public String toString() {
-        String seatsAsText = "";
-        for (int i = 0; i < getSeats().length; i++) {
-            if(getSeats()[i] == true)
-            {
-                seatsAsText = seatsAsText + "1";
-            }
-            else{
-                seatsAsText = seatsAsText + "0";
-            }
-        }
+
         return "Show{" +
                 "showID=" + showID +
                 ", film=" + film +
                 ", theater=" + theater +
                 ", time=" + time +
-                ", seats=" + seatsAsText  +
+                ", seats=" + seats  +
                 '}';
     }
 }
