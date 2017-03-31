@@ -51,6 +51,7 @@ public class SQLiteFilmDAO implements FilmDAO {
                         c = cinemas.get(i);
                     }
                     f = new Film(cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_FILMID())),
+                            cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_FILMAPIID())),
                             c,
                             cursor.getString(cursor.getColumnIndex(db.getCOLUMN_FILM_TITLE())),
                             cursor.getString(cursor.getColumnIndex(db.getCOLUMN_FILM_VERSION())),
@@ -87,6 +88,7 @@ public class SQLiteFilmDAO implements FilmDAO {
 
             ContentValues values = new ContentValues();
 
+            values.put(db.getCOLUMN_FILMAPIID(), film.getFilmAPIID());
             values.put(db.getCOLUMN_FILM_CINEMAID(), film.getCinema().getCinemaID());
             values.put(db.getCOLUMN_FILM_TITLE(), film.getTitle());
             values.put(db.getCOLUMN_FILM_VERSION(), film.getVersion());
