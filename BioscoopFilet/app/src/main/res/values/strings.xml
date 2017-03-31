@@ -35,12 +35,15 @@ Drumstick tri-tip beef ribs, cow corned beef biltong ribeye boudin shoulder ball
     <string name="including_btw">(Inclusief BTW)</string>
     <string name="total">Totaal:</string>
     <string name="buy_tickets">Koop tickets</string>
-    <string name="my_tickets">Mijn tickets</string>
-    <string name="my_films">Mijn films</string>
+    <string name="my_tickets">Mijn Tickets</string>
+    <string name="my_ticket_details">Ticket Details</string>
+    <string name="my_films">Mijn Films</string>
     <string name="pay_tickets">Afrekenen</string>
     <string name="seat_selected">Geselecteerd</string>
     <string name="seat_taken">Bezet</string>
     <string name="seat_available">Beschikbaar</string>
+    <string name="amount">Aantal: </string>
+    <string name="seats">Plaatsen: </string>
 
     <string name="time_tickets">Tijden &amp; Tickets</string>
     <string name="version">Versie: </string>

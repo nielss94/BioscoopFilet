@@ -19,6 +19,7 @@ public class MyFiletActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_filet);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        myToolbar.setTitle(R.string.my_filet);
         setSupportActionBar(myToolbar);
     }
 
