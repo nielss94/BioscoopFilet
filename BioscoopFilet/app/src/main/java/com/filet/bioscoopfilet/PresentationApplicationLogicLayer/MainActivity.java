@@ -31,7 +31,6 @@ import com.filet.bioscoopfilet.Persistancy.TicketDAO;
 import com.filet.bioscoopfilet.Persistancy.VisitorDAO;
 import com.filet.bioscoopfilet.R;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {

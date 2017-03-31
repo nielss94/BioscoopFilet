@@ -2,6 +2,11 @@ package com.filet.bioscoopfilet.PresentationApplicationLogicLayer;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.PopupMenu;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.ListView;
 
 import com.filet.bioscoopfilet.DomainModel.Cinema;
@@ -24,6 +29,9 @@ public class MyTicketActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_ticket);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+
         Visitor v = new Visitor(1, "Niels", "van Dam");
         Cinema c = new Cinema(1, "Filet", "Breda", "Lovensdijkstraat", "5000XX", "013-57123010");
         Film f = new Film(1, c, "Hiro Potterand saving the cheerleader", "Version", "language", "23-03-2017", "Horror", 113, 12,
@@ -41,5 +49,29 @@ public class MyTicketActivity extends AppCompatActivity {
         t = new Ticket("2r1dmnwiun23jf", v, s, 32);
         tickets.add(t);
         listview.setAdapter(adapter);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_lang:
+                PopupMenu popup = new PopupMenu(this, findViewById(R.id.action_lang));
+                MenuInflater inflater = popup.getMenuInflater();
+                inflater.inflate(R.menu.menu_lang, popup.getMenu());
+                popup.show();
+                return true;
+
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
