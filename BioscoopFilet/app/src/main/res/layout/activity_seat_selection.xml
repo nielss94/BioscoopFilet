@@ -685,7 +685,7 @@
                                 android:layout_height="24dp"
                                 android:layout_marginBottom="8dp"
                                 android:layout_marginRight="8dp"
-                                android:background="@drawable/border"
+                                android:background="@drawable/border_blue_bg"
                                 android:src="@drawable/ic_seat_selected" />
 
                             <TextView
