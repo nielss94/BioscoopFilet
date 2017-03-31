@@ -70,4 +70,6 @@ Drumstick tri-tip beef ribs, cow corned beef biltong ribeye boudin shoulder ball
         <item>Zaterdag - 01/04/2017</item>
         <item>Zondag - 02/04/2017</item>
     </string-array>
+    <string name="actors">Acteurs:</string>
+    <string name="minutes">minuten</string>
 </resources>

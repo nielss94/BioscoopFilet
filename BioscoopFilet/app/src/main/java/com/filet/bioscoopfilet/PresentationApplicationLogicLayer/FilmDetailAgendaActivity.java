@@ -8,15 +8,20 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
+import android.view.animation.Interpolator;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.filet.bioscoopfilet.DomainModel.Actor;
 import com.filet.bioscoopfilet.DomainModel.Film;
 import com.filet.bioscoopfilet.R;
 import com.squareup.picasso.Picasso;
 
-public class FilmDetailAgendaActivity extends AppCompatActivity implements TrailerApiConnector.TrailerAvailable {
+import java.util.ArrayList;
+
+public class FilmDetailAgendaActivity extends AppCompatActivity implements TrailerApiConnector.TrailerAvailable, 
+        DirectorApiConnector.DirectorAvailable, ActorApiConnector.ActorAvailable, RuntimeApiConnector.RuntimeAvailable{
 
     TextView title;
     TextView version;
@@ -41,9 +46,12 @@ public class FilmDetailAgendaActivity extends AppCompatActivity implements Trail
         //Getting film given by FilmOverviewActivity
         film = (Film) getIntent().getSerializableExtra("FILM");
 
+        gettingInformation();
 
         TrailerApiConnector getTrailer = new TrailerApiConnector(this);
         getTrailer.execute("https://api.themoviedb.org/3/movie/"+film.getFilmID()+"/videos?api_key=863618e1d5c5f5cc4e34a37c49b8338e&language=en_US");
+        DirectorApiConnector getDirector = new DirectorApiConnector(this);
+        getDirector.execute("https://api.themoviedb.org/3/movie/"+film.getFilmID()+"/credits?api_key=863618e1d5c5f5cc4e34a37c49b8338e");
 
         //Setting toolbar
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
@@ -69,11 +77,11 @@ public class FilmDetailAgendaActivity extends AppCompatActivity implements Trail
         title.setText(film.getTitle());
         version.setText(getResources().getString(R.string.version)  + " " + film.getVersion());
         release.setText(getResources().getString(R.string.release) + " " + film.getReleaseDate());
-        length.setText(getResources().getString(R.string.length) + " " + film.getLength());
+        length.setText("");
         age.setText(getResources().getString(R.string.age) + " " + film.getAge());
         imdbScore.setText(getResources().getString(R.string.imdb) + " " + film.getIMDBScore());
-//        director.setText(getResources().getString(R.string.director) + " " + film.getDirector());
-//        actors.setText();
+        director.setText("");
+        actors.setText("");
         description.setText(film.getDescription().toString());
 
         //Setting poster image in ImageView
@@ -93,8 +101,43 @@ public class FilmDetailAgendaActivity extends AppCompatActivity implements Trail
         film.setTrailerURL(trailerURL);
     }
 
+    @Override
+    public void directorAvailable(String directorString) {
+        film.setDirector(directorString);
+        director.setText("Director: " + directorString);
+    }
+
+    @Override
+    public void actorAvailable(ArrayList<Actor> actorsList) {
+
+        actors.setText(getResources().getString(R.string.actors) + " " + actorsList.get(0).getFirstName()
+                + ", " + actorsList.get(1).getFirstName() + ", " + actorsList.get(2).getFirstName());
+    }
+
+    @Override
+    public void runtimeAvailable(String runtime) {
+        film.setLength(Integer.parseInt(runtime));
+        length.setText(runtime + " " + getResources().getString(R.string.minutes));
+    }
+
     public void trailerButton(View v) {
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(film.getTrailerURL()));
         startActivity(intent);
     }
+
+    public void gettingInformation(){
+
+        TrailerApiConnector getTrailer = new TrailerApiConnector(this);
+        getTrailer.execute("https://api.themoviedb.org/3/movie/"+film.getFilmID()+"/videos?api_key=863618e1d5c5f5cc4e34a37c49b8338e&language=en_US");
+
+        DirectorApiConnector getDirector = new DirectorApiConnector(this);
+        getDirector.execute("https://api.themoviedb.org/3/movie/"+film.getFilmID()+"/credits?api_key=863618e1d5c5f5cc4e34a37c49b8338e");
+
+        ActorApiConnector getActor = new ActorApiConnector(this);
+        getActor.execute("https://api.themoviedb.org/3/movie/"+film.getFilmID()+"/credits?api_key=863618e1d5c5f5cc4e34a37c49b8338e");
+
+        RuntimeApiConnector getRuntime = new RuntimeApiConnector(this);
+        getRuntime.execute("https://api.themoviedb.org/3/movie/"+film.getFilmID()+"?api_key=863618e1d5c5f5cc4e34a37c49b8338e&language=nl");
+    }
+
 }
