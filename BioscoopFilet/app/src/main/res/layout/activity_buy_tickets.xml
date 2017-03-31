@@ -45,7 +45,7 @@
                         android:id="@+id/type1"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="Normaal"
+                        android:text="@string/normal"
                         android:textColor="@android:color/black"
                         android:textSize="24dp" />
 
@@ -54,7 +54,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_centerInParent="true"
-                        android:text="€11,00"
+                        android:text="€11.00"
                         android:textColor="@android:color/black"
                         android:textSize="24dp" />
 
@@ -62,25 +62,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_alignParentEnd="true">
-
-                        <TextView
-                            android:id="@+id/plus1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:paddingLeft="@dimen/activity_horizontal_margin"
-                            android:paddingRight="@dimen/activity_horizontal_margin"
-                            android:text="+"
-                            android:textColor="@android:color/black"
-                            android:textSize="24dp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/count1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="1"
-                            android:textColor="@android:color/black"
-                            android:textSize="24dp" />
 
                         <TextView
                             android:id="@+id/min1"
@@ -91,7 +72,30 @@
                             android:text="-"
                             android:textColor="@android:color/black"
                             android:textSize="24dp"
-                            android:textStyle="bold" />
+                            android:tag="@string/normal"
+                            android:textStyle="bold"
+                            android:onClick="minOne" />
+
+                        <TextView
+                            android:id="@+id/count1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="1"
+                            android:textColor="@android:color/black"
+                            android:textSize="24dp" />
+
+                        <TextView
+                            android:id="@+id/plus1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:paddingLeft="@dimen/activity_horizontal_margin"
+                            android:paddingRight="@dimen/activity_horizontal_margin"
+                            android:text="+"
+                            android:textColor="@android:color/black"
+                            android:textSize="24dp"
+                            android:tag="@string/normal"
+                            android:textStyle="bold"
+                            android:onClick="plusOne" />
                     </LinearLayout>
 
 
@@ -106,7 +110,7 @@
                         android:id="@+id/type2"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="Tiener"
+                        android:text="@string/teen"
                         android:textColor="@android:color/black"
                         android:textSize="24dp" />
 
@@ -115,7 +119,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_centerInParent="true"
-                        android:text="€8,00"
+                        android:text="€8.00"
                         android:textColor="@android:color/black"
                         android:textSize="24dp" />
 
@@ -123,25 +127,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_alignParentEnd="true">
-
-                        <TextView
-                            android:id="@+id/plus2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:paddingLeft="@dimen/activity_horizontal_margin"
-                            android:paddingRight="@dimen/activity_horizontal_margin"
-                            android:text="+"
-                            android:textColor="@android:color/black"
-                            android:textSize="24dp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/count2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="2"
-                            android:textColor="@android:color/black"
-                            android:textSize="24dp" />
 
                         <TextView
                             android:id="@+id/min2"
@@ -152,7 +137,30 @@
                             android:text="-"
                             android:textColor="@android:color/black"
                             android:textSize="24dp"
-                            android:textStyle="bold" />
+                            android:tag="@string/teen"
+                            android:textStyle="bold"
+                            android:onClick="minOne" />
+
+                        <TextView
+                            android:id="@+id/count2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="2"
+                            android:textColor="@android:color/black"
+                            android:textSize="24dp" />
+
+                        <TextView
+                            android:id="@+id/plus2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:paddingLeft="@dimen/activity_horizontal_margin"
+                            android:paddingRight="@dimen/activity_horizontal_margin"
+                            android:text="+"
+                            android:textColor="@android:color/black"
+                            android:textSize="24dp"
+                            android:tag="@string/teen"
+                            android:textStyle="bold"
+                            android:onClick="plusOne" />
                     </LinearLayout>
 
 
@@ -167,7 +175,7 @@
                         android:id="@+id/type3"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="Kind"
+                        android:text="@string/child"
                         android:textColor="@android:color/black"
                         android:textSize="24dp" />
 
@@ -176,7 +184,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_centerInParent="true"
-                        android:text="€5,00"
+                        android:text="€5.00"
                         android:textColor="@android:color/black"
                         android:textSize="24dp" />
 
@@ -184,25 +192,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_alignParentEnd="true">
-
-                        <TextView
-                            android:id="@+id/plus3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:paddingLeft="@dimen/activity_horizontal_margin"
-                            android:paddingRight="@dimen/activity_horizontal_margin"
-                            android:text="+"
-                            android:textColor="@android:color/black"
-                            android:textSize="24dp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/count3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="0"
-                            android:textColor="@android:color/black"
-                            android:textSize="24dp" />
 
                         <TextView
                             android:id="@+id/min3"
@@ -213,7 +202,30 @@
                             android:text="-"
                             android:textColor="@android:color/black"
                             android:textSize="24dp"
-                            android:textStyle="bold" />
+                            android:tag="@string/child"
+                            android:textStyle="bold"
+                            android:onClick="minOne"  />
+
+                        <TextView
+                            android:id="@+id/count3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="0"
+                            android:textColor="@android:color/black"
+                            android:textSize="24dp" />
+
+                        <TextView
+                            android:id="@+id/plus3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:paddingLeft="@dimen/activity_horizontal_margin"
+                            android:paddingRight="@dimen/activity_horizontal_margin"
+                            android:text="+"
+                            android:textColor="@android:color/black"
+                            android:textSize="24dp"
+                            android:tag="@string/child"
+                            android:textStyle="bold"
+                            android:onClick="plusOne"/>
                     </LinearLayout>
 
 
@@ -228,7 +240,7 @@
                         android:id="@+id/type4"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="Senior"
+                        android:text="@string/senior"
                         android:textColor="@android:color/black"
                         android:textSize="24dp"
                         android:layout_alignParentTop="true"
@@ -239,7 +251,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_centerInParent="true"
-                        android:text="€9,00"
+                        android:text="€9.00"
                         android:textColor="@android:color/black"
                         android:textSize="24dp" />
 
@@ -247,25 +259,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_alignParentEnd="true">
-
-                        <TextView
-                            android:id="@+id/plus4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:paddingLeft="@dimen/activity_horizontal_margin"
-                            android:paddingRight="@dimen/activity_horizontal_margin"
-                            android:text="+"
-                            android:textColor="@android:color/black"
-                            android:textSize="24dp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/count4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="0"
-                            android:textColor="@android:color/black"
-                            android:textSize="24dp" />
 
                         <TextView
                             android:id="@+id/min4"
@@ -276,7 +269,30 @@
                             android:text="-"
                             android:textColor="@android:color/black"
                             android:textSize="24dp"
-                            android:textStyle="bold" />
+                            android:tag="@string/senior"
+                            android:textStyle="bold"
+                            android:onClick="minOne"  />
+
+                        <TextView
+                            android:id="@+id/count4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="0"
+                            android:textColor="@android:color/black"
+                            android:textSize="24dp" />
+
+                        <TextView
+                            android:id="@+id/plus4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:paddingLeft="@dimen/activity_horizontal_margin"
+                            android:paddingRight="@dimen/activity_horizontal_margin"
+                            android:text="+"
+                            android:textColor="@android:color/black"
+                            android:textSize="24dp"
+                            android:tag="@string/senior"
+                            android:textStyle="bold"
+                            android:onClick="plusOne" />
                     </LinearLayout>
 
 
@@ -291,7 +307,7 @@
                         android:id="@+id/type5"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="Student"
+                        android:text="@string/student"
                         android:textColor="@android:color/black"
                         android:textSize="24dp"
                         android:layout_alignParentTop="true"
@@ -302,7 +318,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_centerInParent="true"
-                        android:text="€9,00"
+                        android:text="€9.00"
                         android:textColor="@android:color/black"
                         android:textSize="24dp" />
 
@@ -310,25 +326,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_alignParentEnd="true">
-
-                        <TextView
-                            android:id="@+id/plus5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:paddingLeft="@dimen/activity_horizontal_margin"
-                            android:paddingRight="@dimen/activity_horizontal_margin"
-                            android:text="+"
-                            android:textColor="@android:color/black"
-                            android:textSize="24dp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/count5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="0"
-                            android:textColor="@android:color/black"
-                            android:textSize="24dp" />
 
                         <TextView
                             android:id="@+id/min5"
@@ -339,7 +336,30 @@
                             android:text="-"
                             android:textColor="@android:color/black"
                             android:textSize="24dp"
-                            android:textStyle="bold" />
+                            android:tag="@string/student"
+                            android:textStyle="bold"
+                            android:onClick="minOne" />
+
+                        <TextView
+                            android:id="@+id/count5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="0"
+                            android:textColor="@android:color/black"
+                            android:textSize="24dp" />
+
+                        <TextView
+                            android:id="@+id/plus5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:paddingLeft="@dimen/activity_horizontal_margin"
+                            android:paddingRight="@dimen/activity_horizontal_margin"
+                            android:text="+"
+                            android:textColor="@android:color/black"
+                            android:textSize="24dp"
+                            android:tag="@string/student"
+                            android:textStyle="bold"
+                            android:onClick="plusOne"/>
                     </LinearLayout>
 
 
@@ -354,7 +374,7 @@
                         android:id="@+id/glasses"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="3D bril"
+                        android:text="@string/glasses"
                         android:textColor="@android:color/black"
                         android:textSize="24dp" />
 
@@ -363,7 +383,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_centerInParent="true"
-                        android:text="€1,50"
+                        android:text="€1.50"
                         android:textColor="@android:color/black"
                         android:textSize="24dp" />
 
@@ -371,25 +391,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_alignParentEnd="true">
-
-                        <TextView
-                            android:id="@+id/plusGlasses"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:paddingLeft="@dimen/activity_horizontal_margin"
-                            android:paddingRight="@dimen/activity_horizontal_margin"
-                            android:text="+"
-                            android:textColor="@android:color/black"
-                            android:textSize="24dp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/countGlasses"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="0"
-                            android:textColor="@android:color/black"
-                            android:textSize="24dp" />
 
                         <TextView
                             android:id="@+id/minGlasses"
@@ -400,7 +401,30 @@
                             android:text="-"
                             android:textColor="@android:color/black"
                             android:textSize="24dp"
-                            android:textStyle="bold" />
+                            android:tag="@string/glasses"
+                            android:textStyle="bold"
+                            android:onClick="minOne" />
+
+                        <TextView
+                            android:id="@+id/countGlasses"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="0"
+                            android:textColor="@android:color/black"
+                            android:textSize="24dp" />
+
+                        <TextView
+                            android:id="@+id/plusGlasses"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:paddingLeft="@dimen/activity_horizontal_margin"
+                            android:paddingRight="@dimen/activity_horizontal_margin"
+                            android:text="+"
+                            android:textColor="@android:color/black"
+                            android:textSize="24dp"
+                            android:tag="@string/glasses"
+                            android:textStyle="bold"
+                            android:onClick="plusOne"/>
                     </LinearLayout>
 
 
@@ -422,6 +446,7 @@
                     android:textColor="@android:color/black"
                     android:textSize="32dp"
                     android:layout_width="match_parent"
+                    android:id="@+id/totalPrice"
                     android:layout_height="40dp" />
                 <TextView
                     android:layout_marginTop="4dp"
