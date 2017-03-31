@@ -114,7 +114,6 @@ public class SeatSelectionActivity extends AppCompatActivity {
             } else if (show.getSeats().charAt(i) == '0') {
                 freeSeats++;
 
-                Log.i(TAG, "Nummer: " + i);
 
                 if (freeSeats >= amountOfTickets && seatsFound == false) {
                     for (int j = 0; j < amountOfTickets; j++) {

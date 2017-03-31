@@ -46,7 +46,7 @@ public class MyTicketDetailActivity extends AppCompatActivity {
         //generate qrCode
         MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
         try {
-            BitMatrix bitMatrix = multiFormatWriter.encode(ticket.getQrCode(), BarcodeFormat.QR_CODE, 800, 800);
+            BitMatrix bitMatrix = multiFormatWriter.encode(ticket.getQrCode()+"", BarcodeFormat.QR_CODE, 800, 800);
             BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
             Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
             qrCode.setImageBitmap(bitmap);
