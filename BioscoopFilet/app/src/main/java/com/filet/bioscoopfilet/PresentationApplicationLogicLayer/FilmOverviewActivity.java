@@ -1,6 +1,7 @@
 package com.filet.bioscoopfilet.PresentationApplicationLogicLayer;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -10,6 +11,7 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.filet.bioscoopfilet.DomainModel.Actor;
@@ -30,6 +32,7 @@ public class FilmOverviewActivity extends AppCompatActivity implements AdapterVi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_film_overview);
+
 
         //Setting toolbar
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
@@ -98,6 +101,8 @@ public class FilmOverviewActivity extends AppCompatActivity implements AdapterVi
 
     @Override
     public void filmsAvailable(ArrayList<Film> result) {
+
+        findViewById(R.id.loadingPanel).setVisibility(View.GONE);
 
         //Clear current products
         films.clear();

@@ -9,6 +9,7 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.widget.TextView;
 
+import com.filet.bioscoopfilet.DomainModel.Show;
 import com.filet.bioscoopfilet.R;
 
 public class BuyTicketsActivity extends AppCompatActivity {
@@ -31,12 +32,15 @@ public class BuyTicketsActivity extends AppCompatActivity {
 
     }
 
-    //DEMO BUTTON
     public void seatButton(View v) {
         Intent intent = new Intent(this, SeatSelectionActivity.class);
 
+        Show show = (Show) getIntent().getSerializableExtra("SHOW");
+
         intent.putExtra("amountOfTickets", amountOfTickets);
         intent.putExtra("totalPrice", totalPrice);
+        intent.putExtra("SHOW", show);
+
         startActivity(intent);
     }
 

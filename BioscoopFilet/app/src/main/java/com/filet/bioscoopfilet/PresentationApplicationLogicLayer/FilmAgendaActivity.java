@@ -48,16 +48,20 @@ public class FilmAgendaActivity extends AppCompatActivity implements AdapterView
                 "7.5","",  "https://image.tmdb.org/t/p/w500/inVq3FRqcYIRl2la8iZikYYxFNR.jpg",  "");
 
         Theater theater = new Theater(cinema, 100);
-        shows.add(new Show(film,theater, new Date("04/04/2017")));
+        shows.add(new Show(film,theater, new Date(2017, 04, 04, 17, 50)));
 
-        shows.add(new Show(film,theater, new Date("04/04/2017")));
-
-        shows.add(new Show(film,theater, new Date("04/04/2017")));
+//        shows.add(new Show(film,theater, new Date("04/04/2017")));
+//
+//        shows.add(new Show(film,theater, new Date("04/04/2017")));
 
 
         //Declaration of ListView
         showList = (ListView) findViewById(R.id.filmListView);
+        showList.setOnItemClickListener(this);
         showList.setAdapter(showAdapter);
+
+        //Must go in listener
+        findViewById(R.id.loadingPanel).setVisibility(View.GONE);
     }
 
     @Override
@@ -71,8 +75,8 @@ public class FilmAgendaActivity extends AppCompatActivity implements AdapterView
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Show show = shows.get(position);
 
-        Intent intent = new Intent(getApplicationContext(), FilmDetailAgendaActivity.class);
-        intent.putExtra("show", show);
+        Intent intent = new Intent(getApplicationContext(), SelectedFilmDetailActivity.class);
+        intent.putExtra("SHOW", show);
         startActivity(intent);
     }
 }

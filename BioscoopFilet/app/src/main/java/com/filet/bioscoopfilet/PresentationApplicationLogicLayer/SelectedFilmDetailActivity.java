@@ -12,10 +12,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.filet.bioscoopfilet.DomainModel.Film;
+import com.filet.bioscoopfilet.DomainModel.Show;
 import com.filet.bioscoopfilet.R;
 import com.squareup.picasso.Picasso;
 
-public class FilmDetailAgendaActivity extends AppCompatActivity {
+public class SelectedFilmDetailActivity extends AppCompatActivity {
 
     TextView title;
     TextView version;
@@ -32,7 +33,7 @@ public class FilmDetailAgendaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_film_detail_agenda);
+        setContentView(R.layout.activity_selected_film_detail);
 
         //Setting toolbar
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
@@ -40,7 +41,8 @@ public class FilmDetailAgendaActivity extends AppCompatActivity {
         setSupportActionBar(myToolbar);
 
         //Getting film given by FilmOverviewActivity
-        Film film = (Film) getIntent().getSerializableExtra("FILM");
+        Show show = (Show) getIntent().getSerializableExtra("SHOW");
+        Film film =  show.getFilm();
 
         //Declaration of TextViews
         title = (TextView) findViewById(R.id.movieTitleDetailId);
@@ -69,6 +71,15 @@ public class FilmDetailAgendaActivity extends AppCompatActivity {
 
         //Setting poster image in ImageView
         Picasso.with(this).load(film.getPosterURL()).into(poster);
+
+    }
+
+    public void buyButton(View v) {
+        Show show = (Show) getIntent().getSerializableExtra("SHOW");
+
+        Intent intent = new Intent(getApplicationContext(), BuyTicketsActivity.class);
+        intent.putExtra("SHOW", show);
+        startActivity(intent);
     }
 
     @Override
@@ -77,5 +88,4 @@ public class FilmDetailAgendaActivity extends AppCompatActivity {
         inflater.inflate(R.menu.menu, menu);
         return true;
     }
-
 }

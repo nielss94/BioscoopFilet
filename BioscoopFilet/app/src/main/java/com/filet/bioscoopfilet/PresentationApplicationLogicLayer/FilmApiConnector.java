@@ -1,6 +1,8 @@
 package com.filet.bioscoopfilet.PresentationApplicationLogicLayer;
 
+import android.content.Context;
 import android.os.AsyncTask;
+import android.widget.Toast;
 
 import com.filet.bioscoopfilet.DomainModel.Actor;
 import com.filet.bioscoopfilet.DomainModel.Cinema;
@@ -71,7 +73,7 @@ public class FilmApiConnector extends AsyncTask<String, Void, String> {
         } catch (MalformedURLException e) {
             return null;
         } catch (IOException e) {
-            return null;
+           return result;
         }
         return result;
     }

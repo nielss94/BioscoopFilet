@@ -64,7 +64,10 @@ public class SeatSelectionActivity extends AppCompatActivity {
 
     //DEMO BUTTON
     public void paymentButton(View v) {
-        Intent intent = new Intent(this, PaymentActivity.class);
+        Show show = (Show) getIntent().getSerializableExtra("SHOW");
+
+        Intent intent = new Intent(getApplicationContext(),PaymentActivity.class);
+        intent.putExtra("SHOW", show);
         startActivity(intent);
     }
 

@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
                 "Description description...,", "www.imdb.url", "9.9", "www.trailer.url", "www.poster.url", "Director Niels"), new Theater(2, new Cinema(2, "Filet", "Breda", "Lovensdijkstraat 1",
                 "5000XX", "013-51201230"), 150), new Date(04, 04, 1994, 10, 10), "101010001000100101110100100101010010001001010100100100010001000010010100101010100010001001011101001001010100100010010101001001000100010000100101001011");
         TicketDAO ticketDAO = factory.createTicketDAO();
-        ticketDAO.insertData(new Ticket("f2asdffgfdwadgfdf7ikjhfdfgtrrshg3gty4g3", new Visitor(2, "Niels", "nee"), s, 32)); //NEED A METHOD TO GENERATE RANDOM QRCODES
+//        ticketDAO.insertData(new Ticket("f2asdffgfdwadgfdf7ikjhfdfgtrrshg3gty4g3", new Visitor(2, "Niels", "nee"), s, 32)); //NEED A METHOD TO GENERATE RANDOM QRCODES
         ticketDAO.selectData();
     }
 
