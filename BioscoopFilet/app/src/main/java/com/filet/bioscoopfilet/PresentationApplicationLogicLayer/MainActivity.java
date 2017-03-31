@@ -101,7 +101,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void testFeedbackData() {
-
         Visitor v = new Visitor(2, "Jaap", "Jo");
         FeedbackDAO feedbackDAO = factory.createFeedbackDAO();
         feedbackDAO.insertData(new Feedback(v, "Goeie App!"));
