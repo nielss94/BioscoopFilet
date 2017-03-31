@@ -50,7 +50,7 @@ public class TicketAdapter extends ArrayAdapter<Ticket> {
         //Filling Views with ticket info
         filmTitle.setText(ticket.getShow().getFilm().getTitle());
 
-        //Filling image (FOR DEMO)
+        //Filling image
         MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
         try {
             BitMatrix bitMatrix = multiFormatWriter.encode("123", BarcodeFormat.QR_CODE, 60, 60);
@@ -60,7 +60,6 @@ public class TicketAdapter extends ArrayAdapter<Ticket> {
         } catch (WriterException e) {
             e.printStackTrace();
         }
-//        Picasso.with(getContext()).load(ticket.getQrCode()).into(qrCode);
 
         //Returning view for display
         return convertView;

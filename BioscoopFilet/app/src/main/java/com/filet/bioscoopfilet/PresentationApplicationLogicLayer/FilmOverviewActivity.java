@@ -5,6 +5,7 @@ import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
@@ -25,7 +26,6 @@ public class FilmOverviewActivity extends AppCompatActivity implements AdapterVi
     private ArrayList<Film> films = new ArrayList<>();
 
     ListView filmList;
-
     private FilmAdapter filmAdapter;
 
     @Override
@@ -90,10 +90,8 @@ public class FilmOverviewActivity extends AppCompatActivity implements AdapterVi
         return true;
     }
 
-
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-
         Film film = films.get(position);
 
         Intent intent = new Intent(getApplicationContext(), FilmDetailAgendaActivity.class);
