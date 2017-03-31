@@ -62,7 +62,7 @@ public class SQLiteTicketDAO implements TicketDAO {
                         s = shows.get(i);
                     }
                 }
-                t = new Ticket(cursor.getString(cursor.getColumnIndex(db.getCOLUMN_TICKET_QRCODE())), v, s,
+                t = new Ticket(cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_TICKET_QRCODE())), v, s,
                         cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_TICKET_SEAT())));
 
                 Log.i(TAG, t.toString());

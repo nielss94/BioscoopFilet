@@ -48,11 +48,11 @@ public class MyTicketActivity extends AppCompatActivity implements AdapterView.O
         adapter = new TicketAdapter(getApplicationContext(), tickets);
         ListView listview = (ListView) findViewById(R.id.ticketsListview);
 
-        Ticket t = new Ticket("f123fdoinj123kf", v, s, 32);
+        Ticket t = new Ticket(23411142, v, s, 32);
         tickets.add(t);
-        t = new Ticket("124kjio3rhtofld", v, s, 32);
+        t = new Ticket(23144124, v, s, 32);
         tickets.add(t);
-        t = new Ticket("2r1dmnwiun23jf", v, s, 32);
+        t = new Ticket(1242151242, v, s, 32);
         tickets.add(t);
         listview.setAdapter(adapter);
         listview.setOnItemClickListener(this);
