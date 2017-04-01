@@ -53,7 +53,7 @@ public class TicketAdapter extends ArrayAdapter<Ticket> {
         //Filling image
         MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
         try {
-            BitMatrix bitMatrix = multiFormatWriter.encode("12332", BarcodeFormat.QR_CODE, 60, 60);
+            BitMatrix bitMatrix = multiFormatWriter.encode("12332", BarcodeFormat.QR_CODE, 220, 220);
             BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
             Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
             qrCode.setImageBitmap(bitmap);
