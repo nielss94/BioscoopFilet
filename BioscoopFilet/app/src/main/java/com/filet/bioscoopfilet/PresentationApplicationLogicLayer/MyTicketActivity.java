@@ -19,6 +19,9 @@ import com.filet.bioscoopfilet.DomainModel.Show;
 import com.filet.bioscoopfilet.DomainModel.Theater;
 import com.filet.bioscoopfilet.DomainModel.Ticket;
 import com.filet.bioscoopfilet.DomainModel.Visitor;
+import com.filet.bioscoopfilet.Persistancy.DAOFactory;
+import com.filet.bioscoopfilet.Persistancy.SQLiteDAOFactory;
+import com.filet.bioscoopfilet.Persistancy.TicketDAO;
 import com.filet.bioscoopfilet.R;
 
 import java.util.ArrayList;
@@ -26,9 +29,10 @@ import java.util.Date;
 
 public class MyTicketActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
-    TicketAdapter adapter;
+    private TicketAdapter adapter;
     public ArrayList<Ticket> tickets = new ArrayList<>();
     private final String TAG = getClass().getSimpleName();
+    private DAOFactory factory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,22 +42,33 @@ public class MyTicketActivity extends AppCompatActivity implements AdapterView.O
         myToolbar.setTitle(R.string.my_tickets);
         setSupportActionBar(myToolbar);
 
+        factory = new SQLiteDAOFactory(getApplicationContext());
+        TicketDAO ticketDAO = factory.createTicketDAO();
+        tickets = ticketDAO.selectData();
+
+        for (int i = 0; i < tickets.size(); i++) {
+            Log.i(TAG,"-----------------");
+            Log.i(TAG,tickets.get(i).toString());
+            Log.i(TAG,"-----------------");
+        }
+
+/*
         Visitor v = new Visitor(1, "Niels", "van Dam");
         Cinema c = new Cinema(1, "Filet", "Breda", "Lovensdijkstraat", "5000XX", "013-57123010");
         Film f = new Film(1, c, "Hiro Potter and saving the cheerleader", "Version", "language", "23-03-2017", "Horror", 113, 12,
                 "Description description...,", "www.imdb.url", "9.9", "www.trailer.url", "http://static.fjcdn.com/pictures/Hiro_ee085f_349000.jpg", "Director Niels");
         Theater th = new Theater(1, c, 150);
         Show s = new Show(1, f, th, new Date("03/27/2017"));
-
+*/
         adapter = new TicketAdapter(getApplicationContext(), tickets);
         ListView listview = (ListView) findViewById(R.id.ticketsListview);
-
+/*
         Ticket t = new Ticket(23411142, v, s, 32);
         tickets.add(t);
         t = new Ticket(23144124, v, s, 32);
         tickets.add(t);
         t = new Ticket(1242151242, v, s, 32);
-        tickets.add(t);
+        tickets.add(t);*/
         listview.setAdapter(adapter);
         listview.setOnItemClickListener(this);
     }

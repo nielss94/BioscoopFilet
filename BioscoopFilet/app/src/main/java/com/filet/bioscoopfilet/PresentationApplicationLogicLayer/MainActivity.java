@@ -137,8 +137,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void testVisitorData() {
         VisitorDAO visitorDAO = factory.createVisitorDAO();
-        visitorDAO.insertData(new Visitor("Tommy", "Heunks"));
-        visitorDAO.insertData(new Visitor("Niels", "van Dam"));
         visitorDAO.insertData(new Visitor("Felix", "Boons"));
         visitorDAO.insertData(new Visitor("Jesse", "de Wit"));
         visitorDAO.insertData(new Visitor("Bart", "in t Veld"));

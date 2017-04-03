@@ -175,7 +175,7 @@ public class BuyTicketsActivity extends AppCompatActivity {
         price += (amountSenior * Double.parseDouble(seniorPrice.getText().toString().substring(1)));
         price += (amountStudent * Double.parseDouble(studentPrice.getText().toString().substring(1)));
 
-        amountOfTickets = amountGlasses + amountChild + amountNormal +
+        amountOfTickets = amountChild + amountNormal +
                             amountSenior + amountStudent + amountTeen;
         totalPriceView.setText("€" + price + "0");
         return price;
