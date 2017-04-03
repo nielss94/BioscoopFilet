@@ -30,15 +30,15 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:layout_centerInParent="true"
                 android:layout_marginBottom="@dimen/activity_horizontal_margin"
-                android:layout_centerInParent="true">
+                android:layout_marginTop="@dimen/activity_horizontal_margin">
 
                 <ImageView
                     android:id="@+id/ticketDetailQRCode"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
                     android:src="@drawable/ic_qrcode_placeholder" />
 
             </RelativeLayout>
@@ -48,18 +48,18 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:paddingBottom="@dimen/activity_horizontal_margin"
             android:layout_marginEnd="@dimen/activity_horizontal_margin"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:layout_marginStart="@dimen/activity_horizontal_margin"
-            android:layout_marginBottom="@dimen/activity_horizontal_margin"
             android:layout_weight="1">
 
             <TextView
                 android:id="@+id/ticketDetailFilmTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:layout_marginBottom="@dimen/activity_half_margin"
                 android:text="Harry Potter en de informaticus der wijzen"
                 android:textColor="#fff"
                 android:textSize="20sp"
@@ -70,7 +70,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/ticketDetailFilmTitle"
-                android:layout_marginBottom="8dp"
                 android:text="Aantal: 4"
                 android:textColor="#fff"
                 android:textSize="16sp" />

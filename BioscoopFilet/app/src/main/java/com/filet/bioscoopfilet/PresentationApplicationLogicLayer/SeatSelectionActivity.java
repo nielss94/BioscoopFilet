@@ -20,9 +20,11 @@ import com.filet.bioscoopfilet.DomainModel.Ticket;
 import com.filet.bioscoopfilet.DomainModel.Visitor;
 import com.filet.bioscoopfilet.Persistancy.DAOFactory;
 import com.filet.bioscoopfilet.Persistancy.SQLiteDAOFactory;
+import com.filet.bioscoopfilet.Persistancy.SQLiteTicketDAO;
 import com.filet.bioscoopfilet.Persistancy.TicketDAO;
 import com.filet.bioscoopfilet.R;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
@@ -75,22 +77,29 @@ public class SeatSelectionActivity extends AppCompatActivity {
 
     //DEMO BUTTON
     public void paymentButton(View v) {
-        ArrayList<Ticket> tickets = new ArrayList<>();
+        ArrayList<Ticket> tickets;
         Random r = new Random();
         Intent intent = new Intent(getApplicationContext(), PaymentActivity.class);
+        TicketDAO ticketDAO = factory.createTicketDAO();
+        tickets = ticketDAO.selectData();
+        ArrayList<Ticket> newTickets = new ArrayList<>();
         for (int i = 0; i < amountOfTickets; i++) {
-            int randomNumber = r.nextInt(10);
+            int randomNumber = r.nextInt(99999);
+
             for (int j = 0; j < tickets.size(); j++) {
-                if (randomNumber == tickets.get(i).getQrCode()) {
-                    randomNumber = r.nextInt(10);
-                    Log.i(TAG, randomNumber + " Door de loop gegaan " + j);
+                while(!checkIfQRCodeExists(randomNumber))
+                {
+                    randomNumber = r.nextInt(99999);
+                    Log.i(TAG,"QRCode bestond al, nieuwe nummer is: " + randomNumber);
+
                 }
             }
-            Log.i(TAG, randomNumber + " niet geloopt ");
+            Log.i(TAG,randomNumber + "");
             Ticket t = new Ticket(randomNumber, new Visitor(1, "Tommy", "Heunks"), show, seatsSelected[i]);
-            tickets.add(t);
+            newTickets.add(t);
         }
-        intent.putExtra("tickets", tickets);
+
+        intent.putExtra("tickets", newTickets);
         intent.putExtra("totalPrice", totalPrice);
 
         startActivity(intent);
@@ -103,6 +112,23 @@ public class SeatSelectionActivity extends AppCompatActivity {
         return true;
     }
 
+
+    public boolean checkIfQRCodeExists(int qrCode)
+    {
+        TicketDAO ticketDAO = factory.createTicketDAO();
+        ArrayList<Ticket> tickets;
+        tickets = ticketDAO.selectData();
+
+
+        for (int i = 0; i < tickets.size(); i++) {
+            if(qrCode == tickets.get(i).getQrCode())
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
 
     public void selectAvailableSeats() {
         int freeSeats = 0;

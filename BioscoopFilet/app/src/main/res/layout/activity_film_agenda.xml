@@ -28,9 +28,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <Spinner
-                    android:entries="@array/blij"
+                    android:entries="@array/filmDates"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:id="@+id/showSpinner"/>
             </LinearLayout>
 
             <LinearLayout

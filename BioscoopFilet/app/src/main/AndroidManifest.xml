@@ -6,7 +6,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -34,6 +34,7 @@
         <activity android:name=".PresentationApplicationLogicLayer.SeatSelectionActivity" />
         <activity android:name=".PresentationApplicationLogicLayer.FilmDetailAgendaActivity" />
         <activity android:name=".PresentationApplicationLogicLayer.FilmAgendaActivity" />
+        <activity android:name=".PresentationApplicationLogicLayer.WriteReviewActivity" />
         <activity android:name=".PresentationApplicationLogicLayer.SelectedFilmDetailActivity"></activity>
     </application>
 

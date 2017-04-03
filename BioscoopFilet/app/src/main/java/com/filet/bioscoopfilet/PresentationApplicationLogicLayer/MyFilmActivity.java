@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -24,6 +25,7 @@ import java.util.ArrayList;
 public class MyFilmActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     private DAOFactory factory;
+    private final String TAG = getClass().getSimpleName();
 
     private ArrayList<Film> films = new ArrayList<>();
     ListView filmList;
@@ -48,6 +50,8 @@ public class MyFilmActivity extends AppCompatActivity implements AdapterView.OnI
 
         //Setting adapter
         filmAdapter = new FilmAdapter(this, films);
+
+        Log.i(TAG, films.size() + "");
 
         //Declaration of ListView
         filmList = (ListView) findViewById(R.id.filmListView);
@@ -86,8 +90,8 @@ public class MyFilmActivity extends AppCompatActivity implements AdapterView.OnI
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
         Film film = films.get(position);
 
-            Intent intent = new Intent(getApplicationContext(), MyFilmDetailActivity.class);
-            intent.putExtra("FILM", film);
-            startActivity(intent);
+        Intent intent = new Intent(getApplicationContext(), MyFilmDetailActivity.class);
+        intent.putExtra("FILM", film);
+        startActivity(intent);
     }
 }

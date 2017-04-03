@@ -1,6 +1,7 @@
 package com.filet.bioscoopfilet.PresentationApplicationLogicLayer;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,16 +23,20 @@ import java.util.ArrayList;
 
 public class MyFilmAdapter extends ArrayAdapter<Film> {
 
+    private final String TAG = getClass().getSimpleName();
+
     public MyFilmAdapter(Context context, ArrayList<Film> films){
         super(context, 0, films);
     }
 
     @Override
-    public View getView (int posistion, View convertView, ViewGroup parent){
+    public View getView (int position, View convertView, ViewGroup parent){
 
 
         //Declaration of film
-        Film film = getItem(posistion);
+        Film film = getItem(position);
+
+        Log.i(TAG, film.toString());
 
         //Make convertView
         if (convertView == null){

@@ -64,11 +64,14 @@ Drumstick tri-tip beef ribs, cow corned beef biltong ribeye boudin shoulder ball
     <string name="student">Student</string>
     <string name="glasses">3D bril</string>
 
-    <string-array name="blij">
-        <item>Donderdag - 30/03/2017</item>
-        <item>Vrijdag - 31/03/2017</item>
-        <item>Zaterdag - 01/04/2017</item>
-        <item>Zondag - 02/04/2017</item>
+    <string-array name="filmDates">
+        <item>06/04/2017</item>
+        <item>07/04/2017</item>
+        <item>08/04/2017</item>
+        <item>09/04/2017</item>
+        <item>10/04/2017</item>
+        <item>11/04/2017</item>
+        <item>12/04/2017</item>
     </string-array>
     <string name="actors">Acteurs:</string>
     <string name="minutes">minuten</string>

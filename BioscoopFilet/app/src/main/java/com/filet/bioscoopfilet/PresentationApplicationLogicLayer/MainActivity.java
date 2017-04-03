@@ -58,15 +58,15 @@ public class MainActivity extends AppCompatActivity {
         factory = new SQLiteDAOFactory(getApplicationContext());
 
         
-        //testCinemaDAO();
-        //testFilmDAO();
-        //testVisitorData();
-        //testFeedbackData();
-        //testTheaterData();
-        //testShowData();
-        //testTicketData();
-        //testReviewData();
-        //testActorDAO();
+//        testCinemaDAO();
+//        testFilmDAO();
+//        testVisitorData();
+//        testFeedbackData();
+//        testTheaterData();
+//        testShowData();
+//        testTicketData();
+//        testReviewData();
+//        testActorDAO();
     }
 
     @Override
@@ -168,8 +168,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void testVisitorData() {
         VisitorDAO visitorDAO = factory.createVisitorDAO();
-        visitorDAO.insertData(new Visitor("Tommy", "Heunks"));
-        visitorDAO.insertData(new Visitor("Niels", "van Dam"));
         visitorDAO.insertData(new Visitor("Felix", "Boons"));
         visitorDAO.insertData(new Visitor("Jesse", "de Wit"));
         visitorDAO.insertData(new Visitor("Bart", "in t Veld"));
@@ -183,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
         Film f = filmDAO.selectData().get(0);
         Theater t = theaterDAO.selectData().get(0);
 
-        showDAO.insertData(new Show(f, t, new Date(10, 04, 2017, 10, 10), "1010100010001001011101001001010100100010010101001001000100010000100101001010101000100010010111010010"));
+        showDAO.insertData(new Show(f, t, new Date(117, 03, 10, 10, 10), "1010100010001001011101001001010100100010010101001001000100010000100101001010101000100010010111010010"));
         showDAO.selectData();
     }
 
@@ -222,7 +220,6 @@ public class MainActivity extends AppCompatActivity {
                         "Tail landjaeger alcatra kevin doner pastrami. Ribeye filet mignon shankle, pastrami sausage pancetta pork shoulder. Sirloin spare ribs beef, rump tenderloin shoulder chuck pastrami kielbasa flank. Boudin hamburger shank porchetta pork loin landjaeger chicken kielbasa alcatra tenderloin fatback spare ribs. Andouille fatback beef ribs picanha sausage, ham jerky pork alcatra. Bresaola pork belly beef ribs tenderloin t-bone. Tail tenderloin shank, andouille doner ball tip hamburger ham chuck short ribs jerky ham hock alcatra jowl.",
                 "www.imdb.url", "7.4", "www.youtube.com",
                 "https://s-media-cache-ak0.pinimg.com/236x/25/98/13/259813c534453e8c1597f4ab1d62b284.jpg", "Die Boy Bert"));
-
     }
 
     public void testActorDAO() {
