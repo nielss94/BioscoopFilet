@@ -1,6 +1,7 @@
 package com.filet.bioscoopfilet.PresentationApplicationLogicLayer;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,6 +19,9 @@ import java.util.Locale;
 
 public class MyFiletActivity extends AppCompatActivity {
 
+    private String language;
+    private SharedPreferences languagepref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,12 +29,48 @@ public class MyFiletActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         myToolbar.setTitle(R.string.my_films);
         setSupportActionBar(myToolbar);
+
+        languagepref = getSharedPreferences("language", MODE_PRIVATE);
+        language = languagepref.getString("languageToLoad", Locale.getDefault().getDisplayLanguage());
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        myToolbar.setTitle(R.string.my_films);
+        setSupportActionBar(myToolbar);
+
+        String oldLanguage = language;
+
+        language = languagepref.getString("languageToLoad", Locale.getDefault().getDisplayLanguage());
+
+        if (!oldLanguage.equals(language)) {
+            finish();
+            startActivity(getIntent());
+        }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
+
+        MenuItem item = menu.findItem(R.id.action_lang);
+
+        Log.i("Taal", Locale.getDefault().toString());
+        if (Locale.getDefault().toString().equalsIgnoreCase("en_us")) {
+            item.setIcon(R.drawable.united_states);
+        }
+        if (Locale.getDefault().toString().equalsIgnoreCase("en_gb")) {
+            item.setIcon(R.drawable.united_kingdom);
+        }
+        if (Locale.getDefault().toString().equalsIgnoreCase("nl")) {
+            item.setIcon(R.drawable.netherlands);
+        }
+
+
         return true;
     }
 
@@ -47,14 +87,14 @@ public class MyFiletActivity extends AppCompatActivity {
                         switch (item.getItemId()) {
                             case R.id.action_EN_US:
                                 Log.i("MenuItemSelected", "ENGELS");
-                                String languageToLoad  = "en-US";
+                                String languageToLoad = "en_US";
                                 Locale locale = new Locale(languageToLoad);
                                 Locale.setDefault(locale);
                                 Configuration config = new Configuration();
                                 config.locale = locale;
-                                getBaseContext().getResources().updateConfiguration(config,getBaseContext().getResources().getDisplayMetrics());
+                                getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
 
-                                Intent intent = new Intent(getBaseContext(), MyFiletActivity.class);
+                                Intent intent = getIntent();
                                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                                 startActivity(intent);
@@ -62,29 +102,29 @@ public class MyFiletActivity extends AppCompatActivity {
 
                             case R.id.action_NL:
                                 Log.i("MenuItemSelected", "NEDERLANDS");
-                                String languageToLoad2  = "nl";
+                                String languageToLoad2 = "nl";
                                 Locale locale2 = new Locale(languageToLoad2);
                                 Locale.setDefault(locale2);
                                 Configuration config2 = new Configuration();
                                 config2.locale = locale2;
-                                getBaseContext().getResources().updateConfiguration(config2,getBaseContext().getResources().getDisplayMetrics());
+                                getBaseContext().getResources().updateConfiguration(config2, getBaseContext().getResources().getDisplayMetrics());
 
-                                Intent intent2 = new Intent(getBaseContext(), MyFiletActivity.class);
+                                Intent intent2 = getIntent();
                                 intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                                 startActivity(intent2);
                                 return true;
 
                             case R.id.action_EN_UK:
-                                Log.i("MenuItemSelected", "NEDERLANDS");
-                                String languageToLoad3  = "en-GB";
+                                Log.i("MenuItemSelected", "ENGELS");
+                                String languageToLoad3 = "en_GB";
                                 Locale locale3 = new Locale(languageToLoad3);
                                 Locale.setDefault(locale3);
                                 Configuration config3 = new Configuration();
                                 config3.locale = locale3;
-                                getBaseContext().getResources().updateConfiguration(config3,getBaseContext().getResources().getDisplayMetrics());
+                                getBaseContext().getResources().updateConfiguration(config3, getBaseContext().getResources().getDisplayMetrics());
 
-                                Intent intent3 = new Intent(getBaseContext(), MyFiletActivity.class);
+                                Intent intent3 = getIntent();
                                 intent3.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                                 startActivity(intent3);
