@@ -33,10 +33,10 @@ public class ShowAdapter extends ArrayAdapter<Show> {
     }
 
     @Override
-    public View getView(int posistion, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent) {
 
         //Declaration of show
-        Show show = getItem(posistion);
+        Show show = getItem(position);
         Film film = show.getFilm();
 
         //Make convertView

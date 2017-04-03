@@ -56,16 +56,6 @@ public class FilmAgendaActivity extends AppCompatActivity implements AdapterView
         //Setting adapter
         showAdapter = new ShowAdapter(this, selectedShows);
 
-        //FOR DEMO
-        /*Cinema cinema = new Cinema(1, null, null, null, null, null);
-
-        Film film = new Film(4, cinema, "Deadpool", "2D OV",
-                "EN","30/03/2017","Comic", 90, 16,  "Wade Wilson is een speciale agent van de overheid die, nadat hij onderworpen is aan een behandeling die hem bovenmenselijke genezende krachten heeft gegeven, een alter-ego in de vorm van 'Deadpool' aanneemt. Gewapend met zijn nieuwe vaardigheden en een verwrongen gevoel voor humor jaagt hij op de man die bijna zijn hele leven verwoest heeft.", "",
-                "7.5","",  "https://image.tmdb.org/t/p/w500/inVq3FRqcYIRl2la8iZikYYxFNR.jpg",  "");
-
-        Theater theater = new Theater(cinema, 100);
-        shows.add(new Show(film,theater, new Date(2017, 04, 04, 17, 50),"0011111100000000000000000000001110010011000011000100000000011111000000000000000000000000000000000000"));
-*/
         ShowDAO showDAO = factory.createShowDAO();
         shows = showDAO.selectData();
 

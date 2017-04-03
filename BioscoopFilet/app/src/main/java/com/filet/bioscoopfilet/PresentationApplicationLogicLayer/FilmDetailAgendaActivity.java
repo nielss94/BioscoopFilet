@@ -85,7 +85,7 @@ public class FilmDetailAgendaActivity extends AppCompatActivity implements Trail
         imdbScore.setText(getResources().getString(R.string.imdb) + " " + film.getIMDBScore());
 //        director.setText("");
 //        actors.setText("");
-        description.setText(film.getDescription().toString());
+        description.setText(film.getDescription());
 
         //Setting poster image in ImageView
         Picasso.with(this).load(film.getPosterURL()).into(poster);
