@@ -34,7 +34,7 @@ public class SQLiteCinemaDAO implements CinemaDAO {
 
             SQLiteDatabase readable = db.getReadableDatabase();
 
-            String query = "SELECT * FROM " + db.getDB_TABLE_REVIEW_NAME();
+            String query = "SELECT * FROM " + db.getDB_TABLE_CINEMA_NAME();
             Cursor cursor = readable.rawQuery(query, null);
 
             cursor.moveToFirst();
@@ -68,13 +68,12 @@ public class SQLiteCinemaDAO implements CinemaDAO {
             values.put(db.getCOLUMN_CINEMA_NAME(), cinema.getName());
             values.put(db.getCOLUMN_CINEMA_CITY(), cinema.getCity());
             values.put(db.getCOLUMN_CINEMA_ADDRESS(), cinema.getAddress());
-            values.put(db.getCOLUMN_CINEMA_ZIPCODE(), cinema.getName());
+            values.put(db.getCOLUMN_CINEMA_ZIPCODE(), cinema.getZipCode());
             values.put(db.getCOLUMN_CINEMA_PHONE(), cinema.getPhone());
 
             writable.insert(db.getDB_TABLE_CINEMA_NAME(), null, values);
         } catch (SQLiteException e) {
             Log.i(TAG, e.getMessage());
         }
-
     }
 }

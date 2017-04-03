@@ -17,6 +17,7 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
     <RelativeLayout
+        android:onClick="myTicketsButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -34,13 +35,14 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/myTicketsImage"
             android:textColor="#fff"
-            android:text="Mijn tickets"
+            android:text="@string/my_tickets"
             android:textStyle="bold"
             android:layout_centerHorizontal="true"/>
 
     </RelativeLayout>
 
     <RelativeLayout
+        android:onClick="myFilmsButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -58,7 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/myFilmsImage"
             android:textColor="#fff"
-            android:text="Mijn films"
+            android:text="@string/my_films"
             android:textStyle="bold"
             android:layout_centerHorizontal="true"/>
 

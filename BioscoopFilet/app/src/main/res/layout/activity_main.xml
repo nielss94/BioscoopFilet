@@ -21,6 +21,7 @@
         android:orientation="horizontal">
 
         <RelativeLayout
+            android:onClick="filmButton"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -43,6 +44,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:onClick="myButton"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -61,7 +63,7 @@
                 android:layout_centerHorizontal="true"
                 android:text="@string/my_filet"
                 android:textStyle="bold"
-                android:textColor="@color/primary_text_material_dark"/>/>
+                android:textColor="@color/primary_text_material_dark"/>
         </RelativeLayout>
 
     </LinearLayout>
@@ -72,6 +74,7 @@
         android:layout_height="wrap_content">
 
         <RelativeLayout
+            android:onClick="agendaButton"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"

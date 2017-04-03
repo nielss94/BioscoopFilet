@@ -1,45 +1,47 @@
 package com.filet.bioscoopfilet.DomainModel;
 
+import java.io.Serializable;
+
 /**
  * Created by Niels on 3/28/2017.
  */
 
-public class Ticket {
+public class Ticket implements Serializable {
 
-    private String qrCode;
-    private int visitorID;
-    private int showID;
+    private int qrCode;
+    private Visitor visitor;
+    private Show show;
     private int seat;
 
-    public Ticket(String qrCode, int visitorID, int showID, int seat) {
+    public Ticket(int qrCode, Visitor visitor, Show show, int seat) {
         this.qrCode = qrCode;
-        this.visitorID = visitorID;
-        this.showID = showID;
+        this.visitor = visitor;
+        this.show = show;
         this.seat = seat;
     }
 
-    public String getQrCode() {
+    public int getQrCode() {
         return qrCode;
     }
 
-    public void setQrCode(String qrCode) {
+    public void setQrCode(int qrCode) {
         this.qrCode = qrCode;
     }
 
-    public int getVisitorID() {
-        return visitorID;
+    public Visitor getVisitor() {
+        return visitor;
     }
 
-    public void setVisitorID(int visitorID) {
-        this.visitorID = visitorID;
+    public void setVisitor(Visitor visitor) {
+        this.visitor = visitor;
     }
 
-    public int getShowID() {
-        return showID;
+    public Show getShow() {
+        return show;
     }
 
-    public void setShowID(int showID) {
-        this.showID = showID;
+    public void setShow(Show show) {
+        this.show = show;
     }
 
     public int getSeat() {
@@ -54,8 +56,8 @@ public class Ticket {
     public String toString() {
         return "Ticket{" +
                 "qrCode='" + qrCode + '\'' +
-                ", visitorID=" + visitorID +
-                ", showID=" + showID +
+                ", visitor=" + visitor +
+                ", show=" + show +
                 ", seat=" + seat +
                 '}';
     }

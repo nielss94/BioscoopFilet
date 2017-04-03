@@ -2,9 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.filet.bioscoopfilet">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -20,10 +22,20 @@
         <activity android:name=".PresentationApplicationLogicLayer.PTActivity" />
         <activity android:name=".PresentationApplicationLogicLayer.FeedbackActivity" />
         <activity android:name=".PresentationApplicationLogicLayer.ContactActivity" />
+        <activity android:name=".PresentationApplicationLogicLayer.ReviewsActivity" />
+        <activity android:name=".PresentationApplicationLogicLayer.FilmOverviewActivity" />
+        <activity android:name=".PresentationApplicationLogicLayer.PaymentActivity" />
         <activity android:name=".PresentationApplicationLogicLayer.MyFiletActivity" />
         <activity android:name=".PresentationApplicationLogicLayer.MyTicketActivity" />
         <activity android:name=".PresentationApplicationLogicLayer.MyTicketDetailActivity" />
-        <activity android:name=".PresentationApplicationLogicLayer.SeatSelectionActivity"></activity>
+        <activity android:name=".PresentationApplicationLogicLayer.MyFilmActivity" />
+        <activity android:name=".PresentationApplicationLogicLayer.MyFilmDetailActivity" />
+        <activity android:name=".PresentationApplicationLogicLayer.BuyTicketsActivity" />
+        <activity android:name=".PresentationApplicationLogicLayer.SeatSelectionActivity" />
+        <activity android:name=".PresentationApplicationLogicLayer.FilmDetailAgendaActivity" />
+        <activity android:name=".PresentationApplicationLogicLayer.FilmAgendaActivity" />
+        <activity android:name=".PresentationApplicationLogicLayer.WriteReviewActivity" />
+        <activity android:name=".PresentationApplicationLogicLayer.SelectedFilmDetailActivity"></activity>
     </application>
 
 </manifest>

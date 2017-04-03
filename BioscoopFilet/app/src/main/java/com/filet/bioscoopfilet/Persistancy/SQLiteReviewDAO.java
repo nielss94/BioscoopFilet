@@ -7,7 +7,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.util.Log;
 
+import com.filet.bioscoopfilet.DomainModel.Film;
 import com.filet.bioscoopfilet.DomainModel.Review;
+import com.filet.bioscoopfilet.DomainModel.Visitor;
 
 import java.util.ArrayList;
 
@@ -21,6 +23,8 @@ public class SQLiteReviewDAO implements ReviewDAO {
     private DBConnect db;
     private Context context;
     private ArrayList<Review> reviews = new ArrayList<>();
+    private ArrayList<Film> films = new ArrayList<>();
+    private ArrayList<Visitor> visitors = new ArrayList<>();
 
     public SQLiteReviewDAO(Context context) {
         this.context = context;
@@ -38,10 +42,30 @@ public class SQLiteReviewDAO implements ReviewDAO {
             Cursor cursor = readable.rawQuery(query, null);
 
             cursor.moveToFirst();
+
+            VisitorDAO visitorDAO = new SQLiteVisitorDAO(context);
+            FilmDAO filmDAO = new SQLiteFilmDAO(context);
+
+            visitors = visitorDAO.selectData();
+            films = filmDAO.selectData();
+
             while (cursor.moveToNext()) {
-                Review r = new Review(cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_REVIEWID())),
-                        cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_REVIEW_FILMID())),
-                        cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_REVIEW_VISITORID())),
+                Visitor v = null;
+                Film f = null;
+                Review r;
+                for (int i = 0; i < visitors.size(); i++) {
+                    if(visitors.get(i).getVisitorID() == cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_REVIEW_VISITORID())))
+                    {
+                        v = visitors.get(i);
+                    }
+                }
+                for (int i = 0; i < films.size(); i++) {
+                    if(films.get(i).getFilmID() == cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_REVIEW_FILMID())))
+                    {
+                        f = films.get(i);
+                    }
+                }
+                r = new Review(cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_REVIEWID())), f, v,
                         cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_REVIEW_SCORE())),
                         cursor.getString(cursor.getColumnIndex(db.getCOLUMN_REVIEW_DESCRIPTION())));
 
@@ -64,8 +88,8 @@ public class SQLiteReviewDAO implements ReviewDAO {
 
             ContentValues values = new ContentValues();
 
-            values.put(db.getCOLUMN_REVIEW_FILMID(), review.getFilmID());
-            values.put(db.getCOLUMN_REVIEW_VISITORID(), review.getVisitorID());
+            values.put(db.getCOLUMN_REVIEW_FILMID(), review.getFilm().getFilmID());
+            values.put(db.getCOLUMN_REVIEW_VISITORID(), review.getVisitor().getVisitorID());
             values.put(db.getCOLUMN_REVIEW_SCORE(), review.getScore());
             values.put(db.getCOLUMN_REVIEW_DESCRIPTION(), review.getDescription());
 

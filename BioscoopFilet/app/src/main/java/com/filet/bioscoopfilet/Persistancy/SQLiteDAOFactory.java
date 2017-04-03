@@ -53,4 +53,11 @@ public class SQLiteDAOFactory implements DAOFactory {
     public ActorDAO createActorDAO() {
         return new SQLiteActorDAO(context);
     }
+
+    @Override
+    public CinemaDAO createCinemaDAO() {
+        return new SQLiteCinemaDAO(context);
+    }
+
+
 }

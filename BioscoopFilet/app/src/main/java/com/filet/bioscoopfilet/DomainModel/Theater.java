@@ -1,17 +1,24 @@
 package com.filet.bioscoopfilet.DomainModel;
 
+import java.io.Serializable;
+
 /**
  * Created by Niels on 3/28/2017.
  */
-public class Theater {
+public class Theater implements Serializable {
 
     private int theaterID;
-    private int cinemaID;
+    private Cinema cinema;
     private int numberOfSeats;
 
-    public Theater(int theaterID, int cinemaID, int numberOfSeats) {
+    public Theater(int theaterID, Cinema cinema, int numberOfSeats) {
         this.theaterID = theaterID;
-        this.cinemaID = cinemaID;
+        this.cinema = cinema;
+        this.numberOfSeats = numberOfSeats;
+    }
+
+    public Theater(Cinema cinema, int numberOfSeats) {
+        this.cinema = cinema;
         this.numberOfSeats = numberOfSeats;
     }
 
@@ -23,12 +30,12 @@ public class Theater {
         this.theaterID = theaterID;
     }
 
-    public int getCinemaID() {
-        return cinemaID;
+    public Cinema getCinema() {
+        return cinema;
     }
 
-    public void setCinemaID(int cinemaID) {
-        this.cinemaID = cinemaID;
+    public void setCinema(Cinema cinema) {
+        this.cinema = cinema;
     }
 
     public int getNumberOfSeats() {
@@ -44,7 +51,7 @@ public class Theater {
     public String toString() {
         return "Theater{" +
                 "theaterID=" + theaterID +
-                ", cinemaID=" + cinemaID +
+                ", cinema=" + cinema +
                 ", numberOfSeats=" + numberOfSeats +
                 '}';
     }

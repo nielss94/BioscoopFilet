@@ -18,6 +18,7 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
     <LinearLayout
+        android:onClick="locationButton"
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -38,17 +39,20 @@
                 android:textStyle="bold"
                 android:textSize="18dp"/>
             <TextView
+                android:id="@+id/locationAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Straat + nummer"/>
+                android:text="Cor Kieboomplein 501"/>
             <TextView
+                android:id="@+id/locationCity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Plaats"/>
+                android:text="Rotterdam"/>
             <TextView
+                android:id="@+id/locationZipCode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Postcode"/>
+                android:text="3077 MK"/>
         </LinearLayout>
 
         <ImageView
@@ -61,6 +65,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:onClick="parkingButton"
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -80,18 +85,23 @@
                 android:text="@string/parking_location"
                 android:textSize="18dp"
                 android:textStyle="bold"/>
+
             <TextView
+                android:id="@+id/parkingAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Straat + nummer"/>
+                android:text="Van Zandvlietplein 1" />
+
             <TextView
+                android:id="@+id/parkingCity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Plaats"/>
+                android:text="Rotterdam"/>
             <TextView
+                android:id="@+id/parkingZipCode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Postcode"/>
+                android:text="3077 AA"/>
         </LinearLayout>
 
         <ImageView
@@ -171,7 +181,8 @@
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@drawable/border">
+        android:background="@drawable/border"
+        android:onClick="contactButton">
 
         <LinearLayout
             android:layout_weight="8"

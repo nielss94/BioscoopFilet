@@ -1,0 +1,81 @@
+<resources>
+    <string name="app_name">Filet</string>
+    <string name="films">Films</string>
+    <string name="shows">Shows</string>
+    <string name="my_filet">Mijn Filet</string>
+    <string name="film_calender">Film Agenda</string>
+    <string name="information">Informatie</string>
+    <string name="location">Locatie</string>
+    <string name="parking_location">Parkeer locatie</string>
+    <string name="pt_information">OV Informatie</string>
+
+    <string name="cinema_feedback">Bioscoop feedback</string>
+    <string name="cinema_contact">Bioscoop contact</string>
+    <string name="bus">Bus</string>
+    <string name="bus_info">Bacon ipsum dolor amet fatback flank frankfurter shoulder biltong cow kevin, ham hock jerky strip steak burgdoggen capicola salami. Meatball ham andouille, doner tongue sausage boudin bresaola tail leberkas sirloin turducken pork loin fatback. Bresaola shankle landjaeger, jowl beef andouille fatback tail spare ribs filet mignon frankfurter ribeye salami ball tip. Beef ribs picanha ground round porchetta. Ribeye hamburger pastrami filet mignon tongue kielbasa. Pancetta tri-tip t-bone tail pork.\n
+Drumstick tri-tip beef ribs, cow corned beef biltong ribeye boudin shoulder ball tip cupim ham hock ground round hamburger strip steak. Ball tip pork belly fatback strip steak burgdoggen. Pork chop spare ribs rump, ham capicola pork sirloin shank fatback. Meatball tri-tip meatloaf tenderloin ground round beef capicola jerky pork pastrami salami. Venison landjaeger tri-tip fatback sausage strip steak leberkas spare ribs. Pork belly landjaeger picanha burgdoggen ball tip pastrami leberkas biltong alcatra pancetta.</string>
+    <string name="train">Trein</string>
+    <string name="train_info">Bacon ipsum dolor amet fatback flank frankfurter shoulder biltong cow kevin, ham hock jerky strip steak burgdoggen capicola salami. Meatball ham andouille, doner tongue sausage boudin bresaola tail leberkas sirloin turducken pork loin fatback. Bresaola shankle landjaeger, jowl beef andouille fatback tail spare ribs filet mignon frankfurter ribeye salami ball tip. Beef ribs picanha ground round porchetta. Ribeye hamburger pastrami filet mignon tongue kielbasa. Pancetta tri-tip t-bone tail pork.\n
+Drumstick tri-tip beef ribs, cow corned beef biltong ribeye boudin shoulder ball tip cupim ham hock ground round hamburger strip steak. Ball tip pork belly fatback strip steak burgdoggen. Pork chop spare ribs rump, ham capicola pork sirloin shank fatback. Meatball tri-tip meatloaf tenderloin ground round beef capicola jerky pork pastrami salami. Venison landjaeger tri-tip fatback sausage strip steak leberkas spare ribs. Pork belly landjaeger picanha burgdoggen ball tip pastrami leberkas biltong alcatra pancetta.</string>
+    <string name="subway">Metro</string>
+    <string name="subway_info">Bacon ipsum dolor amet fatback flank frankfurter shoulder biltong cow kevin, ham hock jerky strip steak burgdoggen capicola salami. Meatball ham andouille, doner tongue sausage boudin bresaola tail leberkas sirloin turducken pork loin fatback. Bresaola shankle landjaeger, jowl beef andouille fatback tail spare ribs filet mignon frankfurter ribeye salami ball tip. Beef ribs picanha ground round porchetta. Ribeye hamburger pastrami filet mignon tongue kielbasa. Pancetta tri-tip t-bone tail pork.\n
+Drumstick tri-tip beef ribs, cow corned beef biltong ribeye boudin shoulder ball tip cupim ham hock ground round hamburger strip steak. Ball tip pork belly fatback strip steak burgdoggen. Pork chop spare ribs rump, ham capicola pork sirloin shank fatback. Meatball tri-tip meatloaf tenderloin ground round beef capicola jerky pork pastrami salami. Venison landjaeger tri-tip fatback sausage strip steak leberkas spare ribs. Pork belly landjaeger picanha burgdoggen ball tip pastrami leberkas biltong alcatra pancetta.</string>
+    <string name="language_menu">Taal</string>
+    <string name="feedback">Feedback</string>
+    <string name="send">Versturen</string>
+    <string name="name">Naam:</string>
+    <string name="feedback_write">Feedback:</string>
+    <string name="review">Score:</string>
+    <string name="review_write">Review:</string>
+    <string name="writeReview">Schrijf een review</string>
+    <string name="contact">Contact</string>
+    <string name="contact_info">Bacon ipsum dolor amet fatback flank frankfurter shoulder biltong cow kevin, ham hock jerky strip steak burgdoggen capicola salami. Meatball ham andouille, doner tongue sausage boudin bresaola tail leberkas sirloin turducken pork loin fatback. Bresaola shankle landjaeger, jowl beef andouille fatback tail spare ribs filet mignon frankfurter ribeye salami ball tip. Beef ribs picanha ground round porchetta. Ribeye hamburger pastrami filet mignon tongue kielbasa. Pancetta tri-tip t-bone tail pork.\n
+Drumstick tri-tip beef ribs, cow corned beef biltong ribeye boudin shoulder ball tip cupim ham hock ground round hamburger strip steak. Ball tip pork belly fatback strip steak burgdoggen. Pork chop spare ribs rump, ham capicola pork sirloin shank fatback. Meatball tri-tip meatloaf tenderloin ground round beef capicola jerky pork pastrami salami. Venison landjaeger tri-tip fatback sausage strip steak leberkas spare ribs. Pork belly landjaeger picanha burgdoggen ball tip pastrami leberkas biltong alcatra pancetta.</string>
+    <string name="select_seats">Selecteer stoelen</string>
+    <string name="including_btw">(Inclusief BTW)</string>
+    <string name="total">Totaal:</string>
+    <string name="buy_tickets">Koop tickets</string>
+    <string name="my_tickets">Mijn Tickets</string>
+    <string name="my_ticket_details">Ticket Details</string>
+    <string name="my_films">Mijn Films</string>
+    <string name="pay_tickets">Afrekenen</string>
+    <string name="seat_selected">Geselecteerd</string>
+    <string name="seat_taken">Bezet</string>
+    <string name="seat_available">Beschikbaar</string>
+    <string name="amount">Aantal: </string>
+    <string name="seats">Plaatsen: </string>
+
+    <string name="time_tickets">Tijden &amp; Tickets</string>
+    <string name="version">Versie: </string>
+    <string name="length">Lengte in min: </string>
+    <string name="age">Leeftijd: </string>
+    <string name="imdb">IMDB: </string>
+    <string name="director">Director: </string>
+    <string name="release">Release: </string>
+    <string name="film_detail">Film Details</string>
+    <string name="paypal">PayPal</string>
+    <string name="ideal">iDEAL</string>
+    <string name="creditcard">Creditcard</string>
+
+    <string name="normal">Normaal</string>
+    <string name="child">Kind</string>
+    <string name="teen">Tiener</string>
+    <string name="senior">Senior</string>
+    <string name="student">Student</string>
+    <string name="glasses">3D bril</string>
+
+    <string-array name="filmDates">
+        <item>06/04/2017</item>
+        <item>07/04/2017</item>
+        <item>08/04/2017</item>
+        <item>09/04/2017</item>
+        <item>10/04/2017</item>
+        <item>11/04/2017</item>
+        <item>12/04/2017</item>
+    </string-array>
+    <string name="actors">Acteurs:</string>
+    <string name="minutes">minuten</string>
+
+
+    <string name="not_yet_rated">Nog niet beoordeeld</string>
+</resources>

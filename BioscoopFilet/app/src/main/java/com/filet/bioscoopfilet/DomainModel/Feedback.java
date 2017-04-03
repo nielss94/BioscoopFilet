@@ -1,18 +1,25 @@
 package com.filet.bioscoopfilet.DomainModel;
 
+import java.io.Serializable;
+
 /**
  * Created by Niels on 3/28/2017.
  */
 
-public class Feedback {
+public class Feedback implements Serializable {
 
     private int ID;
-    private int visitorID;
+    private Visitor visitor;
     private String description;
 
-    public Feedback(int ID, int visitorID, String description) {
+    public Feedback(int ID, Visitor visitor, String description) {
         this.ID = ID;
-        this.visitorID = visitorID;
+        this.visitor = visitor;
+        this.description = description;
+    }
+
+    public Feedback(Visitor visitor, String description) {
+        this.visitor = visitor;
         this.description = description;
     }
 
@@ -24,12 +31,12 @@ public class Feedback {
         this.ID = ID;
     }
 
-    public int getVisitorID() {
-        return visitorID;
+    public Visitor getVisitor() {
+        return visitor;
     }
 
-    public void setVisitorID(int visitorID) {
-        this.visitorID = visitorID;
+    public void setVisitor(Visitor visitor) {
+        this.visitor = visitor;
     }
 
     public String getDescription() {
@@ -44,7 +51,7 @@ public class Feedback {
     public String toString() {
         return "Feedback{" +
                 "ID=" + ID +
-                ", visitorID=" + visitorID +
+                ", visitor=" + visitor +
                 ", description='" + description + '\'' +
                 '}';
     }

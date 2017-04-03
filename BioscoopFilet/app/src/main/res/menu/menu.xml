@@ -6,6 +6,6 @@
         android:id="@+id/action_lang"
         android:icon="@drawable/netherlands"
         android:title="@string/language_menu"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="always" />
 
 </menu>

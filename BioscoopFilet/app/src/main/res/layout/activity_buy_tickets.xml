@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_feedback"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.filet.bioscoopfilet.PresentationApplicationLogicLayer.FeedbackActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeFilet"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/border"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_horizontal_margin">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="388dp"
+            android:background="@color/primary_text_material_dark"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/activity_horizontal_margin"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp">
+
+                    <TextView
+                        android:id="@+id/type1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/normal"
+                        android:textColor="@android:color/black"
+                        android:textSize="24dp" />
+
+                    <TextView
+                        android:id="@+id/price1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:text="€11.00"
+                        android:textColor="@android:color/black"
+                        android:textSize="24dp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true">
+
+                        <TextView
+                            android:id="@+id/min1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:paddingLeft="@dimen/activity_horizontal_margin"
+                            android:paddingRight="@dimen/activity_horizontal_margin"
+                            android:text="-"
+                            android:textColor="@android:color/black"
+                            android:textSize="24dp"
+                            android:tag="@string/normal"
+                            android:textStyle="bold"
+                            android:onClick="minOne" />
+
+                        <TextView
+                            android:id="@+id/count1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="1"
+                            android:textColor="@android:color/black"
+                            android:textSize="24dp" />
+
+                        <TextView
+                            android:id="@+id/plus1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:paddingLeft="@dimen/activity_horizontal_margin"
+                            android:paddingRight="@dimen/activity_horizontal_margin"
+                            android:text="+"
+                            android:textColor="@android:color/black"
+                            android:textSize="24dp"
+                            android:tag="@string/normal"
+                            android:textStyle="bold"
+                            android:onClick="plusOne" />
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:id="@+id/type2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/teen"
+                        android:textColor="@android:color/black"
+                        android:textSize="24dp" />
+
+                    <TextView
+                        android:id="@+id/price2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:text="€8.00"
+                        android:textColor="@android:color/black"
+                        android:textSize="24dp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true">
+
+                        <TextView
+                            android:id="@+id/min2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:paddingLeft="@dimen/activity_horizontal_margin"
+                            android:paddingRight="@dimen/activity_horizontal_margin"
+                            android:text="-"
+                            android:textColor="@android:color/black"
+                            android:textSize="24dp"
+                            android:tag="@string/teen"
+                            android:textStyle="bold"
+                            android:onClick="minOne" />
+
+                        <TextView
+                            android:id="@+id/count2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="2"
+                            android:textColor="@android:color/black"
+                            android:textSize="24dp" />
+
+                        <TextView
+                            android:id="@+id/plus2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:paddingLeft="@dimen/activity_horizontal_margin"
+                            android:paddingRight="@dimen/activity_horizontal_margin"
+                            android:text="+"
+                            android:textColor="@android:color/black"
+                            android:textSize="24dp"
+                            android:tag="@string/teen"
+                            android:textStyle="bold"
+                            android:onClick="plusOne" />
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:id="@+id/type3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/child"
+                        android:textColor="@android:color/black"
+                        android:textSize="24dp" />
+
+                    <TextView
+                        android:id="@+id/price3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:text="€5.00"
+                        android:textColor="@android:color/black"
+                        android:textSize="24dp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true">
+
+                        <TextView
+                            android:id="@+id/min3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:paddingLeft="@dimen/activity_horizontal_margin"
+                            android:paddingRight="@dimen/activity_horizontal_margin"
+                            android:text="-"
+                            android:textColor="@android:color/black"
+                            android:textSize="24dp"
+                            android:tag="@string/child"
+                            android:textStyle="bold"
+                            android:onClick="minOne"  />
+
+                        <TextView
+                            android:id="@+id/count3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="0"
+                            android:textColor="@android:color/black"
+                            android:textSize="24dp" />
+
+                        <TextView
+                            android:id="@+id/plus3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:paddingLeft="@dimen/activity_horizontal_margin"
+                            android:paddingRight="@dimen/activity_horizontal_margin"
+                            android:text="+"
+                            android:textColor="@android:color/black"
+                            android:textSize="24dp"
+                            android:tag="@string/child"
+                            android:textStyle="bold"
+                            android:onClick="plusOne"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:id="@+id/type4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/senior"
+                        android:textColor="@android:color/black"
+                        android:textSize="24dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentStart="true" />
+
+                    <TextView
+                        android:id="@+id/price4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:text="€9.00"
+                        android:textColor="@android:color/black"
+                        android:textSize="24dp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true">
+
+                        <TextView
+                            android:id="@+id/min4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:paddingLeft="@dimen/activity_horizontal_margin"
+                            android:paddingRight="@dimen/activity_horizontal_margin"
+                            android:text="-"
+                            android:textColor="@android:color/black"
+                            android:textSize="24dp"
+                            android:tag="@string/senior"
+                            android:textStyle="bold"
+                            android:onClick="minOne"  />
+
+                        <TextView
+                            android:id="@+id/count4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="0"
+                            android:textColor="@android:color/black"
+                            android:textSize="24dp" />
+
+                        <TextView
+                            android:id="@+id/plus4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:paddingLeft="@dimen/activity_horizontal_margin"
+                            android:paddingRight="@dimen/activity_horizontal_margin"
+                            android:text="+"
+                            android:textColor="@android:color/black"
+                            android:textSize="24dp"
+                            android:tag="@string/senior"
+                            android:textStyle="bold"
+                            android:onClick="plusOne" />
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:id="@+id/type5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/student"
+                        android:textColor="@android:color/black"
+                        android:textSize="24dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentStart="true" />
+
+                    <TextView
+                        android:id="@+id/price5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:text="€9.00"
+                        android:textColor="@android:color/black"
+                        android:textSize="24dp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true">
+
+                        <TextView
+                            android:id="@+id/min5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:paddingLeft="@dimen/activity_horizontal_margin"
+                            android:paddingRight="@dimen/activity_horizontal_margin"
+                            android:text="-"
+                            android:textColor="@android:color/black"
+                            android:textSize="24dp"
+                            android:tag="@string/student"
+                            android:textStyle="bold"
+                            android:onClick="minOne" />
+
+                        <TextView
+                            android:id="@+id/count5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="0"
+                            android:textColor="@android:color/black"
+                            android:textSize="24dp" />
+
+                        <TextView
+                            android:id="@+id/plus5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:paddingLeft="@dimen/activity_horizontal_margin"
+                            android:paddingRight="@dimen/activity_horizontal_margin"
+                            android:text="+"
+                            android:textColor="@android:color/black"
+                            android:textSize="24dp"
+                            android:tag="@string/student"
+                            android:textStyle="bold"
+                            android:onClick="plusOne"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:layout_marginTop="24dp">
+
+                    <TextView
+                        android:id="@+id/glasses"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/glasses"
+                        android:textColor="@android:color/black"
+                        android:textSize="24dp" />
+
+                    <TextView
+                        android:id="@+id/priceGlasses"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:text="€1.50"
+                        android:textColor="@android:color/black"
+                        android:textSize="24dp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true">
+
+                        <TextView
+                            android:id="@+id/minGlasses"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:paddingLeft="@dimen/activity_horizontal_margin"
+                            android:paddingRight="@dimen/activity_horizontal_margin"
+                            android:text="-"
+                            android:textColor="@android:color/black"
+                            android:textSize="24dp"
+                            android:tag="@string/glasses"
+                            android:textStyle="bold"
+                            android:onClick="minOne" />
+
+                        <TextView
+                            android:id="@+id/countGlasses"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="0"
+                            android:textColor="@android:color/black"
+                            android:textSize="24dp" />
+
+                        <TextView
+                            android:id="@+id/plusGlasses"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:paddingLeft="@dimen/activity_horizontal_margin"
+                            android:paddingRight="@dimen/activity_horizontal_margin"
+                            android:text="+"
+                            android:textColor="@android:color/black"
+                            android:textSize="24dp"
+                            android:tag="@string/glasses"
+                            android:textStyle="bold"
+                            android:onClick="plusOne"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/total"
+                    android:textColor="@android:color/black"
+                    android:textSize="32dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_marginTop="4dp"
+                    android:text="€27,00"
+                    android:textColor="@android:color/black"
+                    android:textSize="32dp"
+                    android:layout_width="match_parent"
+                    android:id="@+id/totalPrice"
+                    android:layout_height="40dp" />
+                <TextView
+                    android:layout_marginTop="4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp"
+                    android:textColor="@android:color/black"
+                    android:text="@string/including_btw"
+                    android:textSize="13dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <Button
+            android:onClick="seatButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:background="@color/colorPrimaryDark"
+            android:gravity="center"
+            android:text="@string/select_seats"
+            android:textAllCaps="false"
+            android:textSize="32dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</LinearLayout>

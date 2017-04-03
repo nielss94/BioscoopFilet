@@ -7,9 +7,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.util.Log;
 
+import com.filet.bioscoopfilet.DomainModel.Film;
 import com.filet.bioscoopfilet.DomainModel.Show;
+import com.filet.bioscoopfilet.DomainModel.Theater;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -24,6 +25,8 @@ public class SQLiteShowDAO implements ShowDAO {
     private DBConnect db;
     private Context context;
     private ArrayList<Show> shows = new ArrayList<>();
+    private ArrayList<Film> films = new ArrayList<>();
+    private ArrayList<Theater> theaters = new ArrayList<>();
 
     public SQLiteShowDAO(Context context)
     {
@@ -41,24 +44,31 @@ public class SQLiteShowDAO implements ShowDAO {
             String query = "SELECT * FROM " + db.getDB_TABLE_SHOW_NAME();
             Cursor cursor = readable.rawQuery(query, null);
 
+            FilmDAO filmDAO = new SQLiteFilmDAO(context);
+            films = filmDAO.selectData();
+
+            TheaterDAO theaterDAO = new SQLiteTheaterDAO(context);
+            theaters = theaterDAO.selectData();
+
             cursor.moveToFirst();
             while(cursor.moveToNext() ) {
-                Show s = new Show(cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_SHOWID())),
-                        cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_SHOW_FILMID())),
-                        cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_SHOW_THEATERID())),
-                        new Date(cursor.getString(cursor.getColumnIndex(db.getCOLUMN_SHOW_TIME())))); //Test the time!!
-                String seats = cursor.getString(cursor.getColumnIndex(db.getCOLUMN_SHOW_SEATS()));
-                ArrayList<Boolean> seatsList = new ArrayList<>();
-                for (int i = 0; i < seats.length(); i++) {
-                    if(seats.charAt(i) == 1)
-                    {
-                        seatsList.add(true);
-                    }
-                    else{
-                        seatsList.add(false);
+                Film f = null;
+                Theater t = null;
+                Show s = null;
+                for (int i = 0; i < films.size(); i++) {
+                    if (films.get(i).getFilmID() == cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_SHOW_FILMID()))) {
+                        f = films.get(i);
                     }
                 }
-                s.setSeats(seatsList.toArray(new Boolean[seatsList.size()]));
+                for (int i = 0; i < theaters.size(); i++) {
+                    if (theaters.get(i).getTheaterID() == cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_SHOW_THEATERID()))) {
+                        t = theaters.get(i);
+                    }
+                }
+                s = new Show(cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_SHOWID())), f, t, new Date(cursor.getString(cursor.getColumnIndex(db.getCOLUMN_SHOW_TIME()))));
+                String seats = cursor.getString(cursor.getColumnIndex(db.getCOLUMN_SHOW_SEATS()));
+
+                s.setSeats(seats);
                 Log.i(TAG, s.toString());
                 Log.i(TAG, "--------------------------------------------");
 
@@ -70,7 +80,6 @@ public class SQLiteShowDAO implements ShowDAO {
         {
             Log.i(TAG,e.getMessage());
         }
-
         return shows;
     }
 
@@ -83,22 +92,12 @@ public class SQLiteShowDAO implements ShowDAO {
             ContentValues values = new ContentValues();
 
 
-            values.put(db.getCOLUMN_SHOW_FILMID(),show.getFilmID());
-            values.put(db.getCOLUMN_SHOW_THEATERID(),show.getTheaterID());
+            values.put(db.getCOLUMN_SHOW_FILMID(),show.getFilm().getFilmID());
+            values.put(db.getCOLUMN_SHOW_THEATERID(),show.getTheater().getTheaterID());
             //Test this!!
             values.put(db.getCOLUMN_SHOW_TIME(),show.getTime().toString());
 
-            String seatsAsText = "";
-            for (int i = 0; i < show.getSeats().length; i++) {
-                if(show.getSeats()[i] == true)
-                {
-                    seatsAsText = seatsAsText + "1";
-                }
-                else{
-                    seatsAsText = seatsAsText + "0";
-                }
-            }
-            values.put(db.getCOLUMN_SHOW_SEATS(),seatsAsText);
+            values.put(db.getCOLUMN_SHOW_SEATS(),show.getSeats());
 
             writable.insert(db.getDB_TABLE_SHOW_NAME(), null, values);
         }catch(SQLiteException e)

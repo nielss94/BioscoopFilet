@@ -15,4 +15,5 @@ public interface DAOFactory {
     VisitorDAO createVisitorDAO();
     FilmDAO createFilmDAO();
     ActorDAO createActorDAO();
+    CinemaDAO createCinemaDAO();
 }

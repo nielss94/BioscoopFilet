@@ -20,7 +20,7 @@ public class SQLiteActorDAO implements ActorDAO {
     private final String TAG = this.getClass().getSimpleName();
     private DBConnect db;
     private Context context;
-    private ArrayList<Actor> theaters = new ArrayList<>();
+    private ArrayList<Actor> actors = new ArrayList<>();
 
     public SQLiteActorDAO(Context context) {
         this.context = context;
@@ -46,14 +46,14 @@ public class SQLiteActorDAO implements ActorDAO {
                 Log.i(TAG, a.toString());
                 Log.i(TAG, "--------------------------------------------");
 
-                theaters.add(a);
+                actors.add(a);
             }
             db.close();
 
         } catch (SQLiteException e) {
             Log.i(TAG, e.getMessage());
         }
-        return theaters;
+        return actors;
     }
 
     @Override

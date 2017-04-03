@@ -1,44 +1,70 @@
 package com.filet.bioscoopfilet.DomainModel;
 
+import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  * Created by Niels on 3/28/2017.
  */
 
-public class Film {
+public class Film implements Serializable{
 
     private int filmID;
-    private int cinemaID;
+    private int filmAPIID;
+    private Cinema cinema;
     private String title;
     private String version;
     private String language;
     private String releaseDate;
+    private String genre;
     private int length;
     private int age;
     private String description;
     private String IMDBUrl;
     private String IMDBScore;
     private String trailerURL;
+    private String posterURL;
     private String director;
     private ArrayList<Actor> actors;
 
-    public Film(int filmID, int cinemaID, String title, String version, String language,
-                String releaseDate, int length, int age, String description, String IMDBUrl,
-                String IMDBScore, String trailerURL, String director) {
+    public Film(int filmID, int filmAPIID, Cinema cinema, String title, String version, String language,
+                String releaseDate, String genre, int length, int age, String description,
+                String IMDBUrl, String IMDBScore, String trailerURL, String posterURL, String director) {
+        this.filmAPIID = filmAPIID;
         this.filmID = filmID;
-        this.cinemaID = cinemaID;
+        this.cinema = cinema;
         this.title = title;
         this.version = version;
         this.language = language;
         this.releaseDate = releaseDate;
+        this.genre = genre;
         this.length = length;
         this.age = age;
         this.description = description;
         this.IMDBUrl = IMDBUrl;
         this.IMDBScore = IMDBScore;
         this.trailerURL = trailerURL;
+        this.posterURL = posterURL;
+        this.director = director;
+    }
+
+    public Film(int filmAPIID, Cinema cinema, String title, String version, String language,
+                String releaseDate, String genre, int length, int age, String description,
+                String IMDBUrl, String IMDBScore, String trailerURL, String posterURL, String director) {
+        this.filmAPIID = filmAPIID;
+        this.cinema = cinema;
+        this.title = title;
+        this.version = version;
+        this.language = language;
+        this.releaseDate = releaseDate;
+        this.genre = genre;
+        this.length = length;
+        this.age = age;
+        this.description = description;
+        this.IMDBUrl = IMDBUrl;
+        this.IMDBScore = IMDBScore;
+        this.trailerURL = trailerURL;
+        this.posterURL = posterURL;
         this.director = director;
     }
 
@@ -55,12 +81,12 @@ public class Film {
         this.filmID = filmID;
     }
 
-    public int getCinemaID() {
-        return cinemaID;
+    public Cinema getCinema() {
+        return cinema;
     }
 
-    public void setCinemaID(int cinemaID) {
-        this.cinemaID = cinemaID;
+    public void setCinema(Cinema cinema) {
+        this.cinema = cinema;
     }
 
     public String getTitle() {
@@ -93,6 +119,14 @@ public class Film {
 
     public void setReleaseDate(String releaseDate) {
         this.releaseDate = releaseDate;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
     public int getLength() {
@@ -143,6 +177,14 @@ public class Film {
         this.trailerURL = trailerURL;
     }
 
+    public String getPosterURL() {
+        return posterURL;
+    }
+
+    public void setPosterURL(String posterURL) {
+        this.posterURL = posterURL;
+    }
+
     public String getDirector() {
         return director;
     }
@@ -157,5 +199,36 @@ public class Film {
 
     public void setActors(ArrayList<Actor> actors) {
         this.actors = actors;
+    }
+
+    public int getFilmAPIID() {
+        return filmAPIID;
+    }
+
+    public void setFilmAPIID(int filmAPIID) {
+        this.filmAPIID = filmAPIID;
+    }
+
+    @Override
+    public String toString() {
+        return "Film{" +
+                "filmID=" + filmID +
+                ", filmAPIID=" + filmAPIID +
+                ", cinema=" + cinema +
+                ", title='" + title + '\'' +
+                ", version='" + version + '\'' +
+                ", language='" + language + '\'' +
+                ", releaseDate='" + releaseDate + '\'' +
+                ", genre='" + genre + '\'' +
+                ", length=" + length +
+                ", age=" + age +
+                ", description='" + description + '\'' +
+                ", IMDBUrl='" + IMDBUrl + '\'' +
+                ", IMDBScore='" + IMDBScore + '\'' +
+                ", trailerURL='" + trailerURL + '\'' +
+                ", posterURL='" + posterURL + '\'' +
+                ", director='" + director + '\'' +
+                ", actors=" + actors +
+                '}';
     }
 }

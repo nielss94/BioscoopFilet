@@ -1,10 +1,12 @@
 package com.filet.bioscoopfilet.DomainModel;
 
+import java.io.Serializable;
+
 /**
  * Created by Niels on 3/28/2017.
  */
 
-public class Visitor {
+public class Visitor implements Serializable {
 
     private int visitorID;
     private String firstName;
@@ -12,6 +14,11 @@ public class Visitor {
 
     public Visitor(int visitorID, String firstName, String lastName) {
         this.visitorID = visitorID;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public Visitor(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }

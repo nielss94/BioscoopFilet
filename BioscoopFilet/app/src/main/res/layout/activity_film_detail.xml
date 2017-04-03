@@ -17,18 +17,20 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
     <LinearLayout
+        android:background="@drawable/border"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/activity_horizontal_margin"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="@dimen/activity_horizontal_margin">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="@dimen/activity_horizontal_margin">
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            android:orientation="horizontal">
 
             <ImageView
+                android:id="@+id/posterImageDetailedId"
                 android:layout_width="150dp"
                 android:layout_height="193dp"
                 android:layout_marginRight="6dp" />
@@ -92,28 +94,28 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/movieDirectorDetailId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/movieDirectorDetailId"
-            android:text="Director: Henk Henderson"/>
+            android:text="Director: Henk Henderson" />
 
         <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/movieActorsDetailId"
-            android:layout_marginBottom="75dp"
-        android:text="Actors: Jan Deman, Sylvana Simons, Henk de Bruin"/>
+            android:id="@+id/movieActorsDetailId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            android:text="Actors: Jan Deman, Sylvana Simons, Henk de Bruin" />
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
+                android:id="@+id/movieDescriptionDetailId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/movieDescriptionDetailId"
                 android:text="Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, Lorem ipsum dolor sit amet.., comes from a line in section 1.10.32.
-"/>
+" />
         </ScrollView>
 
     </LinearLayout>

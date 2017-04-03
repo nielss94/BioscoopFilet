@@ -6,18 +6,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/my_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@color/colorPrimary"
-        android:elevation="4dp"
-        android:theme="@style/ThemeFilet"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_horizontal_margin"
         android:orientation="vertical">
 
         <LinearLayout
@@ -26,12 +18,13 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/reviewListName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/reviewListName"
                 android:text="Testnaam"
+                android:textSize="16dp"
                 android:textStyle="bold"
-                android:textSize="16dp"/>
+                android:textColor="#fff"/>
 
 
             <RelativeLayout
@@ -44,41 +37,52 @@
                     android:layout_alignParentRight="true">
 
                     <ImageView
+                        android:id="@+id/reviewListStar1"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:src="@drawable/filled_star"
-                        android:id="@+id/reviewListStar1"/>
+                        android:src="@drawable/filled_star" />
+
                     <ImageView
+                        android:id="@+id/reviewListStar2"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:src="@drawable/filled_star"
-                        android:id="@+id/reviewListStar2"/>
+                        android:src="@drawable/filled_star" />
+
                     <ImageView
+                        android:id="@+id/reviewListStar3"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:src="@drawable/filled_star"
-                        android:id="@+id/reviewListStar3"/>
+                        android:src="@drawable/filled_star" />
+
                     <ImageView
+                        android:id="@+id/reviewListStar4"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:src="@drawable/empty_star"
-                        android:id="@+id/reviewListStar4"/>
+                        android:src="@drawable/empty_star" />
+
                     <ImageView
+                        android:id="@+id/reviewListStar5"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:src="@drawable/empty_star"
-                        android:id="@+id/reviewListStar5"/>
+                        android:src="@drawable/empty_star" />
                 </LinearLayout>
 
             </RelativeLayout>
 
-
         </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Bacon ipsum dolor amet strip steak beef tongue, capicola cupim swine shoulder landjaeger sirloin meatloaf beef ribs jowl picanha. Meatball beef brisket, ground round pork chop pork porchetta shank landjaeger. Tri-tip tenderloin short ribs, short loin cupim fatback salami kevin chicken bacon venison."/>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/reviewListDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bacon ipsum dolor amet strip steak beef tongue, capicola cupim swine shoulder landjaeger sirloin meatloaf beef ribs jowl picanha. Meatball beef brisket, ground round pork chop pork porchetta shank landjaeger. Tri-tip tenderloin short ribs, short loin cupim fatback salami kevin chicken bacon venison."
+                android:textColor="#fff"/>
+
+        </ScrollView>
 
     </LinearLayout>
 
