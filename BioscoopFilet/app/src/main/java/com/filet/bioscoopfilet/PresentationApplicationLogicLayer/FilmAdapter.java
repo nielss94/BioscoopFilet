@@ -2,6 +2,7 @@ package com.filet.bioscoopfilet.PresentationApplicationLogicLayer;
 
 import android.content.Context;
 import android.media.Image;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +20,7 @@ import java.util.ArrayList;
  * Created by Bart on 29-3-2017.
  */
 
-public class FilmAdapter extends ArrayAdapter<Film> {
+public class FilmAdapter extends ArrayAdapter<Film>  {
 
     public FilmAdapter(Context context, ArrayList<Film> films){
         super(context, 0, films);
@@ -27,6 +28,8 @@ public class FilmAdapter extends ArrayAdapter<Film> {
 
     @Override
     public View getView (int posistion, View convertView, ViewGroup parent){
+
+        String notRated = getContext().getResources().getString(R.string.not_yet_rated);
 
         //Declaration of film
         Film film = getItem(posistion);
@@ -49,7 +52,12 @@ public class FilmAdapter extends ArrayAdapter<Film> {
         //Filling TextViews with film info
         title.setText(film.getTitle());
         genre.setText("Genre: "+film.getGenre());
-        age.setText("Leeftijd: " + film.getAge());
+        if (film.getAge() == 0){
+            age.setText(notRated);
+        }
+        else{
+            age.setText("Leeftijd: " + film.getAge());
+        }
         version.setText("Versie: " +film.getVersion());
         imdb.setText("IMDB: " + film.getIMDBScore());
 

@@ -21,7 +21,8 @@ import com.filet.bioscoopfilet.R;
 
 import java.util.ArrayList;
 
-public class FilmOverviewActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, FilmApiConnector.FilmsAvailable {
+public class FilmOverviewActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, FilmApiConnector.FilmsAvailable,
+        AgeApiConnector.AgeAvailable, GenreApiConnector.GenreAvailable {
 
     private ArrayList<Film> films = new ArrayList<>();
 
@@ -71,18 +72,74 @@ public class FilmOverviewActivity extends AppCompatActivity implements AdapterVi
     @Override
     public void filmsAvailable(ArrayList<Film> result) {
 
-        findViewById(R.id.loadingPanel).setVisibility(View.GONE);
-
         //Clear current products
         films.clear();
 
         //Put new products in ArrayList
-        for (Film f: result) {
+        for (Film f : result) {
             films.add(f);
         }
+
+        for (Film f : films) {
+            AgeApiConnector getAge = new AgeApiConnector(this);
+            getAge.execute("https://api.themoviedb.org/3/movie/" + f.getFilmAPIID()
+                    + "/release_dates?api_key=863618e1d5c5f5cc4e34a37c49b8338e");
+
+            GenreApiConnector getGenre = new GenreApiConnector(this);
+            getGenre.execute("https://api.themoviedb.org/3/movie/" + f.getFilmAPIID()
+                    + "?api_key=863618e1d5c5f5cc4e34a37c49b8338e&language=en-US");
+        }
+    }
+
+    @Override
+    public void ageAvailable(String age, Integer id) {
+
+        Log.i("Age + ID =", age.toString() + "----" + id);
+
+        for (int i = 0; i < films.size(); i++) {
+
+            Integer ageFinal;
+
+            if (id == films.get(i).getFilmAPIID()) {
+
+
+                if (age.equals("PG-13")) {
+                    ageFinal = 12;
+                    films.get(i).setAge(ageFinal);
+                }
+                if (age.equals("PG")) {
+                    ageFinal = 3;
+                    films.get(i).setAge(ageFinal);
+                }
+                if (age.equals("R")) {
+                    ageFinal = 16;
+                    films.get(i).setAge(ageFinal);
+                }
+                if (age.equals("")) {
+                    ageFinal = 0;
+                    films.get(i).setAge(ageFinal);
+                }
+            }
+        }
+
+
+    }
+
+    @Override
+    public void genreAvailable(String genre, Integer id) {
+
+        Log.i("Genre name: ", genre);
+
+        for (int i = 0; i < films.size(); i++) {
+
+            if (id == films.get(i).getFilmAPIID()) {
+                films.get(i).setGenre(genre);
+            }
+        }
+
+        findViewById(R.id.loadingPanel).setVisibility(View.GONE);
 
         //Notify the changes
         filmAdapter.notifyDataSetChanged();
     }
-
 }
