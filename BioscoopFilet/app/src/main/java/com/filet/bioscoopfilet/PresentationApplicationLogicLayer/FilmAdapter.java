@@ -27,12 +27,12 @@ public class FilmAdapter extends ArrayAdapter<Film>  {
     }
 
     @Override
-    public View getView (int posistion, View convertView, ViewGroup parent){
+    public View getView (int position, View convertView, ViewGroup parent){
 
         String notRated = getContext().getResources().getString(R.string.not_yet_rated);
 
         //Declaration of film
-        Film film = getItem(posistion);
+        Film film = getItem(position);
 
         //Make convertView
         if (convertView == null){
