@@ -12,4 +12,5 @@ public interface FilmDAO {
 
     ArrayList<Film> selectData();
     void insertData(Film film);
+    void deleteData();
 }

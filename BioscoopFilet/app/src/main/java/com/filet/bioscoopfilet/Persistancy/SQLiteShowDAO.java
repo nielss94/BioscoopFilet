@@ -106,4 +106,28 @@ public class SQLiteShowDAO implements ShowDAO {
         }
 
     }
+
+    @Override
+    public void updateData(Show show) {
+        try{
+            SQLiteDatabase writable = db.getWritableDatabase();
+
+            ContentValues values = new ContentValues();
+
+            values.put(db.getCOLUMN_SHOW_FILMID(),show.getFilm().getFilmID());
+            values.put(db.getCOLUMN_SHOW_THEATERID(),show.getTheater().getTheaterID());
+
+            values.put(db.getCOLUMN_SHOW_TIME(),show.getTime().toString());
+
+            values.put(db.getCOLUMN_SHOW_SEATS(),show.getSeats());
+
+
+            writable.update("Show",values,"ShowID = "+show.getShowID(),null);
+        }catch(SQLiteException e)
+        {
+            Log.i(TAG,e.getMessage());
+        }
+    }
+
+
 }

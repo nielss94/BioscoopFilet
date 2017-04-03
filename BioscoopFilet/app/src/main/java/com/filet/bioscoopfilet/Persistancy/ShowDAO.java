@@ -12,4 +12,5 @@ public interface ShowDAO {
 
     ArrayList<Show> selectData();
     void insertData(Show show);
+    void updateData(Show show);
 }

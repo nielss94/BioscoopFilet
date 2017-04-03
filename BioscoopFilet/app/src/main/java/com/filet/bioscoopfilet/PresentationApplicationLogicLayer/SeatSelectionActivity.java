@@ -140,12 +140,22 @@ public class SeatSelectionActivity extends AppCompatActivity {
             } else if (show.getSeats().charAt(i) == '0') {
                 freeSeats++;
 
-
                 if (freeSeats >= amountOfTickets && seatsFound == false) {
                     for (int j = 0; j < amountOfTickets; j++) {
                         seatsSelected[j] = (i - j);
                         seats.get(i - j).setImageResource(R.drawable.ic_selected);
-
+                        String r = "";
+                        for (int k = 0; k < show.getSeats().length(); k++) {
+                            if(k == (i-j))
+                            {
+                                r = r + "1";
+                            }
+                            else
+                            {
+                                r = r + show.getSeats().charAt(k);
+                            }
+                        }
+                        show.setSeats(r);
                     }
                     seatsFound = true;
                 } else {

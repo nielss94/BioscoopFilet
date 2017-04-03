@@ -109,4 +109,14 @@ public class SQLiteFilmDAO implements FilmDAO {
             Log.i(TAG, e.getMessage());
         }
     }
+
+    @Override
+    public void deleteData() {
+        try {
+            SQLiteDatabase writable = db.getWritableDatabase();
+            writable.execSQL("delete from " + db.getDB_TABLE_FILM_NAME() + ";");
+        } catch (SQLiteException e) {
+            Log.i(TAG, e.getMessage());
+        }
+    }
 }
