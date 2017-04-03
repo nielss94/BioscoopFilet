@@ -79,7 +79,9 @@
             android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:background="@color/colorPrimaryDark"
             android:orientation="vertical"
-            android:padding="8dp">
+            android:padding="8dp"
+            android:tag="@string/paypal"
+            android:onClick="payTickets">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -103,7 +105,9 @@
             android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:background="@color/colorPrimaryDark"
             android:orientation="vertical"
-            android:padding="8dp">
+            android:padding="8dp"
+            android:tag="@string/ideal"
+            android:onClick="payTickets">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -129,7 +133,9 @@
             android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:background="@color/colorPrimaryDark"
             android:orientation="vertical"
-            android:padding="8dp">
+            android:padding="8dp"
+            android:tag="@string/creditcard"
+            android:onClick="payTickets">
 
             <TextView
                 android:layout_width="wrap_content"

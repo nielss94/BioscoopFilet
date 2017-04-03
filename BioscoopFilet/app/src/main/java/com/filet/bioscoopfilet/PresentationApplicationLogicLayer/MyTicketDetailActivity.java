@@ -40,7 +40,7 @@ public class MyTicketDetailActivity extends AppCompatActivity {
 
         //fill xml elements with intent extras
         title.setText(ticket.getShow().getFilm().getTitle());
-        amount.setText(getString(R.string.amount) + " " + ticket.getShow().getSeats()); //KLOPT NOG NIET
+        amount.setText(getString(R.string.amount) + " " + ticket.getShow().getFilm().getLength() + " min.");
         seats.setText(getString(R.string.seats) + " " + ticket.getSeat());
 
         //generate qrCode
