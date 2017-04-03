@@ -49,15 +49,15 @@ public class MainActivity extends AppCompatActivity {
         factory = new SQLiteDAOFactory(getApplicationContext());
 
         
-        //testCinemaDAO();
-        //testFilmDAO();
-        //testVisitorData();
-        //testFeedbackData();
-        //testTheaterData();
-        //testShowData();
-        //testTicketData();
-        //testReviewData();
-        //testActorDAO();
+//        testCinemaDAO();
+//        testFilmDAO();
+//        testVisitorData();
+//        testFeedbackData();
+//        testTheaterData();
+//        testShowData();
+//        testTicketData();
+//        testReviewData();
+//        testActorDAO();
     }
 
     @Override
@@ -191,7 +191,6 @@ public class MainActivity extends AppCompatActivity {
                         "Tail landjaeger alcatra kevin doner pastrami. Ribeye filet mignon shankle, pastrami sausage pancetta pork shoulder. Sirloin spare ribs beef, rump tenderloin shoulder chuck pastrami kielbasa flank. Boudin hamburger shank porchetta pork loin landjaeger chicken kielbasa alcatra tenderloin fatback spare ribs. Andouille fatback beef ribs picanha sausage, ham jerky pork alcatra. Bresaola pork belly beef ribs tenderloin t-bone. Tail tenderloin shank, andouille doner ball tip hamburger ham chuck short ribs jerky ham hock alcatra jowl.",
                 "www.imdb.url", "7.4", "www.youtube.com",
                 "https://s-media-cache-ak0.pinimg.com/236x/25/98/13/259813c534453e8c1597f4ab1d62b284.jpg", "Die Boy Bert"));
-
     }
 
     public void testActorDAO() {
