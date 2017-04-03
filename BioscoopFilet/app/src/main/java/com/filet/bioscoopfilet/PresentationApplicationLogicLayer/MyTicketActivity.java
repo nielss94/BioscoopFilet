@@ -108,7 +108,7 @@ public class MyTicketActivity extends AppCompatActivity implements AdapterView.O
         if (Locale.getDefault().toString().equalsIgnoreCase("en_gb")){
             item.setIcon(R.drawable.united_kingdom);
         }
-        if (Locale.getDefault().toString().equalsIgnoreCase("nl")){
+        if (Locale.getDefault().toString().equalsIgnoreCase("_nl")){
             item.setIcon(R.drawable.netherlands);
         }
 
@@ -143,7 +143,7 @@ public class MyTicketActivity extends AppCompatActivity implements AdapterView.O
 
                             case R.id.action_NL:
                                 Log.i("MenuItemSelected", "NEDERLANDS");
-                                String languageToLoad2  = "nl";
+                                String languageToLoad2  = "nl_nl";
                                 Locale locale2 = new Locale(languageToLoad2);
                                 Locale.setDefault(locale2);
                                 Configuration config2 = new Configuration();
