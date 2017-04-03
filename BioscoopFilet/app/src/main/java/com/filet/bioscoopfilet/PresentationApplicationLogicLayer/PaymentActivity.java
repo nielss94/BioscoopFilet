@@ -17,6 +17,7 @@ import com.filet.bioscoopfilet.DomainModel.Show;
 import com.filet.bioscoopfilet.DomainModel.Ticket;
 import com.filet.bioscoopfilet.Persistancy.DAOFactory;
 import com.filet.bioscoopfilet.Persistancy.SQLiteDAOFactory;
+import com.filet.bioscoopfilet.Persistancy.ShowDAO;
 import com.filet.bioscoopfilet.Persistancy.TicketDAO;
 import com.filet.bioscoopfilet.R;
 
@@ -34,6 +35,7 @@ public class PaymentActivity extends AppCompatActivity {
 
     private ArrayList<Ticket> tickets;
     private DAOFactory factory;
+    private Show show;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +51,7 @@ public class PaymentActivity extends AppCompatActivity {
 
         //Getting film given by activities before
         tickets = (ArrayList<Ticket>) getIntent().getSerializableExtra("tickets");
-        Show show = tickets.get(0).getShow();
+        show = tickets.get(0).getShow();
         Film film = show.getFilm();
 
         Log.i(TAG,tickets.size()+" tickets to be ordered.");
@@ -77,6 +79,7 @@ public class PaymentActivity extends AppCompatActivity {
     public void payTickets(View v)
     {
         TicketDAO ticketDAO = factory.createTicketDAO();
+        ShowDAO showDAO = factory.createShowDAO();
         Intent intent = new Intent(getApplicationContext(),MainActivity.class);
         switch(v.getTag().toString())
         {
@@ -85,6 +88,7 @@ public class PaymentActivity extends AppCompatActivity {
                 for (int i = 0; i < tickets.size(); i++) {
                     ticketDAO.insertData(tickets.get(i));
                 }
+                showDAO.updateData(show);
                 finish();
                 startActivity(intent);
                 break;
@@ -93,6 +97,7 @@ public class PaymentActivity extends AppCompatActivity {
                 for (int i = 0; i < tickets.size(); i++) {
                     ticketDAO.insertData(tickets.get(i));
                 }
+                showDAO.updateData(show);
                 finish();
                 startActivity(intent);
                 break;
@@ -101,6 +106,7 @@ public class PaymentActivity extends AppCompatActivity {
                 for (int i = 0; i < tickets.size(); i++) {
                     ticketDAO.insertData(tickets.get(i));
                 }
+                showDAO.updateData(show);
                 finish();
                 startActivity(intent);
                 break;
