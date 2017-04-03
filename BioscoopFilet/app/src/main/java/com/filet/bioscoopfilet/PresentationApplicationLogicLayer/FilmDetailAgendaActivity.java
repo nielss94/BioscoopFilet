@@ -5,8 +5,10 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -32,7 +34,6 @@ public class FilmDetailAgendaActivity extends AppCompatActivity implements Trail
     TextView release;
 
     ImageView poster;
-
 
     Film film;
 
@@ -61,7 +62,6 @@ public class FilmDetailAgendaActivity extends AppCompatActivity implements Trail
         myToolbar.setTitle(R.string.film_detail);
         setSupportActionBar(myToolbar);
 
-
         //Declaration of TextViews
         title = (TextView) findViewById(R.id.movieTitleDetailId);
         version = (TextView) findViewById(R.id.movieVersionDetailId);
@@ -85,7 +85,7 @@ public class FilmDetailAgendaActivity extends AppCompatActivity implements Trail
         imdbScore.setText(getResources().getString(R.string.imdb) + " " + film.getIMDBScore());
 //        director.setText("");
 //        actors.setText("");
-        description.setText(film.getDescription().toString());
+        description.setText(film.getDescription());
 
         //Setting poster image in ImageView
         Picasso.with(this).load(film.getPosterURL()).into(poster);
@@ -94,8 +94,28 @@ public class FilmDetailAgendaActivity extends AppCompatActivity implements Trail
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu, menu);
+        inflater.inflate(R.menu.menu_review, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_lang:
+                // User chose the "Settings" item, show the app settings UI...
+                return true;
+            case R.id.action_review:
+                Intent intent = new Intent(getApplicationContext(), ReviewsActivity.class);
+                intent.putExtra("FILM", film);
+                Log.i("FilmDetailAgendaActvty", film.toString());
+                startActivity(intent);
+                return true;
+
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 

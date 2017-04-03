@@ -34,6 +34,7 @@
         <activity android:name=".PresentationApplicationLogicLayer.SeatSelectionActivity" />
         <activity android:name=".PresentationApplicationLogicLayer.FilmDetailAgendaActivity" />
         <activity android:name=".PresentationApplicationLogicLayer.FilmAgendaActivity" />
+        <activity android:name=".PresentationApplicationLogicLayer.WriteReviewActivity" />
         <activity android:name=".PresentationApplicationLogicLayer.SelectedFilmDetailActivity"></activity>
     </application>
 
