@@ -8,8 +8,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
-import android.view.animation.Interpolator;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -46,12 +44,17 @@ public class FilmDetailAgendaActivity extends AppCompatActivity implements Trail
         //Getting film given by FilmOverviewActivity
         film = (Film) getIntent().getSerializableExtra("FILM");
 
-        gettingInformation();
-
         TrailerApiConnector getTrailer = new TrailerApiConnector(this);
-        getTrailer.execute("https://api.themoviedb.org/3/movie/"+film.getFilmID()+"/videos?api_key=863618e1d5c5f5cc4e34a37c49b8338e&language=en_US");
+        getTrailer.execute("https://api.themoviedb.org/3/movie/"+film.getFilmAPIID()+"/videos?api_key=863618e1d5c5f5cc4e34a37c49b8338e&language=en_US");
+
         DirectorApiConnector getDirector = new DirectorApiConnector(this);
-        getDirector.execute("https://api.themoviedb.org/3/movie/"+film.getFilmID()+"/credits?api_key=863618e1d5c5f5cc4e34a37c49b8338e");
+        getDirector.execute("https://api.themoviedb.org/3/movie/"+film.getFilmAPIID()+"/credits?api_key=863618e1d5c5f5cc4e34a37c49b8338e");
+
+        ActorApiConnector getActor = new ActorApiConnector(this);
+        getActor.execute("https://api.themoviedb.org/3/movie/"+film.getFilmAPIID()+"/credits?api_key=863618e1d5c5f5cc4e34a37c49b8338e");
+
+        RuntimeApiConnector getRuntime = new RuntimeApiConnector(this);
+        getRuntime.execute("https://api.themoviedb.org/3/movie/"+film.getFilmAPIID()+"?api_key=863618e1d5c5f5cc4e34a37c49b8338e&language=nl");
 
         //Setting toolbar
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
@@ -77,11 +80,11 @@ public class FilmDetailAgendaActivity extends AppCompatActivity implements Trail
         title.setText(film.getTitle());
         version.setText(getResources().getString(R.string.version)  + " " + film.getVersion());
         release.setText(getResources().getString(R.string.release) + " " + film.getReleaseDate());
-        length.setText("");
+//        length.setText("");
         age.setText(getResources().getString(R.string.age) + " " + film.getAge());
         imdbScore.setText(getResources().getString(R.string.imdb) + " " + film.getIMDBScore());
-        director.setText("");
-        actors.setText("");
+//        director.setText("");
+//        actors.setText("");
         description.setText(film.getDescription().toString());
 
         //Setting poster image in ImageView
@@ -109,7 +112,7 @@ public class FilmDetailAgendaActivity extends AppCompatActivity implements Trail
 
     @Override
     public void actorAvailable(ArrayList<Actor> actorsList) {
-
+        film.setActors(actorsList);
         actors.setText(getResources().getString(R.string.actors) + " " + actorsList.get(0).getFirstName()
                 + ", " + actorsList.get(1).getFirstName() + ", " + actorsList.get(2).getFirstName());
     }
@@ -124,20 +127,4 @@ public class FilmDetailAgendaActivity extends AppCompatActivity implements Trail
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(film.getTrailerURL()));
         startActivity(intent);
     }
-
-    public void gettingInformation(){
-
-        TrailerApiConnector getTrailer = new TrailerApiConnector(this);
-        getTrailer.execute("https://api.themoviedb.org/3/movie/"+film.getFilmID()+"/videos?api_key=863618e1d5c5f5cc4e34a37c49b8338e&language=en_US");
-
-        DirectorApiConnector getDirector = new DirectorApiConnector(this);
-        getDirector.execute("https://api.themoviedb.org/3/movie/"+film.getFilmID()+"/credits?api_key=863618e1d5c5f5cc4e34a37c49b8338e");
-
-        ActorApiConnector getActor = new ActorApiConnector(this);
-        getActor.execute("https://api.themoviedb.org/3/movie/"+film.getFilmID()+"/credits?api_key=863618e1d5c5f5cc4e34a37c49b8338e");
-
-        RuntimeApiConnector getRuntime = new RuntimeApiConnector(this);
-        getRuntime.execute("https://api.themoviedb.org/3/movie/"+film.getFilmID()+"?api_key=863618e1d5c5f5cc4e34a37c49b8338e&language=nl");
-    }
-
 }

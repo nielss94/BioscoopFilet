@@ -69,7 +69,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="2dp"
-                    android:text="Length: 123 min."
+                    android:text=""
                     android:textSize="10dp" />
 
                 <TextView
@@ -103,14 +103,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/movieDirectorDetailId"
-            android:text="Director: Henk Henderson"/>
+            android:text=""/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/movieActorsDetailId"
             android:layout_marginBottom="@dimen/activity_horizontal_margin"
-            android:text="Actors: Jan Deman, Sylvana Simons, Henk de Bruin"/>
+            android:text=""/>
 
         <ScrollView
             android:layout_width="match_parent"
