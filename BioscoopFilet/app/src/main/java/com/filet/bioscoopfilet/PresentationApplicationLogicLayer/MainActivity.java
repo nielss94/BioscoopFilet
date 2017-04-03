@@ -11,6 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ListView;
 
 import com.filet.bioscoopfilet.DomainModel.Actor;
 import com.filet.bioscoopfilet.DomainModel.Cinema;
@@ -38,12 +39,16 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements FilmApiConnector.FilmsAvailable,
+        AgeApiConnector.AgeAvailable, GenreApiConnector.GenreAvailable {
 
     private DAOFactory factory;
 
     private String language;
     private SharedPreferences languagepref;
+    private ArrayList<Film> films = new ArrayList<>();
+    private FilmDAO filmDAO;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,14 +56,13 @@ public class MainActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
-        languagepref = getSharedPreferences("language",MODE_PRIVATE);
+        languagepref = getSharedPreferences("language", MODE_PRIVATE);
         language = languagepref.getString("languageToLoad", Locale.getDefault().getDisplayLanguage());
 
-
         factory = new SQLiteDAOFactory(getApplicationContext());
+        filmDAO = factory.createFilmDAO();
 
-        
-//        testCinemaDAO();
+        testCinemaDAO();
 //        testFilmDAO();
 //        testVisitorData();
 //        testFeedbackData();
@@ -67,17 +71,21 @@ public class MainActivity extends AppCompatActivity {
 //        testTicketData();
 //        testReviewData();
 //        testActorDAO();
+
+        String[] urls = new String[]{"https://api.themoviedb.org/3/movie/upcoming?api_key=863618e1d5c5f5cc4e34a37c49b8338e&language=nl"};
+        FilmApiConnector getFilms = new FilmApiConnector(this);
+        getFilms.execute(urls);
     }
 
     @Override
-    public void onResume(){
+    public void onResume() {
         super.onResume();
 
         String oldLanguage = language;
 
         language = languagepref.getString("languageToLoad", Locale.getDefault().getDisplayLanguage());
 
-        if (!oldLanguage.equals(language)){
+        if (!oldLanguage.equals(language)) {
             finish();
             startActivity(getIntent());
         }
@@ -91,13 +99,13 @@ public class MainActivity extends AppCompatActivity {
         MenuItem item = menu.findItem(R.id.action_lang);
 
         Log.i("Taal", Locale.getDefault().toString());
-        if (Locale.getDefault().toString().equalsIgnoreCase("en_us")){
+        if (Locale.getDefault().toString().equalsIgnoreCase("en_us")) {
             item.setIcon(R.drawable.united_states);
         }
-        if (Locale.getDefault().toString().equalsIgnoreCase("en_gb")){
+        if (Locale.getDefault().toString().equalsIgnoreCase("en_gb")) {
             item.setIcon(R.drawable.united_kingdom);
         }
-        if (Locale.getDefault().toString().equalsIgnoreCase("nl")){
+        if (Locale.getDefault().toString().equalsIgnoreCase("nl")) {
             item.setIcon(R.drawable.netherlands);
         }
 
@@ -204,8 +212,7 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<Ticket> tickets = ticketDAO.selectData();
 
         for (int i = 0; i < tickets.size(); i++) {
-            if(tickets.get(i).getQrCode() == t.getQrCode())
-            {
+            if (tickets.get(i).getQrCode() == t.getQrCode()) {
                 Log.e("Main", "Can't create ticket: the qrcode already exists in the database. Creating new QRCode.");
                 tickets.get(i).setQrCode(new QRCode().getQrCode());
                 break;
@@ -220,7 +227,7 @@ public class MainActivity extends AppCompatActivity {
         CinemaDAO cinemaDAO = factory.createCinemaDAO();
         Cinema c = cinemaDAO.selectData().get(0);
 
-        filmDAO.insertData(new Film(12345,c, "Bob de Bouwer: De Film", "Version", "Nederlands", "12-01-2018", "Komedie", 93, 6,
+        filmDAO.insertData(new Film(12345, c, "Bob de Bouwer: De Film", "Version", "Nederlands", "12-01-2018", "Komedie", 93, 6,
                 "Bacon ipsum dolor amet bacon strip steak pork, spare ribs tongue pork chop burgdoggen swine jowl chuck. Beef ribs burgdoggen chicken, pig fatback sausage drumstick leberkas cow tongue shank chuck porchetta rump. Beef ribs shankle cow hamburger, turkey ground round ham hock meatball strip steak kielbasa pancetta picanha flank pork loin. Short loin fatback pork chop jerky hamburger meatloaf. Pork loin shoulder pork chop ribeye filet mignon sausage beef bacon.\n" +
                         "\n" +
                         "Tail landjaeger alcatra kevin doner pastrami. Ribeye filet mignon shankle, pastrami sausage pancetta pork shoulder. Sirloin spare ribs beef, rump tenderloin shoulder chuck pastrami kielbasa flank. Boudin hamburger shank porchetta pork loin landjaeger chicken kielbasa alcatra tenderloin fatback spare ribs. Andouille fatback beef ribs picanha sausage, ham jerky pork alcatra. Bresaola pork belly beef ribs tenderloin t-bone. Tail tenderloin shank, andouille doner ball tip hamburger ham chuck short ribs jerky ham hock alcatra jowl.",
@@ -238,5 +245,64 @@ public class MainActivity extends AppCompatActivity {
         CinemaDAO cinemaDAO = factory.createCinemaDAO();
         cinemaDAO.insertData(new Cinema("Filet", "Breda", "Lovensdijkstraat 1",
                 "5000XX", "013-51201230"));
+    }
+
+    @Override
+    public void filmsAvailable(ArrayList<Film> result) {
+
+        //Clear current products
+        this.films.clear();
+        filmDAO.deleteData();
+        //Fill film Array with films from API
+        this.films = result;
+
+        for (Film f : result) {
+            AgeApiConnector getAge = new AgeApiConnector(this);
+            getAge.execute("https://api.themoviedb.org/3/movie/" + f.getFilmAPIID()
+                    + "/release_dates?api_key=863618e1d5c5f5cc4e34a37c49b8338e");
+
+            GenreApiConnector getGenre = new GenreApiConnector(this);
+            getGenre.execute("https://api.themoviedb.org/3/movie/" + f.getFilmAPIID()
+                    + "?api_key=863618e1d5c5f5cc4e34a37c49b8338e&language=en-US");
+        }
+    }
+
+    @Override
+    public void ageAvailable(String age, Integer id) {
+        for (int i = 0; i < films.size(); i++) {
+
+            Integer ageFinal;
+
+            if (id == films.get(i).getFilmAPIID()) {
+
+                if (age.equals("PG-13")) {
+                    ageFinal = 12;
+                    films.get(i).setAge(ageFinal);
+                }
+                if (age.equals("PG")) {
+                    ageFinal = 3;
+                    films.get(i).setAge(ageFinal);
+                }
+                if (age.equals("R")) {
+                    ageFinal = 16;
+                    films.get(i).setAge(ageFinal);
+                }
+                if (age.equals("")) {
+                    ageFinal = 0;
+                    films.get(i).setAge(ageFinal);
+                }
+            }
+        }
+    }
+
+    @Override
+    public void genreAvailable(String genre, Integer id) {
+        for (int i = 0; i < films.size(); i++) {
+
+            if (id == films.get(i).getFilmAPIID()) {
+                films.get(i).setGenre(genre);
+                filmDAO.insertData(films.get(i));
+            }
+        }
     }
 }
