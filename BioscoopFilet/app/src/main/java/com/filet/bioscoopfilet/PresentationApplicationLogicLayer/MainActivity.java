@@ -10,8 +10,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
-import android.widget.ListView;
 
 import com.filet.bioscoopfilet.DomainModel.Actor;
 import com.filet.bioscoopfilet.DomainModel.Cinema;
@@ -42,13 +40,17 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity implements FilmApiConnector.FilmsAvailable,
         AgeApiConnector.AgeAvailable, GenreApiConnector.GenreAvailable {
 
+
+    private final String TAG = getClass().getSimpleName();
     private DAOFactory factory;
 
     private String language;
     private SharedPreferences languagepref;
     private ArrayList<Film> films = new ArrayList<>();
     private FilmDAO filmDAO;
-
+    private CinemaDAO cinemaDAO;
+    private FilmApiConnector getFilms;
+    private int getFilmsCounter = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,20 +63,19 @@ public class MainActivity extends AppCompatActivity implements FilmApiConnector.
 
         factory = new SQLiteDAOFactory(getApplicationContext());
         filmDAO = factory.createFilmDAO();
+        cinemaDAO = factory.createCinemaDAO();
 
-        testCinemaDAO();
-//        testFilmDAO();
+
+
+
+//        testCinemaDAO();
 //        testVisitorData();
 //        testFeedbackData();
-//        testTheaterData();
-//        testShowData();
-//        testTicketData();
-//        testReviewData();
-//        testActorDAO();
-
         String[] urls = new String[]{"https://api.themoviedb.org/3/movie/upcoming?api_key=863618e1d5c5f5cc4e34a37c49b8338e&language=nl"};
-        FilmApiConnector getFilms = new FilmApiConnector(this);
+        getFilms = new FilmApiConnector(this);
         getFilms.execute(urls);
+//        testTheaterData();
+
     }
 
     @Override
@@ -164,7 +165,7 @@ public class MainActivity extends AppCompatActivity implements FilmApiConnector.
         Visitor v = visitorDAO.selectData().get(0);
         Film f = filmDAO.selectData().get(0);
 
-        reviewDAO.insertData(new Review(f, v, 5, "Geweldige film"));
+        reviewDAO.insertData(new Review(f.getFilmAPIID(), v, 5, "Geweldige film"));
         reviewDAO.selectData();
     }
 
@@ -173,8 +174,6 @@ public class MainActivity extends AppCompatActivity implements FilmApiConnector.
         CinemaDAO cinemaDAO = factory.createCinemaDAO();
 
         Cinema c = cinemaDAO.selectData().get(0);
-        theaterDAO.insertData(new Theater(c, 100));
-        theaterDAO.insertData(new Theater(c, 100));
         theaterDAO.insertData(new Theater(c, 100));
         theaterDAO.insertData(new Theater(c, 100));
         theaterDAO.selectData();
@@ -195,7 +194,12 @@ public class MainActivity extends AppCompatActivity implements FilmApiConnector.
         Film f = filmDAO.selectData().get(0);
         Theater t = theaterDAO.selectData().get(0);
 
-        showDAO.insertData(new Show(f, t, new Date(117, 03, 10, 10, 10), "1010100010001001011101001001010100100010010101001001000100010000100101001010101000100010010111010010"));
+        showDAO.insertData(new Show(f.getFilmAPIID(), t, new Date(117, 3, 10, 10, 10), "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"));
+        showDAO.insertData(new Show(f.getFilmAPIID(), t, new Date(117, 3, 8, 12, 10), "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"));
+
+        f = filmDAO.selectData().get(1);
+        showDAO.insertData(new Show(f.getFilmAPIID(), t, new Date(117, 3, 6, 17, 10), "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"));
+        showDAO.insertData(new Show(f.getFilmAPIID(), t, new Date(117, 3, 8, 10, 10), "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"));
         showDAO.selectData();
     }
 
@@ -297,12 +301,24 @@ public class MainActivity extends AppCompatActivity implements FilmApiConnector.
 
     @Override
     public void genreAvailable(String genre, Integer id) {
+        getFilmsCounter++;
+        Log.i(TAG,getFilmsCounter+"");
         for (int i = 0; i < films.size(); i++) {
 
             if (id == films.get(i).getFilmAPIID()) {
                 films.get(i).setGenre(genre);
+                films.get(i).setCinema(cinemaDAO.selectData().get(0));
                 filmDAO.insertData(films.get(i));
+
             }
+        }
+        if(getFilmsCounter >= 19) {
+            Log.i(TAG,"Hello?");
+//        testFilmDAO();
+//            testShowData();
+//        testTicketData();
+//        testReviewData();
+//        testActorDAO();
         }
     }
 }

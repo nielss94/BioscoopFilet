@@ -83,8 +83,11 @@ public class FilmAgendaActivity extends AppCompatActivity implements AdapterView
                     }
                 }
                 showAdapter.notifyDataSetChanged();
-            }
+                for (int i = 0; i < selectedShows.size(); i++) {
+                    Log.i(TAG, "Selected shows:" +selectedShows.get(i).toString());
+                }
 
+            }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
@@ -101,7 +104,7 @@ public class FilmAgendaActivity extends AppCompatActivity implements AdapterView
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Show show = shows.get(position);
+        Show show = selectedShows.get(position);
 
         Intent intent = new Intent(getApplicationContext(), SelectedFilmDetailActivity.class);
         intent.putExtra("SHOW", show);

@@ -15,7 +15,11 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.filet.bioscoopfilet.DomainModel.Film;
 import com.filet.bioscoopfilet.DomainModel.Ticket;
+import com.filet.bioscoopfilet.Persistancy.DAOFactory;
+import com.filet.bioscoopfilet.Persistancy.FilmDAO;
+import com.filet.bioscoopfilet.Persistancy.SQLiteDAOFactory;
 import com.filet.bioscoopfilet.R;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
@@ -23,12 +27,15 @@ import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 public class MyTicketDetailActivity extends AppCompatActivity {
 
     private String language;
     private SharedPreferences languagepref;
+    private DAOFactory factory;
+    private ArrayList<Film> films = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +45,20 @@ public class MyTicketDetailActivity extends AppCompatActivity {
         myToolbar.setTitle(R.string.my_ticket_details);
         setSupportActionBar(myToolbar);
 
+
         //get intent extras
         Ticket ticket = (Ticket) getIntent().getSerializableExtra("ticket");
+
+        factory = new SQLiteDAOFactory(getApplicationContext());
+        FilmDAO filmDAO = factory.createFilmDAO();
+        films = filmDAO.selectData();
+        Film film = null;
+        for (int i = 0; i < films.size(); i++) {
+            if(films.get(i).getFilmAPIID() == ticket.getShow().getFilmAPIID())
+            {
+                film = films.get(i);
+            }
+        }
 
         //initialise xml elements
         TextView title = (TextView) findViewById(R.id.ticketDetailFilmTitle);
@@ -48,8 +67,8 @@ public class MyTicketDetailActivity extends AppCompatActivity {
         ImageView qrCode = (ImageView) findViewById(R.id.ticketDetailQRCode);
 
         //fill xml elements with intent extras
-        title.setText(ticket.getShow().getFilm().getTitle());
-        amount.setText(getString(R.string.amount) + " " + ticket.getShow().getFilm().getLength() + " min.");
+        title.setText(film.getTitle());
+        amount.setText(getString(R.string.amount) + " " + film.getLength() + " min.");
         seats.setText(getString(R.string.seats) + " " + ticket.getSeat());
 
         //generate qrCode

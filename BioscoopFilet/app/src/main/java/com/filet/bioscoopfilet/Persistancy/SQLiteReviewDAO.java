@@ -60,12 +60,12 @@ public class SQLiteReviewDAO implements ReviewDAO {
                     }
                 }
                 for (int i = 0; i < films.size(); i++) {
-                    if(films.get(i).getFilmID() == cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_REVIEW_FILMID())))
+                    if(films.get(i).getFilmAPIID() == cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_REVIEW_FILMAPIID())))
                     {
                         f = films.get(i);
                     }
                 }
-                r = new Review(cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_REVIEWID())), f, v,
+                r = new Review(cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_REVIEWID())), f.getFilmAPIID(), v,
                         cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_REVIEW_SCORE())),
                         cursor.getString(cursor.getColumnIndex(db.getCOLUMN_REVIEW_DESCRIPTION())));
 
@@ -88,7 +88,7 @@ public class SQLiteReviewDAO implements ReviewDAO {
 
             ContentValues values = new ContentValues();
 
-            values.put(db.getCOLUMN_REVIEW_FILMID(), review.getFilm().getFilmID());
+            values.put(db.getCOLUMN_REVIEW_FILMAPIID(), review.getFilmAPIID());
             values.put(db.getCOLUMN_REVIEW_VISITORID(), review.getVisitor().getVisitorID());
             values.put(db.getCOLUMN_REVIEW_SCORE(), review.getScore());
             values.put(db.getCOLUMN_REVIEW_DESCRIPTION(), review.getDescription());

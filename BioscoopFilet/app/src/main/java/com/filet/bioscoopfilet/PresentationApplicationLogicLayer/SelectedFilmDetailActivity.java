@@ -4,16 +4,19 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.filet.bioscoopfilet.DomainModel.Actor;
 import com.filet.bioscoopfilet.DomainModel.Film;
 import com.filet.bioscoopfilet.DomainModel.Show;
+import com.filet.bioscoopfilet.Persistancy.DAOFactory;
+import com.filet.bioscoopfilet.Persistancy.FilmDAO;
+import com.filet.bioscoopfilet.Persistancy.SQLiteDAOFactory;
 import com.filet.bioscoopfilet.R;
 import com.squareup.picasso.Picasso;
 
@@ -21,6 +24,8 @@ import java.util.ArrayList;
 
 public class SelectedFilmDetailActivity extends AppCompatActivity implements TrailerApiConnector.TrailerAvailable,
         DirectorApiConnector.DirectorAvailable, ActorApiConnector.ActorAvailable, RuntimeApiConnector.RuntimeAvailable{
+
+    private final String TAG = getClass().getSimpleName();
 
     TextView title;
     TextView version;
@@ -35,6 +40,8 @@ public class SelectedFilmDetailActivity extends AppCompatActivity implements Tra
     ImageView poster;
 
     Film film;
+    private DAOFactory factory;
+    private ArrayList<Film> films = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +55,17 @@ public class SelectedFilmDetailActivity extends AppCompatActivity implements Tra
 
         //Getting film given by FilmOverviewActivity
         Show show = (Show) getIntent().getSerializableExtra("SHOW");
-        film =  show.getFilm();
+        Log.i(TAG,show.toString());
+        factory = new SQLiteDAOFactory(getApplicationContext());
+        FilmDAO filmDAO = factory.createFilmDAO();
+        films = filmDAO.selectData();
+
+        for (int i = 0; i < films.size(); i++) {
+            if(show.getFilmAPIID() == films.get(i).getFilmAPIID())
+            {
+                film = films.get(i);
+            }
+        }
 
         TrailerApiConnector getTrailer = new TrailerApiConnector(this);
         getTrailer.execute("https://api.themoviedb.org/3/movie/"+film.getFilmAPIID()+"/videos?api_key=863618e1d5c5f5cc4e34a37c49b8338e&language=en_US");

@@ -30,7 +30,7 @@ import java.util.ArrayList;
 
 public class FilmApiConnector extends AsyncTask<String, Void, String> {
 
-    private FilmsAvailable listener = null;
+    private FilmsAvailable listener;
 
     public FilmApiConnector(FilmsAvailable listener) {
         this.listener = listener;
@@ -162,7 +162,7 @@ public class FilmApiConnector extends AsyncTask<String, Void, String> {
 
     //Callback interface
     public interface FilmsAvailable {
-        ;
+
 
         void filmsAvailable(ArrayList<Film> result);
     }

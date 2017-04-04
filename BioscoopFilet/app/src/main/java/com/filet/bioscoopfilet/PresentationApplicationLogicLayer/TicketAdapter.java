@@ -2,7 +2,6 @@ package com.filet.bioscoopfilet.PresentationApplicationLogicLayer;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.support.v4.content.res.ResourcesCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,15 +9,17 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.filet.bioscoopfilet.DomainModel.Film;
 import com.filet.bioscoopfilet.DomainModel.Ticket;
+import com.filet.bioscoopfilet.Persistancy.DAOFactory;
+import com.filet.bioscoopfilet.Persistancy.FilmDAO;
+import com.filet.bioscoopfilet.Persistancy.SQLiteDAOFactory;
 import com.filet.bioscoopfilet.R;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
-import com.google.zxing.qrcode.encoder.QRCode;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -27,6 +28,9 @@ import java.util.ArrayList;
  */
 
 public class TicketAdapter extends ArrayAdapter<Ticket> {
+
+    private DAOFactory factory;
+    private ArrayList<Film> films = new ArrayList<>();
 
     public TicketAdapter(Context context, ArrayList<Ticket> tickets){
         super(context, 0, tickets);
@@ -37,6 +41,16 @@ public class TicketAdapter extends ArrayAdapter<Ticket> {
 
         //Declaration of film
         Ticket ticket = getItem(position);
+        factory = new SQLiteDAOFactory(getContext());
+        FilmDAO filmDAO = factory.createFilmDAO();
+        films = filmDAO.selectData();
+        Film film = null;
+        for (int i = 0; i < films.size(); i++) {
+            if(films.get(i).getFilmAPIID() == ticket.getShow().getFilmAPIID())
+            {
+                film = films.get(i);
+            }
+        }
 
         //Make convertView
         if (convertView == null){
@@ -48,7 +62,7 @@ public class TicketAdapter extends ArrayAdapter<Ticket> {
         ImageView qrCode = (ImageView) convertView.findViewById(R.id.ticketQRCode);
 
         //Filling Views with ticket info
-        filmTitle.setText(ticket.getShow().getFilm().getTitle());
+        filmTitle.setText(film.getTitle());
 
         //Filling image
         MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
