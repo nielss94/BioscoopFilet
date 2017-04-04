@@ -69,5 +69,6 @@ public class ReviewsActivity extends AppCompatActivity {
         Intent intent = new Intent(this, WriteReviewActivity.class);
         intent.putExtra("FILM", film);
         startActivity(intent);
+        finish();
     }
 }
