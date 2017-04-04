@@ -80,10 +80,6 @@ public class MyTicketActivity extends AppCompatActivity implements AdapterView.O
     public void onResume(){
         super.onResume();
 
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        myToolbar.setTitle(R.string.my_tickets);
-        setSupportActionBar(myToolbar);
-
         String oldLanguage = language;
 
         language = languagepref.getString("languageToLoad", Locale.getDefault().getDisplayLanguage());

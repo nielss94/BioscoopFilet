@@ -27,7 +27,7 @@ public class MyFiletActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_filet);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        myToolbar.setTitle(R.string.my_films);
+        myToolbar.setTitle(R.string.my_filet);
         setSupportActionBar(myToolbar);
 
         languagepref = getSharedPreferences("language", MODE_PRIVATE);
@@ -37,10 +37,6 @@ public class MyFiletActivity extends AppCompatActivity {
     @Override
     public void onResume() {
         super.onResume();
-
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        myToolbar.setTitle(R.string.my_films);
-        setSupportActionBar(myToolbar);
 
         String oldLanguage = language;
 
