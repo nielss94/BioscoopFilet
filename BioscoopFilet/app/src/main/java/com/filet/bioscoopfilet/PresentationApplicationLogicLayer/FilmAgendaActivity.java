@@ -119,7 +119,7 @@ public class FilmAgendaActivity extends AppCompatActivity implements AdapterView
                     public boolean onMenuItemClick(MenuItem item) {
                         switch (item.getItemId()) {
                             case R.id.action_EN_US:
-                                Log.i("MenuItemSelected", "ENGELS US");
+                                Log.i("MenuItemSelected", "ENGELS");
                                 Locale locale = new Locale("en", "US");
                                 Locale.setDefault(locale);
                                 Configuration config = getBaseContext().getResources().getConfiguration();
