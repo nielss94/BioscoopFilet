@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity implements FilmApiConnector.
                     public boolean onMenuItemClick(MenuItem item) {
                         switch (item.getItemId()) {
                             case R.id.action_EN_US:
-                                Log.i("MenuItemSelected", "ENGELS");
+                                Log.i("MenuItemSelected", "ENGELS US");
                                 Locale locale = new Locale("en", "US");
                                 Locale.setDefault(locale);
                                 Configuration config = getBaseContext().getResources().getConfiguration();
