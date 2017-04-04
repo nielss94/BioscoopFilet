@@ -105,7 +105,6 @@ public class MyFilmActivity extends AppCompatActivity implements AdapterView.OnI
 
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -119,46 +118,43 @@ public class MyFilmActivity extends AppCompatActivity implements AdapterView.OnI
                         switch (item.getItemId()) {
                             case R.id.action_EN_US:
                                 Log.i("MenuItemSelected", "ENGELS");
-                                String languageToLoad  = "en_US";
-                                Locale locale = new Locale(languageToLoad);
+                                Locale locale = new Locale("en", "US");
                                 Locale.setDefault(locale);
-                                Configuration config = new Configuration();
+                                Configuration config = getBaseContext().getResources().getConfiguration();
                                 config.locale = locale;
-                                getBaseContext().getResources().updateConfiguration(config,getBaseContext().getResources().getDisplayMetrics());
+                                getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
 
-                                Intent intent = getIntent();
-                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
+                                Intent intent = new Intent(getBaseContext(), MyFiletActivity.class);
+                                intent.addFlags( Intent.FLAG_ACTIVITY_NO_ANIMATION );
+                                intent.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP );
                                 startActivity(intent);
                                 return true;
 
                             case R.id.action_NL:
                                 Log.i("MenuItemSelected", "NEDERLANDS");
-                                String languageToLoad2  = "nl_nl";
-                                Locale locale2 = new Locale(languageToLoad2);
+                                Locale locale2 = new Locale("nl", "NL");
                                 Locale.setDefault(locale2);
-                                Configuration config2 = new Configuration();
+                                Configuration config2 = getBaseContext().getResources().getConfiguration();
                                 config2.locale = locale2;
-                                getBaseContext().getResources().updateConfiguration(config2,getBaseContext().getResources().getDisplayMetrics());
+                                getBaseContext().getResources().updateConfiguration(config2, getBaseContext().getResources().getDisplayMetrics());
 
-                                Intent intent2 = getIntent();
-                                intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
+                                Intent intent2 = new Intent(getBaseContext(), MyFiletActivity.class);
+                                intent2.addFlags( Intent.FLAG_ACTIVITY_NO_ANIMATION );
+                                intent2.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP );
                                 startActivity(intent2);
                                 return true;
 
                             case R.id.action_EN_UK:
                                 Log.i("MenuItemSelected", "ENGELS");
-                                String languageToLoad3  = "en_GB";
-                                Locale locale3 = new Locale(languageToLoad3);
+                                Locale locale3 = new Locale("en", "GB");
                                 Locale.setDefault(locale3);
-                                Configuration config3 = new Configuration();
+                                Configuration config3 = getBaseContext().getResources().getConfiguration();
                                 config3.locale = locale3;
-                                getBaseContext().getResources().updateConfiguration(config3,getBaseContext().getResources().getDisplayMetrics());
+                                getBaseContext().getResources().updateConfiguration(config3, getBaseContext().getResources().getDisplayMetrics());
 
-                                Intent intent3 = getIntent();
-                                intent3.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
+                                Intent intent3 = new Intent(getBaseContext(), MyFiletActivity.class);
+                                intent3.addFlags( Intent.FLAG_ACTIVITY_NO_ANIMATION );
+                                intent3.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP );
                                 startActivity(intent3);
                                 return true;
                             default:
