@@ -60,8 +60,8 @@ public class SQLiteFeedbackDAO implements FeedbackDAO {
                 f = new Feedback(cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_FEEDBACKID())), v,
                         cursor.getString(cursor.getColumnIndex(db.getCOLUMN_FEEDBACK_DESCRIPTION())));
 
-                Log.i(TAG, f.toString());
-                Log.i(TAG, "--------------------------------------------");
+//                Log.i(TAG, f.toString());
+//                Log.i(TAG, "--------------------------------------------");
 
                 feedbacks.add(f);
             }

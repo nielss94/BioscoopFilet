@@ -46,8 +46,8 @@ public class SQLiteCinemaDAO implements CinemaDAO {
                         cursor.getString(cursor.getColumnIndex(db.getCOLUMN_CINEMA_ZIPCODE())),
                         cursor.getString(cursor.getColumnIndex(db.getCOLUMN_CINEMA_PHONE())));
 
-                Log.i(TAG, c.toString());
-                Log.i(TAG, "--------------------------------------------");
+//                Log.i(TAG, c.toString());
+//                Log.i(TAG, "--------------------------------------------");
 
                 cinemas.add(c);
             }

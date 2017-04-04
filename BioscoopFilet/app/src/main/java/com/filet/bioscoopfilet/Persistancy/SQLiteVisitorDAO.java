@@ -43,8 +43,8 @@ public class SQLiteVisitorDAO implements VisitorDAO {
                         cursor.getString(cursor.getColumnIndex(db.getCOLUMN_VISITOR_FIRSTNAME())),
                         cursor.getString(cursor.getColumnIndex(db.getCOLUMN_VISITOR_LASTNAME())));
 
-                Log.i(TAG, v.toString());
-                Log.i(TAG, "--------------------------------------------");
+//                Log.i(TAG, v.toString());
+//                Log.i(TAG, "--------------------------------------------");
 
                 visitors.add(v);
             }

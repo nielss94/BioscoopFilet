@@ -69,8 +69,8 @@ public class SQLiteShowDAO implements ShowDAO {
                 String seats = cursor.getString(cursor.getColumnIndex(db.getCOLUMN_SHOW_SEATS()));
 
                 s.setSeats(seats);
-                Log.i(TAG, s.toString());
-                Log.i(TAG, "--------------------------------------------");
+//                Log.i(TAG, s.toString());
+//                Log.i(TAG, "--------------------------------------------");
 
                 shows.add(s);
             }
