@@ -38,6 +38,7 @@ import com.filet.bioscoopfilet.R;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Timer;
 
 public class MainActivity extends AppCompatActivity implements FilmApiConnector.FilmsAvailable,
         AgeApiConnector.AgeAvailable, GenreApiConnector.GenreAvailable {
@@ -70,14 +71,15 @@ public class MainActivity extends AppCompatActivity implements FilmApiConnector.
 
 
 
-        testCinemaDAO();
-        testVisitorData();
-        testFeedbackData();
+//        testCinemaDAO();
+//        testVisitorData();
+//        testFeedbackData();
         String[] urls = new String[]{"https://api.themoviedb.org/3/movie/upcoming?api_key=863618e1d5c5f5cc4e34a37c49b8338e&language=nl"};
         getFilms = new FilmApiConnector(this);
         getFilms.execute(urls);
-        testTheaterData();
+//        testTheaterData();
 
+        findViewById(R.id.LinearLayout).setVisibility(View.GONE);
     }
 
     @Override
@@ -424,12 +426,22 @@ public class MainActivity extends AppCompatActivity implements FilmApiConnector.
         }
         if(getFilmsCounter >= 19) {
             Log.i(TAG,"Hello?");
-            findViewById(R.id.splashScreen).setVisibility(View.GONE);
+
+
 //        testFilmDAO();
-            testShowData();
-        testTicketData();
-        testReviewData();
-        testActorDAO();
+//            testShowData();
+//        testTicketData();
+//        testReviewData();
+//        testActorDAO();
+
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            findViewById(R.id.splashScreen).setVisibility(View.GONE);
+            findViewById(R.id.LinearLayout).setVisibility(View.VISIBLE);
         }
     }
 }
