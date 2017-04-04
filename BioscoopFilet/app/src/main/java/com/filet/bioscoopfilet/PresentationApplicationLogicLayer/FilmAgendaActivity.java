@@ -83,7 +83,7 @@ public class FilmAgendaActivity extends AppCompatActivity implements AdapterView
                 selectedShows.clear();
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                 for (int i = 0; i < shows.size(); i++) {
-                    Log.i(TAG, spinner.getSelectedItem().toString() + " and " + sdf.format(shows.get(i).getTime()));
+//                    Log.i(TAG, spinner.getSelectedItem().toString() + " and " + sdf.format(shows.get(i).getTime()));
 
                     if(spinner.getSelectedItem().toString().equals(sdf.format(shows.get(i).getTime())))
                     {
@@ -91,9 +91,9 @@ public class FilmAgendaActivity extends AppCompatActivity implements AdapterView
                     }
                 }
                 showAdapter.notifyDataSetChanged();
-                for (int i = 0; i < selectedShows.size(); i++) {
-                    Log.i(TAG, "Selected shows:" +selectedShows.get(i).toString());
-                }
+//                for (int i = 0; i < selectedShows.size(); i++) {
+//                    Log.i(TAG, "Selected shows:" +selectedShows.get(i).toString());
+//                }
 
             }
             @Override
