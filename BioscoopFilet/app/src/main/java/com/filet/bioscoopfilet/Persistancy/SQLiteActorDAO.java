@@ -38,7 +38,7 @@ public class SQLiteActorDAO implements ActorDAO {
             Cursor cursor = readable.rawQuery(query, null);
 
             cursor.moveToFirst();
-            while (cursor.moveToNext()) {
+            do {
                 Actor a = new Actor(cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_ACTORID())),
                         cursor.getString(cursor.getColumnIndex(db.getCOLUMN_ACTOR_FIRSTNAME())),
                         cursor.getString(cursor.getColumnIndex(db.getCOLUMN_ACTOR_LASTNAME())));
@@ -47,7 +47,7 @@ public class SQLiteActorDAO implements ActorDAO {
                 Log.i(TAG, "--------------------------------------------");
 
                 actors.add(a);
-            }
+            } while (cursor.moveToNext());
             db.close();
 
         } catch (SQLiteException e) {

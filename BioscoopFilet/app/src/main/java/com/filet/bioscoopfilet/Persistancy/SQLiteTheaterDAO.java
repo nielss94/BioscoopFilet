@@ -39,7 +39,7 @@ public class SQLiteTheaterDAO implements TheaterDAO {
             String query = "SELECT * FROM " + db.getDB_TABLE_THEATER_NAME();
             Cursor cursor = readable.rawQuery(query, null);
 
-            cursor.moveToFirst();
+//            cursor.moveToFirst();
 
             CinemaDAO cinemaDAO = new SQLiteCinemaDAO(context);
             cinemas = cinemaDAO.selectData();

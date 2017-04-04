@@ -41,7 +41,7 @@ public class SQLiteTicketDAO implements TicketDAO {
             String query = "SELECT * FROM " + db.getDB_TABLE_TICKET_NAME();
             Cursor cursor = readable.rawQuery(query, null);
 
-            cursor.moveToFirst();
+//            cursor.moveToFirst();
 
             ShowDAO showDAO = new SQLiteShowDAO(context);
             shows = showDAO.selectData();

@@ -70,13 +70,13 @@ public class MainActivity extends AppCompatActivity implements FilmApiConnector.
 
 
 
-//        testCinemaDAO();
-//        testVisitorData();
-//        testFeedbackData();
+        testCinemaDAO();
+        testVisitorData();
+        testFeedbackData();
         String[] urls = new String[]{"https://api.themoviedb.org/3/movie/upcoming?api_key=863618e1d5c5f5cc4e34a37c49b8338e&language=nl"};
         getFilms = new FilmApiConnector(this);
         getFilms.execute(urls);
-//        testTheaterData();
+        testTheaterData();
 
     }
 
@@ -426,10 +426,10 @@ public class MainActivity extends AppCompatActivity implements FilmApiConnector.
             Log.i(TAG,"Hello?");
             findViewById(R.id.splashScreen).setVisibility(View.GONE);
 //        testFilmDAO();
-//            testShowData();
-//        testTicketData();
-//        testReviewData();
-//        testActorDAO();
+            testShowData();
+        testTicketData();
+        testReviewData();
+        testActorDAO();
         }
     }
 }

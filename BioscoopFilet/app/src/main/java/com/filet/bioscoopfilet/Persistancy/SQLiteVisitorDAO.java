@@ -37,7 +37,7 @@ public class SQLiteVisitorDAO implements VisitorDAO {
             String query = "SELECT * FROM " + db.getDB_TABLE_VISITOR_NAME();
             Cursor cursor = readable.rawQuery(query, null);
 
-            cursor.moveToFirst();
+//            cursor.moveToFirst();
             while(cursor.moveToNext() ) {
                 Visitor v = new Visitor(cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_VISITORID())),
                         cursor.getString(cursor.getColumnIndex(db.getCOLUMN_VISITOR_FIRSTNAME())),

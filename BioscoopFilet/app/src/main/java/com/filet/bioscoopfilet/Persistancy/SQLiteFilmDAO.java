@@ -42,7 +42,7 @@ public class SQLiteFilmDAO implements FilmDAO {
             CinemaDAO cinemaDAO = new SQLiteCinemaDAO(context);
             cinemas = cinemaDAO.selectData();
 
-            cursor.moveToFirst();
+//            cursor.moveToFirst();
             while (cursor.moveToNext()) {
                 Film f = null;
                 Cinema c = null;

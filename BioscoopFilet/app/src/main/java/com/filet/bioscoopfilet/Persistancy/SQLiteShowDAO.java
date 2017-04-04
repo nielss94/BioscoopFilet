@@ -50,7 +50,7 @@ public class SQLiteShowDAO implements ShowDAO {
             TheaterDAO theaterDAO = new SQLiteTheaterDAO(context);
             theaters = theaterDAO.selectData();
 
-            cursor.moveToFirst();
+//            cursor.moveToFirst();
             while(cursor.moveToNext() ) {
                 Film f = null;
                 Theater t = null;

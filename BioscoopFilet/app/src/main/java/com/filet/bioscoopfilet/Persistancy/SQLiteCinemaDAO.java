@@ -37,7 +37,7 @@ public class SQLiteCinemaDAO implements CinemaDAO {
             String query = "SELECT * FROM " + db.getDB_TABLE_CINEMA_NAME();
             Cursor cursor = readable.rawQuery(query, null);
 
-            cursor.moveToFirst();
+//            cursor.moveToFirst();
             while (cursor.moveToNext()) {
                 Cinema c = new Cinema(cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_CINEMAID())),
                         cursor.getString(cursor.getColumnIndex(db.getCOLUMN_CINEMA_NAME())),
