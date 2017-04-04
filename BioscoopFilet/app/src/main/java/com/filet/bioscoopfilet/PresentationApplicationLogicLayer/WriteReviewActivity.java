@@ -80,7 +80,7 @@ public class WriteReviewActivity extends AppCompatActivity implements View.OnCli
         saveBtn.setOnClickListener(this);
 
         languagepref = getSharedPreferences("language", MODE_PRIVATE);
-        language = languagepref.getString("languageToLoad", Locale.getDefault().getDisplayLanguage());
+        language = languagepref.getString("languageToLoad", Locale.getDefault().toString());
     }
 
     @Override
@@ -88,7 +88,7 @@ public class WriteReviewActivity extends AppCompatActivity implements View.OnCli
         super.onResume();
         String oldLanguage = language;
 
-        language = languagepref.getString("languageToLoad", Locale.getDefault().getDisplayLanguage());
+        language = languagepref.getString("languageToLoad", Locale.getDefault().toString());
 
 
         if (!oldLanguage.equals(language)) {
