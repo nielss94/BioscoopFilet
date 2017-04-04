@@ -118,6 +118,12 @@ public class FilmDetailAgendaActivity extends AppCompatActivity implements Trail
         }
     }
 
+    public void openAgenda(View v)
+    {
+        Intent intent = new Intent(getApplicationContext(),FilmAgendaActivity.class);
+        startActivity(intent);
+    }
+
 
     @Override
     public void trailerAvailable(String trailerURL) {
