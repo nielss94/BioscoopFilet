@@ -64,15 +64,17 @@ public class FilmOverviewActivity extends AppCompatActivity implements AdapterVi
         filmAdapter.notifyDataSetChanged();
 
         languagepref = getSharedPreferences("language", MODE_PRIVATE);
-        language = languagepref.getString("languageToLoad", Locale.getDefault().getDisplayLanguage());
+        language = languagepref.getString("languageToLoad", Locale.getDefault().toString());
     }
 
     @Override
     public void onResume() {
         super.onResume();
+
+        Log.i("Talen", language + "    " + languagepref.getString("languageToLoad", Locale.getDefault().toString()));
         String oldLanguage = language;
 
-        language = languagepref.getString("languageToLoad", Locale.getDefault().getDisplayLanguage());
+        language = languagepref.getString("languageToLoad", Locale.getDefault().toString());
 
 
         if (!oldLanguage.equals(language)) {

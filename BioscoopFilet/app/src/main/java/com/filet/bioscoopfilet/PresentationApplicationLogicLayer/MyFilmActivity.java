@@ -68,7 +68,7 @@ public class MyFilmActivity extends AppCompatActivity implements AdapterView.OnI
         findViewById(R.id.loadingPanel).setVisibility(View.GONE);
 
         languagepref = getSharedPreferences("language",MODE_PRIVATE);
-        language = languagepref.getString("languageToLoad", Locale.getDefault().getDisplayLanguage());
+        language = languagepref.getString("languageToLoad", Locale.getDefault().toString());
     }
 
     @Override
@@ -77,7 +77,7 @@ public class MyFilmActivity extends AppCompatActivity implements AdapterView.OnI
 
         String oldLanguage = language;
 
-        language = languagepref.getString("languageToLoad", Locale.getDefault().getDisplayLanguage());
+        language = languagepref.getString("languageToLoad", Locale.getDefault().toString());
 
         if (!oldLanguage.equals(language)){
             finish();

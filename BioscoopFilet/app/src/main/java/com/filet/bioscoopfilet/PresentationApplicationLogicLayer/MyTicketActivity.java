@@ -73,7 +73,7 @@ public class MyTicketActivity extends AppCompatActivity implements AdapterView.O
         listview.setOnItemClickListener(this);
 
         languagepref = getSharedPreferences("language",MODE_PRIVATE);
-        language = languagepref.getString("languageToLoad", Locale.getDefault().getDisplayLanguage());
+        language = languagepref.getString("languageToLoad", Locale.getDefault().toString());
     }
 
     @Override
@@ -82,7 +82,7 @@ public class MyTicketActivity extends AppCompatActivity implements AdapterView.O
 
         String oldLanguage = language;
 
-        language = languagepref.getString("languageToLoad", Locale.getDefault().getDisplayLanguage());
+        language = languagepref.getString("languageToLoad", Locale.getDefault().toString());
 
         if (!oldLanguage.equals(language)){
             finish();
