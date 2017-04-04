@@ -13,7 +13,7 @@ public class DBConnect extends SQLiteOpenHelper {
 
     private final String TAG = this.getClass().getSimpleName();
 
-    private static final int DB_VERSION = 16;
+    private static final int DB_VERSION = 19;
     private static final String DB_NAME = "filet.db";
 
     private Context context;
@@ -27,14 +27,14 @@ public class DBConnect extends SQLiteOpenHelper {
     //Review
     private final String DB_TABLE_REVIEW_NAME = "Review";
     private final String COLUMN_REVIEWID = "ID";
-    private final String COLUMN_REVIEW_FILMID = "FilmID";
+    private final String COLUMN_REVIEW_FILMAPIID = "FilmAPIID";
     private final String COLUMN_REVIEW_VISITORID = "VisitorID";
     private final String COLUMN_REVIEW_SCORE = "Score";
     private final String COLUMN_REVIEW_DESCRIPTION = "Description";
     //Show
     private final String DB_TABLE_SHOW_NAME = "Show";
     private final String COLUMN_SHOWID = "ShowID";
-    private final String COLUMN_SHOW_FILMID = "FilmID";
+    private final String COLUMN_SHOW_FILMAPIID = "FilmAPIID";
     private final String COLUMN_SHOW_THEATERID = "TheaterID";
     private final String COLUMN_SHOW_TIME = "Time";
     private final String COLUMN_SHOW_SEATS = "SeatsAsText";
@@ -176,11 +176,11 @@ public class DBConnect extends SQLiteOpenHelper {
         String CREATE_SHOW_TABLE = "CREATE TABLE "+DB_TABLE_SHOW_NAME +
                 "(" +
                 COLUMN_SHOWID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                COLUMN_SHOW_FILMID + " INTEGER," +
+                COLUMN_SHOW_FILMAPIID + " INTEGER," +
                 COLUMN_SHOW_THEATERID + " TEXT," +
                 COLUMN_SHOW_TIME + " TEXT," +
                 COLUMN_SHOW_SEATS + " TEXT," +
-                "FOREIGN KEY ("+COLUMN_SHOW_FILMID+") REFERENCES "+DB_TABLE_FILM_NAME+"("+COLUMN_FILMID+")," +
+                "FOREIGN KEY ("+ COLUMN_SHOW_FILMAPIID +") REFERENCES "+DB_TABLE_FILM_NAME+"("+COLUMN_FILMID+")," +
                 "FOREIGN KEY ("+COLUMN_SHOW_THEATERID+") REFERENCES "+DB_TABLE_THEATER_NAME+"("+COLUMN_THEATERID+")" +
                 ")";
         db.execSQL(CREATE_SHOW_TABLE);
@@ -202,11 +202,11 @@ public class DBConnect extends SQLiteOpenHelper {
         String CREATE_REVIEW_TABLE = "CREATE TABLE "+DB_TABLE_REVIEW_NAME +
                 "(" +
                 COLUMN_REVIEWID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                COLUMN_REVIEW_FILMID + " INTEGER," +
+                COLUMN_REVIEW_FILMAPIID + " INTEGER," +
                 COLUMN_REVIEW_VISITORID + " INTEGER," +
                 COLUMN_REVIEW_SCORE + " INTEGER," +
                 COLUMN_REVIEW_DESCRIPTION + " TEXT," +
-                "FOREIGN KEY ("+COLUMN_REVIEW_FILMID+") REFERENCES "+DB_TABLE_FILM_NAME+"("+COLUMN_FILMID+")," +
+                "FOREIGN KEY ("+ COLUMN_REVIEW_FILMAPIID +") REFERENCES "+DB_TABLE_FILM_NAME+"("+COLUMN_FILMID+")," +
                 "FOREIGN KEY ("+COLUMN_REVIEW_VISITORID+") REFERENCES "+DB_TABLE_VISITOR_NAME+"("+COLUMN_VISITORID+")" +
                 ")";
         db.execSQL(CREATE_REVIEW_TABLE);
@@ -252,8 +252,8 @@ public class DBConnect extends SQLiteOpenHelper {
         return COLUMN_REVIEWID;
     }
 
-    public String getCOLUMN_REVIEW_FILMID() {
-        return COLUMN_REVIEW_FILMID;
+    public String getCOLUMN_REVIEW_FILMAPIID() {
+        return COLUMN_REVIEW_FILMAPIID;
     }
 
     public String getCOLUMN_REVIEW_VISITORID() {
@@ -273,8 +273,8 @@ public class DBConnect extends SQLiteOpenHelper {
         return DB_TABLE_SHOW_NAME;
     }
 
-    public String getCOLUMN_SHOW_FILMID() {
-        return COLUMN_SHOW_FILMID;
+    public String getCOLUMN_SHOW_FILMAPIID() {
+        return COLUMN_SHOW_FILMAPIID;
     }
 
     public String getCOLUMN_SHOWID() {

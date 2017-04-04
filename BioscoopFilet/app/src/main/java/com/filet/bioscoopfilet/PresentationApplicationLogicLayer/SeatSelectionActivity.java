@@ -56,6 +56,8 @@ public class SeatSelectionActivity extends AppCompatActivity {
         //Find the GridLayout seatsList
         seatsList = (GridLayout) findViewById(R.id.seatsList);
 
+
+
         //Fill seats with all the childs from the GridLayout
         for (int i = 0; i < seatsList.getChildCount(); i++) {
             seats.add((ImageView) seatsList.getChildAt(i));
@@ -72,8 +74,25 @@ public class SeatSelectionActivity extends AppCompatActivity {
         TicketDAO ticketDAO = factory.createTicketDAO();
         tickets = ticketDAO.selectData();
 
+        for (int i = 0; i < seatsList.getChildCount(); i++){
+
+            seatsList.getChildAt(i).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    for (int j = 0; j < seatsList.getChildCount(); j++) {
+                        if(seatsList.getChildAt(j) == v)
+                        {
+                            selectSeatsOnClick(j);
+                        }
+                    }
+                }
+            });
+        }
+
         selectAvailableSeats();
     }
+
+
 
     //DEMO BUTTON
     public void paymentButton(View v) {
@@ -128,6 +147,11 @@ public class SeatSelectionActivity extends AppCompatActivity {
         }
 
         return true;
+    }
+
+    public void selectSeatsOnClick(int seatNumber)
+    {
+        Log.i(TAG, seatNumber+"");
     }
 
     public void selectAvailableSeats() {

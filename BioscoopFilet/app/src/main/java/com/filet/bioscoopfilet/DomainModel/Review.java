@@ -9,29 +9,29 @@ import java.io.Serializable;
 public class Review implements Serializable {
 
     private int reviewID;
-    private Film film;
+    private int filmAPIID;
     private Visitor visitor;
     private String name;
     private int score;
     private String description;
 
-    public Review(int reviewID, Film film, Visitor visitor, int score, String description) {
+    public Review(int reviewID, int filmAPIID, Visitor visitor, int score, String description) {
         this.reviewID = reviewID;
-        this.film = film;
+        this.filmAPIID = filmAPIID;
         this.visitor = visitor;
         this.score = score;
         this.description = description;
     }
 
-    public Review(Film film, Visitor visitor, int score, String description) {
-        this.film = film;
+    public Review(int filmAPIID, Visitor visitor, int score, String description) {
+        this.filmAPIID = filmAPIID;
         this.visitor = visitor;
         this.score = score;
         this.description = description;
     }
 
-    public Review(Film film, String name, int score, String description) {
-        this.film = film;
+    public Review(int filmAPIID, String name, int score, String description) {
+        this.filmAPIID = filmAPIID;
         this.name = name;
         this.score = score;
         this.description = description;
@@ -45,12 +45,12 @@ public class Review implements Serializable {
         this.reviewID = reviewID;
     }
 
-    public Film getFilm() {
-        return film;
+    public int getFilmAPIID() {
+        return filmAPIID;
     }
 
-    public void setFilm(Film film) {
-        this.film = film;
+    public void setFilmAPIID(int filmAPIID) {
+        this.filmAPIID = filmAPIID;
     }
 
     public Visitor getVisitor() {
@@ -81,7 +81,7 @@ public class Review implements Serializable {
     public String toString() {
         return "Review{" +
                 "reviewID=" + reviewID +
-                ", film=" + film +
+                ", filmAPIID=" + filmAPIID +
                 ", visitor=" + visitor +
                 ", score=" + score +
                 ", description='" + description + '\'' +

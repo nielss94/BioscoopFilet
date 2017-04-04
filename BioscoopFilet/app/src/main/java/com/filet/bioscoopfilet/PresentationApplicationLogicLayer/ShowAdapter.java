@@ -1,7 +1,6 @@
 package com.filet.bioscoopfilet.PresentationApplicationLogicLayer;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,12 +10,12 @@ import android.widget.TextView;
 
 import com.filet.bioscoopfilet.DomainModel.Film;
 import com.filet.bioscoopfilet.DomainModel.Show;
+import com.filet.bioscoopfilet.Persistancy.DAOFactory;
+import com.filet.bioscoopfilet.Persistancy.FilmDAO;
+import com.filet.bioscoopfilet.Persistancy.SQLiteDAOFactory;
 import com.filet.bioscoopfilet.R;
 import com.squareup.picasso.Picasso;
 
-import org.w3c.dom.Text;
-
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
@@ -27,6 +26,8 @@ import java.util.ArrayList;
 public class ShowAdapter extends ArrayAdapter<Show> {
 
     private final String TAG = getClass().getSimpleName();
+    private DAOFactory factory;
+    private ArrayList<Film> films = new ArrayList<>();
 
     public ShowAdapter(Context context, ArrayList<Show> shows) {
         super(context, 0, shows);
@@ -37,7 +38,16 @@ public class ShowAdapter extends ArrayAdapter<Show> {
 
         //Declaration of show
         Show show = getItem(position);
-        Film film = show.getFilm();
+        factory = new SQLiteDAOFactory(getContext());
+        FilmDAO filmDAO = factory.createFilmDAO();
+        films = filmDAO.selectData();
+        Film film = null;
+        for (int i = 0; i < films.size(); i++) {
+            if(films.get(i).getFilmAPIID() == show.getFilmAPIID())
+            {
+                film = films.get(i);
+            }
+        }
 
         //Make convertView
         if (convertView == null) {

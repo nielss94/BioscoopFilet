@@ -1,7 +1,6 @@
 package com.filet.bioscoopfilet.PresentationApplicationLogicLayer;
 
 import android.content.Intent;
-import android.icu.text.SimpleDateFormat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -16,12 +15,12 @@ import com.filet.bioscoopfilet.DomainModel.Film;
 import com.filet.bioscoopfilet.DomainModel.Show;
 import com.filet.bioscoopfilet.DomainModel.Ticket;
 import com.filet.bioscoopfilet.Persistancy.DAOFactory;
+import com.filet.bioscoopfilet.Persistancy.FilmDAO;
 import com.filet.bioscoopfilet.Persistancy.SQLiteDAOFactory;
 import com.filet.bioscoopfilet.Persistancy.ShowDAO;
 import com.filet.bioscoopfilet.Persistancy.TicketDAO;
 import com.filet.bioscoopfilet.R;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class PaymentActivity extends AppCompatActivity {
@@ -36,6 +35,8 @@ public class PaymentActivity extends AppCompatActivity {
     private ArrayList<Ticket> tickets;
     private DAOFactory factory;
     private Show show;
+    private ArrayList<Film> films = new ArrayList<>();
+    private Film film;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +52,15 @@ public class PaymentActivity extends AppCompatActivity {
 
         //Getting film given by activities before
         tickets = (ArrayList<Ticket>) getIntent().getSerializableExtra("tickets");
+        FilmDAO filmDAO = factory.createFilmDAO();
+        films = filmDAO.selectData();
         show = tickets.get(0).getShow();
-        Film film = show.getFilm();
+        for (int i = 0; i < films.size(); i++) {
+            if(films.get(i).getFilmAPIID() == show.getFilmAPIID())
+            {
+                film = films.get(i);
+            }
+        }
 
         Log.i(TAG,tickets.size()+" tickets to be ordered.");
 
@@ -87,6 +95,7 @@ public class PaymentActivity extends AppCompatActivity {
                 Toast.makeText(PaymentActivity.this,"Tickets are bought with iDEAL and added to My Filet",Toast.LENGTH_LONG).show();
                 for (int i = 0; i < tickets.size(); i++) {
                     ticketDAO.insertData(tickets.get(i));
+                    Log.i(TAG, "Ordering ticket: "+tickets.get(i).toString());
                 }
                 showDAO.updateData(show);
                 finish();

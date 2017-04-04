@@ -10,35 +10,35 @@ import java.util.Date;
 public class Show implements Serializable {
 
     private int showID;
-    private Film film;
+    private int filmAPIID;
     private Theater theater;
     private Date time;
     private String seats;
 
-    public Show(Film film, Theater theater, Date time, String seats) {
-        this.film = film;
+    public Show(int filmAPIID, Theater theater, Date time, String seats) {
+        this.filmAPIID = filmAPIID;
         this.theater = theater;
         this.time = time;
         this.seats = seats;
     }
 
-    public Show(Film film, Theater theater, Date time) {
-        this.film = film;
+    public Show(int filmAPIID, Theater theater, Date time) {
+        this.filmAPIID = filmAPIID;
         this.theater = theater;
         this.time = time;
     }
 
-    public Show(int showID, Film film, Theater theater, Date time, String seats) {
+    public Show(int showID, int filmAPIID, Theater theater, Date time, String seats) {
         this.showID = showID;
-        this.film = film;
+        this.filmAPIID = filmAPIID;
         this.theater = theater;
         this.time = time;
         this.seats = seats;
     }
 
-    public Show(int showID, Film film, Theater theater, Date time) {
+    public Show(int showID, int filmAPIID, Theater theater, Date time) {
         this.showID = showID;
-        this.film = film;
+        this.filmAPIID = filmAPIID;
         this.theater = theater;
         this.time = time;
     }
@@ -51,12 +51,12 @@ public class Show implements Serializable {
         this.showID = showID;
     }
 
-    public Film getFilm() {
-        return film;
+    public int getFilmAPIID() {
+        return filmAPIID;
     }
 
-    public void setFilm(Film film) {
-        this.film = film;
+    public void setFilmAPIID(int filmAPIID) {
+        this.filmAPIID = filmAPIID;
     }
 
     public Theater getTheater() {
@@ -88,7 +88,7 @@ public class Show implements Serializable {
 
         return "Show{" +
                 "showID=" + showID +
-                ", film=" + film +
+                ", filmAPIID=" + filmAPIID +
                 ", theater=" + theater +
                 ", time=" + time +
                 ", seats=" + seats  +

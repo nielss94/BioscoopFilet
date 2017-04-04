@@ -56,7 +56,7 @@ public class SQLiteShowDAO implements ShowDAO {
                 Theater t = null;
                 Show s = null;
                 for (int i = 0; i < films.size(); i++) {
-                    if (films.get(i).getFilmID() == cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_SHOW_FILMID()))) {
+                    if (films.get(i).getFilmAPIID() == cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_SHOW_FILMAPIID()))) {
                         f = films.get(i);
                     }
                 }
@@ -65,7 +65,7 @@ public class SQLiteShowDAO implements ShowDAO {
                         t = theaters.get(i);
                     }
                 }
-                s = new Show(cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_SHOWID())), f, t, new Date(cursor.getString(cursor.getColumnIndex(db.getCOLUMN_SHOW_TIME()))));
+                s = new Show(cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_SHOWID())), f.getFilmAPIID(), t, new Date(cursor.getString(cursor.getColumnIndex(db.getCOLUMN_SHOW_TIME()))));
                 String seats = cursor.getString(cursor.getColumnIndex(db.getCOLUMN_SHOW_SEATS()));
 
                 s.setSeats(seats);
@@ -92,7 +92,7 @@ public class SQLiteShowDAO implements ShowDAO {
             ContentValues values = new ContentValues();
 
 
-            values.put(db.getCOLUMN_SHOW_FILMID(),show.getFilm().getFilmID());
+            values.put(db.getCOLUMN_SHOW_FILMAPIID(),show.getFilmAPIID());
             values.put(db.getCOLUMN_SHOW_THEATERID(),show.getTheater().getTheaterID());
             //Test this!!
             values.put(db.getCOLUMN_SHOW_TIME(),show.getTime().toString());
@@ -114,7 +114,7 @@ public class SQLiteShowDAO implements ShowDAO {
 
             ContentValues values = new ContentValues();
 
-            values.put(db.getCOLUMN_SHOW_FILMID(),show.getFilm().getFilmID());
+            values.put(db.getCOLUMN_SHOW_FILMAPIID(),show.getFilmAPIID());
             values.put(db.getCOLUMN_SHOW_THEATERID(),show.getTheater().getTheaterID());
 
             values.put(db.getCOLUMN_SHOW_TIME(),show.getTime().toString());

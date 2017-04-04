@@ -46,9 +46,9 @@ public class ReviewsActivity extends AppCompatActivity {
         }
 
         for (Review r : allReviews ) {
-//            if (r.getFilm().getFilmAPIID() == film.getFilmAPIID()) { //REMOVE IF FILM FROM REVIEW IS NOT NULL
+            if (r.getFilmAPIID() == film.getFilmAPIID()) {
                 selectedReviews.add(r);
-//            }
+            }
         }
 
         //Initialise adapter

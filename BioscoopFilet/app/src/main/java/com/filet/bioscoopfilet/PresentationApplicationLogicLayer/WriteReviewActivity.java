@@ -88,7 +88,7 @@ public class WriteReviewActivity extends AppCompatActivity implements View.OnCli
         }
         else {
             ReviewDAO reviewDAO = factory.createReviewDAO();
-            reviewDAO.insertData(new Review(film, visitor, score, review));
+            reviewDAO.insertData(new Review(film.getFilmAPIID(), visitor, score, review));
             reviewDAO.selectData();
 
             Intent intent = new Intent(getApplicationContext(), ReviewsActivity.class);
