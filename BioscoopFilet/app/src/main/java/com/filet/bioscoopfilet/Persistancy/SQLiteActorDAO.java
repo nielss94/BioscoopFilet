@@ -43,8 +43,8 @@ public class SQLiteActorDAO implements ActorDAO {
                         cursor.getString(cursor.getColumnIndex(db.getCOLUMN_ACTOR_FIRSTNAME())),
                         cursor.getString(cursor.getColumnIndex(db.getCOLUMN_ACTOR_LASTNAME())));
 
-                Log.i(TAG, a.toString());
-                Log.i(TAG, "--------------------------------------------");
+//                Log.i(TAG, a.toString());
+//                Log.i(TAG, "--------------------------------------------");
 
                 actors.add(a);
             } while (cursor.moveToNext());

@@ -68,8 +68,8 @@ public class SQLiteFilmDAO implements FilmDAO {
                             cursor.getString(cursor.getColumnIndex(db.getCOLUMN_FILM_DIRECTOR())));
                 }
 
-                Log.i(TAG, f.toString());
-                Log.i(TAG, "--------------------------------------------");
+//                Log.i(TAG, f.toString());
+//                Log.i(TAG, "--------------------------------------------");
 
                 films.add(f);
             }
