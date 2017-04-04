@@ -24,6 +24,7 @@ public class MyFilmDetailActivity extends AppCompatActivity {
 
     private String language;
     private SharedPreferences languagepref;
+    private Film film;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +37,7 @@ public class MyFilmDetailActivity extends AppCompatActivity {
         setSupportActionBar(myToolbar);
 
         //Get intent extras
-        Film film = (Film) getIntent().getSerializableExtra("FILM");
+        film = (Film) getIntent().getSerializableExtra("FILM");
 
         //Initialise xml elements
         ImageView poster = (ImageView) findViewById(R.id.posterImageDetailedId);
@@ -160,6 +161,13 @@ public class MyFilmDetailActivity extends AppCompatActivity {
                 });
                 popup.show();
                 return true;
+            case R.id.action_review:
+                Intent intent = new Intent(getApplicationContext(), ReviewsActivity.class);
+                intent.putExtra("FILM", film);
+                Log.i("FilmDetailAgendaActvty", film.toString());
+                startActivity(intent);
+                return true;
+
             default:
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
