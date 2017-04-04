@@ -90,6 +90,10 @@ public class PaymentActivity extends AppCompatActivity {
         //Filling TextView with show info
         java.text.SimpleDateFormat format = new java.text.SimpleDateFormat("dd/MM/yy - HH:mm");
         payDateTime.setText(format.format(show.getTime()));
+
+
+        languagepref = getSharedPreferences("language", MODE_PRIVATE);
+        language = languagepref.getString("languageToLoad", Locale.getDefault().toString());
     }
 
     public void payTickets(View v)
