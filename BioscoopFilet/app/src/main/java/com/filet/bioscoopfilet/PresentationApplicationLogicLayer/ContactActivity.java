@@ -30,7 +30,7 @@ public class ContactActivity extends AppCompatActivity {
         setSupportActionBar(myToolbar);
 
         languagepref = getSharedPreferences("language", MODE_PRIVATE);
-        language = languagepref.getString("languageToLoad", Locale.getDefault().getDisplayLanguage());
+        language = languagepref.getString("languageToLoad", Locale.getDefault().toString());
 
     }
 
@@ -39,7 +39,7 @@ public class ContactActivity extends AppCompatActivity {
         super.onResume();
         String oldLanguage = language;
 
-        language = languagepref.getString("languageToLoad", Locale.getDefault().getDisplayLanguage());
+        language = languagepref.getString("languageToLoad", Locale.getDefault().toString());
 
         if (!oldLanguage.equals(language)) {
             finish();
