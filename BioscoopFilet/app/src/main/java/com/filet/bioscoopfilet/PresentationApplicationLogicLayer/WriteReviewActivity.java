@@ -90,7 +90,6 @@ public class WriteReviewActivity extends AppCompatActivity implements View.OnCli
 
         language = languagepref.getString("languageToLoad", Locale.getDefault().getDisplayLanguage());
 
-
         if (!oldLanguage.equals(language)) {
             finish();
             startActivity(getIntent());
@@ -139,8 +138,8 @@ public class WriteReviewActivity extends AppCompatActivity implements View.OnCli
                                 getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
 
                                 Intent intent = getIntent();
-                                intent.addFlags( Intent.FLAG_ACTIVITY_NO_ANIMATION );
-                                intent.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP );
+                                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(intent);
                                 return true;
 
@@ -153,8 +152,8 @@ public class WriteReviewActivity extends AppCompatActivity implements View.OnCli
                                 getBaseContext().getResources().updateConfiguration(config2, getBaseContext().getResources().getDisplayMetrics());
 
                                 Intent intent2 = getIntent();
-                                intent2.addFlags( Intent.FLAG_ACTIVITY_NO_ANIMATION );
-                                intent2.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP );
+                                intent2.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                                intent2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(intent2);
                                 return true;
 
@@ -167,8 +166,8 @@ public class WriteReviewActivity extends AppCompatActivity implements View.OnCli
                                 getBaseContext().getResources().updateConfiguration(config3, getBaseContext().getResources().getDisplayMetrics());
 
                                 Intent intent3 = getIntent();
-                                intent3.addFlags( Intent.FLAG_ACTIVITY_NO_ANIMATION );
-                                intent3.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP );
+                                intent3.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                                intent3.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(intent3);
                                 return true;
                             default:
@@ -193,24 +192,32 @@ public class WriteReviewActivity extends AppCompatActivity implements View.OnCli
     }
 
     public void saveReview() {
+        //Get information from inputfields
         String name = inputName.getText().toString().trim();
         String review = inputReview.getText().toString().trim();
 
+        //Create new visitor and insert into DB
         VisitorDAO visitorDAO = factory.createVisitorDAO();
+        Visitor v = new Visitor(name, name);
+        visitorDAO.insertData(v);
+
+        //Retrieve data from DB
         visitors = visitorDAO.selectData();
-        Visitor visitor = visitors.get(0);
+        for (int i = 0; i < visitors.size(); i++) {
+            if (visitors.get(i).getFirstName().equals(v.getFirstName())) {
+                v = visitors.get(i);
+            }
+        }
 
-
-        if(score == 0) {
+        if (score == 0) {
             Toast.makeText(this, "Please give a rating.", Toast.LENGTH_SHORT).show();
         } else if (name.equals("")) {
             Toast.makeText(this, "Please enter a name.", Toast.LENGTH_SHORT).show();
         } else if (review.equals("")) {
             Toast.makeText(this, "Please enter a review.", Toast.LENGTH_SHORT).show();
-        }
-        else {
+        } else {
             ReviewDAO reviewDAO = factory.createReviewDAO();
-            reviewDAO.insertData(new Review(film.getFilmAPIID(), visitor, score, review));
+            reviewDAO.insertData(new Review(film.getFilmAPIID(), v, score, review));
             reviewDAO.selectData();
 
             Intent intent = new Intent(getApplicationContext(), ReviewsActivity.class);

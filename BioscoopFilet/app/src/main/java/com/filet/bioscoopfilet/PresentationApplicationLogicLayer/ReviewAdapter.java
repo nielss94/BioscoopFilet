@@ -45,7 +45,7 @@ public class ReviewAdapter extends ArrayAdapter<Review> {
         ImageView star5 = (ImageView) convertView.findViewById(R.id.reviewListStar5);
 
         //Filling TextViews with film info
-        name.setText(review.getVisitor().getFirstName() + " " + review.getVisitor().getLastName());
+        name.setText(review.getVisitor().getFirstName());
         reviewDescription.setText(review.getDescription());
 
         switch (review.getScore()) {
