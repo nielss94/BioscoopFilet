@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements FilmApiConnector.
         setSupportActionBar(myToolbar);
 
         languagepref = getSharedPreferences("language", MODE_PRIVATE);
-        language = languagepref.getString("languageToLoad", Locale.getDefault().getDisplayLanguage());
+        language = languagepref.getString("languageToLoad", Locale.getDefault().toString());
 
         factory = new SQLiteDAOFactory(getApplicationContext());
         filmDAO = factory.createFilmDAO();
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements FilmApiConnector.
         super.onResume();
         String oldLanguage = language;
 
-        language = languagepref.getString("languageToLoad", Locale.getDefault().getDisplayLanguage());
+        language = languagepref.getString("languageToLoad", Locale.getDefault().toString());
 
 
         if (!oldLanguage.equals(language)) {
