@@ -13,8 +13,11 @@ import android.widget.TextView;
 import com.filet.bioscoopfilet.DomainModel.Show;
 import com.filet.bioscoopfilet.R;
 
+import java.util.Locale;
+
 public class BuyTicketsActivity extends AppCompatActivity {
 
+    private final String TAG = getClass().getSimpleName();
     private Double totalPrice;
     private int amountOfTickets;
     private TextView totalPriceView;
@@ -56,38 +59,77 @@ public class BuyTicketsActivity extends AppCompatActivity {
     {
         int i;
         TextView count;
-        switch(v.getTag().toString())
+        if(Locale.getDefault().toString().equals("nl_NL"))
         {
-            case "Normaal":
-                count = (TextView)findViewById(R.id.count1);
-                i = Integer.parseInt(count.getText().toString());
-                count.setText(i + 1 + "");
-                break;
-            case "Tiener":
-                count = (TextView)findViewById(R.id.count2);
-                i = Integer.parseInt(count.getText().toString());
-                count.setText(i + 1 + "");
-            break;
-            case "Kind":
-                count = (TextView)findViewById(R.id.count3);
-                i = Integer.parseInt(count.getText().toString());
-                count.setText(i + 1 + "");
-                break;
-            case "Senior":
-                count = (TextView)findViewById(R.id.count4);
-                i = Integer.parseInt(count.getText().toString());
-                count.setText(i + 1 + "");
-                break;
-            case "Student":
-                count = (TextView)findViewById(R.id.count5);
-                i = Integer.parseInt(count.getText().toString());
-                count.setText(i + 1 + "");
-                break;
-            case "3D bril":
-                count = (TextView)findViewById(R.id.countGlasses);
-                i = Integer.parseInt(count.getText().toString());
-                count.setText(i + 1 + "");
-                break;
+            switch(v.getTag().toString())
+            {
+                case "Normaal":
+                    count = (TextView)findViewById(R.id.count1);
+                    i = Integer.parseInt(count.getText().toString());
+                    count.setText(i + 1 + "");
+                    break;
+                case "Tiener":
+                    count = (TextView)findViewById(R.id.count2);
+                    i = Integer.parseInt(count.getText().toString());
+                    count.setText(i + 1 + "");
+                    break;
+                case "Kind":
+                    count = (TextView)findViewById(R.id.count3);
+                    i = Integer.parseInt(count.getText().toString());
+                    count.setText(i + 1 + "");
+                    break;
+                case "Senior":
+                    count = (TextView)findViewById(R.id.count4);
+                    i = Integer.parseInt(count.getText().toString());
+                    count.setText(i + 1 + "");
+                    break;
+                case "Student":
+                    count = (TextView)findViewById(R.id.count5);
+                    i = Integer.parseInt(count.getText().toString());
+                    count.setText(i + 1 + "");
+                    break;
+                case "3D bril":
+                    count = (TextView)findViewById(R.id.countGlasses);
+                    i = Integer.parseInt(count.getText().toString());
+                    count.setText(i + 1 + "");
+                    break;
+            }
+        }
+        else if (Locale.getDefault().toString().equals("en_US") || Locale.getDefault().toString().equals("en_GB"))
+        {
+            switch(v.getTag().toString())
+            {
+                case "Normal":
+                    count = (TextView)findViewById(R.id.count1);
+                    i = Integer.parseInt(count.getText().toString());
+                    count.setText(i + 1 + "");
+                    break;
+                case "Teen":
+                    count = (TextView)findViewById(R.id.count2);
+                    i = Integer.parseInt(count.getText().toString());
+                    count.setText(i + 1 + "");
+                    break;
+                case "Child":
+                    count = (TextView)findViewById(R.id.count3);
+                    i = Integer.parseInt(count.getText().toString());
+                    count.setText(i + 1 + "");
+                    break;
+                case "Senior":
+                    count = (TextView)findViewById(R.id.count4);
+                    i = Integer.parseInt(count.getText().toString());
+                    count.setText(i + 1 + "");
+                    break;
+                case "Student":
+                    count = (TextView)findViewById(R.id.count5);
+                    i = Integer.parseInt(count.getText().toString());
+                    count.setText(i + 1 + "");
+                    break;
+                case "3D glasses":
+                    count = (TextView)findViewById(R.id.countGlasses);
+                    i = Integer.parseInt(count.getText().toString());
+                    count.setText(i + 1 + "");
+                    break;
+            }
         }
         totalPrice = calculatePrice();
     }
@@ -96,51 +138,86 @@ public class BuyTicketsActivity extends AppCompatActivity {
     {
         int i;
         TextView count;
-        switch(v.getTag().toString())
+        if (Locale.getDefault().toString().equals("nl_NL")) {
+            switch (v.getTag().toString()) {
+                case "Normaal":
+                    count = (TextView) findViewById(R.id.count1);
+                    i = Integer.parseInt(count.getText().toString());
+                    if (i > 0) {
+                        count.setText((i - 1) + "");
+                    }
+                    break;
+                case "Tiener":
+                    count = (TextView) findViewById(R.id.count2);
+                    i = Integer.parseInt(count.getText().toString());
+                    if (i > 0) {
+                        count.setText((i - 1) + "");
+                    }
+                    break;
+                case "Kind":
+                    count = (TextView) findViewById(R.id.count3);
+                    i = Integer.parseInt(count.getText().toString());
+                    if (i > 0) {
+                        count.setText((i - 1) + "");
+                    }
+                    break;
+                case "Senior":
+                    count = (TextView) findViewById(R.id.count4);
+                    i = Integer.parseInt(count.getText().toString());
+                    if (i > 0) {
+                        count.setText((i - 1) + "");
+                    }
+                    break;
+                case "Student":
+                    count = (TextView) findViewById(R.id.count5);
+                    i = Integer.parseInt(count.getText().toString());
+                    if (i > 0) {
+                        count.setText((i - 1) + "");
+                    }
+                    break;
+                case "3D bril":
+                    count = (TextView) findViewById(R.id.countGlasses);
+                    i = Integer.parseInt(count.getText().toString());
+                    if (i > 0) {
+                        count.setText((i - 1) + "");
+                    }
+                    break;
+            }
+        } else if (Locale.getDefault().toString().equals("en_US") || Locale.getDefault().toString().equals("en_GB"))
         {
-            case "Normaal":
-                count = (TextView)findViewById(R.id.count1);
-                i = Integer.parseInt(count.getText().toString());
-                if(i > 0){
-                    count.setText((i - 1) + "");
-                }
-                break;
-            case "Tiener":
-                count = (TextView)findViewById(R.id.count2);
-                i = Integer.parseInt(count.getText().toString());
-                if(i > 0) {
-                    count.setText((i - 1) + "");
-                }
-                break;
-            case "Kind":
-                count = (TextView)findViewById(R.id.count3);
-                i = Integer.parseInt(count.getText().toString());
-                if(i > 0)
-                {
-                    count.setText((i - 1) + "");
-                }
-                break;
-            case "Senior":
-                count = (TextView)findViewById(R.id.count4);
-                i = Integer.parseInt(count.getText().toString());
-                if(i > 0) {
-                    count.setText((i - 1) + "");
-                }
-                break;
-            case "Student":
-                count = (TextView)findViewById(R.id.count5);
-                i = Integer.parseInt(count.getText().toString());
-                if(i > 0) {
-                    count.setText((i - 1) + "");
-                }
-                break;
-            case "3D bril":
-                count = (TextView)findViewById(R.id.countGlasses);
-                i = Integer.parseInt(count.getText().toString());
-                if(i > 0) {
-                    count.setText((i - 1) + "");
-                }
-                break;
+            switch(v.getTag().toString())
+            {
+                case "Normal":
+                    count = (TextView)findViewById(R.id.count1);
+                    i = Integer.parseInt(count.getText().toString());
+                    count.setText(i - 1 + "");
+                    break;
+                case "Teen":
+                    count = (TextView)findViewById(R.id.count2);
+                    i = Integer.parseInt(count.getText().toString());
+                    count.setText(i - 1 + "");
+                    break;
+                case "Child":
+                    count = (TextView)findViewById(R.id.count3);
+                    i = Integer.parseInt(count.getText().toString());
+                    count.setText(i - 1 + "");
+                    break;
+                case "Senior":
+                    count = (TextView)findViewById(R.id.count4);
+                    i = Integer.parseInt(count.getText().toString());
+                    count.setText(i - 1 + "");
+                    break;
+                case "Student":
+                    count = (TextView)findViewById(R.id.count5);
+                    i = Integer.parseInt(count.getText().toString());
+                    count.setText(i - 1 + "");
+                    break;
+                case "3D glasses":
+                    count = (TextView)findViewById(R.id.countGlasses);
+                    i = Integer.parseInt(count.getText().toString());
+                    count.setText(i - 1 + "");
+                    break;
+            }
         }
         totalPrice = calculatePrice();
     }
