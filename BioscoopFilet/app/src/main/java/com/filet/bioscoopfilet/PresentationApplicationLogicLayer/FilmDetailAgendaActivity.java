@@ -98,7 +98,7 @@ public class FilmDetailAgendaActivity extends AppCompatActivity implements Trail
         Picasso.with(this).load(film.getPosterURL()).into(poster);
 
         languagepref = getSharedPreferences("language", MODE_PRIVATE);
-        language = languagepref.getString("languageToLoad", Locale.getDefault().getDisplayLanguage());
+        language = languagepref.getString("languageToLoad", Locale.getDefault().toString());
     }
 
     @Override
@@ -106,7 +106,7 @@ public class FilmDetailAgendaActivity extends AppCompatActivity implements Trail
         super.onResume();
         String oldLanguage = language;
 
-        language = languagepref.getString("languageToLoad", Locale.getDefault().getDisplayLanguage());
+        language = languagepref.getString("languageToLoad", Locale.getDefault().toString());
 
 
         if (!oldLanguage.equals(language)) {

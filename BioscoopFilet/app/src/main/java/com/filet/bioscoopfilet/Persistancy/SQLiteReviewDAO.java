@@ -41,7 +41,7 @@ public class SQLiteReviewDAO implements ReviewDAO {
             String query = "SELECT * FROM " + db.getDB_TABLE_REVIEW_NAME();
             Cursor cursor = readable.rawQuery(query, null);
 
-            cursor.moveToFirst();
+//            cursor.moveToFirst();
 
             VisitorDAO visitorDAO = new SQLiteVisitorDAO(context);
             FilmDAO filmDAO = new SQLiteFilmDAO(context);
@@ -69,8 +69,8 @@ public class SQLiteReviewDAO implements ReviewDAO {
                         cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_REVIEW_SCORE())),
                         cursor.getString(cursor.getColumnIndex(db.getCOLUMN_REVIEW_DESCRIPTION())));
 
-                Log.i(TAG, r.toString());
-                Log.i(TAG, "--------------------------------------------");
+//                Log.i(TAG, r.toString());
+//                Log.i(TAG, "--------------------------------------------");
 
                 reviews.add(r);
             }

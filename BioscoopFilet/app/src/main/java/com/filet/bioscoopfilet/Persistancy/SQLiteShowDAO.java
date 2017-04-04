@@ -50,7 +50,7 @@ public class SQLiteShowDAO implements ShowDAO {
             TheaterDAO theaterDAO = new SQLiteTheaterDAO(context);
             theaters = theaterDAO.selectData();
 
-            cursor.moveToFirst();
+//            cursor.moveToFirst();
             while(cursor.moveToNext() ) {
                 Film f = null;
                 Theater t = null;
@@ -69,8 +69,8 @@ public class SQLiteShowDAO implements ShowDAO {
                 String seats = cursor.getString(cursor.getColumnIndex(db.getCOLUMN_SHOW_SEATS()));
 
                 s.setSeats(seats);
-                Log.i(TAG, s.toString());
-                Log.i(TAG, "--------------------------------------------");
+//                Log.i(TAG, s.toString());
+//                Log.i(TAG, "--------------------------------------------");
 
                 shows.add(s);
             }

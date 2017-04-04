@@ -74,4 +74,5 @@
 
 
     <string name="not_yet_rated">Not yet rated</string>
+    <string name="no_tickets">No tickets selected</string>
 </resources>

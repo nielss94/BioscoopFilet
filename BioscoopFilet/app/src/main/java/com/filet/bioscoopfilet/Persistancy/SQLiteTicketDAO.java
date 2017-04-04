@@ -41,7 +41,7 @@ public class SQLiteTicketDAO implements TicketDAO {
             String query = "SELECT * FROM " + db.getDB_TABLE_TICKET_NAME();
             Cursor cursor = readable.rawQuery(query, null);
 
-            cursor.moveToFirst();
+//            cursor.moveToFirst();
 
             ShowDAO showDAO = new SQLiteShowDAO(context);
             shows = showDAO.selectData();
@@ -65,8 +65,8 @@ public class SQLiteTicketDAO implements TicketDAO {
                 t = new Ticket(cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_TICKET_QRCODE())), v, s,
                         cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_TICKET_SEAT())));
 
-                Log.i(TAG, t.toString());
-                Log.i(TAG, "--------------------------------------------");
+//                Log.i(TAG, t.toString());
+//                Log.i(TAG, "--------------------------------------------");
 
                 tickets.add(t);
             }

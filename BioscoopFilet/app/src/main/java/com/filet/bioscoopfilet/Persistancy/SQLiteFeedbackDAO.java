@@ -42,7 +42,7 @@ public class SQLiteFeedbackDAO implements FeedbackDAO {
             String query = "SELECT * FROM " + db.getDB_TABLE_FEEDBACK_NAME();
             Cursor cursor = readable.rawQuery(query, null);
 
-            cursor.moveToFirst();
+//            cursor.moveToFirst();
 
             VisitorDAO visitorDAO = new SQLiteVisitorDAO(context);
 
@@ -60,8 +60,8 @@ public class SQLiteFeedbackDAO implements FeedbackDAO {
                 f = new Feedback(cursor.getInt(cursor.getColumnIndex(db.getCOLUMN_FEEDBACKID())), v,
                         cursor.getString(cursor.getColumnIndex(db.getCOLUMN_FEEDBACK_DESCRIPTION())));
 
-                Log.i(TAG, f.toString());
-                Log.i(TAG, "--------------------------------------------");
+//                Log.i(TAG, f.toString());
+//                Log.i(TAG, "--------------------------------------------");
 
                 feedbacks.add(f);
             }

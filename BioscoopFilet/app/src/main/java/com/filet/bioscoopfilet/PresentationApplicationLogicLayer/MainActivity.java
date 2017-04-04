@@ -38,6 +38,7 @@ import com.filet.bioscoopfilet.R;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Timer;
 
 public class MainActivity extends AppCompatActivity implements FilmApiConnector.FilmsAvailable,
         AgeApiConnector.AgeAvailable, GenreApiConnector.GenreAvailable {
@@ -61,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements FilmApiConnector.
         setSupportActionBar(myToolbar);
 
         languagepref = getSharedPreferences("language", MODE_PRIVATE);
-        language = languagepref.getString("languageToLoad", Locale.getDefault().getDisplayLanguage());
+        language = languagepref.getString("languageToLoad", Locale.getDefault().toString());
 
         factory = new SQLiteDAOFactory(getApplicationContext());
         filmDAO = factory.createFilmDAO();
@@ -78,6 +79,7 @@ public class MainActivity extends AppCompatActivity implements FilmApiConnector.
         getFilms.execute(urls);
 //        testTheaterData();
 
+        findViewById(R.id.LinearLayout).setVisibility(View.GONE);
     }
 
     @Override
@@ -85,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements FilmApiConnector.
         super.onResume();
         String oldLanguage = language;
 
-        language = languagepref.getString("languageToLoad", Locale.getDefault().getDisplayLanguage());
+        language = languagepref.getString("languageToLoad", Locale.getDefault().toString());
 
 
         if (!oldLanguage.equals(language)) {
@@ -424,12 +426,22 @@ public class MainActivity extends AppCompatActivity implements FilmApiConnector.
         }
         if(getFilmsCounter >= 19) {
             Log.i(TAG,"Hello?");
-            findViewById(R.id.splashScreen).setVisibility(View.GONE);
+
+
 //        testFilmDAO();
 //            testShowData();
 //        testTicketData();
 //        testReviewData();
 //        testActorDAO();
+
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            findViewById(R.id.splashScreen).setVisibility(View.GONE);
+            findViewById(R.id.LinearLayout).setVisibility(View.VISIBLE);
         }
     }
 }

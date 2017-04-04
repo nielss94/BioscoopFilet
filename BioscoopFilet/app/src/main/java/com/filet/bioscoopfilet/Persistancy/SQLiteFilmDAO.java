@@ -42,7 +42,7 @@ public class SQLiteFilmDAO implements FilmDAO {
             CinemaDAO cinemaDAO = new SQLiteCinemaDAO(context);
             cinemas = cinemaDAO.selectData();
 
-            cursor.moveToFirst();
+//            cursor.moveToFirst();
             while (cursor.moveToNext()) {
                 Film f = null;
                 Cinema c = null;
@@ -68,8 +68,8 @@ public class SQLiteFilmDAO implements FilmDAO {
                             cursor.getString(cursor.getColumnIndex(db.getCOLUMN_FILM_DIRECTOR())));
                 }
 
-                Log.i(TAG, f.toString());
-                Log.i(TAG, "--------------------------------------------");
+//                Log.i(TAG, f.toString());
+//                Log.i(TAG, "--------------------------------------------");
 
                 films.add(f);
             }
