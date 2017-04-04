@@ -83,7 +83,7 @@ public class MyFilmDetailActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu, menu);
+        inflater.inflate(R.menu.menu_review, menu);
 
         MenuItem item = menu.findItem(R.id.action_lang);
 
