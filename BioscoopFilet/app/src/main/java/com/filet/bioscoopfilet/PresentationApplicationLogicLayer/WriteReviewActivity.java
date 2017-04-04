@@ -94,6 +94,7 @@ public class WriteReviewActivity extends AppCompatActivity implements View.OnCli
             Intent intent = new Intent(getApplicationContext(), ReviewsActivity.class);
             intent.putExtra("FILM", film);
             startActivity(intent);
+            finish();
         }
     }
 

@@ -12,14 +12,11 @@
     <string name="cinema_feedback">Cinema feedback</string>
     <string name="cinema_contact">Cinema contact</string>
     <string name="bus">Bus</string>
-    <string name="bus_info">Bacon ipsum dolor amet fatback flank frankfurter shoulder biltong cow kevin, ham hock jerky strip steak burgdoggen capicola salami. Meatball ham andouille, doner tongue sausage boudin bresaola tail leberkas sirloin turducken pork loin fatback. Bresaola shankle landjaeger, jowl beef andouille fatback tail spare ribs filet mignon frankfurter ribeye salami ball tip. Beef ribs picanha ground round porchetta. Ribeye hamburger pastrami filet mignon tongue kielbasa. Pancetta tri-tip t-bone tail pork.\n
-Drumstick tri-tip beef ribs, cow corned beef biltong ribeye boudin shoulder ball tip cupim ham hock ground round hamburger strip steak. Ball tip pork belly fatback strip steak burgdoggen. Pork chop spare ribs rump, ham capicola pork sirloin shank fatback. Meatball tri-tip meatloaf tenderloin ground round beef capicola jerky pork pastrami salami. Venison landjaeger tri-tip fatback sausage strip steak leberkas spare ribs. Pork belly landjaeger picanha burgdoggen ball tip pastrami leberkas biltong alcatra pancetta.</string>
+    <string name="bus_info">From station Rotterdam Central you can take bus 1, 11, 131 and 142 to reach Filet. You can then get out at bus stop Americainweg.</string>
     <string name="train">Train</string>
-    <string name="train_info">Bacon ipsum dolor amet fatback flank frankfurter shoulder biltong cow kevin, ham hock jerky strip steak burgdoggen capicola salami. Meatball ham andouille, doner tongue sausage boudin bresaola tail leberkas sirloin turducken pork loin fatback. Bresaola shankle landjaeger, jowl beef andouille fatback tail spare ribs filet mignon frankfurter ribeye salami ball tip. Beef ribs picanha ground round porchetta. Ribeye hamburger pastrami filet mignon tongue kielbasa. Pancetta tri-tip t-bone tail pork.\n
-Drumstick tri-tip beef ribs, cow corned beef biltong ribeye boudin shoulder ball tip cupim ham hock ground round hamburger strip steak. Ball tip pork belly fatback strip steak burgdoggen. Pork chop spare ribs rump, ham capicola pork sirloin shank fatback. Meatball tri-tip meatloaf tenderloin ground round beef capicola jerky pork pastrami salami. Venison landjaeger tri-tip fatback sausage strip steak leberkas spare ribs. Pork belly landjaeger picanha burgdoggen ball tip pastrami leberkas biltong alcatra pancetta.</string>
-    <string name="subway">Metro</string>
-    <string name="subway_info">Bacon ipsum dolor amet fatback flank frankfurter shoulder biltong cow kevin, ham hock jerky strip steak burgdoggen capicola salami. Meatball ham andouille, doner tongue sausage boudin bresaola tail leberkas sirloin turducken pork loin fatback. Bresaola shankle landjaeger, jowl beef andouille fatback tail spare ribs filet mignon frankfurter ribeye salami ball tip. Beef ribs picanha ground round porchetta. Ribeye hamburger pastrami filet mignon tongue kielbasa. Pancetta tri-tip t-bone tail pork.\n
-Drumstick tri-tip beef ribs, cow corned beef biltong ribeye boudin shoulder ball tip cupim ham hock ground round hamburger strip steak. Ball tip pork belly fatback strip steak burgdoggen. Pork chop spare ribs rump, ham capicola pork sirloin shank fatback. Meatball tri-tip meatloaf tenderloin ground round beef capicola jerky pork pastrami salami. Venison landjaeger tri-tip fatback sausage strip steak leberkas spare ribs. Pork belly landjaeger picanha burgdoggen ball tip pastrami leberkas biltong alcatra pancetta.</string>
+    <string name="train_info">From your current position, take the train to Rotterdam Central Station. You can then take the bus to Filet.</string>
+    <string name="subway">Subway</string>
+    <string name="subway_info">Take line D or E to De Kuip. Get out at stop Americainweg.</string>
     <string name="language_menu">Language</string>
     <string name="feedback">Feedback</string>
     <string name="send">Send</string>
@@ -29,8 +26,7 @@ Drumstick tri-tip beef ribs, cow corned beef biltong ribeye boudin shoulder ball
     <string name="review_write">Review:</string>
     <string name="writeReview">Write a review</string>
     <string name="contact">Contact</string>
-    <string name="contact_info">Bacon ipsum dolor amet fatback flank frankfurter shoulder biltong cow kevin, ham hock jerky strip steak burgdoggen capicola salami. Meatball ham andouille, doner tongue sausage boudin bresaola tail leberkas sirloin turducken pork loin fatback. Bresaola shankle landjaeger, jowl beef andouille fatback tail spare ribs filet mignon frankfurter ribeye salami ball tip. Beef ribs picanha ground round porchetta. Ribeye hamburger pastrami filet mignon tongue kielbasa. Pancetta tri-tip t-bone tail pork.\n
-Drumstick tri-tip beef ribs, cow corned beef biltong ribeye boudin shoulder ball tip cupim ham hock ground round hamburger strip steak. Ball tip pork belly fatback strip steak burgdoggen. Pork chop spare ribs rump, ham capicola pork sirloin shank fatback. Meatball tri-tip meatloaf tenderloin ground round beef capicola jerky pork pastrami salami. Venison landjaeger tri-tip fatback sausage strip steak leberkas spare ribs. Pork belly landjaeger picanha burgdoggen ball tip pastrami leberkas biltong alcatra pancetta.</string>
+    <string name="contact_info">We are located at Cor Kieboomplein 501 in Rotterdam, zip code 3077 MK. If you have any further questions, please do not hesitate to contact us. You can email us at helpdesk@filet.nl or you can call us at +31 101234567.</string>
     <string name="select_seats">Select a seat</string>
     <string name="including_btw">(Including BTW)</string>
     <string name="total">Total:</string>
