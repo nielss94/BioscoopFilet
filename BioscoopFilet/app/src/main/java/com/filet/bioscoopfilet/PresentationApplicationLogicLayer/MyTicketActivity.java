@@ -108,7 +108,7 @@ public class MyTicketActivity extends AppCompatActivity implements AdapterView.O
         if (Locale.getDefault().toString().equalsIgnoreCase("en_gb")){
             item.setIcon(R.drawable.united_kingdom);
         }
-        if (Locale.getDefault().toString().equalsIgnoreCase("_nl")){
+        if (Locale.getDefault().toString().equalsIgnoreCase("nl_nl")){
             item.setIcon(R.drawable.netherlands);
         }
 
