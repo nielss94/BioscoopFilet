@@ -76,7 +76,7 @@ public class ReviewsActivity extends AppCompatActivity {
         button = (Button) findViewById(R.id.write_review_btn);
 
         languagepref = getSharedPreferences("language", MODE_PRIVATE);
-        language = languagepref.getString("languageToLoad", Locale.getDefault().getDisplayLanguage());
+        language = languagepref.getString("languageToLoad", Locale.getDefault().toString());
     }
 
     @Override
@@ -84,7 +84,7 @@ public class ReviewsActivity extends AppCompatActivity {
         super.onResume();
         String oldLanguage = language;
 
-        language = languagepref.getString("languageToLoad", Locale.getDefault().getDisplayLanguage());
+        language = languagepref.getString("languageToLoad", Locale.getDefault().toString());
 
 
         if (!oldLanguage.equals(language)) {

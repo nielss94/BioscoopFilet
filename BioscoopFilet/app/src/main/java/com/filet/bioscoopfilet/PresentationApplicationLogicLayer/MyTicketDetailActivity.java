@@ -83,7 +83,7 @@ public class MyTicketDetailActivity extends AppCompatActivity {
         }
 
         languagepref = getSharedPreferences("language",MODE_PRIVATE);
-        language = languagepref.getString("languageToLoad", Locale.getDefault().getDisplayLanguage());
+        language = languagepref.getString("languageToLoad", Locale.getDefault().toString());
     }
 
     @Override
@@ -92,7 +92,7 @@ public class MyTicketDetailActivity extends AppCompatActivity {
 
         String oldLanguage = language;
 
-        language = languagepref.getString("languageToLoad", Locale.getDefault().getDisplayLanguage());
+        language = languagepref.getString("languageToLoad", Locale.getDefault().toString());
 
         if (!oldLanguage.equals(language)){
             finish();
