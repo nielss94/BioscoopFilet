@@ -30,6 +30,8 @@ public class FilmAdapter extends ArrayAdapter<Film>  {
     public View getView (int position, View convertView, ViewGroup parent){
 
         String notRated = getContext().getResources().getString(R.string.not_yet_rated);
+        String ageText = getContext().getResources().getString(R.string.age);
+        String versionText = getContext().getResources().getString(R.string.version);
 
         //Declaration of film
         Film film = getItem(position);
@@ -56,9 +58,9 @@ public class FilmAdapter extends ArrayAdapter<Film>  {
             age.setText(notRated);
         }
         else{
-            age.setText("Leeftijd: " + film.getAge());
+            age.setText(ageText + " " + film.getAge());
         }
-        version.setText("Versie: " +film.getVersion());
+        version.setText(versionText + " " +film.getVersion());
         imdb.setText("IMDB: " + film.getIMDBScore());
 
         //Filling image (FOR DEMO)
