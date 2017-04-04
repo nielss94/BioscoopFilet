@@ -3,6 +3,7 @@ package com.filet.bioscoopfilet.PresentationApplicationLogicLayer;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.PopupMenu;
@@ -61,46 +62,10 @@ public class FilmAgendaActivity extends AppCompatActivity implements AdapterView
         //Set the factory
         factory = new SQLiteDAOFactory(getApplicationContext());
 
-        //Setting adapter
-        showAdapter = new ShowAdapter(this, selectedShows);
-
         ShowDAO showDAO = factory.createShowDAO();
         shows = showDAO.selectData();
 
-
-        //Declaration of ListView
-        showList = (ListView) findViewById(R.id.filmListView);
-        showList.setOnItemClickListener(this);
-        showList.setAdapter(showAdapter);
-
-        //Must go in listener
-        findViewById(R.id.loadingPanel).setVisibility(View.GONE);
-
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                selectedShows.clear();
-                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-                for (int i = 0; i < shows.size(); i++) {
-                    Log.i(TAG, spinner.getSelectedItem().toString() + " and " + sdf.format(shows.get(i).getTime()));
-
-                    if(spinner.getSelectedItem().toString().equals(sdf.format(shows.get(i).getTime())))
-                    {
-                        selectedShows.add(shows.get(i));
-                    }
-                }
-                showAdapter.notifyDataSetChanged();
-                for (int i = 0; i < selectedShows.size(); i++) {
-                    Log.i(TAG, "Selected shows:" +selectedShows.get(i).toString());
-                }
-
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
+        delay(3000);
 
         languagepref = getSharedPreferences("language", MODE_PRIVATE);
         language = languagepref.getString("languageToLoad", Locale.getDefault().toString());
@@ -215,5 +180,54 @@ public class FilmAgendaActivity extends AppCompatActivity implements AdapterView
         Intent intent = new Intent(getApplicationContext(), SelectedFilmDetailActivity.class);
         intent.putExtra("SHOW", show);
         startActivity(intent);
+    }
+
+    private void delay(int delay) {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                everything();
+            }
+        }, delay);
+    }
+
+    public void everything(){
+        //Setting adapter
+        showAdapter = new ShowAdapter(this, selectedShows);
+
+        //Declaration of ListView
+        showList = (ListView) findViewById(R.id.filmListView);
+        showList.setOnItemClickListener(this);
+        showList.setAdapter(showAdapter);
+
+        //Must go in listener
+        findViewById(R.id.loadingPanel).setVisibility(View.GONE);
+
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                selectedShows.clear();
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                for (int i = 0; i < shows.size(); i++) {
+                    Log.i(TAG, spinner.getSelectedItem().toString() + " and " + sdf.format(shows.get(i).getTime()));
+
+                    if(spinner.getSelectedItem().toString().equals(sdf.format(shows.get(i).getTime())))
+                    {
+                        selectedShows.add(shows.get(i));
+                    }
+                }
+                showAdapter.notifyDataSetChanged();
+                for (int i = 0; i < selectedShows.size(); i++) {
+                    Log.i(TAG, "Selected shows:" +selectedShows.get(i).toString());
+                }
+
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 }
