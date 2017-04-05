@@ -111,14 +111,10 @@ public class SeatSelectionActivity extends AppCompatActivity {
     }
 
 
-    //DEMO BUTTON
     public void paymentButton(View v) {
         setDefiniteShowSeats();
-        ArrayList<Ticket> tickets;
         Random r = new Random();
         Intent intent = new Intent(getApplicationContext(), PaymentActivity.class);
-        TicketDAO ticketDAO = factory.createTicketDAO();
-        tickets = ticketDAO.selectData();
         ArrayList<Ticket> newTickets = new ArrayList<>();
         for (int i = 0; i < amountOfTickets; i++) {
             int randomNumber = r.nextInt(99999);
@@ -152,9 +148,6 @@ public class SeatSelectionActivity extends AppCompatActivity {
 
     public boolean checkIfQRCodeExists(int qrCode)
     {
-        TicketDAO ticketDAO = factory.createTicketDAO();
-        ArrayList<Ticket> tickets;
-        tickets = ticketDAO.selectData();
 
 
         for (int i = 0; i < tickets.size(); i++) {
