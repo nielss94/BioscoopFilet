@@ -47,7 +47,8 @@
 
         <ScrollView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -75,7 +76,6 @@
                     android:layout_below="@id/ticketDetailFilmTitle"
                     android:text="10.00u"
                     android:textColor="#fff"
-                    android:textSize="16sp"
                     android:paddingBottom="@dimen/activity_half_margin"/>
 
                 <TextView
@@ -84,8 +84,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/ticketDetailTime"
                     android:text="Duur: 4"
-                    android:textColor="#fff"
-                    android:textSize="16sp" />
+                    android:textColor="#fff" />
 
                 <TextView
                     android:id="@+id/ticketDetailSeats"
@@ -93,8 +92,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/ticketDetailTicketAmount"
                     android:text="Plaatsen: Rij 1 Stoel 1, 2, 3, 4"
-                    android:textColor="#fff"
-                    android:textSize="16sp" />
+                    android:textColor="#fff" />
 
             </RelativeLayout>
 

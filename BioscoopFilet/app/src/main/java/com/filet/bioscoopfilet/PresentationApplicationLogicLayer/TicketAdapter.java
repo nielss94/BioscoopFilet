@@ -61,7 +61,7 @@ public class TicketAdapter extends ArrayAdapter<Ticket> {
         //Declaration of Views
         TextView filmTitle = (TextView) convertView.findViewById(R.id.ticketFilmTitle);
         TextView time = (TextView) convertView.findViewById(R.id.ticketShowDate);
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy - HH:mm");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy - HH:mm");
         ImageView qrCode = (ImageView) convertView.findViewById(R.id.ticketQRCode);
 
         //Filling Views with ticket info

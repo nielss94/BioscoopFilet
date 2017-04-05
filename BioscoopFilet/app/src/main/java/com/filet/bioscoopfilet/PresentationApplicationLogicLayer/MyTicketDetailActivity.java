@@ -77,7 +77,7 @@ public class MyTicketDetailActivity extends AppCompatActivity {
 
         //fill xml elements with intent extras
         title.setText(film.getTitle());
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy - HH:mm");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy - HH:mm");
         time.setText(sdf.format(ticket.getShow().getTime()));
         amount.setText(getString(R.string.amount) + " " + film.getLength() + " min.");
         seats.setText(getString(R.string.seats) + getString(R.string.row_number) + " " + row
