@@ -17,11 +17,11 @@ import android.widget.ListView;
 
 import com.filet.bioscoopfilet.DomainModel.Cinema;
 import com.filet.bioscoopfilet.DomainModel.Film;
-import com.filet.bioscoopfilet.DomainModel.Show;
+import com.filet.bioscoopfilet.DomainModel.Ticket;
 import com.filet.bioscoopfilet.Persistancy.DAOFactory;
 import com.filet.bioscoopfilet.Persistancy.FilmDAO;
 import com.filet.bioscoopfilet.Persistancy.SQLiteDAOFactory;
-import com.filet.bioscoopfilet.Persistancy.ShowDAO;
+import com.filet.bioscoopfilet.Persistancy.TicketDAO;
 import com.filet.bioscoopfilet.R;
 
 import java.util.ArrayList;
@@ -34,7 +34,7 @@ public class MyFilmActivity extends AppCompatActivity implements AdapterView.OnI
 
     private ArrayList<Film> allFilms = new ArrayList<>();
     private ArrayList<Film> myFilms = new ArrayList<>();
-    private ArrayList<Show> shows = new ArrayList<>();
+    private ArrayList<Ticket> tickets = new ArrayList<>();
     ListView filmList;
     private FilmAdapter filmAdapter;
 
@@ -56,17 +56,17 @@ public class MyFilmActivity extends AppCompatActivity implements AdapterView.OnI
         FilmDAO filmDAO = factory.createFilmDAO();
         allFilms = filmDAO.selectData();
         //Get show information from DB
-        ShowDAO showDAO = factory.createShowDAO();
-        shows = showDAO.selectData();
+        TicketDAO ticketDAO = factory.createTicketDAO();
+        tickets = ticketDAO.selectData();
 
         //Check if the film is a film that the user has watched
         for (int i = 0; i < allFilms.size(); i++) {
-            Log.i("MYFILMS", allFilms.get(i).getFilmAPIID() + " && " +  shows.get(i).getFilmAPIID());
-            Log.i("MYFILMS", "--------------------------------------------------------------------");
-            if (allFilms.get(i).getFilmAPIID() == shows.get(i).getFilmAPIID()) {
-                myFilms.add(allFilms.get(i));
-                Log.i(TAG, myFilms.size() + "");
-                Log.i(TAG, myFilms.get(i).toString());
+            for (int j = 0; j < tickets.size(); j++) {
+                if (allFilms.get(i).getFilmAPIID() == tickets.get(j).getShow().getFilmAPIID()) {
+                    if (!myFilms.contains(allFilms.get(i))) {
+                        myFilms.add(allFilms.get(i));
+                    }
+                }
             }
         }
 
@@ -85,19 +85,19 @@ public class MyFilmActivity extends AppCompatActivity implements AdapterView.OnI
         //Stop loading animation
         findViewById(R.id.loadingPanel).setVisibility(View.GONE);
 
-        languagepref = getSharedPreferences("language",MODE_PRIVATE);
+        languagepref = getSharedPreferences("language", MODE_PRIVATE);
         language = languagepref.getString("languageToLoad", Locale.getDefault().toString());
     }
 
     @Override
-    public void onResume(){
+    public void onResume() {
         super.onResume();
 
         String oldLanguage = language;
 
         language = languagepref.getString("languageToLoad", Locale.getDefault().toString());
 
-        if (!oldLanguage.equals(language)){
+        if (!oldLanguage.equals(language)) {
             finish();
             startActivity(getIntent());
         }
@@ -111,18 +111,19 @@ public class MyFilmActivity extends AppCompatActivity implements AdapterView.OnI
         MenuItem item = menu.findItem(R.id.action_lang);
 
         Log.i("Taal", Locale.getDefault().toString());
-        if (Locale.getDefault().toString().equalsIgnoreCase("en_us")){
+        if (Locale.getDefault().toString().equalsIgnoreCase("en_us")) {
             item.setIcon(R.drawable.united_states);
         }
-        if (Locale.getDefault().toString().equalsIgnoreCase("en_gb")){
+        if (Locale.getDefault().toString().equalsIgnoreCase("en_gb")) {
             item.setIcon(R.drawable.united_kingdom);
         }
-        if (Locale.getDefault().toString().equalsIgnoreCase("nl_nl")){
+        if (Locale.getDefault().toString().equalsIgnoreCase("nl_nl")) {
             item.setIcon(R.drawable.netherlands);
         }
 
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -143,8 +144,8 @@ public class MyFilmActivity extends AppCompatActivity implements AdapterView.OnI
                                 getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
 
                                 Intent intent = new Intent(getBaseContext(), MyFiletActivity.class);
-                                intent.addFlags( Intent.FLAG_ACTIVITY_NO_ANIMATION );
-                                intent.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP );
+                                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(intent);
                                 return true;
 
@@ -157,8 +158,8 @@ public class MyFilmActivity extends AppCompatActivity implements AdapterView.OnI
                                 getBaseContext().getResources().updateConfiguration(config2, getBaseContext().getResources().getDisplayMetrics());
 
                                 Intent intent2 = new Intent(getBaseContext(), MyFiletActivity.class);
-                                intent2.addFlags( Intent.FLAG_ACTIVITY_NO_ANIMATION );
-                                intent2.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP );
+                                intent2.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                                intent2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(intent2);
                                 return true;
 
@@ -171,8 +172,8 @@ public class MyFilmActivity extends AppCompatActivity implements AdapterView.OnI
                                 getBaseContext().getResources().updateConfiguration(config3, getBaseContext().getResources().getDisplayMetrics());
 
                                 Intent intent3 = new Intent(getBaseContext(), MyFiletActivity.class);
-                                intent3.addFlags( Intent.FLAG_ACTIVITY_NO_ANIMATION );
-                                intent3.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP );
+                                intent3.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                                intent3.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(intent3);
                                 return true;
                             default:
