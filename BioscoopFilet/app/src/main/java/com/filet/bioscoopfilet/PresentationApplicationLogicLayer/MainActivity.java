@@ -52,7 +52,9 @@ public class MainActivity extends AppCompatActivity implements FilmApiConnector.
     private ArrayList<Film> films = new ArrayList<>();
     private FilmDAO filmDAO;
     private CinemaDAO cinemaDAO;
+    private ShowDAO showDAO;
     private FilmApiConnector getFilms;
+    private boolean needData = false;
     private int getFilmsCounter = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,16 +70,16 @@ public class MainActivity extends AppCompatActivity implements FilmApiConnector.
         filmDAO = factory.createFilmDAO();
         cinemaDAO = factory.createCinemaDAO();
 
+        showDAO = factory.createShowDAO();
 
+        if(cinemaDAO.selectData().size() == 0)
+        {
+            addTestData();
+        }
 
-
-//        testCinemaDAO();
-//        testVisitorData();
-//        testFeedbackData();
-        String[] urls = new String[]{"https://api.themoviedb.org/3/movie/upcoming?api_key=863618e1d5c5f5cc4e34a37c49b8338e&language=en"};
+        String[] urls = new String[]{"https://api.themoviedb.org/3/movie/upcoming?api_key=863618e1d5c5f5cc4e34a37c49b8338e&language=nl"};
         getFilms = new FilmApiConnector(this);
         getFilms.execute(urls);
-//        testTheaterData();
 
         findViewById(R.id.LinearLayout).setVisibility(View.GONE);
     }
@@ -137,7 +139,7 @@ public class MainActivity extends AppCompatActivity implements FilmApiConnector.
                                 getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
 
                                 Intent intent = new Intent(getBaseContext(), MainActivity.class);
-                                intent.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TASK );
+                                finish();
                                 startActivity(intent);
                                 return true;
 
@@ -150,7 +152,7 @@ public class MainActivity extends AppCompatActivity implements FilmApiConnector.
                                 getBaseContext().getResources().updateConfiguration(config2, getBaseContext().getResources().getDisplayMetrics());
 
                                 Intent intent2 = new Intent(getBaseContext(), MainActivity.class);
-                                intent2.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TASK );
+                                finish();
                                 startActivity(intent2);
                                 return true;
 
@@ -163,7 +165,7 @@ public class MainActivity extends AppCompatActivity implements FilmApiConnector.
                                 getBaseContext().getResources().updateConfiguration(config3, getBaseContext().getResources().getDisplayMetrics());
 
                                 Intent intent3 = new Intent(getBaseContext(), MainActivity.class);
-                                intent3.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TASK );
+                                finish();
                                 startActivity(intent3);
                                 return true;
                             default:
@@ -201,6 +203,14 @@ public class MainActivity extends AppCompatActivity implements FilmApiConnector.
         startActivity(intent);
     }
 
+    public void addTestData()
+    {
+        needData = true;
+        testCinemaDAO();
+        testVisitorData();
+        testTheaterData();
+    }
+
     public void testFeedbackData() {
         VisitorDAO visitorDAO = factory.createVisitorDAO();
         Visitor v = visitorDAO.selectData().get(0);
@@ -228,6 +238,9 @@ public class MainActivity extends AppCompatActivity implements FilmApiConnector.
 
         Cinema c = cinemaDAO.selectData().get(0);
         theaterDAO.insertData(new Theater(c, 100));
+        theaterDAO.insertData(new Theater(c, 100));
+        theaterDAO.insertData(new Theater(c, 100));
+        theaterDAO.insertData(new Theater(c, 100));
         theaterDAO.selectData();
     }
 
@@ -237,7 +250,6 @@ public class MainActivity extends AppCompatActivity implements FilmApiConnector.
     }
 
     public void testShowData() {
-        ShowDAO showDAO = factory.createShowDAO();
         FilmDAO filmDAO = factory.createFilmDAO();
         TheaterDAO theaterDAO = factory.createTheaterDAO();
 
@@ -427,12 +439,11 @@ public class MainActivity extends AppCompatActivity implements FilmApiConnector.
             Log.i(TAG,"Hello?");
 
 
-//        testFilmDAO();
-//            testShowData();
-//        testTicketData();
-//        testReviewData();
-//        testActorDAO();
-
+            if(needData)
+            {
+                testShowData();
+                needData = false;
+            }
             findViewById(R.id.splashScreen).setVisibility(View.GONE);
             findViewById(R.id.LinearLayout).setVisibility(View.VISIBLE);
         }
