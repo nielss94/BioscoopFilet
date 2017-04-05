@@ -23,8 +23,8 @@
     <string name="name">Naam:</string>
     <string name="feedback_write">Feedback:</string>
     <string name="review">Score:</string>
-    <string name="review_write">Review:</string>
-    <string name="writeReview">Schrijf een review</string>
+    <string name="review_write">Recensie:</string>
+    <string name="writeReview">Schrijf een recensie</string>
     <string name="contact">Contact</string>
     <string name="contact_info">Wij zijn te vinden in aan het Cor Kieboomplein 501 in Rotterdam, postcode 3077 MK. Mocht u nog vragen hebben kunt u ons mailen (helpdesk@filet.nl) of telefonisch contact opnemen. (010-1234567)</string>
     <string name="select_seats">Selecteer stoelen</string>
@@ -74,4 +74,5 @@
 
 
     <string name="not_yet_rated">Nog niet beoordeeld</string>
+    <string name="review_title">Recensie</string>
 </resources>

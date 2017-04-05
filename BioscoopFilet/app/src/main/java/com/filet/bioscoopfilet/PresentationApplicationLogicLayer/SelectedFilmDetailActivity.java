@@ -3,6 +3,7 @@ package com.filet.bioscoopfilet.PresentationApplicationLogicLayer;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.PopupMenu;
@@ -253,5 +254,10 @@ public class SelectedFilmDetailActivity extends AppCompatActivity implements Tra
     public void runtimeAvailable(String runtime) {
         film.setLength(Integer.parseInt(runtime));
         length.setText(runtime + " " + getResources().getString(R.string.minutes));
+    }
+
+    public void trailerButton(View v) {
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(film.getTrailerURL()));
+        startActivity(intent);
     }
 }
