@@ -23,27 +23,20 @@
         android:orientation="vertical">
 
         <RelativeLayout
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:id="@+id/relative"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_marginBottom="@dimen/activity_horizontal_margin"
-                android:layout_marginTop="@dimen/activity_horizontal_margin">
+            android:layout_height="360dp">
 
                 <ImageView
                     android:id="@+id/ticketDetailQRCode"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_centerHorizontal="true"
                     android:src="@drawable/ic_qrcode_placeholder" />
 
             </RelativeLayout>
 
-        </RelativeLayout>
 
         <ScrollView
             android:layout_width="wrap_content"
