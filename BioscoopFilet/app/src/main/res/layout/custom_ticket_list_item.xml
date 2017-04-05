@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:padding="@dimen/activity_half_margin"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:padding="@dimen/activity_half_margin">
 
     <ImageView
         android:id="@+id/ticketQRCode"
@@ -12,19 +12,39 @@
         android:layout_weight="2"
         android:src="@drawable/ic_qrcode_placeholder" />
 
-    <TextView
-        android:id="@+id/ticketFilmTitle"
+    <RelativeLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="5"
-        android:gravity="center_vertical"
-        android:paddingEnd="@dimen/activity_horizontal_margin"
-        android:paddingLeft="@dimen/activity_half_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingStart="@dimen/activity_half_margin"
-        android:text="Harry Potter en de informaticus der wijzen"
-        android:textColor="#fff"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/ticketFilmTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingEnd="@dimen/activity_horizontal_margin"
+            android:paddingLeft="@dimen/activity_half_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingStart="@dimen/activity_half_margin"
+            android:text="Harry Potter en de informaticus der wijzen"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/ticketShowDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingEnd="@dimen/activity_horizontal_margin"
+            android:paddingLeft="@dimen/activity_half_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingStart="@dimen/activity_half_margin"
+            android:layout_below="@+id/ticketFilmTitle"
+            android:text="10/04/2017 - 11:00"
+            android:textColor="#fff" />
+
+    </RelativeLayout>
 
 </LinearLayout>

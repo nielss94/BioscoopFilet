@@ -38,8 +38,8 @@
     <string name="seat_selected">Geselecteerd</string>
     <string name="seat_taken">Bezet</string>
     <string name="seat_available">Beschikbaar</string>
-    <string name="amount">Aantal: </string>
-    <string name="seats">Plaatsen: </string>
+    <string name="amount">"Duur: "</string>
+    <string name="seats">"Plaats: "</string>
 
     <string name="time_tickets">Tijden &amp; Tickets</string>
     <string name="version">Versie: </string>
@@ -75,4 +75,6 @@
 
     <string name="not_yet_rated">Nog niet beoordeeld</string>
     <string name="review_title">Recensie</string>
+    <string name="row_number">rij</string>
+    <string name="seat_number">stoel</string>
 </resources>
