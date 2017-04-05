@@ -27,6 +27,7 @@ import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -62,12 +63,15 @@ public class MyTicketDetailActivity extends AppCompatActivity {
 
         //initialise xml elements
         TextView title = (TextView) findViewById(R.id.ticketDetailFilmTitle);
+        TextView time = (TextView) findViewById(R.id.ticketDetailTime);
         TextView amount = (TextView) findViewById(R.id.ticketDetailTicketAmount);
         TextView seats = (TextView) findViewById(R.id.ticketDetailSeats);
         ImageView qrCode = (ImageView) findViewById(R.id.ticketDetailQRCode);
 
         //fill xml elements with intent extras
         title.setText(film.getTitle());
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy - HH:mm");
+        time.setText(sdf.format(ticket.getShow().getTime()));
         amount.setText(getString(R.string.amount) + " " + film.getLength() + " min.");
         seats.setText(getString(R.string.seats) + " " + ticket.getSeat());
 
