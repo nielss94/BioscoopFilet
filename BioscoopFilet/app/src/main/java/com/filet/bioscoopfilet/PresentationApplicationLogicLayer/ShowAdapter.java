@@ -76,7 +76,7 @@ public class ShowAdapter extends ArrayAdapter<Show> {
         //Filling TextViews with show info
         title.setText(film.getTitle());
         genre.setText("Genre: " + film.getGenre());
-        if (film.getAge() == 0){
+        if (film.getAge() == 99){
             age.setText(getContext().getResources().getString(R.string.not_yet_rated));
         }
         else{

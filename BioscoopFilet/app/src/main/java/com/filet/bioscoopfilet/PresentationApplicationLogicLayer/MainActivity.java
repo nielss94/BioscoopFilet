@@ -415,7 +415,7 @@ public class MainActivity extends AppCompatActivity implements FilmApiConnector.
                     films.get(i).setAge(ageFinal);
                 }
                 if (age.equals("")) {
-                    ageFinal = 0;
+                    ageFinal = 99;
                     films.get(i).setAge(ageFinal);
                 }
             }

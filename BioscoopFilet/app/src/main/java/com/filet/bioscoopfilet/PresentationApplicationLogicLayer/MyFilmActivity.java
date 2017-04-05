@@ -25,6 +25,7 @@ import com.filet.bioscoopfilet.Persistancy.TicketDAO;
 import com.filet.bioscoopfilet.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Locale;
 
 public class MyFilmActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
@@ -106,7 +107,7 @@ public class MyFilmActivity extends AppCompatActivity implements AdapterView.OnI
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu, menu);
+        inflater.inflate(R.menu.menu_order, menu);
 
         MenuItem item = menu.findItem(R.id.action_lang);
 
@@ -114,12 +115,13 @@ public class MyFilmActivity extends AppCompatActivity implements AdapterView.OnI
         if (Locale.getDefault().toString().equalsIgnoreCase("en_us")) {
             item.setIcon(R.drawable.united_states);
         }
-        if (Locale.getDefault().toString().equalsIgnoreCase("en_gb")) {
+        else if (Locale.getDefault().toString().equalsIgnoreCase("en_gb")) {
             item.setIcon(R.drawable.united_kingdom);
         }
-        if (Locale.getDefault().toString().equalsIgnoreCase("nl_nl")) {
+        else if (Locale.getDefault().toString().equalsIgnoreCase("nl_nl")) {
             item.setIcon(R.drawable.netherlands);
         }
+
 
         return true;
     }
@@ -136,7 +138,7 @@ public class MyFilmActivity extends AppCompatActivity implements AdapterView.OnI
                     public boolean onMenuItemClick(MenuItem item) {
                         switch (item.getItemId()) {
                             case R.id.action_EN_US:
-                                Log.i("MenuItemSelected", "ENGELS");
+                                Log.i("MenuItemSelected", "ENGELS US");
                                 Locale locale = new Locale("en", "US");
                                 Locale.setDefault(locale);
                                 Configuration config = getBaseContext().getResources().getConfiguration();
@@ -182,6 +184,40 @@ public class MyFilmActivity extends AppCompatActivity implements AdapterView.OnI
                     }
                 });
                 popup.show();
+                return true;
+            case R.id.action_sort:
+                PopupMenu popup2 = new PopupMenu(this, findViewById(R.id.action_lang));
+                MenuInflater inflater2 = popup2.getMenuInflater();
+                inflater2.inflate(R.menu.menu_orderlist, popup2.getMenu());
+                popup2.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId()) {
+                            case R.id.action_sort_score_desc:
+                                Collections.sort(myFilms, Film.DESCENDING_SCORE);
+                                filmAdapter.notifyDataSetChanged();
+                                return true;
+
+                            case R.id.action_sort_score_asc:
+                                Collections.sort(myFilms, Film.ASCENDING_SCORE);
+                                filmAdapter.notifyDataSetChanged();
+                                return true;
+
+                            case R.id.action_sort_age_desc:
+                                Collections.sort(myFilms, Film.DESCENDING_AGE);
+                                filmAdapter.notifyDataSetChanged();
+                                return true;
+
+                            case R.id.action_sort_age_asc:
+                                Collections.sort(myFilms, Film.ASCENDING_AGE);
+                                filmAdapter.notifyDataSetChanged();
+                                return true;
+                            default:
+                                return false;
+                        }
+                    }
+                });
+                popup2.show();
                 return true;
             default:
                 // If we got here, the user's action was not recognized.

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_sort_score_desc"
+        android:title="@string/score_descending"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_sort_score_asc"
+        android:title="@string/score_ascending"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_sort_age_desc"
+        android:title="@string/age_descending"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_sort_age_asc"
+        android:title="@string/age_ascending"
+        app:showAsAction="always" />
+</menu>

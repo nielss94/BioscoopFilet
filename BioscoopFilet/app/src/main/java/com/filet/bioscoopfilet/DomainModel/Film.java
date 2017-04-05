@@ -1,13 +1,16 @@
 package com.filet.bioscoopfilet.DomainModel;
 
+import android.support.annotation.NonNull;
+
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 /**
  * Created by Niels on 3/28/2017.
  */
 
-public class Film implements Serializable{
+public class Film implements Serializable, Comparable<Film>{
 
     private int filmID;
     private int filmAPIID;
@@ -26,6 +29,39 @@ public class Film implements Serializable{
     private String posterURL;
     private String director;
     private ArrayList<Actor> actors;
+
+    public static final Comparator<Film> ASCENDING_AGE = new Comparator<Film>(){
+        public int compare(Film f, Film f1){
+            return f.age - f1.age;
+        }
+    };
+
+    public static final Comparator<Film> DESCENDING_AGE = new Comparator<Film>(){
+        public int compare(Film f, Film f1){
+            return f1.age - f.age;
+        }
+    };
+
+    public static final Comparator<Film> DESCENDING_SCORE = new Comparator<Film>(){
+        public int compare(Film f, Film f1){
+            double film = Double.parseDouble(f.getIMDBScore());
+            double film1 = Double.parseDouble(f1.getIMDBScore());
+            return Double.compare(film1, film);
+        }
+    };
+
+    public static final Comparator<Film> ASCENDING_SCORE = new Comparator<Film>(){
+        public int compare(Film f, Film f1){
+            double film = Double.parseDouble(f.getIMDBScore());
+            double film1 = Double.parseDouble(f1.getIMDBScore());
+            return Double.compare(film, film1);
+        }
+    };
+
+    @Override
+    public int compareTo(Film f) {
+        return (this.title).compareTo(f.title);
+    }
 
     public Film(int filmID, int filmAPIID, Cinema cinema, String title, String version, String language,
                 String releaseDate, String genre, int length, int age, String description,

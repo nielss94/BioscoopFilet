@@ -54,7 +54,7 @@ public class FilmAdapter extends ArrayAdapter<Film>  {
         //Filling TextViews with film info
         title.setText(film.getTitle());
         genre.setText("Genre: "+film.getGenre());
-        if (film.getAge() == 0){
+        if (film.getAge() == 99){
             age.setText(notRated);
         }
         else{

@@ -80,4 +80,10 @@
     <string name="noSeatAvailable">Geen stoelen beschikbaar. Selecteer andere stoelen.</string>
     <string name="no_tickets">Geen tickets geselecteerd</string>
     <string name="seatTaken">De geselecteerde stoel is al bezet.</string>
+=======
+    <string name="age_descending">Leeftijd aflopend</string>
+    <string name="age_ascending">Leeftijd oplopend</string>
+    <string name="score_descending">Score aflopend</string>
+    <string name="score_ascending">Score oplopend</string>
+>>>>>>> Stashed changes
 </resources>
