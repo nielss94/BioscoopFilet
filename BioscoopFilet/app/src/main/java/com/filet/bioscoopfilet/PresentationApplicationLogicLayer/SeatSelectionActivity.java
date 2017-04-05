@@ -145,7 +145,6 @@ public class SeatSelectionActivity extends AppCompatActivity {
         return true;
     }
 
-
     public boolean checkIfQRCodeExists(int qrCode)
     {
         for (int i = 0; i < tickets.size(); i++) {
@@ -161,7 +160,16 @@ public class SeatSelectionActivity extends AppCompatActivity {
     {
         Log.i(TAG,show.getSeats());
         if(show.getSeats().charAt(seatNumber) != '1') {
-            if (amountOfTickets > seatNumber) {
+            if(amountOfTickets == 1)
+            {
+                Log.i(TAG,amountOfTickets + ", seat selected: " + seatsSelected[0]);
+
+                seats.get(seatsSelected[0]).setImageResource(R.drawable.ic_available);
+                seatsSelected = new int[amountOfTickets];
+                seats.get(seatNumber).setImageResource(R.drawable.ic_selected);
+                seatsSelected[0] = seatNumber;
+            }
+            else if (amountOfTickets > seatNumber) {
                 for (int i = 0; i < seatsSelected.length; i++) {
                     seats.get(seatsSelected[i]).setImageResource(R.drawable.ic_available);
                 }
@@ -220,7 +228,8 @@ public class SeatSelectionActivity extends AppCompatActivity {
     {
         int freeSeats = 0;
         boolean returnValue = false;
-        for (int i = 0; i < amountOfTickets-1; i++) {
+        for (int i = 0; i < amountOfTickets; i++) {
+            Log.i(TAG,show.getSeats().charAt(i + seatNumber)+"");
             if(show.getSeats().charAt(i + seatNumber) == '1')
             {
                 returnValue = false;
@@ -229,7 +238,7 @@ public class SeatSelectionActivity extends AppCompatActivity {
             {
                 freeSeats+=1;
             }
-            if(freeSeats >= amountOfTickets-1)
+            if(freeSeats >= amountOfTickets)
             {
                 returnValue= true;
             }
