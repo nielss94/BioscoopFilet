@@ -168,8 +168,8 @@
                     android:textCursorDrawable="@drawable/yellow_cursor"
                     android:textSize="16sp" />
 
-
             </LinearLayout>
+
         </LinearLayout>
 
         <Button

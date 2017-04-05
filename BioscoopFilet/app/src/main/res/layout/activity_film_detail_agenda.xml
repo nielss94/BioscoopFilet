@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.filet.bioscoopfilet.PresentationApplicationLogicLayer.FilmDetailActivity">
+    tools:context="com.filet.bioscoopfilet.PresentationApplicationLogicLayer.FilmDetailAgendaActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/my_toolbar"
@@ -17,11 +17,11 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
     <LinearLayout
-        android:background="@drawable/border"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/activity_horizontal_margin"
-        android:orientation="vertical">
+        android:background="@drawable/border"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_horizontal_margin">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -87,12 +87,13 @@
                     android:layout_marginBottom="2dp"
                     android:text="IMDB: 8.8"
                     android:textSize="10dp" />
+
                 <ImageView
                     android:layout_width="32dp"
                     android:layout_height="32dp"
+                    android:onClick="trailerButton"
                     android:src="@drawable/ic_action_youtube"
-                    android:translationX="-4dp"
-                    android:onClick="trailerButton"/>
+                    android:translationX="-4dp" />
 
             </LinearLayout>
 
@@ -100,17 +101,17 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/movieDirectorDetailId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/movieDirectorDetailId"
-            android:text=""/>
+            android:text="" />
 
         <TextView
+            android:id="@+id/movieActorsDetailId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/movieActorsDetailId"
             android:layout_marginBottom="@dimen/activity_horizontal_margin"
-            android:text=""/>
+            android:text="" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -118,23 +119,23 @@
             android:layout_marginBottom="@dimen/activity_horizontal_margin">
 
             <TextView
+                android:id="@+id/movieDescriptionDetailId"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/movieDescriptionDetailId"
-                android:text="Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, Lorem ipsum dolor sit amet.., comes from a line in section 1.10.32."
-                />
+                android:text="Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, Lorem ipsum dolor sit amet.., comes from a line in section 1.10.32." />
+
         </ScrollView>
 
-            <Button
-                android:id="@+id/buttonTimeTickets"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="@string/time_tickets"
-                android:textStyle="bold"
-                android:textSize="32dp"
-                android:background="@color/colorPrimaryDark"
-                android:onClick="openAgenda"/>
+        <Button
+            android:id="@+id/buttonTimeTickets"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimaryDark"
+            android:gravity="center"
+            android:onClick="openAgenda"
+            android:text="@string/time_tickets"
+            android:textSize="32dp"
+            android:textStyle="bold" />
 
 
     </LinearLayout>
