@@ -79,4 +79,7 @@
     <string name="no_tickets">No tickets selected</string>
     <string name="review_title">Reviews</string>
     <string name="seats_available">Seats available:</string>
+    <string name="seatTaken">The selected seat is already taken.</string>
+    <string name="noSeatAvailable">No seats available here. Please select different seats.</string>
+
 </resources>
