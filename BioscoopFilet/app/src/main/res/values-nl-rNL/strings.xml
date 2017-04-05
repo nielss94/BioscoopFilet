@@ -86,5 +86,6 @@
     <string name="score_descending">Score aflopend</string>
     <string name="score_ascending">Score oplopend</string>
     <string name="tooManyTickets">Teveel tickets gekozen. Er zijn niet genoeg beschikbare stoelen.</string>
+    <string name="showFull">Er zijn geen stoelen beschikbaar. Selecteer een andere voorstelling.</string>
     >>>>>>> Stashed changes
 </resources>

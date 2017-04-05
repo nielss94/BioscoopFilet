@@ -86,5 +86,6 @@
     <string name="score_descending">Score descending</string>
     <string name="score_ascending">Score ascending</string>
     <string name="tooManyTickets">Too many tickets chosen. There aren\'t so many available seats.</string>
+    <string name="showFull">There are no available seats for this show. Please pick a different show.</string>
     >>>>>>> Stashed changes
 </resources>

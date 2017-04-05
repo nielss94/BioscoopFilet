@@ -59,7 +59,7 @@ public class BuyTicketsActivity extends AppCompatActivity {
         }
         else if(amountOfTickets > availableSeats)
         {
-            Toast.makeText(this, getResources().getString(R.string.tooManyTickets), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getResources().getString(R.string.showFull), Toast.LENGTH_SHORT).show();
         }
         else {
             Intent intent = new Intent(this, SeatSelectionActivity.class);
@@ -89,6 +89,10 @@ public class BuyTicketsActivity extends AppCompatActivity {
                 }
                 counter = 0;
             }
+        }
+        if(maxAvailableSeats == 0)
+        {
+            maxAvailableSeats = 100;
         }
         return maxAvailableSeats;
     }
