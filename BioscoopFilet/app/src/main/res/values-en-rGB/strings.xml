@@ -38,14 +38,14 @@
     <string name="seat_selected">Selected</string>
     <string name="seat_taken">Taken</string>
     <string name="seat_available">Available</string>
-    <string name="amount">Amount: </string>
-    <string name="seats">Seats: </string>
+    <string name="amount">Duration:</string>
+    <string name="seats">"Seat: "</string>
 
     <string name="time_tickets">Time &amp; Tickets</string>
     <string name="version">Version: </string>
     <string name="length">Length in min: </string>
     <string name="age">Age: </string>
-    <string name="imdb">"Score: "</string>
+    <string name="imdb">IMDB: </string>
     <string name="director">Director: </string>
     <string name="release">Release: </string>
     <string name="film_detail">Film Details</string>
@@ -76,5 +76,6 @@
     <string name="not_yet_rated">Not yet rated</string>
     <string name="no_tickets">No tickets selected</string>
     <string name="review_title">Reviews</string>
-    <string name="seats_available">Seats available:</string>
+    <string name="row_number">row</string>
+    <string name="seat_number">seat</string>
 </resources>

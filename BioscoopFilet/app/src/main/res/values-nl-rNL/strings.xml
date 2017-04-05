@@ -38,14 +38,14 @@
     <string name="seat_selected">Geselecteerd</string>
     <string name="seat_taken">Bezet</string>
     <string name="seat_available">Beschikbaar</string>
-    <string name="amount">Aantal: </string>
-    <string name="seats">Plaatsen: </string>
+    <string name="amount">"Duur: "</string>
+    <string name="seats">"Plaats: "</string>
 
     <string name="time_tickets">Tijden &amp; Tickets</string>
     <string name="version">Versie: </string>
     <string name="length">Lengte in min: </string>
     <string name="age">Leeftijd: </string>
-    <string name="imdb">Score: </string>
+    <string name="imdb">IMDB: </string>
     <string name="director">Director: </string>
     <string name="release">Release: </string>
     <string name="film_detail">Film Details</string>
@@ -75,5 +75,6 @@
 
     <string name="not_yet_rated">Nog niet beoordeeld</string>
     <string name="review_title">Recensie</string>
-    <string name="seats_available">Stoelen vrij:</string>
+    <string name="row_number">rij</string>
+    <string name="seat_number">stoel</string>
 </resources>

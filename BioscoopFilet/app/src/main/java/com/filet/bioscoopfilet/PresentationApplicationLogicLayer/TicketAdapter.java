@@ -21,6 +21,7 @@ import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 /**
@@ -59,10 +60,13 @@ public class TicketAdapter extends ArrayAdapter<Ticket> {
 
         //Declaration of Views
         TextView filmTitle = (TextView) convertView.findViewById(R.id.ticketFilmTitle);
+        TextView time = (TextView) convertView.findViewById(R.id.ticketShowDate);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy - HH:mm");
         ImageView qrCode = (ImageView) convertView.findViewById(R.id.ticketQRCode);
 
         //Filling Views with ticket info
         filmTitle.setText(film.getTitle());
+        time.setText(sdf.format(ticket.getShow().getTime()));
 
         //Filling image
         MultiFormatWriter multiFormatWriter = new MultiFormatWriter();

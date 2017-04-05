@@ -38,8 +38,10 @@
     <string name="seat_selected">Selected</string>
     <string name="seat_taken">Taken</string>
     <string name="seat_available">Available</string>
-    <string name="amount">Amount: </string>
-    <string name="seats">Seats: </string>
+    <string name="amount">Duration:</string>
+    <string name="seats">"Seat: "</string>
+    <string name="row_number">row</string>
+    <string name="seat_number">seat</string>
 
     <string name="time_tickets">Time &amp; Tickets</string>
     <string name="version">Version: </string>

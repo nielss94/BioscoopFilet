@@ -69,7 +69,7 @@ public class ReviewsActivity extends AppCompatActivity {
 
         //Setting toolbar
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        myToolbar.setTitle(R.string.review_write);
+        myToolbar.setTitle(R.string.review_title);
         setSupportActionBar(myToolbar);
 
         //initialise button
