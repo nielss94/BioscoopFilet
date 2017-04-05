@@ -77,7 +77,7 @@
     <string name="no_tickets">No tickets selected</string>
     <string name="review_title">Reviews</string>
     <string name="row_number">row</string>
-    <string name="seat_number">seat</string>\
+    <string name="seat_number">seat</string>
     <string name="noSeatAvailable">No seats available here. Please select different seats.</string>
     <string name="seatTaken">The selected seat is already taken.</string>
 =======
