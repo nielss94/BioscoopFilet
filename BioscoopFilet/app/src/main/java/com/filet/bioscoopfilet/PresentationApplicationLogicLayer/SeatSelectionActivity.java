@@ -350,18 +350,21 @@ public class SeatSelectionActivity extends AppCompatActivity {
         int freeSeats = 0;
         boolean returnValue = false;
         for (int i = 0; i < amountOfTickets; i++) {
-            Log.i(TAG,show.getSeats().charAt(i + seatNumber)+"");
-            if(show.getSeats().charAt(i + seatNumber) == '1')
+//            Log.i(TAG,show.getSeats().charAt(i + seatNumber)+"");
+            if(seatNumber + i <= 99)
             {
-                returnValue = false;
-            }
-            else if (show.getSeats().charAt(i + seatNumber) == '0')
-            {
-                freeSeats+=1;
-            }
-            if(freeSeats >= amountOfTickets)
-            {
-                returnValue= true;
+                if(show.getSeats().charAt(i + seatNumber) == '1')
+                {
+                    returnValue = false;
+                }
+                else if (show.getSeats().charAt(i + seatNumber) == '0')
+                {
+                    freeSeats+=1;
+                }
+                if(freeSeats >= amountOfTickets)
+                {
+                    returnValue= true;
+                }
             }
         }
         return returnValue;
@@ -372,18 +375,22 @@ public class SeatSelectionActivity extends AppCompatActivity {
         int freeSeats = 0;
         boolean returnValue = false;
         for (int i = 0; i < amountOfTickets; i++) {
-            if(show.getSeats().charAt(seatNumber - i) == '1')
+            if(seatNumber - i >= 0)
             {
-                returnValue = false;
+                if(show.getSeats().charAt(seatNumber - i) == '1')
+                {
+                    returnValue = false;
+                }
+                else if (show.getSeats().charAt(seatNumber - i) == '0')
+                {
+                    freeSeats+= 1;
+                }
+                if(freeSeats >= amountOfTickets)
+                {
+                    returnValue = true;
+                }
             }
-            else if (show.getSeats().charAt(seatNumber - i) == '0')
-            {
-                freeSeats+= 1;
-            }
-            if(freeSeats >= amountOfTickets)
-            {
-                returnValue = true;
-            }
+
         }
         return returnValue;
     }
