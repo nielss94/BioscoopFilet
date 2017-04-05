@@ -61,16 +61,30 @@ public class ShowAdapter extends ArrayAdapter<Show> {
         TextView version = (TextView) convertView.findViewById(R.id.listVersionId);
         TextView imdb = (TextView) convertView.findViewById(R.id.listIMDBId);
         TextView time = (TextView) convertView.findViewById(R.id.listFilmTime);
+        TextView seats = (TextView) convertView.findViewById(R.id.ticketsCount);
 
         //Declaration of ImageView
         ImageView poster = (ImageView) convertView.findViewById(R.id.listFilmImage);
 
+        int count = 0;
+        for (int i = 0; i < show.getSeats().length() ; i++) {
+            if (show.getSeats().charAt(i) == '0'){
+                count++;
+            }
+        }
+
         //Filling TextViews with show info
         title.setText(film.getTitle());
         genre.setText("Genre: " + film.getGenre());
-        age.setText("Leeftijd: " + film.getAge());
-        version.setText("Versie: " + film.getVersion());
-        imdb.setText("IMDB: " + film.getIMDBScore());
+        if (film.getAge() == 0){
+            age.setText(getContext().getResources().getString(R.string.not_yet_rated));
+        }
+        else{
+            age.setText(getContext().getResources().getString(R.string.age) + " " + film.getAge());
+        }
+        version.setText(getContext().getResources().getString(R.string.version) + " " + film.getVersion());
+        imdb.setText(getContext().getResources().getString(R.string.review) + " " + film.getIMDBScore());
+        seats.setText(getContext().getResources().getString(R.string.seats_available) + " " + count);
 
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
         time.setText(sdf.format(show.getTime()));

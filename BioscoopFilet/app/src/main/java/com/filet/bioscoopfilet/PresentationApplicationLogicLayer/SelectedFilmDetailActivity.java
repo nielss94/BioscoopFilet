@@ -146,7 +146,7 @@ public class SelectedFilmDetailActivity extends AppCompatActivity implements Tra
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu, menu);
+        inflater.inflate(R.menu.menu_review, menu);
 
         MenuItem item = menu.findItem(R.id.action_lang);
 
@@ -224,6 +224,12 @@ public class SelectedFilmDetailActivity extends AppCompatActivity implements Tra
                     }
                 });
                 popup.show();
+                return true;
+            case R.id.action_review:
+                Intent intent = new Intent(getApplicationContext(), ReviewsActivity.class);
+                intent.putExtra("FILM", film);
+                Log.i("FilmDetailAgendaActvty", film.toString());
+                startActivity(intent);
                 return true;
             default:
                 // If we got here, the user's action was not recognized.
