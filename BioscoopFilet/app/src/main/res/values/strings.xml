@@ -45,7 +45,7 @@
     <string name="version">Version: </string>
     <string name="length">Length in min: </string>
     <string name="age">Age: </string>
-    <string name="imdb">IMDB: </string>
+    <string name="imdb">"Score: "</string>
     <string name="director">Director: </string>
     <string name="release">Release: </string>
     <string name="film_detail">Film Details</string>
@@ -76,4 +76,5 @@
     <string name="not_yet_rated">Not yet rated</string>
     <string name="no_tickets">No tickets selected</string>
     <string name="review_title">Reviews</string>
+    <string name="seats_available">Seats available:</string>
 </resources>
