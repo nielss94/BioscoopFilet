@@ -148,15 +148,12 @@ public class SeatSelectionActivity extends AppCompatActivity {
 
     public boolean checkIfQRCodeExists(int qrCode)
     {
-
-
         for (int i = 0; i < tickets.size(); i++) {
             if(qrCode == tickets.get(i).getQrCode())
             {
                 return false;
             }
         }
-
         return true;
     }
 
