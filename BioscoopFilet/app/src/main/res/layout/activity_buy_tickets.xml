@@ -80,7 +80,7 @@
                             android:id="@+id/count1"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="1"
+                            android:text="0"
                             android:textColor="@android:color/black"
                             android:textSize="24dp" />
 
@@ -88,14 +88,14 @@
                             android:id="@+id/plus1"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
+                            android:onClick="plusOne"
                             android:paddingLeft="@dimen/activity_horizontal_margin"
                             android:paddingRight="@dimen/activity_horizontal_margin"
+                            android:tag="@string/normal"
                             android:text="+"
                             android:textColor="@android:color/black"
                             android:textSize="24dp"
-                            android:tag="@string/normal"
-                            android:textStyle="bold"
-                            android:onClick="plusOne" />
+                            android:textStyle="bold" />
                     </LinearLayout>
 
 
@@ -145,7 +145,7 @@
                             android:id="@+id/count2"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="2"
+                            android:text="0"
                             android:textColor="@android:color/black"
                             android:textSize="24dp" />
 
@@ -376,7 +376,7 @@
                         android:layout_height="match_parent"
                         android:text="@string/glasses"
                         android:textColor="@android:color/black"
-                        android:textSize="24dp" />
+                        android:textSize="22dp" />
 
                     <TextView
                         android:id="@+id/priceGlasses"

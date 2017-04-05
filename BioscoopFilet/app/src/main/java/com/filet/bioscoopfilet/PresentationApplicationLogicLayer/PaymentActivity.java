@@ -101,6 +101,8 @@ public class PaymentActivity extends AppCompatActivity {
         TicketDAO ticketDAO = factory.createTicketDAO();
         ShowDAO showDAO = factory.createShowDAO();
         Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        showDAO.updateData(show);
         switch(v.getTag().toString())
         {
             case "iDEAL":
