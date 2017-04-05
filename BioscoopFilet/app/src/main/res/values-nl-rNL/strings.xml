@@ -45,7 +45,7 @@
     <string name="version">Versie: </string>
     <string name="length">Lengte in min: </string>
     <string name="age">Leeftijd: </string>
-    <string name="imdb">IMDB: </string>
+    <string name="imdb">"Score: "</string>
     <string name="director">Director: </string>
     <string name="release">Release: </string>
     <string name="film_detail">Film Details</string>

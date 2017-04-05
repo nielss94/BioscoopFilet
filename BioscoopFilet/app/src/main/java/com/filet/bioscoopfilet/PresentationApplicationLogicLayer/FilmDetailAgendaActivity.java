@@ -88,7 +88,14 @@ public class FilmDetailAgendaActivity extends AppCompatActivity implements Trail
         version.setText(getResources().getString(R.string.version)  + " " + film.getVersion());
         release.setText(getResources().getString(R.string.release) + " " + film.getReleaseDate());
 //        length.setText("");
-        age.setText(getResources().getString(R.string.age) + " " + film.getAge());
+
+        if (film.getAge() == 99){
+            age.setText(getResources().getString(R.string.not_yet_rated));
+        }
+        else{
+            age.setText(getResources().getString(R.string.age) + " " + film.getAge());
+        }
+
         imdbScore.setText(getResources().getString(R.string.imdb) + " " + film.getIMDBScore());
 //        director.setText("");
 //        actors.setText("");

@@ -65,7 +65,14 @@ public class MyFilmDetailActivity extends AppCompatActivity implements TrailerAp
         title.setText(film.getTitle());
         version.setText(getResources().getString(R.string.version)  + " " + film.getVersion());
         releaseDate.setText(getResources().getString(R.string.release) + " " + film.getReleaseDate());
-        age.setText(getResources().getString(R.string.age) + " " + film.getAge());
+
+        if (film.getAge() == 99){
+            age.setText(getResources().getString(R.string.not_yet_rated));
+        }
+        else{
+            age.setText(getResources().getString(R.string.age) + " " + film.getAge());
+        }
+
         imdbScore.setText(getResources().getString(R.string.imdb) + " " + film.getIMDBScore());
 //        director.setText();
 //        actors.setText();

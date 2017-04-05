@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements FilmApiConnector.
             addTestData();
         }
 
-        String[] urls = new String[]{"https://api.themoviedb.org/3/movie/upcoming?api_key=863618e1d5c5f5cc4e34a37c49b8338e&language=nl"};
+        String[] urls = new String[]{"https://api.themoviedb.org/3/movie/upcoming?api_key=863618e1d5c5f5cc4e34a37c49b8338e&language=en"};
         getFilms = new FilmApiConnector(this);
         getFilms.execute(urls);
 
