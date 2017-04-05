@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements FilmApiConnector.
 //        testCinemaDAO();
 //        testVisitorData();
 //        testFeedbackData();
-        String[] urls = new String[]{"https://api.themoviedb.org/3/movie/upcoming?api_key=863618e1d5c5f5cc4e34a37c49b8338e&language=nl"};
+        String[] urls = new String[]{"https://api.themoviedb.org/3/movie/upcoming?api_key=863618e1d5c5f5cc4e34a37c49b8338e&language=en"};
         getFilms = new FilmApiConnector(this);
         getFilms.execute(urls);
 //        testTheaterData();
@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity implements FilmApiConnector.
                                 getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
 
                                 Intent intent = new Intent(getBaseContext(), MainActivity.class);
-                                finish();
+                                intent.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TASK );
                                 startActivity(intent);
                                 return true;
 
@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity implements FilmApiConnector.
                                 getBaseContext().getResources().updateConfiguration(config2, getBaseContext().getResources().getDisplayMetrics());
 
                                 Intent intent2 = new Intent(getBaseContext(), MainActivity.class);
-                                finish();
+                                intent2.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TASK );
                                 startActivity(intent2);
                                 return true;
 
@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity implements FilmApiConnector.
                                 getBaseContext().getResources().updateConfiguration(config3, getBaseContext().getResources().getDisplayMetrics());
 
                                 Intent intent3 = new Intent(getBaseContext(), MainActivity.class);
-                                finish();
+                                intent3.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TASK );
                                 startActivity(intent3);
                                 return true;
                             default:
