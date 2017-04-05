@@ -29,6 +29,7 @@ public class BuyTicketsActivity extends AppCompatActivity {
 
     private String language;
     private SharedPreferences languagepref;
+    Show show;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,8 @@ public class BuyTicketsActivity extends AppCompatActivity {
         myToolbar.setTitle(R.string.buy_tickets);
         setSupportActionBar(myToolbar);
 
+        show = (Show) getIntent().getSerializableExtra("SHOW");
+
         totalPriceView = (TextView)findViewById(R.id.totalPrice);
         totalPrice = calculatePrice();
 
@@ -49,13 +52,17 @@ public class BuyTicketsActivity extends AppCompatActivity {
 
     public void seatButton(View v) {
 
+        int availableSeats = findMaxAvailableSeats();
+
         if (amountOfTickets == 0){
             Toast.makeText(this, getResources().getString(R.string.no_tickets), Toast.LENGTH_SHORT).show();
         }
+        else if(amountOfTickets > availableSeats)
+        {
+            Toast.makeText(this, getResources().getString(R.string.tooManyTickets), Toast.LENGTH_SHORT).show();
+        }
         else {
             Intent intent = new Intent(this, SeatSelectionActivity.class);
-
-            Show show = (Show) getIntent().getSerializableExtra("SHOW");
 
             intent.putExtra("amountOfTickets", amountOfTickets);
             intent.putExtra("totalPrice", totalPrice);
@@ -63,6 +70,27 @@ public class BuyTicketsActivity extends AppCompatActivity {
 
             startActivity(intent);
         }
+    }
+
+    public int findMaxAvailableSeats()
+    {
+        int maxAvailableSeats = 0;
+        int counter = 0;
+        for (int i = 0; i < show.getSeats().length(); i++) {
+            if(show.getSeats().charAt(i) == '0')
+            {
+                counter++;
+            }
+            else if(show.getSeats().charAt(i) == '1')
+            {
+                if(counter > maxAvailableSeats)
+                {
+                    maxAvailableSeats = counter;
+                }
+                counter = 0;
+            }
+        }
+        return maxAvailableSeats;
     }
 
     @Override

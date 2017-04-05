@@ -85,5 +85,6 @@
     <string name="age_ascending">Age ascending</string>
     <string name="score_descending">Score descending</string>
     <string name="score_ascending">Score ascending</string>
->>>>>>> Stashed changes
+    <string name="tooManyTickets">Too many tickets chosen. There aren\'t so many available seats.</string>
+    >>>>>>> Stashed changes
 </resources>

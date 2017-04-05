@@ -85,5 +85,6 @@
     <string name="age_ascending">Leeftijd oplopend</string>
     <string name="score_descending">Score aflopend</string>
     <string name="score_ascending">Score oplopend</string>
->>>>>>> Stashed changes
+    <string name="tooManyTickets">Teveel tickets gekozen. Er zijn niet genoeg beschikbare stoelen.</string>
+    >>>>>>> Stashed changes
 </resources>
