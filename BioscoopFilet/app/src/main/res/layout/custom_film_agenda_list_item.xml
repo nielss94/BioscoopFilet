@@ -58,15 +58,33 @@
                         android:id="@+id/listFilmTime" />
                 </RelativeLayout>
 
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginBottom="5dp"
-                    android:textSize="12dp"
-                    android:text="Age rating: 16"
-                    android:id="@+id/listAgeId" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="5dp"
+                        android:textSize="12dp"
+                        android:text="Age rating: 16"
+                        android:id="@+id/listAgeId" />
+
+
+                    <TextView
+                        android:layout_alignParentEnd="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="5dp"
+                        android:textSize="12dp"
+                        android:text="IMDB: 8.8"
+                        android:id="@+id/listIMDBId" />
+
+
+                </RelativeLayout>
+
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -81,14 +99,15 @@
                     android:id="@+id/listVersionId" />
 
                 <TextView
-                    android:layout_alignParentEnd="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/ticketsCount"
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="5dp"
                     android:textSize="12dp"
-                    android:text="IMDB: 8.8"
-                    android:id="@+id/listIMDBId" />
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Stoelen vrij: "
+                    />
             </RelativeLayout>
 
 

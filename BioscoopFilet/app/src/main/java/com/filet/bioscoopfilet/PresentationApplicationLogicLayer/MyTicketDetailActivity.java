@@ -27,6 +27,7 @@ import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -54,27 +55,38 @@ public class MyTicketDetailActivity extends AppCompatActivity {
         films = filmDAO.selectData();
         Film film = null;
         for (int i = 0; i < films.size(); i++) {
-            if(films.get(i).getFilmAPIID() == ticket.getShow().getFilmAPIID())
-            {
+            if (films.get(i).getFilmAPIID() == ticket.getShow().getFilmAPIID()) {
                 film = films.get(i);
             }
         }
 
         //initialise xml elements
         TextView title = (TextView) findViewById(R.id.ticketDetailFilmTitle);
+        TextView time = (TextView) findViewById(R.id.ticketDetailTime);
         TextView amount = (TextView) findViewById(R.id.ticketDetailTicketAmount);
         TextView seats = (TextView) findViewById(R.id.ticketDetailSeats);
         ImageView qrCode = (ImageView) findViewById(R.id.ticketDetailQRCode);
 
+        //Convert seat number to row + seat number
+        int seat = ticket.getSeat() + 1;
+        int row = 1;
+        while (seat > 10) {
+            seat = seat - 10;
+            row++;
+        }
+
         //fill xml elements with intent extras
         title.setText(film.getTitle());
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy - HH:mm");
+        time.setText(sdf.format(ticket.getShow().getTime()));
         amount.setText(getString(R.string.amount) + " " + film.getLength() + " min.");
-        seats.setText(getString(R.string.seats) + " " + ticket.getSeat());
+        seats.setText(getString(R.string.seats) + getString(R.string.row_number) + " " + row
+                + ", " + getString(R.string.seat_number) + " " + seat);
 
-        //generate qrCode
+        //Generate qrCode
         MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
         try {
-            BitMatrix bitMatrix = multiFormatWriter.encode(ticket.getQrCode()+"", BarcodeFormat.QR_CODE, 800, 800);
+            BitMatrix bitMatrix = multiFormatWriter.encode(ticket.getQrCode() + "", BarcodeFormat.QR_CODE, 800, 800);
             BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
             Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
             qrCode.setImageBitmap(bitmap);
@@ -82,19 +94,19 @@ public class MyTicketDetailActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        languagepref = getSharedPreferences("language",MODE_PRIVATE);
+        languagepref = getSharedPreferences("language", MODE_PRIVATE);
         language = languagepref.getString("languageToLoad", Locale.getDefault().toString());
     }
 
     @Override
-    public void onResume(){
+    public void onResume() {
         super.onResume();
 
         String oldLanguage = language;
 
         language = languagepref.getString("languageToLoad", Locale.getDefault().toString());
 
-        if (!oldLanguage.equals(language)){
+        if (!oldLanguage.equals(language)) {
             finish();
             startActivity(getIntent());
         }
@@ -108,13 +120,13 @@ public class MyTicketDetailActivity extends AppCompatActivity {
         MenuItem item = menu.findItem(R.id.action_lang);
 
         Log.i("Taal", Locale.getDefault().toString());
-        if (Locale.getDefault().toString().equalsIgnoreCase("en_us")){
+        if (Locale.getDefault().toString().equalsIgnoreCase("en_us")) {
             item.setIcon(R.drawable.united_states);
         }
-        if (Locale.getDefault().toString().equalsIgnoreCase("en_gb")){
+        if (Locale.getDefault().toString().equalsIgnoreCase("en_gb")) {
             item.setIcon(R.drawable.united_kingdom);
         }
-        if (Locale.getDefault().toString().equalsIgnoreCase("nl_nl")){
+        if (Locale.getDefault().toString().equalsIgnoreCase("nl_nl")) {
             item.setIcon(R.drawable.netherlands);
         }
 
@@ -141,8 +153,8 @@ public class MyTicketDetailActivity extends AppCompatActivity {
                                 getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
 
                                 Intent intent = getIntent();
-                                intent.addFlags( Intent.FLAG_ACTIVITY_NO_ANIMATION );
-                                intent.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP );
+                                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(intent);
                                 return true;
 
@@ -155,8 +167,8 @@ public class MyTicketDetailActivity extends AppCompatActivity {
                                 getBaseContext().getResources().updateConfiguration(config2, getBaseContext().getResources().getDisplayMetrics());
 
                                 Intent intent2 = getIntent();
-                                intent2.addFlags( Intent.FLAG_ACTIVITY_NO_ANIMATION );
-                                intent2.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP );
+                                intent2.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                                intent2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(intent2);
                                 return true;
 
@@ -169,8 +181,8 @@ public class MyTicketDetailActivity extends AppCompatActivity {
                                 getBaseContext().getResources().updateConfiguration(config3, getBaseContext().getResources().getDisplayMetrics());
 
                                 Intent intent3 = getIntent();
-                                intent3.addFlags( Intent.FLAG_ACTIVITY_NO_ANIMATION );
-                                intent3.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP );
+                                intent3.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                                intent3.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(intent3);
                                 return true;
                             default:

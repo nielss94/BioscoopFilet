@@ -32,27 +32,30 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/activity_horizontal_margin"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="80dp"
                     android:layout_height="match_parent"
-                    android:gravity="center"
+                    android:gravity="center_vertical"
                     android:text="@string/name"
-                    android:textColor="@android:color/black" />
+                    android:padding="@dimen/activity_half_margin"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
 
                 <EditText
-                    android:paddingLeft="2dp"
                     android:id="@+id/feedbackName"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:backgroundTint="@color/colorPrimary"
                     android:background="@color/colorPrimary"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:padding="@dimen/activity_half_margin"
+                    android:maxLength="50"
                     android:textCursorDrawable="@drawable/yellow_cursor"
-                    android:textSize="24dp"/>
+                    android:textSize="16sp" />
 
 
             </LinearLayout>
@@ -72,22 +75,26 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="80dp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center"
+                    android:gravity="center_vertical"
                     android:text="@string/feedback_write"
-                    android:textColor="@android:color/black" />
+                    android:padding="@dimen/activity_half_margin"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
 
                 <EditText
                     android:id="@+id/feedback"
                     android:layout_width="match_parent"
                     android:layout_height="230dp"
-                    android:layout_gravity="center"
+                    android:layout_gravity="center_vertical"
                     android:background="@color/colorPrimary"
                     android:backgroundTint="@color/colorPrimary"
                     android:gravity="top|left"
+                    android:maxLength="500"
+                    android:padding="@dimen/activity_half_margin"
                     android:textCursorDrawable="@drawable/yellow_cursor"
-                    android:textSize="24dp" />
+                    android:textSize="16sp" />
 
 
             </LinearLayout>
@@ -95,9 +102,9 @@
 
 
         <Button
+            android:id="@+id/sendFeedback"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/sendFeedback"
             android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:background="@color/colorPrimaryDark"
             android:gravity="center"

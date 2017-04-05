@@ -23,66 +23,74 @@
         android:orientation="vertical">
 
         <RelativeLayout
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:id="@+id/relative"
             android:layout_width="match_parent"
+            android:layout_height="360dp">
+
+                <ImageView
+                    android:id="@+id/ticketDetailQRCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/ic_qrcode_placeholder" />
+
+            </RelativeLayout>
+
+
+        <ScrollView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_marginBottom="@dimen/activity_horizontal_margin"
-                android:layout_marginTop="@dimen/activity_horizontal_margin">
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_weight="1"
+                android:paddingBottom="@dimen/activity_horizontal_margin">
 
-                <ImageView
-                    android:id="@+id/ticketDetailQRCode"
+                <TextView
+                    android:id="@+id/ticketDetailFilmTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:src="@drawable/ic_qrcode_placeholder" />
+                    android:text="Harry Potter en de informaticus der wijzen"
+                    android:textColor="#fff"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/ticketDetailTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ticketDetailFilmTitle"
+                    android:text="10.00u"
+                    android:textColor="#fff"
+                    android:paddingBottom="@dimen/activity_half_margin"/>
+
+                <TextView
+                    android:id="@+id/ticketDetailTicketAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ticketDetailTime"
+                    android:text="Duur: 4"
+                    android:textColor="#fff" />
+
+                <TextView
+                    android:id="@+id/ticketDetailSeats"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ticketDetailTicketAmount"
+                    android:text="Plaatsen: Rij 1 Stoel 1, 2, 3, 4"
+                    android:textColor="#fff" />
 
             </RelativeLayout>
 
-        </RelativeLayout>
+        </ScrollView>
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/activity_horizontal_margin"
-            android:layout_marginEnd="@dimen/activity_horizontal_margin"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:layout_marginStart="@dimen/activity_horizontal_margin"
-            android:layout_weight="1">
-
-            <TextView
-                android:id="@+id/ticketDetailFilmTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/activity_half_margin"
-                android:text="Harry Potter en de informaticus der wijzen"
-                android:textColor="#fff"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/ticketDetailTicketAmount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/ticketDetailFilmTitle"
-                android:text="Aantal: 4"
-                android:textColor="#fff"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/ticketDetailSeats"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/ticketDetailTicketAmount"
-                android:text="Plaatsen: Rij 1 Stoel 1, 2, 3, 4"
-                android:textColor="#fff"
-                android:textSize="16sp" />
-
-        </RelativeLayout>
     </LinearLayout>
+
 </LinearLayout>

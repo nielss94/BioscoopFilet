@@ -3,6 +3,7 @@ package com.filet.bioscoopfilet.PresentationApplicationLogicLayer;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.PopupMenu;
@@ -145,7 +146,7 @@ public class SelectedFilmDetailActivity extends AppCompatActivity implements Tra
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu, menu);
+        inflater.inflate(R.menu.menu_review, menu);
 
         MenuItem item = menu.findItem(R.id.action_lang);
 
@@ -224,6 +225,12 @@ public class SelectedFilmDetailActivity extends AppCompatActivity implements Tra
                 });
                 popup.show();
                 return true;
+            case R.id.action_review:
+                Intent intent = new Intent(getApplicationContext(), ReviewsActivity.class);
+                intent.putExtra("FILM", film);
+                Log.i("FilmDetailAgendaActvty", film.toString());
+                startActivity(intent);
+                return true;
             default:
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
@@ -253,5 +260,10 @@ public class SelectedFilmDetailActivity extends AppCompatActivity implements Tra
     public void runtimeAvailable(String runtime) {
         film.setLength(Integer.parseInt(runtime));
         length.setText(runtime + " " + getResources().getString(R.string.minutes));
+    }
+
+    public void trailerButton(View v) {
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(film.getTrailerURL()));
+        startActivity(intent);
     }
 }

@@ -61,7 +61,7 @@ public class FilmAdapter extends ArrayAdapter<Film>  {
             age.setText(ageText + " " + film.getAge());
         }
         version.setText(versionText + " " +film.getVersion());
-        imdb.setText("IMDB: " + film.getIMDBScore());
+        imdb.setText(getContext().getResources().getString(R.string.review)+ " " + film.getIMDBScore());
 
         //Filling image (FOR DEMO)
         Picasso.with(getContext()).load(film.getPosterURL()).into(poster);

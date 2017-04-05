@@ -54,7 +54,7 @@ public class WriteReviewActivity extends AppCompatActivity implements View.OnCli
 
         //Setting toolbar
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        myToolbar.setTitle(R.string.film_detail);
+        myToolbar.setTitle(R.string.writeReview);
         setSupportActionBar(myToolbar);
 
         //Get intent extras

@@ -69,7 +69,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="2dp"
-                    android:text="Length: 123 min."
+                    android:text=""
                     android:textSize="10dp" />
 
                 <TextView
@@ -87,6 +87,13 @@
                     android:layout_marginBottom="2dp"
                     android:text="IMDB: 8.8"
                     android:textSize="10dp" />
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_action_youtube"
+                    android:translationX="-4dp"
+                    android:onClick="trailerButton"/>
 
             </LinearLayout>
 

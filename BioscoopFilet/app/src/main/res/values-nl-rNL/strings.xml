@@ -23,8 +23,8 @@
     <string name="name">Naam:</string>
     <string name="feedback_write">Feedback:</string>
     <string name="review">Score:</string>
-    <string name="review_write">Review:</string>
-    <string name="writeReview">Schrijf een review</string>
+    <string name="review_write">Recensie:</string>
+    <string name="writeReview">Schrijf een recensie</string>
     <string name="contact">Contact</string>
     <string name="contact_info">Wij zijn te vinden in aan het Cor Kieboomplein 501 in Rotterdam, postcode 3077 MK. Mocht u nog vragen hebben kunt u ons mailen (helpdesk@filet.nl) of telefonisch contact opnemen. (010-1234567)</string>
     <string name="select_seats">Selecteer stoelen</string>
@@ -38,8 +38,8 @@
     <string name="seat_selected">Geselecteerd</string>
     <string name="seat_taken">Bezet</string>
     <string name="seat_available">Beschikbaar</string>
-    <string name="amount">Aantal: </string>
-    <string name="seats">Plaatsen: </string>
+    <string name="amount">"Duur: "</string>
+    <string name="seats">"Plaats: "</string>
 
     <string name="time_tickets">Tijden &amp; Tickets</string>
     <string name="version">Versie: </string>
@@ -74,7 +74,7 @@
 
 
     <string name="not_yet_rated">Nog niet beoordeeld</string>
-    <string name="seatTaken">De geselecteerde stoel is al bezet.</string>
-    <string name="noSeatAvailable">Er zijn hier geen stoelen beschikbaar. Selecteer andere stoelen.</string>
-    <string name="no_tickets">Geen tickets geselecteerd</string>
+    <string name="review_title">Recensie</string>
+    <string name="row_number">rij</string>
+    <string name="seat_number">stoel</string>
 </resources>
