@@ -11,31 +11,50 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/ThemeFilet">
-        <activity android:name=".PresentationApplicationLogicLayer.MainActivity">
+        <activity android:name=".PresentationApplicationLogicLayer.MainActivity"
+            android:screenOrientation="sensorPortrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PresentationApplicationLogicLayer.InformationActivity" />
-        <activity android:name=".PresentationApplicationLogicLayer.PTActivity" />
-        <activity android:name=".PresentationApplicationLogicLayer.FeedbackActivity" />
-        <activity android:name=".PresentationApplicationLogicLayer.ContactActivity" />
-        <activity android:name=".PresentationApplicationLogicLayer.ReviewsActivity" />
-        <activity android:name=".PresentationApplicationLogicLayer.FilmOverviewActivity" />
-        <activity android:name=".PresentationApplicationLogicLayer.FilmAgendaActivity" />
-        <activity android:name=".PresentationApplicationLogicLayer.PaymentActivity" />
-        <activity android:name=".PresentationApplicationLogicLayer.MyFiletActivity" />
-        <activity android:name=".PresentationApplicationLogicLayer.MyTicketActivity" />
-        <activity android:name=".PresentationApplicationLogicLayer.MyTicketDetailActivity" />
-        <activity android:name=".PresentationApplicationLogicLayer.MyFilmActivity" />
-        <activity android:name=".PresentationApplicationLogicLayer.MyFilmDetailActivity" />
-        <activity android:name=".PresentationApplicationLogicLayer.BuyTicketsActivity" />
-        <activity android:name=".PresentationApplicationLogicLayer.SeatSelectionActivity" />
-        <activity android:name=".PresentationApplicationLogicLayer.FilmDetailAgendaActivity" />
-        <activity android:name=".PresentationApplicationLogicLayer.WriteReviewActivity" />
-        <activity android:name=".PresentationApplicationLogicLayer.SelectedFilmDetailActivity"></activity>
+        <activity android:name=".PresentationApplicationLogicLayer.InformationActivity"
+            android:screenOrientation="sensorPortrait"/>
+        <activity android:name=".PresentationApplicationLogicLayer.PTActivity"
+            android:screenOrientation="sensorPortrait"/>
+        <activity android:name=".PresentationApplicationLogicLayer.FeedbackActivity"
+            android:screenOrientation="sensorPortrait"/>
+        <activity android:name=".PresentationApplicationLogicLayer.ContactActivity"
+            android:screenOrientation="sensorPortrait"/>
+        <activity android:name=".PresentationApplicationLogicLayer.ReviewsActivity"
+            android:screenOrientation="sensorPortrait"/>
+        <activity android:name=".PresentationApplicationLogicLayer.FilmOverviewActivity"
+            android:screenOrientation="sensorPortrait"/>
+        <activity android:name=".PresentationApplicationLogicLayer.FilmAgendaActivity"
+            android:screenOrientation="sensorPortrait"/>
+        <activity android:name=".PresentationApplicationLogicLayer.PaymentActivity"
+            android:screenOrientation="sensorPortrait"/>
+        <activity android:name=".PresentationApplicationLogicLayer.MyFiletActivity"
+            android:screenOrientation="sensorPortrait"/>
+        <activity android:name=".PresentationApplicationLogicLayer.MyTicketActivity"
+            android:screenOrientation="sensorPortrait"/>
+        <activity android:name=".PresentationApplicationLogicLayer.MyTicketDetailActivity"
+            android:screenOrientation="sensorPortrait"/>
+        <activity android:name=".PresentationApplicationLogicLayer.MyFilmActivity"
+            android:screenOrientation="sensorPortrait"/>
+        <activity android:name=".PresentationApplicationLogicLayer.MyFilmDetailActivity"
+            android:screenOrientation="sensorPortrait"/>
+        <activity android:name=".PresentationApplicationLogicLayer.BuyTicketsActivity"
+            android:screenOrientation="sensorPortrait"/>
+        <activity android:name=".PresentationApplicationLogicLayer.SeatSelectionActivity"
+            android:screenOrientation="sensorPortrait"/>
+        <activity android:name=".PresentationApplicationLogicLayer.FilmDetailAgendaActivity"
+            android:screenOrientation="sensorPortrait"/>
+        <activity android:name=".PresentationApplicationLogicLayer.WriteReviewActivity"
+            android:screenOrientation="sensorPortrait"/>
+        <activity android:name=".PresentationApplicationLogicLayer.SelectedFilmDetailActivity"
+            android:screenOrientation="sensorPortrait"></activity>
     </application>
 
 </manifest>
