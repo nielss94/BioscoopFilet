@@ -39,9 +39,12 @@
                 <TextView
                     android:layout_width="80dp"
                     android:layout_height="match_parent"
-                    android:gravity="center"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/activity_half_margin"
+                    android:paddingStart="@dimen/activity_half_margin"
                     android:text="@string/name"
-                    android:textColor="@android:color/black" />
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
 
                 <EditText
                     android:id="@+id/reviewName"
@@ -50,8 +53,14 @@
                     android:layout_gravity="center"
                     android:background="@color/colorPrimary"
                     android:backgroundTint="@color/colorPrimary"
-                    android:paddingLeft="2dp"
-                    android:textCursorDrawable="@drawable/yellow_cursor" />
+                    android:maxLength="50"
+                    android:maxLines="1"
+                    android:paddingEnd="@dimen/activity_half_margin"
+                    android:paddingLeft="@dimen/activity_half_margin"
+                    android:paddingRight="@dimen/activity_half_margin"
+                    android:paddingStart="@dimen/activity_half_margin"
+                    android:textCursorDrawable="@drawable/yellow_cursor"
+                    android:textSize="16sp" />
 
 
             </LinearLayout>
@@ -73,9 +82,12 @@
                 <TextView
                     android:layout_width="80dp"
                     android:layout_height="match_parent"
-                    android:gravity="center"
+                    android:gravity="center_vertical"
                     android:text="@string/review"
-                    android:textColor="@android:color/black" />
+                    android:paddingLeft="@dimen/activity_half_margin"
+                    android:paddingStart="@dimen/activity_half_margin"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
 
                 <ImageView
                     android:id="@+id/reviewStar1"
@@ -137,9 +149,11 @@
                 <TextView
                     android:layout_width="80dp"
                     android:layout_height="match_parent"
-                    android:gravity="center"
+                    android:gravity="center_vertical"
                     android:text="@string/review_write"
-                    android:textColor="@android:color/black" />
+                    android:textColor="@android:color/black"
+                    android:padding="@dimen/activity_half_margin"
+                    android:textSize="16sp" />
 
                 <EditText
                     android:id="@+id/review"
@@ -149,7 +163,10 @@
                     android:background="@color/colorPrimary"
                     android:backgroundTint="@color/colorPrimary"
                     android:gravity="top|left"
-                    android:textCursorDrawable="@drawable/yellow_cursor" />
+                    android:maxLength="500"
+                    android:padding="@dimen/activity_half_margin"
+                    android:textCursorDrawable="@drawable/yellow_cursor"
+                    android:textSize="16sp" />
 
 
             </LinearLayout>
