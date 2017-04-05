@@ -65,7 +65,43 @@ public class FilmAgendaActivity extends AppCompatActivity implements AdapterView
         ShowDAO showDAO = factory.createShowDAO();
         shows = showDAO.selectData();
 
-        delay(3000);
+        //Setting adapter
+        showAdapter = new ShowAdapter(this, selectedShows);
+
+        //Declaration of ListView
+        showList = (ListView) findViewById(R.id.filmListView);
+        showList.setOnItemClickListener(this);
+        showList.setAdapter(showAdapter);
+
+        //Must go in listener
+        findViewById(R.id.loadingPanel).setVisibility(View.GONE);
+
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                selectedShows.clear();
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                for (int i = 0; i < shows.size(); i++) {
+                    Log.i(TAG, spinner.getSelectedItem().toString() + " and " + sdf.format(shows.get(i).getTime()));
+
+                    if(spinner.getSelectedItem().toString().equals(sdf.format(shows.get(i).getTime())))
+                    {
+                        selectedShows.add(shows.get(i));
+                    }
+                }
+                showAdapter.notifyDataSetChanged();
+                for (int i = 0; i < selectedShows.size(); i++) {
+                    Log.i(TAG, "Selected shows:" +selectedShows.get(i).toString());
+                }
+
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         languagepref = getSharedPreferences("language", MODE_PRIVATE);
         language = languagepref.getString("languageToLoad", Locale.getDefault().toString());
@@ -180,54 +216,5 @@ public class FilmAgendaActivity extends AppCompatActivity implements AdapterView
         Intent intent = new Intent(getApplicationContext(), SelectedFilmDetailActivity.class);
         intent.putExtra("SHOW", show);
         startActivity(intent);
-    }
-
-    private void delay(int delay) {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                everything();
-            }
-        }, delay);
-    }
-
-    public void everything(){
-        //Setting adapter
-        showAdapter = new ShowAdapter(this, selectedShows);
-
-        //Declaration of ListView
-        showList = (ListView) findViewById(R.id.filmListView);
-        showList.setOnItemClickListener(this);
-        showList.setAdapter(showAdapter);
-
-        //Must go in listener
-        findViewById(R.id.loadingPanel).setVisibility(View.GONE);
-
-
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                selectedShows.clear();
-                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-                for (int i = 0; i < shows.size(); i++) {
-                    Log.i(TAG, spinner.getSelectedItem().toString() + " and " + sdf.format(shows.get(i).getTime()));
-
-                    if(spinner.getSelectedItem().toString().equals(sdf.format(shows.get(i).getTime())))
-                    {
-                        selectedShows.add(shows.get(i));
-                    }
-                }
-                showAdapter.notifyDataSetChanged();
-                for (int i = 0; i < selectedShows.size(); i++) {
-                    Log.i(TAG, "Selected shows:" +selectedShows.get(i).toString());
-                }
-
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
     }
 }

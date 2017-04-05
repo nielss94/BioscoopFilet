@@ -140,7 +140,7 @@ public class MyTicketDetailActivity extends AppCompatActivity {
                                 config.locale = locale;
                                 getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
 
-                                Intent intent = new Intent(getBaseContext(), MyFiletActivity.class);
+                                Intent intent = getIntent();
                                 intent.addFlags( Intent.FLAG_ACTIVITY_NO_ANIMATION );
                                 intent.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP );
                                 startActivity(intent);
@@ -154,7 +154,7 @@ public class MyTicketDetailActivity extends AppCompatActivity {
                                 config2.locale = locale2;
                                 getBaseContext().getResources().updateConfiguration(config2, getBaseContext().getResources().getDisplayMetrics());
 
-                                Intent intent2 = new Intent(getBaseContext(), MyFiletActivity.class);
+                                Intent intent2 = getIntent();
                                 intent2.addFlags( Intent.FLAG_ACTIVITY_NO_ANIMATION );
                                 intent2.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP );
                                 startActivity(intent2);
@@ -168,7 +168,7 @@ public class MyTicketDetailActivity extends AppCompatActivity {
                                 config3.locale = locale3;
                                 getBaseContext().getResources().updateConfiguration(config3, getBaseContext().getResources().getDisplayMetrics());
 
-                                Intent intent3 = new Intent(getBaseContext(), MyFiletActivity.class);
+                                Intent intent3 = getIntent();
                                 intent3.addFlags( Intent.FLAG_ACTIVITY_NO_ANIMATION );
                                 intent3.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP );
                                 startActivity(intent3);

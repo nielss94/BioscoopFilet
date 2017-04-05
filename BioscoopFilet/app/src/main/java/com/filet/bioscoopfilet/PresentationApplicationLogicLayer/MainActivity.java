@@ -433,12 +433,6 @@ public class MainActivity extends AppCompatActivity implements FilmApiConnector.
 //        testReviewData();
 //        testActorDAO();
 
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
             findViewById(R.id.splashScreen).setVisibility(View.GONE);
             findViewById(R.id.LinearLayout).setVisibility(View.VISIBLE);
         }
