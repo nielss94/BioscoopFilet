@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.filet.bioscoopfilet.DomainModel.Actor;
 import com.filet.bioscoopfilet.DomainModel.Film;
@@ -46,6 +47,7 @@ public class SelectedFilmDetailActivity extends AppCompatActivity implements Tra
     ImageView poster;
 
     Film film;
+    Show show;
     private DAOFactory factory;
     private ArrayList<Film> films = new ArrayList<>();
 
@@ -62,7 +64,7 @@ public class SelectedFilmDetailActivity extends AppCompatActivity implements Tra
         setSupportActionBar(myToolbar);
 
         //Getting film given by FilmOverviewActivity
-        Show show = (Show) getIntent().getSerializableExtra("SHOW");
+        show = (Show) getIntent().getSerializableExtra("SHOW");
         Log.i(TAG,show.toString());
         factory = new SQLiteDAOFactory(getApplicationContext());
         FilmDAO filmDAO = factory.createFilmDAO();
@@ -74,6 +76,8 @@ public class SelectedFilmDetailActivity extends AppCompatActivity implements Tra
                 film = films.get(i);
             }
         }
+
+
 
         TrailerApiConnector getTrailer = new TrailerApiConnector(this);
         getTrailer.execute("https://api.themoviedb.org/3/movie/"+film.getFilmAPIID()+"/videos?api_key=863618e1d5c5f5cc4e34a37c49b8338e&language=en_US");
@@ -102,6 +106,7 @@ public class SelectedFilmDetailActivity extends AppCompatActivity implements Tra
         //Declaration of ImageView
         poster = (ImageView) findViewById(R.id.posterImageDetailedId);
 
+
         //Setting film info in TextViews
         title.setText(film.getTitle());
         version.setText(getResources().getString(R.string.version)  + " " + film.getVersion());
@@ -129,11 +134,29 @@ public class SelectedFilmDetailActivity extends AppCompatActivity implements Tra
     }
 
     public void buyButton(View v) {
-        Show show = (Show) getIntent().getSerializableExtra("SHOW");
 
-        Intent intent = new Intent(getApplicationContext(), BuyTicketsActivity.class);
-        intent.putExtra("SHOW", show);
-        startActivity(intent);
+        if(checkAvailableSeats() <= 0)
+        {
+            Toast.makeText(this, getResources().getString(R.string.noSeatAvailable), Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            Intent intent = new Intent(getApplicationContext(), BuyTicketsActivity.class);
+            intent.putExtra("SHOW", show);
+            startActivity(intent);
+        }
+    }
+
+    public int checkAvailableSeats()
+    {
+        int seats = 0;
+        for (int i = 0; i < show.getSeats().length(); i++) {
+            if(show.getSeats().charAt(i) == '0')
+            {
+                seats++;
+            }
+        }
+        return seats;
     }
 
     @Override
