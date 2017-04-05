@@ -89,7 +89,6 @@ public class MainActivity extends AppCompatActivity implements FilmApiConnector.
 
         language = languagepref.getString("languageToLoad", Locale.getDefault().toString());
 
-
         if (!oldLanguage.equals(language)) {
             finish();
             startActivity(getIntent());

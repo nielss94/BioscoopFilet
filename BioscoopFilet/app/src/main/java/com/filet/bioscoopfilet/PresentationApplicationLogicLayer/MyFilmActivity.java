@@ -17,9 +17,11 @@ import android.widget.ListView;
 
 import com.filet.bioscoopfilet.DomainModel.Cinema;
 import com.filet.bioscoopfilet.DomainModel.Film;
+import com.filet.bioscoopfilet.DomainModel.Show;
 import com.filet.bioscoopfilet.Persistancy.DAOFactory;
 import com.filet.bioscoopfilet.Persistancy.FilmDAO;
 import com.filet.bioscoopfilet.Persistancy.SQLiteDAOFactory;
+import com.filet.bioscoopfilet.Persistancy.ShowDAO;
 import com.filet.bioscoopfilet.R;
 
 import java.util.ArrayList;
@@ -30,7 +32,9 @@ public class MyFilmActivity extends AppCompatActivity implements AdapterView.OnI
     private DAOFactory factory;
     private final String TAG = getClass().getSimpleName();
 
-    private ArrayList<Film> films = new ArrayList<>();
+    private ArrayList<Film> allFilms = new ArrayList<>();
+    private ArrayList<Film> myFilms = new ArrayList<>();
+    private ArrayList<Show> shows = new ArrayList<>();
     ListView filmList;
     private FilmAdapter filmAdapter;
 
@@ -50,14 +54,28 @@ public class MyFilmActivity extends AppCompatActivity implements AdapterView.OnI
         //Get film information from DB
         factory = new SQLiteDAOFactory(getApplicationContext());
         FilmDAO filmDAO = factory.createFilmDAO();
-        films = filmDAO.selectData();
+        allFilms = filmDAO.selectData();
+        //Get show information from DB
+        ShowDAO showDAO = factory.createShowDAO();
+        shows = showDAO.selectData();
+
+        //Check if the film is a film that the user has watched
+        for (int i = 0; i < allFilms.size(); i++) {
+            Log.i("MYFILMS", allFilms.get(i).getFilmAPIID() + " && " +  shows.get(i).getFilmAPIID());
+            Log.i("MYFILMS", "--------------------------------------------------------------------");
+            if (allFilms.get(i).getFilmAPIID() == shows.get(i).getFilmAPIID()) {
+                myFilms.add(allFilms.get(i));
+                Log.i(TAG, myFilms.size() + "");
+                Log.i(TAG, myFilms.get(i).toString());
+            }
+        }
 
         Cinema cinema = new Cinema(1, null, null, null, null, null);
 
         //Setting adapter
-        filmAdapter = new FilmAdapter(this, films);
+        filmAdapter = new FilmAdapter(this, myFilms);
 
-        Log.i(TAG, films.size() + "");
+        Log.i(TAG, allFilms.size() + "");
 
         //Declaration of ListView
         filmList = (ListView) findViewById(R.id.filmListView);
@@ -173,7 +191,7 @@ public class MyFilmActivity extends AppCompatActivity implements AdapterView.OnI
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-        Film film = films.get(position);
+        Film film = allFilms.get(position);
 
         Intent intent = new Intent(getApplicationContext(), MyFilmDetailActivity.class);
         intent.putExtra("FILM", film);
