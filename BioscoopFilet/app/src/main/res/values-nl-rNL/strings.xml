@@ -77,4 +77,7 @@
     <string name="review_title">Recensie</string>
     <string name="row_number">rij</string>
     <string name="seat_number">stoel</string>
+    <string name="noSeatAvailable">Geen stoelen beschikbaar. Selecteer andere stoelen.</string>
+    <string name="no_tickets">Geen tickets geselecteerd</string>
+    <string name="seatTaken">De geselecteerde stoel is al bezet.</string>
 </resources>
