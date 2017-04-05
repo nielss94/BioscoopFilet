@@ -138,7 +138,6 @@ public class ActorApiConnector extends AsyncTask<String, Void, String> {
 
     //Callback interface
     public interface ActorAvailable {
-        ;
 
         void actorAvailable(ArrayList<Actor> actors);
     }

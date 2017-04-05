@@ -134,7 +134,6 @@ public class DirectorApiConnector extends AsyncTask<String, Void, String> {
 
     //Callback interface
     public interface DirectorAvailable {
-        ;
 
         void directorAvailable(String director);
     }

@@ -107,10 +107,10 @@ public class WriteReviewActivity extends AppCompatActivity implements View.OnCli
         if (Locale.getDefault().toString().equalsIgnoreCase("en_us")) {
             item.setIcon(R.drawable.united_states);
         }
-        if (Locale.getDefault().toString().equalsIgnoreCase("en_gb")) {
+        else if (Locale.getDefault().toString().equalsIgnoreCase("en_gb")) {
             item.setIcon(R.drawable.united_kingdom);
         }
-        if (Locale.getDefault().toString().equalsIgnoreCase("nl_nl")) {
+        else if (Locale.getDefault().toString().equalsIgnoreCase("nl_nl")) {
             item.setIcon(R.drawable.netherlands);
         }
 

@@ -89,7 +89,7 @@ public class ShowAdapter extends ArrayAdapter<Show> {
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
         time.setText(sdf.format(show.getTime()));
 
-        //Filling image (FOR DEMO)
+        //Filling image
         Picasso.with(getContext()).load(film.getPosterURL()).into(poster);
 
         //Returning view for display

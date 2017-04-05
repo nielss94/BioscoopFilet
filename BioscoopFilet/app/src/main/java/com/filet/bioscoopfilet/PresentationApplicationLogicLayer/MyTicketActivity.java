@@ -46,11 +46,6 @@ public class MyTicketActivity extends AppCompatActivity implements AdapterView.O
         TicketDAO ticketDAO = factory.createTicketDAO();
         tickets = ticketDAO.selectData();
 
-//        for (int i = 0; i < tickets.size(); i++) {
-//            Log.i(TAG,"-----------------");
-//            Log.i(TAG,tickets.get(i).toString());
-//            Log.i(TAG,"-----------------");
-//        }
 
         adapter = new TicketAdapter(getApplicationContext(), tickets);
         ListView listview = (ListView) findViewById(R.id.ticketsListview);
@@ -87,10 +82,10 @@ public class MyTicketActivity extends AppCompatActivity implements AdapterView.O
         if (Locale.getDefault().toString().equalsIgnoreCase("en_us")){
             item.setIcon(R.drawable.united_states);
         }
-        if (Locale.getDefault().toString().equalsIgnoreCase("en_gb")){
+        else if (Locale.getDefault().toString().equalsIgnoreCase("en_gb")){
             item.setIcon(R.drawable.united_kingdom);
         }
-        if (Locale.getDefault().toString().equalsIgnoreCase("nl_nl")){
+        else if (Locale.getDefault().toString().equalsIgnoreCase("nl_nl")){
             item.setIcon(R.drawable.netherlands);
         }
 

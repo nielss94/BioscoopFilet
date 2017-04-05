@@ -63,7 +63,7 @@ public class FilmAdapter extends ArrayAdapter<Film>  {
         version.setText(versionText + " " +film.getVersion());
         imdb.setText(getContext().getResources().getString(R.string.review)+ " " + film.getIMDBScore());
 
-        //Filling image (FOR DEMO)
+        //Filling image
         Picasso.with(getContext()).load(film.getPosterURL()).into(poster);
 
         //Returning view for display

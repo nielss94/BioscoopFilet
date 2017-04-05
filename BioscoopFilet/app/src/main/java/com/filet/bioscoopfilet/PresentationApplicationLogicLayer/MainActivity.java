@@ -38,6 +38,7 @@ import com.filet.bioscoopfilet.R;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Random;
 import java.util.Timer;
 
 public class MainActivity extends AppCompatActivity implements FilmApiConnector.FilmsAvailable,
@@ -335,13 +336,13 @@ public class MainActivity extends AppCompatActivity implements FilmApiConnector.
 
         TicketDAO ticketDAO = factory.createTicketDAO();
 
-        Ticket t = new Ticket(new QRCode().getQrCode(), v, s, 65);
+        Ticket t = new Ticket(new Random().nextInt(99999), v, s, 65);
         ArrayList<Ticket> tickets = ticketDAO.selectData();
 
         for (int i = 0; i < tickets.size(); i++) {
             if (tickets.get(i).getQrCode() == t.getQrCode()) {
                 Log.e("Main", "Can't create ticket: the qrcode already exists in the database. Creating new QRCode.");
-                tickets.get(i).setQrCode(new QRCode().getQrCode());
+                tickets.get(i).setQrCode(new Random().nextInt(99999));
                 break;
             }
         }

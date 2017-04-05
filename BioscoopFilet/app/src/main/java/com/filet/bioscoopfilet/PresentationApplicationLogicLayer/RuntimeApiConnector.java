@@ -123,7 +123,6 @@ public class RuntimeApiConnector extends AsyncTask<String, Void, String> {
 
     //Callback interface
     public interface RuntimeAvailable {
-        ;
 
         void runtimeAvailable(String runtime);
     }

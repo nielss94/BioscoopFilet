@@ -140,7 +140,6 @@ public class AgeApiConnector extends AsyncTask<String, Void, String> {
 
     //Callback interface
     public interface AgeAvailable {
-        ;
 
         void ageAvailable(String age, Integer id);
     }

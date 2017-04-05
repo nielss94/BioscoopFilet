@@ -126,9 +126,7 @@ public class FilmApiConnector extends AsyncTask<String, Void, String> {
             listener.filmsAvailable(returnFilms);
         } catch (JSONException ex) {
             //Log.e(TAG, "onPostExecute JSONException " + ex.getLocalizedMessage());
-
         }
-
     }
 
     //Convert InputStream to String
@@ -162,8 +160,6 @@ public class FilmApiConnector extends AsyncTask<String, Void, String> {
 
     //Callback interface
     public interface FilmsAvailable {
-
-
         void filmsAvailable(ArrayList<Film> result);
     }
 

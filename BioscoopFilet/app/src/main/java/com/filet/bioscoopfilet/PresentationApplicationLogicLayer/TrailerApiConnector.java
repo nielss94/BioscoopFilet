@@ -134,7 +134,6 @@ public class TrailerApiConnector extends AsyncTask<String, Void, String> {
 
     //Callback interface
     public interface TrailerAvailable {
-        ;
 
         void trailerAvailable(String trailerURL);
     }

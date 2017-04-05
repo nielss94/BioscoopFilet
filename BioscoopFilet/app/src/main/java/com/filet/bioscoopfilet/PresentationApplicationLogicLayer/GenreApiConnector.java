@@ -103,8 +103,6 @@ public class GenreApiConnector extends AsyncTask<String, Void, String> {
             //Callback
             listener.genreAvailable(genreName, id);
 
-
-
         } catch (JSONException ex) {
             //Log.e(TAG, "onPostExecute JSONException " + ex.getLocalizedMessage());
 
@@ -143,7 +141,6 @@ public class GenreApiConnector extends AsyncTask<String, Void, String> {
 
     //Callback interface
     public interface GenreAvailable {
-        ;
 
         void genreAvailable(String genre, Integer id);
     }

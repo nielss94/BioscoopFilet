@@ -48,7 +48,7 @@ public class MyFilmDetailActivity extends AppCompatActivity implements TrailerAp
         //Get intent extras
         film = (Film) getIntent().getSerializableExtra("FILM");
 
-        //Initialise xml elements
+        //Initialize xml elements
         ImageView poster = (ImageView) findViewById(R.id.posterImageDetailedId);
         TextView title = (TextView) findViewById(R.id.movieTitleDetailId);
         TextView version = (TextView) findViewById(R.id.movieVersionDetailId);
@@ -119,10 +119,10 @@ public class MyFilmDetailActivity extends AppCompatActivity implements TrailerAp
         if (Locale.getDefault().toString().equalsIgnoreCase("en_us")){
             item.setIcon(R.drawable.united_states);
         }
-        if (Locale.getDefault().toString().equalsIgnoreCase("en_gb")){
+        else if (Locale.getDefault().toString().equalsIgnoreCase("en_gb")){
             item.setIcon(R.drawable.united_kingdom);
         }
-        if (Locale.getDefault().toString().equalsIgnoreCase("nl_nl")){
+        else if (Locale.getDefault().toString().equalsIgnoreCase("nl_nl")){
             item.setIcon(R.drawable.netherlands);
         }
 
