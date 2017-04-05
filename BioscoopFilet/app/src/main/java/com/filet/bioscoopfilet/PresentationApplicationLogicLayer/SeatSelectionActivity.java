@@ -11,6 +11,7 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.widget.GridLayout;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.filet.bioscoopfilet.DomainModel.Cinema;
 import com.filet.bioscoopfilet.DomainModel.Film;
@@ -26,6 +27,7 @@ import com.filet.bioscoopfilet.R;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Random;
 
@@ -91,7 +93,6 @@ public class SeatSelectionActivity extends AppCompatActivity {
 
         selectAvailableSeats();
     }
-
     public void setDefiniteShowSeats()
     {
         String r = "";
@@ -105,9 +106,51 @@ public class SeatSelectionActivity extends AppCompatActivity {
                     r = r + show.getSeats().charAt(k);
                 }
             }
-
         }
+
         show.setSeats(r);
+
+    }
+    public boolean setShowSeats()
+    {
+        boolean returnValue = true;
+        String r = "";
+        for (int k = 0; k < show.getSeats().length(); k++) {
+            innerloop:
+            for (int i = 0; i < seatsSelected.length; i++) {
+                if (k == seatsSelected[i]) {
+                    r = r + "1";
+                    break innerloop;
+                }else if (i==seatsSelected.length-1){
+                    r = r + show.getSeats().charAt(k);
+                }
+            }
+        }
+
+        int emptySeats =0;
+        for (int i = 0; i < r.length(); i++) {
+            if(r.charAt(i) == '0')
+            {
+                emptySeats += 1;
+            }else if(r.charAt(i) == '1')
+            {
+                if(emptySeats == 1)
+                {
+                    Log.i(TAG,"empty seats is 1");
+                    returnValue = false;
+                }
+                else
+                {
+                    emptySeats = 0;
+                }
+            }
+        }
+        Log.i(TAG,returnValue+"");
+        if(returnValue != false)
+        {
+            return true;
+        }
+        return false;
     }
 
 
@@ -158,38 +201,89 @@ public class SeatSelectionActivity extends AppCompatActivity {
 
     public void selectSeatsOnClick(int seatNumber)
     {
+        int[] previousSeats = seatsSelected;
+        for (int i = 0; i < previousSeats.length; i++) {
+            Log.i(TAG,"Seat" + i + ": " + previousSeats[i]);
+        }
         Log.i(TAG,show.getSeats());
         if(show.getSeats().charAt(seatNumber) != '1') {
             if(amountOfTickets == 1)
             {
-                Log.i(TAG,amountOfTickets + ", seat selected: " + seatsSelected[0]);
-
                 seats.get(seatsSelected[0]).setImageResource(R.drawable.ic_available);
                 seatsSelected = new int[amountOfTickets];
                 seats.get(seatNumber).setImageResource(R.drawable.ic_selected);
                 seatsSelected[0] = seatNumber;
+
+                if(setShowSeats() == false)
+                {
+                    for (int i = 0; i < seatsSelected.length; i++) {
+                        seats.get(seatsSelected[i]).setImageResource(R.drawable.ic_available);
+                    }
+                    seatsSelected = previousSeats;
+                    for (int i = 0; i < seatsSelected.length; i++) {
+                        seats.get(seatsSelected[i]).setImageResource(R.drawable.ic_selected);
+                    }
+                }
             }
             else if (amountOfTickets > seatNumber) {
-                for (int i = 0; i < seatsSelected.length; i++) {
-                    seats.get(seatsSelected[i]).setImageResource(R.drawable.ic_available);
-                }
-                seatsSelected = new int[amountOfTickets];
-                for (int i = 0; i < amountOfTickets; i++) {
-                    seats.get(seatNumber+i).setImageResource(R.drawable.ic_selected);
-                    seatsSelected[i] = (seatNumber + i);
-                }
-                Log.i(TAG, "Found seats on the right.");
-            } else if ((amountOfTickets + seatNumber) > 99) {
-                for (int i = 0; i < seatsSelected.length; i++) {
-                    seats.get(seatsSelected[i]).setImageResource(R.drawable.ic_available);
-                }
-                seatsSelected = new int[amountOfTickets];
+                if (findSeatsRight(seatNumber)) {
+                    for (int i = 0; i < seatsSelected.length; i++) {
+                        seats.get(seatsSelected[i]).setImageResource(R.drawable.ic_available);
+                    }
+                    seatsSelected = new int[amountOfTickets];
+                    for (int i = 0; i < amountOfTickets; i++) {
+                        seats.get(seatNumber+i).setImageResource(R.drawable.ic_selected);
+                        seatsSelected[i] = (seatNumber + i);
+                    }
 
-                for (int i = 0; i < amountOfTickets; i++) {
-                    seats.get(seatNumber-i).setImageResource(R.drawable.ic_selected);
-                    seatsSelected[i] = (seatNumber - i);
+                    if(setShowSeats() == false)
+                    {
+                        for (int i = 0; i < seatsSelected.length; i++) {
+                            seats.get(seatsSelected[i]).setImageResource(R.drawable.ic_available);
+                        }
+                        seatsSelected = previousSeats;
+                        for (int i = 0; i < seatsSelected.length; i++) {
+                            seats.get(seatsSelected[i]).setImageResource(R.drawable.ic_selected);
+                        }
+                    }
+                    else
+                    {
+                        Log.i(TAG, "Found seats on the right.");
+                    }
                 }
-                Log.i(TAG, "Found seats on the left.");
+                else
+                {
+                    Toast.makeText(getApplicationContext(),getResources().getString(R.string.noSeatAvailable),Toast.LENGTH_SHORT).show();
+                }
+            } else if ((amountOfTickets + seatNumber) > 99) {
+                if (findSeatsLeft(seatNumber)) {
+                    for (int i = 0; i < seatsSelected.length; i++) {
+                        seats.get(seatsSelected[i]).setImageResource(R.drawable.ic_available);
+                    }
+                    seatsSelected = new int[amountOfTickets];
+
+                    for (int i = 0; i < amountOfTickets; i++) {
+                        seats.get(seatNumber - i).setImageResource(R.drawable.ic_selected);
+                        seatsSelected[i] = (seatNumber - i);
+                    }
+                    if(setShowSeats() == false)
+                    {
+                        for (int i = 0; i < seatsSelected.length; i++) {
+                            seats.get(seatsSelected[i]).setImageResource(R.drawable.ic_available);
+                        }
+                        seatsSelected = previousSeats;
+                        for (int i = 0; i < seatsSelected.length; i++) {
+                            seats.get(seatsSelected[i]).setImageResource(R.drawable.ic_selected);
+                        }
+                    }
+                    else {
+                        Log.i(TAG, "Found seats on the left.");
+                    }
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(),getResources().getString(R.string.noSeatAvailable),Toast.LENGTH_SHORT).show();
+                }
             } else {
                 if (findSeatsRight(seatNumber)) {
                     for (int i = 0; i < seatsSelected.length; i++) {
@@ -200,7 +294,19 @@ public class SeatSelectionActivity extends AppCompatActivity {
                         seats.get(seatNumber+i).setImageResource(R.drawable.ic_selected);
                         seatsSelected[i] = (seatNumber + i);
                     }
-                    Log.i(TAG, "Found seats on the right.");
+                    if(setShowSeats() == false)
+                    {
+                        for (int i = 0; i < seatsSelected.length; i++) {
+                            seats.get(seatsSelected[i]).setImageResource(R.drawable.ic_available);
+                        }
+                        seatsSelected = previousSeats;
+                        for (int i = 0; i < seatsSelected.length; i++) {
+                            seats.get(seatsSelected[i]).setImageResource(R.drawable.ic_selected);
+                        }
+                    }
+                    else {
+                        Log.i(TAG, "Found seats on the right.");
+                    }
                 } else if (findSeatsLeft(seatNumber)) {
                     for (int i = 0; i < seatsSelected.length; i++) {
                     seats.get(seatsSelected[i]).setImageResource(R.drawable.ic_available);
@@ -211,18 +317,33 @@ public class SeatSelectionActivity extends AppCompatActivity {
                         seats.get(seatNumber-i).setImageResource(R.drawable.ic_selected);
                         seatsSelected[i] = (seatNumber - i);
                     }
-                    Log.i(TAG, "Found seats on the left.");
+                    if(setShowSeats() == false)
+                    {
+                        for (int i = 0; i < seatsSelected.length; i++) {
+                            seats.get(seatsSelected[i]).setImageResource(R.drawable.ic_available);
+                        }
+                        seatsSelected = previousSeats;
+                        for (int i = 0; i < seatsSelected.length; i++) {
+                            seats.get(seatsSelected[i]).setImageResource(R.drawable.ic_selected);
+                        }
+                    }
+                    else {
+                        Log.i(TAG, "Found seats on the left.");
+                    }
                 } else {
                     Log.i(TAG, "There are no seats available around this seat");
+                    Toast.makeText(getApplicationContext(),getResources().getString(R.string.noSeatAvailable),Toast.LENGTH_SHORT).show();
                 }
             }
         }
         else
         {
+            Toast.makeText(getApplicationContext(),getResources().getString(R.string.seatTaken),Toast.LENGTH_SHORT).show();
             Log.i(TAG, "This seat is not available");
         }
         Log.i(TAG, seatNumber+"");
     }
+
 
     public boolean findSeatsRight(int seatNumber)
     {
@@ -250,7 +371,7 @@ public class SeatSelectionActivity extends AppCompatActivity {
     {
         int freeSeats = 0;
         boolean returnValue = false;
-        for (int i = 0; i < amountOfTickets - 1; i++) {
+        for (int i = 0; i < amountOfTickets; i++) {
             if(show.getSeats().charAt(seatNumber - i) == '1')
             {
                 returnValue = false;
@@ -259,14 +380,13 @@ public class SeatSelectionActivity extends AppCompatActivity {
             {
                 freeSeats+= 1;
             }
-            if(freeSeats >= amountOfTickets-1)
+            if(freeSeats >= amountOfTickets)
             {
                 returnValue = true;
             }
         }
         return returnValue;
     }
-
 
     public void selectAvailableSeats() {
         int freeSeats = 0;
