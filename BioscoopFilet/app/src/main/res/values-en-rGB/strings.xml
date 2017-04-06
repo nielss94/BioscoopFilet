@@ -39,13 +39,13 @@
     <string name="seat_taken">Taken</string>
     <string name="seat_available">Available</string>
     <string name="amount">Duration:</string>
-    <string name="seats">"Seat: "</string>
+    <string name="seats">Seat:</string>
 
     <string name="time_tickets">Time &amp; Tickets</string>
     <string name="version">Version: </string>
     <string name="length">Length in min: </string>
     <string name="age">Age: </string>
-    <string name="imdb">"Score: "</string>
+    <string name="imdb">Score:</string>
     <string name="director">Director: </string>
     <string name="release">Release: </string>
     <string name="film_detail">Film Details</string>
@@ -88,5 +88,7 @@
     <string name="tooManyTickets">Too many tickets chosen. There aren\'t so many available seats.</string>
     <string name="showFull">There are no available seats for this show. Please pick a different show.</string>
     <string name="mainTitle">Cinema Filet</string>
+    <string name="seats_available">Seats available:</string>
+    <string name="time">Time:</string>
     >>>>>>> Stashed changes
 </resources>
