@@ -89,11 +89,11 @@
                     android:textSize="10dp" />
 
                 <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:onClick="trailerButton"
                     android:src="@drawable/ic_action_youtube"
-                    android:translationX="-4dp" />
+                    android:translationX="-7dp" />
 
             </LinearLayout>
 
