@@ -13,7 +13,7 @@ public class DBConnect extends SQLiteOpenHelper {
 
     private final String TAG = this.getClass().getSimpleName();
 
-    private static final int DB_VERSION = 24;
+    private static final int DB_VERSION = 25;
     private static final String DB_NAME = "filet.db";
 
     private Context context;
