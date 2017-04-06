@@ -30,14 +30,14 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/colorPrimaryDark">
 
                 <GridLayout
                     android:id="@+id/seatsList"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:columnCount="10">
 
@@ -640,15 +640,33 @@
                         android:layout_height="20dp"
                         android:layout_margin="5dp"
                         android:background="@color/free" />
+
                 </GridLayout>
 
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/seatsList">
 
-                <!--
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/seat_layout" />
-                -->
+                    <ImageView
+                        android:id="@+id/screen"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="20dp"
+                        android:background="#000" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:paddingBottom="@dimen/activity_half_margin"
+                        android:text="@string/screen"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:layout_centerHorizontal="true"/>
+
+                </RelativeLayout>
+
             </RelativeLayout>
 
             <LinearLayout

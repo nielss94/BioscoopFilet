@@ -81,8 +81,9 @@
     <string name="seats_available">Seats available:</string>\
     <string name="seatTaken">The selected seat is already taken.</string>
     <string name="noSeatAvailable">No seats available here. Please select different seats.</string>
+    <string name="screen">Screen</string>
 
-=======
+
     <string name="age_descending">Age descending</string>
     <string name="age_ascending">Age ascending</string>
     <string name="score_descending">Score descending</string>
@@ -91,5 +92,4 @@
     <string name="showFull">There are no available seats for this show. Please pick a different show.</string>
     <string name="mainTitle">Cinema Filet</string>
     <string name="time">Time:</string>
-    >>>>>>> Stashed changes
 </resources>

@@ -87,7 +87,8 @@ public class ShowAdapter extends ArrayAdapter<Show> {
         seats.setText(getContext().getResources().getString(R.string.seats_available) + " " + count);
 
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-        time.setText(sdf.format(show.getTime()));
+        String timeString = getContext().getString(R.string.time) + " " + sdf.format(show.getTime());
+        time.setText(timeString);
 
         //Filling image
         Picasso.with(getContext()).load(film.getPosterURL()).into(poster);

@@ -90,5 +90,6 @@
     <string name="mainTitle">Bioscoop Filet</string>
     <string name="seats_available">Stoelen beschikbaar:</string>
     <string name="time">Tijd:</string>
+    <string name="screen">Scherm</string>
     >>>>>>> Stashed changes
 </resources>

@@ -90,5 +90,6 @@
     <string name="mainTitle">Cinema Filet</string>
     <string name="seats_available">Seats available:</string>
     <string name="time">Time:</string>
+    <string name="screen">Screen</string>
     >>>>>>> Stashed changes
 </resources>
