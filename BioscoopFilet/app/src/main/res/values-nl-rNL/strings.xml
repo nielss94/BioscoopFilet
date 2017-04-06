@@ -6,8 +6,8 @@
     <string name="film_calender">Film Agenda</string>
     <string name="information">Informatie</string>
     <string name="location">Locatie</string>
-    <string name="parking_location">Parkeer locatie</string>
-    <string name="pt_information">OV Informatie</string>
+    <string name="parking_location">Parkeerlocatie</string>
+    <string name="pt_information">OV informatie</string>
 
     <string name="cinema_feedback">Bioscoop feedback</string>
     <string name="cinema_contact">Bioscoop contact</string>
@@ -91,5 +91,6 @@
     <string name="seats_available">Stoelen beschikbaar:</string>
     <string name="time">Tijd:</string>
     <string name="screen">Scherm</string>
+    <string name="theater">Zaal:</string>
     >>>>>>> Stashed changes
 </resources>

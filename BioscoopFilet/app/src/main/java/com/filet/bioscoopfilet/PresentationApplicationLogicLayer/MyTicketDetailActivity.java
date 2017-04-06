@@ -64,6 +64,7 @@ public class MyTicketDetailActivity extends AppCompatActivity {
         TextView title = (TextView) findViewById(R.id.ticketDetailFilmTitle);
         TextView time = (TextView) findViewById(R.id.ticketDetailTime);
         TextView amount = (TextView) findViewById(R.id.ticketDetailTicketAmount);
+        TextView theater = (TextView) findViewById(R.id.ticketDetailTheater);
         TextView seats = (TextView) findViewById(R.id.ticketDetailSeats);
         ImageView qrCode = (ImageView) findViewById(R.id.ticketDetailQRCode);
 
@@ -80,7 +81,8 @@ public class MyTicketDetailActivity extends AppCompatActivity {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy - HH:mm");
         time.setText(sdf.format(ticket.getShow().getTime()));
         amount.setText(getString(R.string.amount) + " " + film.getLength() + " min.");
-        seats.setText(getString(R.string.seats) + getString(R.string.row_number) + " " + row
+        theater.setText(getString(R.string.theater) + " " + (ticket.getShow().getTheater().getTheaterID() + 1));
+        seats.setText(getString(R.string.seats) + " " + getString(R.string.row_number) + " " + row
                 + ", " + getString(R.string.seat_number) + " " + seat);
 
         //Generate qrCode

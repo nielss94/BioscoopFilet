@@ -28,7 +28,7 @@
     <string name="contact">Contact</string>
     <string name="contact_info">We are located at Cor Kieboomplein 501 in Rotterdam, zip code 3077 MK. If you have any further questions, please do not hesitate to contact us. You can email us at helpdesk@filet.nl or you can call us at +31 101234567.</string>
     <string name="select_seats">Select a seat</string>
-    <string name="including_btw">(Including BTW)</string>
+    <string name="including_btw">(Including VAT)</string>
     <string name="total">Total:</string>
     <string name="buy_tickets">Buy tickets</string>
     <string name="my_tickets">My Tickets</string>
@@ -92,4 +92,5 @@
     <string name="showFull">There are no available seats for this show. Please pick a different show.</string>
     <string name="mainTitle">Cinema Filet</string>
     <string name="time">Time:</string>
+    <string name="theater">Theater:</string>
 </resources>

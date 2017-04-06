@@ -74,6 +74,8 @@
                 android:layout_marginTop="@dimen/activity_horizontal_margin"
                 android:layout_toRightOf="@id/payTotalPrice"
                 android:text="@string/including_btw"
+                android:layout_marginLeft="@dimen/activity_half_margin"
+                android:layout_marginStart="@dimen/activity_half_margin"
                 android:textColor="@android:color/black"
                 android:textSize="16dp"
                 android:translationY="5dp" />
@@ -161,17 +163,6 @@
                 android:src="@drawable/ic_credit_card" />
         </RelativeLayout>
 
-
     </LinearLayout>
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/my_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@color/colorPrimary"
-        android:elevation="4dp"
-        android:theme="@style/ThemeFilet"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
-
 
 </LinearLayout>

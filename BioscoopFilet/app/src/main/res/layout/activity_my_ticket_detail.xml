@@ -23,19 +23,19 @@
         android:orientation="vertical">
 
         <RelativeLayout
-            android:layout_margin="@dimen/activity_horizontal_margin"
             android:id="@+id/relative"
             android:layout_width="match_parent"
-            android:layout_height="360dp">
+            android:layout_height="360dp"
+            android:layout_margin="@dimen/activity_horizontal_margin">
 
-                <ImageView
-                    android:id="@+id/ticketDetailQRCode"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_centerHorizontal="true"
-                    android:src="@drawable/ic_qrcode_placeholder" />
+            <ImageView
+                android:id="@+id/ticketDetailQRCode"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_qrcode_placeholder" />
 
-            </RelativeLayout>
+        </RelativeLayout>
 
 
         <ScrollView
@@ -67,9 +67,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/ticketDetailFilmTitle"
+                    android:paddingBottom="@dimen/activity_half_margin"
                     android:text="10.00u"
-                    android:textColor="#fff"
-                    android:paddingBottom="@dimen/activity_half_margin"/>
+                    android:textColor="#fff" />
 
                 <TextView
                     android:id="@+id/ticketDetailTicketAmount"
@@ -79,13 +79,29 @@
                     android:text="Duur: 4"
                     android:textColor="#fff" />
 
-                <TextView
-                    android:id="@+id/ticketDetailSeats"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_below="@id/ticketDetailTicketAmount"
-                    android:text="Plaatsen: Rij 1 Stoel 1, 2, 3, 4"
-                    android:textColor="#fff" />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/ticketDetailTheater"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@string/theater"
+                        android:textColor="#fff" />
+
+                    <TextView
+                        android:id="@+id/ticketDetailSeats"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Plaatsen: Rij 1 Stoel 1, 2, 3, 4"
+                        android:textColor="#fff" />
+
+                </LinearLayout>
 
             </RelativeLayout>
 
