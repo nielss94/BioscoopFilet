@@ -57,13 +57,14 @@ public class MainActivity extends AppCompatActivity implements FilmApiConnector.
     private FilmApiConnector getFilms;
     private boolean needData = false;
     private int getFilmsCounter = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
-
+        setTitle(R.string.mainTitle);
         languagepref = getSharedPreferences("language", MODE_PRIVATE);
         language = languagepref.getString("languageToLoad", Locale.getDefault().toString());
 
